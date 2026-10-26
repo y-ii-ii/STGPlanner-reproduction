@@ -15,7 +15,7 @@ function Invoke-Scene4Trial([string]$method, [string]$name, [int]$limit, [bool]$
     if ($pilot -and (-not $result.validation.planner_produced_motion -or -not $result.validation.stop_ack -or -not $result.validation.parked_command_zero)) { throw "$name interface pilot failed" }
     if (-not $pilot -and $result.finish_reason -notin @('coverage_threshold','sim_time_limit')) { throw "$name runtime failure requires investigation" }
 }
-foreach ($method in @('gbp2','stgp','fael','tare')) { Invoke-Scene4Trial $method "pilot_${method}_protocol2" 45 $true }
+foreach ($method in @('gbp2','stgp','fael','tare')) { Invoke-Scene4Trial $method "pilot_${method}_protocol3" 45 $true }
 foreach ($method in @('fael','tare','gbp2','stgp')) { Invoke-Scene4Trial $method "formal_${method}_01" 1600 $false }
 wsl --terminate STGPlanner-Ubuntu20 | Out-Null
 "$(Get-Date -Format o) suite_complete" | Add-Content D:\STGPlanner\benchmarks\logs\suite.log

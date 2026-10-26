@@ -44,6 +44,8 @@ a=parser.parse_args();out=ROOT/'results'/a.name;out.mkdir(parents=True,exist_ok=
 os.environ['ROS_LOG_DIR']=str(out/'ros');Path(os.environ['ROS_LOG_DIR']).mkdir()
 children=[];files=[];lock=threading.RLock();finished=threading.Event();active=False
 d={'method':a.method,'trial':a.name,'pilot':a.pilot,'sim_time_limit_s':a.limit,'area_threshold_m2':7400.5,'area_denominator_m2':7790,'started_unix':time.time(),'distance_m':0.,'area_m2':0.,'cloud_messages':0,'odom_messages':0,'nonempty_plans':0,'empty_plans':0,'planner_states':{},'motion_states':{},'native_finished':False,'native_health':[],'errors':[],'runtime_native_s':[],'request_wall_s':[],'stop_ack':False,'post_stop_distance_m':0.,'max_parked_command':0.}
+d.update(protocol_revision=3,rejected_disconnected_paths=0,disconnected_path_examples=[],controller_static_terrain=True)
+path_paused=False;last_rejection_log=0.
 pose=None;last_odom=None;cloud_wall=0;odom_wall=0;start_wall=None;start_sim=None;end_pose=None;end_wall=None;end_sim=None;last_cmd=0.;native_waypoint=None;waypoint_seq=0
 events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');trajectory=(out/'trajectory.csv').open('w',newline='');tw=csv.writer(trajectory);tw.writerow(['sim_s','wall_s','x','y','z','distance_m','area_m2'])
 
@@ -109,6 +111,7 @@ def finish(reason):
         end_wall=time.monotonic();end_sim=rospy.get_time();end_pose=copy.deepcopy(pose);d['finish_reason']=reason;finished.set()
     event('finish',reason=reason,area=d['area_m2'],distance=d['distance_m'])
     finish_pub.publish(Bool(True))
+    pause_pub.publish(Bool(True))
     threading.Thread(target=stop_vehicle,daemon=True).start()
 
 def stop_vehicle():
@@ -118,11 +121,23 @@ def stop_vehicle():
     except Exception as e:event('stop_error',error=str(e))
 
 def send_paths(paths):
+    global path_paused,last_rejection_log
     if finished.is_set():return
     valid=[x for x in paths if x.path]
     if not valid:return
+    current=copy.deepcopy(pose)
+    gaps=[math.hypot(valid[0].path[0].position.x-current.position.x,valid[0].path[0].position.y-current.position.y)]
+    gaps.extend(math.hypot(b.path[0].position.x-a.path[-1].position.x,b.path[0].position.y-a.path[-1].position.y) for a,b in zip(valid,valid[1:]))
+    if max(gaps)>2.:
+        d['rejected_disconnected_paths']+=1
+        if len(d['disconnected_path_examples'])<30:d['disconnected_path_examples'].append({'sim_s':rospy.get_time()-start_sim,'gaps_m':gaps,'empty_segments':sum(not p.path for p in paths)})
+        if not path_paused:motion.cancel_all_goals();pause_pub.publish(Bool(True));path_paused=True
+        if time.monotonic()-last_rejection_log>5:event('disconnected_path_rejected',gaps_m=gaps);last_rejection_log=time.monotonic()
+        return
     goal=VehicleExecuteGoal();goal.header.stamp=rospy.Time.now();goal.header.frame_id='world';goal.paths=valid
-    motion.send_goal(goal);d['nonempty_plans']+=1
+    motion.send_goal(goal)
+    if path_paused:pause_pub.publish(Bool(False));path_paused=False
+    d['nonempty_plans']+=1
 
 def ground_path(poses):
     # Flat Scene4: convert LiDAR-centre native outputs to the common base pose.
@@ -199,11 +214,12 @@ try:
     rospy.wait_for_service('/gazebo/unpause_physics',timeout=180)
     subprocess.run(['rosservice','call','/gazebo/unpause_physics'],stdout=subprocess.DEVNULL,timeout=15,check=True)
     if not wait_wall(lambda:d['cloud_messages']>5,120):raise RuntimeError('no lidar')
-    launch('movement','roslaunch exploration_manager robot_move.launch')
+    launch('movement','roslaunch '+str(ROOT/'config/movement.launch'))
     rospy.Subscriber('/base_link/odometry',Odometry,odom,queue_size=100)
     rospy.Subscriber('/cmd_vel',Twist,cmd,queue_size=10)
     if not wait_wall(lambda:pose is not None,90):raise RuntimeError('no base odometry')
     motion=GoalClient('/path_execution_node/vehicle_execute',VehicleExecuteAction);stop=GoalClient('/path_execution_node/vehicle_stop',VehicleExecuteAction)
+    pause_pub=rospy.Publisher('/path_execution_node/stop_move',Bool,queue_size=1,latch=True)
     if not motion.wait_for_server(rospy.Duration(60)) or not stop.wait_for_server(rospy.Duration(60)):raise RuntimeError('no common controller')
     launch('cloud_bridge','/opt/stgplanner/benchmarks/bin/benchmark_cloud_bridge')
     for params,ns in rosparam.load_file(str(ROOT/'config/coverage.yaml'),default_namespace='/benchmark_coverage'):rosparam.upload_params(ns,params)

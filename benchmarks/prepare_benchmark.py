@@ -16,6 +16,11 @@ s=s.replace('no_gain_zones_list: ["g1"]','no_gain_zones_list: []').replace('robo
 s=(src/'gbplanner_ros/gbplanner/config/smb/voxblox_sim_config.yaml').read_text().replace('max_ray_length_m: 50.0','max_ray_length_m: 12.0')
 # Visualization publishers run only when requested by native code; no RViz subscribers.
 (cfg/'voxblox.yaml').write_text(s)
+terrain=(base/'robot_move/cmu_planner/terrain_analysis/launch/terrain_analysis.launch').read_text()
+assert '<param name="clearDyObs" type="bool" value="true" />' in terrain
+(cfg/'terrain_static.launch').write_text(terrain.replace('<param name="clearDyObs" type="bool" value="true" />','<param name="clearDyObs" type="bool" value="false" />'))
+movement=(base/'exploration_manager/launch/robot_move.launch').read_text()
+(cfg/'movement.launch').write_text(movement.replace('$(find terrain_analysis)/launch/terrain_analysis.launch',str(cfg/'terrain_static.launch')))
 common='''<remap from="/odometry" to="/base_link/odometry"/>
 <remap from="/explorer_inited" to="/explorer_node/explorer_inited"/>
 <remap from="point_cloud" to="/jackal/velodyne/velodyne_points"/>
