@@ -43,7 +43,7 @@ parser=argparse.ArgumentParser();parser.add_argument('method',choices=WS);parser
 a=parser.parse_args();out=ROOT/'results'/a.name;out.mkdir(parents=True,exist_ok=False)
 os.environ['ROS_LOG_DIR']=str(out/'ros');Path(os.environ['ROS_LOG_DIR']).mkdir()
 children=[];files=[];lock=threading.RLock();finished=threading.Event();active=False
-d={'method':a.method,'trial':a.name,'pilot':a.pilot,'sim_time_limit_s':a.limit,'area_threshold_m2':7400.5,'area_denominator_m2':7790,'started_unix':time.time(),'distance_m':0.,'area_m2':0.,'cloud_messages':0,'odom_messages':0,'nonempty_plans':0,'empty_plans':0,'planner_states':{},'motion_states':{},'native_finished':False,'errors':[],'runtime_native_s':[],'request_wall_s':[],'stop_ack':False,'post_stop_distance_m':0.,'max_parked_command':0.}
+d={'method':a.method,'trial':a.name,'pilot':a.pilot,'sim_time_limit_s':a.limit,'area_threshold_m2':7400.5,'area_denominator_m2':7790,'started_unix':time.time(),'distance_m':0.,'area_m2':0.,'cloud_messages':0,'odom_messages':0,'nonempty_plans':0,'empty_plans':0,'planner_states':{},'motion_states':{},'native_finished':False,'native_health':[],'errors':[],'runtime_native_s':[],'request_wall_s':[],'stop_ack':False,'post_stop_distance_m':0.,'max_parked_command':0.}
 pose=None;last_odom=None;cloud_wall=0;odom_wall=0;start_wall=None;start_sim=None;end_pose=None;end_wall=None;end_sim=None;last_cmd=0.;native_waypoint=None;waypoint_seq=0
 events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');trajectory=(out/'trajectory.csv').open('w',newline='');tw=csv.writer(trajectory);tw.writerow(['sim_s','wall_s','x','y','z','distance_m','area_m2'])
 
@@ -239,13 +239,17 @@ try:
     start_sim=rospy.get_time();start_wall=time.monotonic();active=True
     start_pub=rospy.Publisher('/start_exploration',Bool,queue_size=1,latch=True);start_pub.publish(Bool(True))
     event('exploration_start',sim=start_sim)
-    threading.Thread(target=driver,daemon=True).start();lastwrite=0
+    threading.Thread(target=driver,daemon=True).start();lastwrite=0;next_health=start_wall+10
     while not finished.is_set():
         t=time.monotonic();sim=rospy.get_time()
         if sim-start_sim>=a.limit:finish('pilot_time_limit' if a.pilot else 'sim_time_limit');break
         if t-start_wall>a.limit*4+240:finish('wall_watchdog');break
         if t-cloud_wall>30:finish('lidar_stalled');break
         if t-odom_wall>20:finish('odometry_stalled');break
+        if t>=next_health:
+            next_health=t+30;alive=rosnode.rosnode_ping(expected,max_count=1,verbose=False)
+            d['native_health'].append({'sim_s':sim-start_sim,'alive':alive})
+            if not alive:finish('native_node_unresponsive');break
         dead=[label for label,p in children if p.poll() is not None]
         if dead:finish('process_exit:'+','.join(dead));break
         if t-lastwrite>=1:

@@ -1,12 +1,12 @@
 {
-  "created_utc": "2026-10-26T16:14:44.356782+00:00",
+  "created_utc": "2026-10-26T16:16:03.293404+00:00",
   "upstream_reproduction_baseline": "dfc712982891f29c266083d7efad72ad48e730a2",
   "protocol_revision": 2,
   "files": {
     "benchmarks/benchmark_cloud_bridge.cpp": "5f4d3cdacc4bbd50af49f9490539bae284f287061f02f33b59db20d054f87d88",
     "benchmarks/benchmark_coverage.cpp": "708626c9f740d58d0f20467b3a1b2c5dbf5f7c9527cd441cfcd98d6cbb0f2c04",
     "benchmarks/benchmark_protocol.md": "4da7afc31a1af38065883225e396205b48fd27c8a36882d75d77a07c5093d5bf",
-    "benchmarks/benchmark_trial.py": "24e1842edb41e8655dc23455aeaf78c49b58fab4c37ee2ddb272467ed672068e",
+    "benchmarks/benchmark_trial.py": "85e4eea782935f843b9a32c19ee288d526b1a091db8c53399fb656884dbf67d8",
     "benchmarks/build_all_baselines.sh": "5981ef7849e42a4f059bb390feecb7562ff46017ab5c690d46bb940ee5bc4e86",
     "benchmarks/build_baseline.sh": "bc28c8b320d75e06c818f93b2c48350182ad83ea1a28a6d42a3a8b500f94537b",
     "benchmarks/build_cloud_bridge.sh": "c0f6e07796290185fa3b99442d1e8e46adbfdc579d985773dbdd08ab77ac04b4",
