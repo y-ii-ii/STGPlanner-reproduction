@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-26T15:53:10.190000+00:00",
+  "created_utc": "2026-10-26T15:53:40.992961+00:00",
   "upstream_reproduction_baseline": "dfc712982891f29c266083d7efad72ad48e730a2",
   "protocol_revision": 1,
   "files": {
@@ -31,8 +31,7 @@
     "benchmarks/patches/gbp2-runtime-measurement.patch": "662c9e6c74f0179ed2dcbc42ce9a3e4458e0c0f214d8e66470fd0d59d83a1fbf",
     "benchmarks/patches/tare-path-diagnostic.patch": "fd28834465e3ebe3b8626314ec6e7a18a1b8f0cd29c789800bd773f58ac70aed",
     "benchmarks/prepare_benchmark.py": "0fc334360a81593f67821191bc8dbe8413ff2f0cb1ac46637eac85cdb8a70067",
-    "benchmarks/protocol_manifest.json": "eef3090cad2e75a2447782a4dbf61bd585a1002eeda014ac72b1ad17efdcecd7",
-    "benchmarks/Run-Scene4Suite.ps1": "c63847526119ae5d15dbe52174bd6950dfc576ee07cf897d7a74e2c0cc5ecd59",
+    "benchmarks/Run-Scene4Suite.ps1": "f561040463ff80adc66129dd0c65f9a33621ef45ae274b1eee7d2c24634e3507",
     "benchmarks/run_benchmark.sh": "6c3701b921b6755f287dc034c88c954cb57be9c271fce4d6668382711cb7ff53",
     "benchmarks/sources.lock.json": "6c9867d8e228493e5dba029b612117b73f19e4d64d7ef9c330a627501fe871f4",
     "stgp_planner/robot_move/path_execution/src/path_execution.cpp": "519167178f8d4a824dc0743e9ff77a8075dcce93c5ff85134d89b0ea4f7395c1"
