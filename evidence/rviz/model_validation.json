@@ -1,0 +1,6 @@
+{
+  "urdf_fixed_joint": true,
+  "gazebo_sensor_link_preserved": true,
+  "gazebo_fixed_joint_preserved": true,
+  "odometry_plugin_link_exists": true
+}

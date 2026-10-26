@@ -1,0 +1,5 @@
+{
+  "/gazebo_gui": true,
+  "/planner_rviz": true,
+  "/realTimePlot": true
+}

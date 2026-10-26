@@ -167,12 +167,15 @@
       </inertial>
     </link>
     <!-- odometry joint -->
-    <joint name="${namespace}/odometry_sensor${odometry_sensor_suffix}_joint" type="revolute">
+    <joint name="${namespace}/odometry_sensor${odometry_sensor_suffix}_joint" type="fixed">
       <parent link="${parent_link}" />
       <xacro:insert_block name="origin" />
       <child link="${namespace}/odometry_sensor${odometry_sensor_suffix}_link" />
-      <limit upper="0" lower="0" effort="0" velocity="0" />
     </joint>
+    <!-- Keep the virtual sensor link for Gazebo odometry while publishing its fixed TF. -->
+    <gazebo reference="${namespace}/odometry_sensor${odometry_sensor_suffix}_joint">
+      <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
     <gazebo>
       <plugin filename="librotors_gazebo_odometry_no_tf_plugin.so" name="odometry_sensor${odometry_sensor_suffix}">
         <linkName>${namespace}/odometry_sensor${odometry_sensor_suffix}_link</linkName>

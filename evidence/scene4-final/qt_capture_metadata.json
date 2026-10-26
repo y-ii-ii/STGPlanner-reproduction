@@ -1,0 +1,137 @@
+{
+  "unix_time": 1793021022.2085176,
+  "window_title": "STGPlanner RViz Diagnostic Monitor",
+  "width": 1600,
+  "height": 900,
+  "method": "Live RViz Qt controls plus OGRE framebuffer captured in the same application callback; no generated content",
+  "status": {
+    "RobotModel": {
+      "enabled": true,
+      "status": [
+        {
+          "name": "Status: Ok",
+          "value": "",
+          "children": [
+            {
+              "name": "URDF",
+              "value": "URDF parsed OK",
+              "children": []
+            },
+            {
+              "name": "base_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "chassis_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "front_fender_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "front_left_wheel_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "front_mount",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "front_right_wheel_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "imu_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "jackal/velodyne/VLP_16",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "jackal/velodyne/VLP_16_base_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "jackal/velodyne/gazebo_gt/odometry_sensor_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "mid_mount",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "navsat_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "rear_fender_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "rear_left_wheel_link",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "rear_mount",
+              "value": "Transform OK",
+              "children": []
+            },
+            {
+              "name": "rear_right_wheel_link",
+              "value": "Transform OK",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "topo_map": {
+      "enabled": true,
+      "status": [
+        {
+          "name": "Status: Ok",
+          "value": "",
+          "children": [
+            {
+              "name": "Topic",
+              "value": "OK",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    "grid_map": {
+      "enabled": true,
+      "status": [
+        {
+          "name": "Status: Ok",
+          "value": "",
+          "children": [
+            {
+              "name": "Topic",
+              "value": "OK",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

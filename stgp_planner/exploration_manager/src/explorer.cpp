@@ -5,7 +5,7 @@ namespace explorer {
 
     Explorer::Explorer(ros::NodeHandle &nh, ros::NodeHandle &nh_private,
                        std::shared_ptr<interface::ControlPlannerInterface> &interface) :
-            nh_(nh), nh_private_(nh_private), interface_(interface), iteration_num_(0) {
+            nh_(nh), nh_private_(nh_private), interface_(interface), iteration_num_(0), exploration_finished_(false) {
 
         planner_msgs_sub_ = nh_.subscribe<control_planner_interface::PlannerMsgs>("topo_planner_msgs", 1,
                                                                                   &Explorer::PlannerMsgsCallback, this);
@@ -102,7 +102,8 @@ namespace explorer {
                         wait_time_ = distance / ave_speed; 
                     }
                 } else {
-                    ROS_WARN("the iteration is out time or aborted");
+                    if (!exploration_finished_ && ros::ok())
+                        ROS_WARN("Planner request did not succeed; retrying the next iteration.");
                     need_to_next_iteration_ = true;
                 }
 
@@ -208,7 +209,7 @@ namespace explorer {
 
     bool
     Explorer::callForPlanner(const int &iteration_num, std::vector<control_planner_interface::Path> &path_segments) {
-        return interface_->callForPlanner(iteration_num, path_segments);
+        return interface_->callForPlanner(iteration_num, path_segments, [this]() { return exploration_finished_; });
     }
 
     void Explorer::followThePath(const std::vector<control_planner_interface::Path> &path_segments) {
@@ -232,7 +233,7 @@ namespace explorer {
 
     void Explorer::PlannerMsgsCallback(const control_planner_interface::PlannerMsgsConstPtr &msg) {
         
-        exploration_finished_ = msg->is_exploration_finished;
+        exploration_finished_ = exploration_finished_ || msg->is_exploration_finished;
 
         if (iteration_num_ == msg->current_goal_id) {
             iteration_goal_is_scaned_ = msg->is_current_goal_scanned;

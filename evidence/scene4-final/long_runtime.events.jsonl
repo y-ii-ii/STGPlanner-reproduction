@@ -1,0 +1,27 @@
+{"wall_seconds": 2.1151603380003507, "unix_time": 1793007399.181135, "kind": "explorer_initialized", "project_unix": 1793007399.18079}
+{"wall_seconds": 2.116131562999726, "unix_time": 1793007399.1821053, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "init motion has finished, start exploring...", "sim_time": 15272.588}
+{"wall_seconds": 64.91972173300019, "unix_time": 1793007461.985696, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 64.93358507399898, "unix_time": 1793007461.9995613, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 244 ended with state ABORTED: ", "sim_time": 15322.365}
+{"wall_seconds": 65.00621876699915, "unix_time": 1793007462.0721924, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15322.369}
+{"wall_seconds": 102.32297522099907, "unix_time": 1793007499.3889482, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 102.33357695099949, "unix_time": 1793007499.3995504, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 390 ended with state ABORTED: ", "sim_time": 15352.007}
+{"wall_seconds": 102.54572102299971, "unix_time": 1793007499.6116948, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15352.007}
+{"wall_seconds": 205.46178217799934, "unix_time": 1793007602.5277565, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 205.5019074259999, "unix_time": 1793007602.5678809, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 780 ended with state ABORTED: ", "sim_time": 15433.127}
+{"wall_seconds": 205.5415917169994, "unix_time": 1793007602.6075652, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15433.128}
+{"wall_seconds": 249.12376861600023, "unix_time": 1793007646.1897418, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 955 ended with state ABORTED: ", "sim_time": 15468.416}
+{"wall_seconds": 249.1239646089998, "unix_time": 1793007646.1899376, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 249.16138739099915, "unix_time": 1793007646.2273612, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15468.417}
+{"wall_seconds": 304.90488439399996, "unix_time": 1793007701.970858, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 304.9050865579993, "unix_time": 1793007701.971061, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 1173 ended with state ABORTED: ", "sim_time": 15513.128}
+{"wall_seconds": 305.0793402170002, "unix_time": 1793007702.145314, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15513.13}
+{"wall_seconds": 900.376772484, "unix_time": 1793008297.4427462, "kind": "action_result", "status": 4, "text": ""}
+{"wall_seconds": 900.3887427640002, "unix_time": 1793008297.4547164, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request 3402 ended with state ABORTED: ", "sim_time": 15992.208}
+{"wall_seconds": 900.4801904720007, "unix_time": 1793008297.5461645, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "Planner request did not succeed; retrying the next iteration.", "sim_time": 15992.211}
+{"wall_seconds": 971.1453904859991, "unix_time": 1793008368.2113662, "kind": "ros_log", "node": "/exploration_data", "level": 2, "text": "EXPLORATION_STOP reason=coverage_threshold metric=7405.440000 map_area=7790.000000 threshold=7400.500000 ratio=0.950634", "sim_time": 16049.262}
+{"wall_seconds": 971.1484487409998, "unix_time": 1793008368.214433, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "** the exploration process has finished **", "sim_time": 16049.261}
+{"wall_seconds": 971.1506700600003, "unix_time": 1793008368.2166436, "kind": "completion_signal"}
+{"wall_seconds": 971.150725903999, "unix_time": 1793008368.216699, "kind": "explorer_finish", "project_unix": 1793008368.170283}
+{"wall_seconds": 971.1571998620002, "unix_time": 1793008368.2231731, "kind": "follower_stop_signal"}
+{"wall_seconds": 971.2559559019992, "unix_time": 1793008368.32193, "kind": "ros_log", "node": "/explorer_node", "level": 4, "text": "total_time is 968.989493 s", "sim_time": 16049.261}
+{"wall_seconds": 973.1223126570003, "unix_time": 1793008370.188288, "kind": "vehicle_stop_result", "status": 3, "text": ""}

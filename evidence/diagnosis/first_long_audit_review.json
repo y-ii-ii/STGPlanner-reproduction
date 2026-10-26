@@ -1,0 +1,11 @@
+{
+  "explanation": "Initial 13 checks passed, but review found nonzero post-finish angular commands; this run is superseded by the strict lifecycle test.",
+  "post_finish_distance_m": 0.12838364434019642,
+  "remedial_checks": [
+    "zero_post_finish_commands",
+    "post_finish_position_stable",
+    "stop_action_succeeded"
+  ],
+  "overall_acceptance": false,
+  "max_post_finish_command": 1.0471975803375244
+}

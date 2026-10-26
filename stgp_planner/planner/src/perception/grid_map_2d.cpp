@@ -239,6 +239,10 @@ namespace perception {
         grid_map_markers.markers[3] = unknow;
         grid_map_markers.markers[4] = center_point;
 
+        // DELETE also removes stale geometry when a grid category becomes empty.
+        for (auto &marker : grid_map_markers.markers) {
+            if (marker.points.empty()) marker.action = visualization_msgs::Marker::DELETE;
+        }
         return grid_map_markers;
     }
 

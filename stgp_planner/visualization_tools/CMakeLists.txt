@@ -83,3 +83,7 @@ target_link_libraries(exploration_data ${catkin_LIBRARIES} ${PCL_LIBRARIES})
 #  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/scripts
 #)
 
+
+catkin_install_python(PROGRAMS scripts/realTimePlot.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

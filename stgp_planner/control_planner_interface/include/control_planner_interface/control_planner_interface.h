@@ -10,6 +10,7 @@
 #include <std_srvs/Empty.h>
 #include <chrono>
 #include <thread>
+#include <functional>
 
 #include "control_planner_interface/pci_manager.h"
 
@@ -55,7 +56,8 @@ namespace interface {
 
         void odometryCallback(const nav_msgs::OdometryConstPtr &odom);
 
-        bool callForPlanner(const int &iteration_id, std::vector<control_planner_interface::Path> &path_segments);
+        bool callForPlanner(const int &iteration_id, std::vector<control_planner_interface::Path> &path_segments,
+                            const std::function<bool()> &stop_requested = {});
 
         void executePath(const std::vector<control_planner_interface::Path> &path_segments);
 

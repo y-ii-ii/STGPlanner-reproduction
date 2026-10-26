@@ -1232,6 +1232,10 @@ visualization_msgs::MarkerArray GlobalTopoManager::generateTopoMarkers() const {
   graph_markers.markers[6] = skeleton;
   graph_markers.markers[7] = confluence;
 
+  // Empty categories must clear an old marker instead of sending an invalid empty ADD.
+  for (auto &marker : graph_markers.markers) {
+    if (marker.points.empty()) marker.action = visualization_msgs::Marker::DELETE;
+  }
   return graph_markers;
 }
 

@@ -15,7 +15,7 @@ namespace path_execution {
 
         local_path_pub_ = nh_private_.advertise<nav_msgs::Path>("local_path", 1);
         way_pose_pub_ = nh_private_.advertise<geometry_msgs::PoseStamped>("way_pose", 1);
-        stop_move_pub_ = nh_private_.advertise<std_msgs::Bool>("stop_move", 1);
+        stop_move_pub_ = nh_private_.advertise<std_msgs::Bool>("stop_move", 1, true);
         occupancy_pub_ = nh_private_.advertise<visualization_msgs::MarkerArray>("occupancy_map", 1);
         inflate_pub_ = nh_private_.advertise<visualization_msgs::MarkerArray>("inflate_map", 1);
         executed_path_pub_ = nh_private_.advertise<nav_msgs::Path>("executed_path", 1);
@@ -215,26 +215,20 @@ namespace path_execution {
 
     void PathExecution::stopMoveCallback(const control_planner_interface::VehicleExecuteGoalConstPtr &stop_goal) {
         ROS_INFO("start stop ...");
-
-        ros::Rate r(10.0);
-        geometry_msgs::Twist stop_twist;
-         
-        ros::Time start_time = ros::Time::now();
-        while ((ros::Time::now() - start_time).toSec() > 2.0 &&
-               !isStopped() &&
-               (ros::Time::now() - start_time).toSec() < 7.0) {
+        const ros::WallTime started = ros::WallTime::now();
+        while (ros::ok() && (ros::WallTime::now() - started).toSec() < 7.0) {
             std_msgs::Bool stop;
             stop.data = true;
             stop_move_pub_.publish(stop);
-            r.sleep();
+            if ((ros::WallTime::now() - started).toSec() >= 2.0 && isStopped()) {
+                ROS_INFO("stop move finished; follower stop remains latched.");
+                stop_move_server_.setSucceeded();
+                return;
+            }
+            ros::WallDuration(0.1).sleep();
         }
-        if (isStopped()) {
-            ROS_INFO("stop move finished.");
-            stop_move_server_.setSucceeded();
-        } else {
-            ROS_INFO("the robot is not stop");
-            stop_move_server_.setAborted();
-        }
+        ROS_ERROR("Robot did not settle within the stop deadline.");
+        stop_move_server_.setAborted();
     }
 
     bool PathExecution::isStopped() {
@@ -246,6 +240,7 @@ namespace path_execution {
             yaw_delta = 2 * M_PI - yaw_delta;
         }
         double odom_delta_t = (current_odom_.header.stamp - last_odom_.header.stamp).toSec();
+        if (odom_delta_t <= 0.0) return false;
         if ((dist / odom_delta_t) < stop_vel_thres_ && (yaw_delta / odom_delta_t) < stop_rot_thres_) {
             ROS_INFO("the robot is stopped.");
             return true;
@@ -262,6 +257,9 @@ namespace path_execution {
                                        "Failed to pass global plan to the controller.");
             return;
         }
+        std_msgs::Bool resume;
+        resume.data = false;
+        stop_move_pub_.publish(resume);
         if (!global_path_to_follow_.empty()) {
 
             bool success = false;

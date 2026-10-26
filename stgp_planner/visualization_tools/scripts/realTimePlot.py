@@ -54,6 +54,10 @@ def listener():
     global explored_volume, traveling_distance, run_time, max_explored_volume, max_traveling_distance, max_run_time, time_list1, time_list2, time_list3, run_time_list, explored_volume_list, traveling_distance_list
 
     rospy.init_node('realTimePlot')
+    if rospy.get_param('~suppress_window', False):
+        rospy.loginfo('Figure 1 closed for this ROS session; plotting is idle.')
+        rospy.spin()
+        return
 
     rospy.Subscriber("/explored_volume_traved_dist_time",
                      ExploredVolumeTravedDistTime, exploration_data_callback)
@@ -139,6 +143,7 @@ def listener():
             fig4.set_xlim(0, time_duration3 + 10)
 
             fig.canvas.draw()
+            plt.pause(0.001)  # Process Tk events so the window stays responsive.
 
 
 if __name__ == '__main__':

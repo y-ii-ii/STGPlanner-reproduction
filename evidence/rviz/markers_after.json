@@ -1,0 +1,25 @@
+{
+  "wall_seconds": 60.07728117099987,
+  "topics": {
+    "topo_map": {
+      "messages": 263,
+      "markers": 2104,
+      "empty_add": 0,
+      "delete": 526,
+      "invalid_floats": 0,
+      "odd_line_lists": 0,
+      "nonempty_add": 1578,
+      "examples": []
+    },
+    "grid_map": {
+      "messages": 254,
+      "markers": 1270,
+      "empty_add": 0,
+      "delete": 254,
+      "invalid_floats": 0,
+      "odd_line_lists": 0,
+      "nonempty_add": 1016,
+      "examples": []
+    }
+  }
+}

@@ -1,0 +1,75 @@
+RViz source repairs applied: fixed virtual sensor TF; empty markers use DELETE.
+{
+  "urdf_fixed_joint": true,
+  "gazebo_sensor_link_preserved": true,
+  "gazebo_fixed_joint_preserved": true,
+  "odometry_plugin_link_exists": true
+}
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:          [exists] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        -j4
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+[build] Found 28 packages in 0.0 seconds.                                      
+[build] Package table is up to date.                                           
+Starting >>> planner               
+_______________________________________________________________________________
+Warnings << planner:make /opt/stgplanner/catkin_ws/logs/planner/build.make.001.log
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:[m[K In member function ‘[01m[Kbool perception::GlobalTopoManager::localFrontierRelocate(int&, std::vector<std::unordered_map<int, utils::PathWithDistance> >&, utils::NodeQueue&)[m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:891:66:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  891 |   MissedBranchMap missed_branches = history_missed_branches.back([01;35m[K)[m[K;
+      |                                                                  [01;35m[K^[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/global_topo_manager.h:[m[K In member function ‘[01m[Kbool perception::GlobalTopoManager::MYisCollisionFreeStraight(const Point2D&, const Point2D&) const[m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/global_topo_manager.h:384:3:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  384 |   [01;35m[K}[m[K
+      |   [01;35m[K^[m[K
+cd /opt/stgplanner/catkin_ws/build/planner; catkin build --get-env planner | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+Finished <<< planner                [ 4 minutes and 25.3 seconds ]
+
+[build] Successful packages:
+
+ [   Ignored] control_planner_interface [   Ignored] exploration_manager      
+ [   Ignored] jackal_control            [   Ignored] jackal_description       
+ [   Ignored] jackal_gazebo             [   Ignored] jackal_msgs              
+ [   Ignored] jackal_simulator          [   Ignored] local_planner            
+ [   Ignored] mav_msgs                  [   Ignored] nmea_msgs                
+ [   Ignored] path_execution            [    Warned] planner                  
+ [   Ignored] rosserial_msgs            [   Ignored] rosserial_server         
+ [   Ignored] rotors_comm               [   Ignored] rotors_control           
+ [   Ignored] rotors_gazebo_plugins     [   Ignored] sensor_conversion        
+ [   Ignored] terrain_analysis          [   Ignored] traversability_analysis  
+ [   Ignored] ufomap                    [   Ignored] ufomap_manager           
+ [   Ignored] ufomap_mapping            [   Ignored] ufomap_msgs              
+ [   Ignored] ufomap_ros                [   Ignored] ufomap_rviz_plugins      
+ [   Ignored] ufomap_srvs               [   Ignored] visualization_tools      
+
+[build] Summary: All 1 packages succeeded!
+[build] Ignored: 27 packages were skipped or are skiplisted.
+[build] Warnings: 1 packages succeeded with warnings.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 4 minutes and 27.8 seconds total.

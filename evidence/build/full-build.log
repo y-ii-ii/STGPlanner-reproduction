@@ -1,0 +1,861 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-matplotlib is already the newest version (3.1.2-1ubuntu4).
+python3-matplotlib set to manually installed.
+libgl1-mesa-dri is already the newest version (21.2.6-0ubuntu0.1~20.04.2).
+libgl1-mesa-dri set to manually installed.
+The following additional packages will be installed:
+  blt ros-noetic-velodyne-description ros-noetic-velodyne-gazebo-plugins
+  tk8.6-blt2.5
+Suggested packages:
+  blt-demo tix python3-tk-dbg
+The following NEW packages will be installed:
+  blt mesa-utils python3-tk ros-noetic-velodyne-description
+  ros-noetic-velodyne-gazebo-plugins ros-noetic-velodyne-simulator
+  tk8.6-blt2.5
+0 upgraded, 7 newly installed, 0 to remove and 32 not upgraded.
+Need to get 1,015 kB of archives.
+After this operation, 5,290 kB of additional disk space will be used.
+Get:1 http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal/main amd64 tk8.6-blt2.5 amd64 2.5.3+dfsg-4 [572 kB]
+Get:2 https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu focal/main amd64 ros-noetic-velodyne-description amd64 1.0.13-1focal.20250519.234247 [181 kB]
+Get:3 https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu focal/main amd64 ros-noetic-velodyne-gazebo-plugins amd64 1.0.13-1focal.20250521.012018 [116 kB]
+Get:4 https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu focal/main amd64 ros-noetic-velodyne-simulator amd64 1.0.13-1focal.20250521.014731 [2,260 B]
+Get:5 http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal/main amd64 blt amd64 2.5.3+dfsg-4 [4,944 B]
+Get:6 http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal-updates/main amd64 python3-tk amd64 3.8.10-0ubuntu1~20.04 [104 kB]
+Get:7 http://mirrors.tuna.tsinghua.edu.cn/ubuntu focal/universe amd64 mesa-utils amd64 8.4.0-1build1 [34.2 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1,015 kB in 3s (321 kB/s)
+Selecting previously unselected package tk8.6-blt2.5.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 114558 files and directories currently installed.)
+Preparing to unpack .../0-tk8.6-blt2.5_2.5.3+dfsg-4_amd64.deb ...
+Unpacking tk8.6-blt2.5 (2.5.3+dfsg-4) ...
+Selecting previously unselected package blt.
+Preparing to unpack .../1-blt_2.5.3+dfsg-4_amd64.deb ...
+Unpacking blt (2.5.3+dfsg-4) ...
+Selecting previously unselected package python3-tk:amd64.
+Preparing to unpack .../2-python3-tk_3.8.10-0ubuntu1~20.04_amd64.deb ...
+Unpacking python3-tk:amd64 (3.8.10-0ubuntu1~20.04) ...
+Selecting previously unselected package ros-noetic-velodyne-description.
+Preparing to unpack .../3-ros-noetic-velodyne-description_1.0.13-1focal.20250519.234247_amd64.deb ...
+Unpacking ros-noetic-velodyne-description (1.0.13-1focal.20250519.234247) ...
+Selecting previously unselected package ros-noetic-velodyne-gazebo-plugins.
+Preparing to unpack .../4-ros-noetic-velodyne-gazebo-plugins_1.0.13-1focal.20250521.012018_amd64.deb ...
+Unpacking ros-noetic-velodyne-gazebo-plugins (1.0.13-1focal.20250521.012018) ...
+Selecting previously unselected package ros-noetic-velodyne-simulator.
+Preparing to unpack .../5-ros-noetic-velodyne-simulator_1.0.13-1focal.20250521.014731_amd64.deb ...
+Unpacking ros-noetic-velodyne-simulator (1.0.13-1focal.20250521.014731) ...
+Selecting previously unselected package mesa-utils.
+Preparing to unpack .../6-mesa-utils_8.4.0-1build1_amd64.deb ...
+Unpacking mesa-utils (8.4.0-1build1) ...
+Setting up tk8.6-blt2.5 (2.5.3+dfsg-4) ...
+Setting up ros-noetic-velodyne-description (1.0.13-1focal.20250519.234247) ...
+Setting up ros-noetic-velodyne-gazebo-plugins (1.0.13-1focal.20250521.012018) ...
+Setting up blt (2.5.3+dfsg-4) ...
+Setting up python3-tk:amd64 (3.8.10-0ubuntu1~20.04) ...
+Setting up mesa-utils (8.4.0-1build1) ...
+Setting up ros-noetic-velodyne-simulator (1.0.13-1focal.20250521.014731) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+Initializing catkin workspace in `/opt/stgplanner/catkin_ws`.
+--------------------------------------------------------------
+Profile:                     default
+Extending:             [env] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+--------------------------------------------------------------
+Build Space:       [missing] /opt/stgplanner/catkin_ws/build
+Devel Space:       [missing] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:         [missing] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+--------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+--------------------------------------------------------------
+Additional CMake Args:       None
+Additional Make Args:        None
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+--------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+--------------------------------------------------------------
+Workspace configuration appears valid.
+--------------------------------------------------------------
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:       [missing] /opt/stgplanner/catkin_ws/build
+Devel Space:       [missing] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:         [missing] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        None
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+_______________________________________________________________________________
+Warnings << local_planner:cmake /opt/stgplanner/catkin_ws/logs/local_planner/build.cmake.000.log
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+cd /opt/stgplanner/catkin_ws/build/local_planner; catkin build --get-env local_planner | catkin env -si  /usr/bin/cmake /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/local_planner --no-warn-unused-cli -DCATKIN_DEVEL_PREFIX=/opt/stgplanner/catkin_ws/devel/.private/local_planner -DCMAKE_INSTALL_PREFIX=/opt/stgplanner/catkin_ws/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Errors << sensor_conversion:make /opt/stgplanner/catkin_ws/logs/sensor_conversion/build.make.000.log
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/sensor_conversion/src/pointcloud_to_map.cpp:5:10:[m[K [01;31m[Kfatal error: [m[Ktf2_sensor_msgs/tf2_sensor_msgs.h: No such file or directory
+    5 | #include [01;31m[K<tf2_sensor_msgs/tf2_sensor_msgs.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/pointcloud_to_map_node.dir/build.make:63: CMakeFiles/pointcloud_to_map_node.dir/src/pointcloud_to_map.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:311: CMakeFiles/pointcloud_to_map_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2
+cd /opt/stgplanner/catkin_ws/build/sensor_conversion; catkin build --get-env sensor_conversion | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+Failed << sensor_conversion:make                    [ Exited with code 2 ]
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:         [missing] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        -j4
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+
+NOTE: Forcing CMake to run for each package.
+-------------------------------------------------------------------------------
+[build] Found 28 packages in 0.0 seconds.                                      
+[build] Updating package table.                                                
+Starting >>> catkin_tools_prebuild                   
+Finished <<< catkin_tools_prebuild                    [ 8.6 seconds ]
+Starting >>> control_planner_interface               
+Starting >>> jackal_control                          
+Finished <<< jackal_control                           [ 6.9 seconds ]
+Starting >>> jackal_description                      
+Finished <<< jackal_description                       [ 7.8 seconds ]
+Starting >>> jackal_gazebo                           
+Finished <<< jackal_gazebo                            [ 7.0 seconds ]
+Starting >>> jackal_msgs                             
+Finished <<< control_planner_interface                [ 24.8 seconds ]
+Starting >>> exploration_manager                     
+Finished <<< jackal_msgs                              [ 11.6 seconds ]
+Starting >>> jackal_simulator                        
+Finished <<< jackal_simulator                         [ 7.7 seconds ]
+Starting >>> local_planner                           
+Finished <<< exploration_manager                      [ 46.6 seconds ]
+Starting >>> mav_msgs                                
+Finished <<< local_planner                            [ 33.4 seconds ]
+Starting >>> nmea_msgs                               
+Finished <<< mav_msgs                                 [ 11.1 seconds ]
+Starting >>> rosserial_msgs                          
+Finished <<< nmea_msgs                                [ 10.5 seconds ]
+Starting >>> rotors_comm                             
+Finished <<< rosserial_msgs                           [ 9.6 seconds ]
+Starting >>> rosserial_server                        
+Finished <<< rotors_comm                              [ 10.7 seconds ]
+Starting >>> rotors_control                          
+Finished <<< rosserial_server                         [ 21.6 seconds ]
+Starting >>> sensor_conversion                       
+Failed <<< sensor_conversion                        [ 24.1 seconds ]
+Abandoned <<< terrain_analysis                         [ Unrelated job failed ]
+Abandoned <<< traversability_analysis                  [ Unrelated job failed ]
+Abandoned <<< ufomap                                   [ Unrelated job failed ]
+Abandoned <<< rotors_gazebo_plugins                    [ Unrelated job failed ]
+Abandoned <<< path_execution                           [ Unrelated job failed ]
+Abandoned <<< ufomap_msgs                              [ Unrelated job failed ]
+Abandoned <<< ufomap_ros                               [ Unrelated job failed ]
+Abandoned <<< ufomap_manager                           [ Unrelated job failed ]
+Abandoned <<< ufomap_rviz_plugins                      [ Unrelated job failed ]
+Abandoned <<< ufomap_srvs                              [ Unrelated job failed ]
+Abandoned <<< ufomap_mapping                           [ Unrelated job failed ]
+Abandoned <<< visualization_tools                      [ Unrelated job failed ]
+Abandoned <<< planner                                  [ Unrelated job failed ]
+Finished <<< rotors_control                           [ 53.2 seconds ]
+
+[build] Successful packages:
+
+ [Successful] control_planner_interface [Successful] exploration_manager      
+ [Successful] jackal_control            [Successful] jackal_description       
+ [Successful] jackal_gazebo             [Successful] jackal_msgs              
+ [Successful] jackal_simulator          [    Warned] local_planner            
+ [Successful] mav_msgs                  [Successful] nmea_msgs                
+ [Successful] rosserial_msgs            [Successful] rosserial_server         
+ [Successful] rotors_comm               [Successful] rotors_control           
+
+[build] Abandoned packages:
+
+ [ Abandoned] path_execution            [ Abandoned] planner                  
+ [ Abandoned] rotors_gazebo_plugins     [ Abandoned] terrain_analysis         
+ [ Abandoned] traversability_analysis   [ Abandoned] ufomap                   
+ [ Abandoned] ufomap_manager            [ Abandoned] ufomap_mapping           
+ [ Abandoned] ufomap_msgs               [ Abandoned] ufomap_ros               
+ [ Abandoned] ufomap_rviz_plugins       [ Abandoned] ufomap_srvs              
+ [ Abandoned] visualization_tools      
+
+[build] Failed packages:
+
+ [    Failed] sensor_conversion        
+
+[build] Summary: 15 of 29 packages succeeded.
+[build] Ignored: None.
+[build] Warnings: 1 packages succeeded with warnings.
+[build] Abandoned: 13 packages were abandoned.
+[build] Failed: 1 packages failed.
+[build] Runtime: 2 minutes and 39.3 seconds total.
+[build] Note: Workspace packages have changed, please re-source setup files to use them.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+mesa-utils is already the newest version (8.4.0-1build1).
+python3-matplotlib is already the newest version (3.1.2-1ubuntu4).
+libgl1-mesa-dri is already the newest version (21.2.6-0ubuntu0.1~20.04.2).
+python3-tk is already the newest version (3.8.10-0ubuntu1~20.04).
+ros-noetic-velodyne-simulator is already the newest version (1.0.13-1focal.20250521.014731).
+The following NEW packages will be installed:
+  ros-noetic-tf2-sensor-msgs
+0 upgraded, 1 newly installed, 0 to remove and 32 not upgraded.
+Need to get 9,656 B of archives.
+After this operation, 53.2 kB of additional disk space will be used.
+Get:1 https://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu focal/main amd64 ros-noetic-tf2-sensor-msgs amd64 0.7.10-1focal.20250520.001238 [9,656 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 9,656 B in 1s (13.6 kB/s)
+Selecting previously unselected package ros-noetic-tf2-sensor-msgs.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 114682 files and directories currently installed.)
+Preparing to unpack .../ros-noetic-tf2-sensor-msgs_0.7.10-1focal.20250520.001238_amd64.deb ...
+Unpacking ros-noetic-tf2-sensor-msgs (0.7.10-1focal.20250520.001238) ...
+Setting up ros-noetic-tf2-sensor-msgs (0.7.10-1focal.20250520.001238) ...
+Catkin workspace `/opt/stgplanner/catkin_ws` is already initialized. No action taken.
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:          [exists] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        None
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:          [exists] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        None
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+_______________________________________________________________________________
+Warnings << terrain_analysis:cmake /opt/stgplanner/catkin_ws/logs/terrain_analysis/build.cmake.000.log
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+cd /opt/stgplanner/catkin_ws/build/terrain_analysis; catkin build --get-env terrain_analysis | catkin env -si  /usr/bin/cmake /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/terrain_analysis --no-warn-unused-cli -DCATKIN_DEVEL_PREFIX=/opt/stgplanner/catkin_ws/devel/.private/terrain_analysis -DCMAKE_INSTALL_PREFIX=/opt/stgplanner/catkin_ws/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << traversability_analysis:cmake /opt/stgplanner/catkin_ws/logs/traversability_analysis/build.cmake.000.log
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+cd /opt/stgplanner/catkin_ws/build/traversability_analysis; catkin build --get-env traversability_analysis | catkin env -si  /usr/bin/cmake /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/traversability_analysis --no-warn-unused-cli -DCATKIN_DEVEL_PREFIX=/opt/stgplanner/catkin_ws/devel/.private/traversability_analysis -DCMAKE_INSTALL_PREFIX=/opt/stgplanner/catkin_ws/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << rotors_gazebo_plugins:cmake /opt/stgplanner/catkin_ws/logs/rotors_gazebo_plugins/build.cmake.000.log
+WARNING: package 'gazebo_plugins' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching
+      end-of-life. Users are highly encouraged to migrate to the new Gazebo
+      using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))
+WARNING: package 'gazebo_msgs' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching
+      end-of-life. Users are highly encouraged to migrate to the new Gazebo
+      using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))
+WARNING: package 'gazebo_dev' is deprecated (This package has been deprecated as of January 2025 with Gazebo classic 11 reaching
+      end-of-life. Users are highly encouraged to migrate to the new Gazebo
+      using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration))
+CMake Warning at /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:166 (message):
+  catkin_package() DEPENDS on 'octomap' but neither 'octomap_INCLUDE_DIRS'
+  nor 'octomap_LIBRARIES' is defined.
+Call Stack (most recent call first):
+  /opt/ros/noetic/share/catkin/cmake/catkin_package.cmake:102 (_catkin_package)
+  CMakeLists.txt:232 (catkin_package)
+
+
+cd /opt/stgplanner/catkin_ws/build/rotors_gazebo_plugins; catkin build --get-env rotors_gazebo_plugins | catkin env -si  /usr/bin/cmake /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/fly_sim/rotors_fly/rotors_gazebo_plugins --no-warn-unused-cli -DCATKIN_DEVEL_PREFIX=/opt/stgplanner/catkin_ws/devel/.private/rotors_gazebo_plugins -DCMAKE_INSTALL_PREFIX=/opt/stgplanner/catkin_ws/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << rotors_gazebo_plugins:make /opt/stgplanner/catkin_ws/logs/rotors_gazebo_plugins/build.make.000.log
+MagneticField.proto: warning: Import quaternion.proto but not used.
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/fly_sim/rotors_fly/rotors_gazebo_plugins/src/external/gazebo_geotagged_images_plugin.cpp:[m[K In member function ‘[01m[Kvoid gazebo::GeotaggedImagesPlugin::OnNewFrame(const unsigned char*)[m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/fly_sim/rotors_fly/rotors_gazebo_plugins/src/external/gazebo_geotagged_images_plugin.cpp:174:9:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+  174 |   [01;35m[Ksystem(gps_tag_command)[m[K;
+      |   [01;35m[K~~~~~~^~~~~~~~~~~~~~~~~[m[K
+cd /opt/stgplanner/catkin_ws/build/rotors_gazebo_plugins; catkin build --get-env rotors_gazebo_plugins | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << ufomap_manager:make /opt/stgplanner/catkin_ws/logs/ufomap_manager/build.make.000.log
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:152:82:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:534:4:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+  534 |    [01;35m[KsetOccupancy[m[K(Base::getRoot().value.occupancy, toLogit(occupancy_value));
+      |    [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolumeRecurs(const BoundingVar&, double, ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE&, const Point3&, ufo::map::DepthType, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE = ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >; ufo::map::Point3 = ufo::math::Vector3; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:539:7:[m[K   required from ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:152:82:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1025:6:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1025 |      [01;35m[Kif[m[K (setOccupancy(Base::getLeafChild(node, i).value.occupancy,
+      |      [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1038:7:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1038 |       [01;35m[Kif[m[K (setOccupancy(child.value.occupancy, occupancy_value)) {
+      |       [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/ufomap_manager.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/ufomap_manager.cpp:4[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:233:86:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:534:4:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+  534 |    [01;35m[KsetOccupancy[m[K(Base::getRoot().value.occupancy, toLogit(occupancy_value));
+      |    [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolumeRecurs(const BoundingVar&, double, ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE&, const Point3&, ufo::map::DepthType, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE = ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >; ufo::map::Point3 = ufo::math::Vector3; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:539:7:[m[K   required from ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:233:86:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1025:6:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1025 |      [01;35m[Kif[m[K (setOccupancy(Base::getLeafChild(node, i).value.occupancy,
+      |      [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1038:7:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1038 |       [01;35m[Kif[m[K (setOccupancy(child.value.occupancy, occupancy_value)) {
+      |       [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/src/frontier_manager.cpp:5[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+cd /opt/stgplanner/catkin_ws/build/ufomap_manager; catkin build --get-env ufomap_manager | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << visualization_tools:cmake /opt/stgplanner/catkin_ws/logs/visualization_tools/build.cmake.000.log
+** WARNING ** io features related to pcap will be disabled
+** WARNING ** io features related to png will be disabled
+** WARNING ** io features related to libusb-1.0 will be disabled
+cd /opt/stgplanner/catkin_ws/build/visualization_tools; catkin build --get-env visualization_tools | catkin env -si  /usr/bin/cmake /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/visualization_tools --no-warn-unused-cli -DCATKIN_DEVEL_PREFIX=/opt/stgplanner/catkin_ws/devel/.private/visualization_tools -DCMAKE_INSTALL_PREFIX=/opt/stgplanner/catkin_ws/install -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << ufomap_mapping:make /opt/stgplanner/catkin_ws/logs/ufomap_mapping/build.make.000.log
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:154:9:[m[K   required from ‘[01m[Kufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)> [with auto:35 = ufo::map::OccupancyMap][m[K’
+[01m[K/usr/include/c++/9/type_traits:2330:26:[m[K   required by substitution of ‘[01m[Ktemplate<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMap&}][m[K’
+[01m[K/usr/include/c++/9/type_traits:2341:55:[m[K   required from ‘[01m[Kstruct std::__result_of_impl<false, false, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMap&>[m[K’
+[01m[K/usr/include/c++/9/type_traits:2346:12:[m[K   required from ‘[01m[Kstruct std::__invoke_result<ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMap&>[m[K’
+[01m[K/usr/include/c++/9/bits/invoke.h:89:5:[m[K   required by substitution of ‘[01m[Ktemplate<class _Callable, class ... _Args> constexpr typename std::__invoke_result<_Functor, _ArgTypes>::type std::__invoke(_Callable&&, _Args&& ...) [with _Callable = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMap&}][m[K’
+[01m[K/usr/include/c++/9/variant:981:24:[m[K   [ skipping 3 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[01m[K/usr/include/c++/9/variant:1014:28:[m[K   required from ‘[01m[Kstatic constexpr auto std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...)>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply() [with bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {1}][m[K’
+[01m[K/usr/include/c++/9/variant:936:56:[m[K   required from ‘[01m[Kstatic constexpr void std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...), __dimensions ...>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply_single_alt(_Tp&, _Tp*) [with bool __do_cookie = false; long unsigned int __index = 1; _Tp = std::__detail::__variant::_Multi_array<void (*)(ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&)>; bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; long unsigned int ...__dimensions = {3}; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {}][m[K’
+[01m[K/usr/include/c++/9/variant:909:48:[m[K   required from ‘[01m[Kconstexpr const _Array_type std::__detail::__variant::__gen_vtable<true, void, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&>::_S_vtable[m[K’
+[01m[K/usr/include/c++/9/variant:1647:23:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::__do_visit(_Visitor&&, _Variants&& ...) [with bool __use_index = false; bool __same_return_types = true; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/usr/include/c++/9/variant:1663:24:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::visit(_Visitor&&, _Variants&& ...) [with _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:230:10:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:534:4:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+  534 |    [01;35m[KsetOccupancy[m[K(Base::getRoot().value.occupancy, toLogit(occupancy_value));
+      |    [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:154:9:[m[K   required from ‘[01m[Kufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)> [with auto:35 = ufo::map::OccupancyMapColor][m[K’
+[01m[K/usr/include/c++/9/type_traits:2330:26:[m[K   required by substitution of ‘[01m[Ktemplate<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMapColor&}][m[K’
+[01m[K/usr/include/c++/9/type_traits:2341:55:[m[K   required from ‘[01m[Kstruct std::__result_of_impl<false, false, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMapColor&>[m[K’
+[01m[K/usr/include/c++/9/type_traits:2346:12:[m[K   required from ‘[01m[Kstruct std::__invoke_result<ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMapColor&>[m[K’
+[01m[K/usr/include/c++/9/bits/invoke.h:89:5:[m[K   required by substitution of ‘[01m[Ktemplate<class _Callable, class ... _Args> constexpr typename std::__invoke_result<_Functor, _ArgTypes>::type std::__invoke(_Callable&&, _Args&& ...) [with _Callable = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMapColor&}][m[K’
+[01m[K/usr/include/c++/9/variant:981:24:[m[K   [ skipping 3 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[01m[K/usr/include/c++/9/variant:1014:28:[m[K   required from ‘[01m[Kstatic constexpr auto std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...)>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply() [with bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {2}][m[K’
+[01m[K/usr/include/c++/9/variant:936:56:[m[K   required from ‘[01m[Kstatic constexpr void std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...), __dimensions ...>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply_single_alt(_Tp&, _Tp*) [with bool __do_cookie = false; long unsigned int __index = 2; _Tp = std::__detail::__variant::_Multi_array<void (*)(ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&)>; bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; long unsigned int ...__dimensions = {3}; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {}][m[K’
+[01m[K/usr/include/c++/9/variant:909:48:[m[K   required from ‘[01m[Kconstexpr const _Array_type std::__detail::__variant::__gen_vtable<true, void, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&>::_S_vtable[m[K’
+[01m[K/usr/include/c++/9/variant:1647:23:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::__do_visit(_Visitor&&, _Variants&& ...) [with bool __use_index = false; bool __same_return_types = true; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/usr/include/c++/9/variant:1663:24:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::visit(_Visitor&&, _Variants&& ...) [with _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:230:10:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:534:4:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+  534 |    [01;35m[KsetOccupancy[m[K(Base::getRoot().value.occupancy, toLogit(occupancy_value));
+      |    [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolumeRecurs(const BoundingVar&, double, ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE&, const Point3&, ufo::map::DepthType, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE = ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >; ufo::map::Point3 = ufo::math::Vector3; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:539:7:[m[K   required from ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:154:9:[m[K   required from ‘[01m[Kufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)> [with auto:35 = ufo::map::OccupancyMap][m[K’
+[01m[K/usr/include/c++/9/type_traits:2330:26:[m[K   required by substitution of ‘[01m[Ktemplate<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMap&}][m[K’
+[01m[K/usr/include/c++/9/type_traits:2341:55:[m[K   required from ‘[01m[Kstruct std::__result_of_impl<false, false, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMap&>[m[K’
+[01m[K/usr/include/c++/9/type_traits:2346:12:[m[K   required from ‘[01m[Kstruct std::__invoke_result<ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMap&>[m[K’
+[01m[K/usr/include/c++/9/bits/invoke.h:89:5:[m[K   [ skipping 4 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[01m[K/usr/include/c++/9/variant:1014:28:[m[K   required from ‘[01m[Kstatic constexpr auto std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...)>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply() [with bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {1}][m[K’
+[01m[K/usr/include/c++/9/variant:936:56:[m[K   required from ‘[01m[Kstatic constexpr void std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...), __dimensions ...>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply_single_alt(_Tp&, _Tp*) [with bool __do_cookie = false; long unsigned int __index = 1; _Tp = std::__detail::__variant::_Multi_array<void (*)(ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&)>; bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; long unsigned int ...__dimensions = {3}; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {}][m[K’
+[01m[K/usr/include/c++/9/variant:909:48:[m[K   required from ‘[01m[Kconstexpr const _Array_type std::__detail::__variant::__gen_vtable<true, void, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&>::_S_vtable[m[K’
+[01m[K/usr/include/c++/9/variant:1647:23:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::__do_visit(_Visitor&&, _Variants&& ...) [with bool __use_index = false; bool __same_return_types = true; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/usr/include/c++/9/variant:1663:24:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::visit(_Visitor&&, _Variants&& ...) [with _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:230:10:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1025:6:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1025 |      [01;35m[Kif[m[K (setOccupancy(Base::getLeafChild(node, i).value.occupancy,
+      |      [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1038:7:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1038 |       [01;35m[Kif[m[K (setOccupancy(child.value.occupancy, occupancy_value)) {
+      |       [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolumeRecurs(const BoundingVar&, double, ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE&, const Point3&, ufo::map::DepthType, ufo::map::DepthType) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE = ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::ColorOccupancyNode<float> > >; ufo::map::Point3 = ufo::math::Vector3; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:539:7:[m[K   required from ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:154:9:[m[K   required from ‘[01m[Kufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)> [with auto:35 = ufo::map::OccupancyMapColor][m[K’
+[01m[K/usr/include/c++/9/type_traits:2330:26:[m[K   required by substitution of ‘[01m[Ktemplate<class _Fn, class ... _Args> static std::__result_of_success<decltype (declval<_Fn>()((declval<_Args>)()...)), std::__invoke_other> std::__result_of_other_impl::_S_test(int) [with _Fn = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Args = {ufo::map::OccupancyMapColor&}][m[K’
+[01m[K/usr/include/c++/9/type_traits:2341:55:[m[K   required from ‘[01m[Kstruct std::__result_of_impl<false, false, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMapColor&>[m[K’
+[01m[K/usr/include/c++/9/type_traits:2346:12:[m[K   required from ‘[01m[Kstruct std::__invoke_result<ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>, ufo::map::OccupancyMapColor&>[m[K’
+[01m[K/usr/include/c++/9/bits/invoke.h:89:5:[m[K   [ skipping 4 instantiation contexts, use -ftemplate-backtrace-limit=0 to disable ]
+[01m[K/usr/include/c++/9/variant:1014:28:[m[K   required from ‘[01m[Kstatic constexpr auto std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...)>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply() [with bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {2}][m[K’
+[01m[K/usr/include/c++/9/variant:936:56:[m[K   required from ‘[01m[Kstatic constexpr void std::__detail::__variant::__gen_vtable_impl<__same_return_types, std::__detail::__variant::_Multi_array<_Result_type (*)(_Visitor, _Variants ...), __dimensions ...>, std::tuple<_Variants ...>, std::integer_sequence<long unsigned int, __indices ...> >::_S_apply_single_alt(_Tp&, _Tp*) [with bool __do_cookie = false; long unsigned int __index = 2; _Tp = std::__detail::__variant::_Multi_array<void (*)(ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&)>; bool __same_return_types = true; _Result_type = void; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&; long unsigned int ...__dimensions = {3}; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}; long unsigned int ...__indices = {}][m[K’
+[01m[K/usr/include/c++/9/variant:909:48:[m[K   required from ‘[01m[Kconstexpr const _Array_type std::__detail::__variant::__gen_vtable<true, void, ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>&&, std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&>::_S_vtable[m[K’
+[01m[K/usr/include/c++/9/variant:1647:23:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::__do_visit(_Visitor&&, _Variants&& ...) [with bool __use_index = false; bool __same_return_types = true; _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/usr/include/c++/9/variant:1663:24:[m[K   required from ‘[01m[Kconstexpr decltype(auto) std::visit(_Visitor&&, _Variants&& ...) [with _Visitor = ufomap_mapping::Server::cloudCallback(const ConstPtr&)::<lambda(auto:35&)>; _Variants = {std::variant<std::monostate, ufo::map::OccupancyMap, ufo::map::OccupancyMapColor>&}][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:230:10:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1025:6:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1025 |      [01;35m[Kif[m[K (setOccupancy(Base::getLeafChild(node, i).value.occupancy,
+      |      [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1038:7:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1038 |       [01;35m[Kif[m[K (setOccupancy(child.value.occupancy, occupancy_value)) {
+      |       [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/include/ufomap_mapping/server.h:46[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_mapping/src/server.cpp:43[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::ColorOccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+cd /opt/stgplanner/catkin_ws/build/ufomap_mapping; catkin build --get-env ufomap_mapping | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+_______________________________________________________________________________
+Warnings << planner:make /opt/stgplanner/catkin_ws/logs/planner/build.make.000.log
+[01m[Kcc1:[m[K [01;35m[Kwarning: [m[Kcommand line option ‘[01m[K-std=c++17[m[K’ is valid for C++/ObjC++ but not for C
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:253:86:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:534:4:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+  534 |    [01;35m[KsetOccupancy[m[K(Base::getRoot().value.occupancy, toLogit(occupancy_value));
+      |    [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h: In instantiation of ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolumeRecurs(const BoundingVar&, double, ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE&, const Point3&, ufo::map::DepthType, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::OccupancyMapBase<DATA_TYPE>::INNER_NODE = ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >; ufo::map::Point3 = ufo::math::Vector3; ufo::map::DepthType = unsigned int][m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:539:7:[m[K   required from ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setValueVolume(const BoundingVar&, double, ufo::map::DepthType) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::geometry::BoundingVar = std::variant<ufo::geometry::AABB, ufo::geometry::Frustum, ufo::geometry::LineSegment, ufo::geometry::OBB, ufo::geometry::Plane, ufo::math::Vector3, ufo::geometry::Ray, ufo::geometry::Sphere>; ufo::map::DepthType = unsigned int][m[K’
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:253:86:[m[K   required from here
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1025:6:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1025 |      [01;35m[Kif[m[K (setOccupancy(Base::getLeafChild(node, i).value.occupancy,
+      |      [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1038:7:[m[K [01;35m[Kwarning: [m[KISO C++ says that these are ambiguous, even though the worst conversion for the first is better than the worst conversion for the second:
+ 1038 |       [01;35m[Kif[m[K (setOccupancy(child.value.occupancy, occupancy_value)) {
+      |       [01;35m[K^~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:1171:7:[m[K [01;36m[Knote: [m[Kcandidate 1: ‘[01m[Kbool ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType&, const LogitType&) [with DATA_TYPE = ufo::map::OccupancyNode<float>; ufo::map::OccupancyMapBase<DATA_TYPE>::LogitType = float][m[K’
+ 1171 |  bool [01;36m[KsetOccupancy[m[K(LogitType& current_value, LogitType const& new_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map.h:45[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap_ros/ufomap_manager/include/ufomap_manager/frontier_manager.h:22[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/ufomap.h:9[m[K,
+                 from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/ufomap.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/occupancy_map_base.h:550:7:[m[K [01;36m[Knote: [m[Kcandidate 2: ‘[01m[Kvoid ufo::map::OccupancyMapBase<DATA_TYPE>::setOccupancy(const ufo::map::Code&, double) [with DATA_TYPE = ufo::map::OccupancyNode<float>][m[K’
+  550 |  void [01;36m[KsetOccupancy[m[K(Code const& code, double occupancy_value)
+      |       [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:[m[K In member function ‘[01m[Kbool perception::GlobalTopoManager::localFrontierRelocate(int&, std::vector<std::unordered_map<int, utils::PathWithDistance> >&, utils::NodeQueue&)[m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:891:66:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  891 |   MissedBranchMap missed_branches = history_missed_branches.back([01;35m[K)[m[K;
+      |                                                                  [01;35m[K^[m[K
+In file included from [01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/src/perception/global_topo_manager.cpp:2[m[K:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/global_topo_manager.h:[m[K In member function ‘[01m[Kbool perception::GlobalTopoManager::MYisCollisionFreeStraight(const Point2D&, const Point2D&) const[m[K’:
+[01m[K/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/planner/include/perception/global_topo_manager.h:384:3:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  384 |   [01;35m[K}[m[K
+      |   [01;35m[K^[m[K
+cd /opt/stgplanner/catkin_ws/build/planner; catkin build --get-env planner | catkin env -si  /usr/bin/make --jobserver-auth=3,4; cd -
+
+...............................................................................
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:          [exists] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        -j4
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+[build] Found 28 packages in 0.0 seconds.                                      
+[build] Package table is up to date.                                           
+Starting >>> control_planner_interface               
+Starting >>> jackal_control                          
+Finished <<< jackal_control                           [ 0.2 seconds ]
+Starting >>> jackal_description                      
+Finished <<< control_planner_interface                [ 0.8 seconds ]
+Starting >>> exploration_manager                     
+Finished <<< jackal_description                       [ 0.2 seconds ]
+Starting >>> jackal_gazebo                           
+Finished <<< jackal_gazebo                            [ 0.2 seconds ]
+Starting >>> jackal_msgs                             
+Finished <<< exploration_manager                      [ 0.7 seconds ]
+Starting >>> jackal_simulator                        
+Finished <<< jackal_msgs                              [ 0.4 seconds ]
+Starting >>> local_planner                           
+Finished <<< jackal_simulator                         [ 0.2 seconds ]
+Starting >>> mav_msgs                                
+Finished <<< local_planner                            [ 0.2 seconds ]
+Starting >>> nmea_msgs                               
+Finished <<< mav_msgs                                 [ 0.6 seconds ]
+Starting >>> rosserial_msgs                          
+Finished <<< nmea_msgs                                [ 0.5 seconds ]
+Starting >>> rotors_comm                             
+Finished <<< rosserial_msgs                           [ 0.3 seconds ]
+Starting >>> rosserial_server                        
+Finished <<< rotors_comm                              [ 0.4 seconds ]
+Starting >>> rotors_control                          
+Finished <<< rosserial_server                         [ 0.4 seconds ]
+Starting >>> sensor_conversion                       
+Finished <<< rotors_control                           [ 0.6 seconds ]
+Starting >>> rotors_gazebo_plugins                   
+Finished <<< sensor_conversion                        [ 18.6 seconds ]
+Starting >>> terrain_analysis                        
+Finished <<< terrain_analysis                         [ 31.6 seconds ]
+Starting >>> traversability_analysis                 
+Finished <<< traversability_analysis                  [ 57.1 seconds ]
+Starting >>> path_execution                          
+Finished <<< path_execution                           [ 1 minute and 26.7 seconds ]
+Starting >>> ufomap                                  
+Finished <<< ufomap                                   [ 13.7 seconds ]
+Starting >>> ufomap_msgs                             
+Finished <<< rotors_gazebo_plugins                    [ 4 minutes and 40.9 seconds ]
+Starting >>> ufomap_ros                              
+Finished <<< ufomap_msgs                              [ 21.5 seconds ]
+Starting >>> ufomap_srvs                             
+Finished <<< ufomap_srvs                              [ 10.3 seconds ]
+Finished <<< ufomap_ros                               [ 16.2 seconds ]
+Starting >>> ufomap_manager                          
+Starting >>> ufomap_rviz_plugins                     
+Finished <<< ufomap_rviz_plugins                      [ 42.9 seconds ]
+Starting >>> ufomap_mapping                          
+Finished <<< ufomap_manager                           [ 1 minute and 13.9 seconds ]
+Starting >>> visualization_tools                     
+Finished <<< ufomap_mapping                           [ 1 minute and 8.8 seconds ]
+Finished <<< visualization_tools                      [ 1 minute and 42.1 seconds ]
+Starting >>> planner                                 
+Finished <<< planner                                  [ 7 minutes and 27.8 seconds ]
+
+[build] Successful packages:
+
+ [Successful] control_planner_interface [Successful] exploration_manager      
+ [Successful] jackal_control            [Successful] jackal_description       
+ [Successful] jackal_gazebo             [Successful] jackal_msgs              
+ [Successful] jackal_simulator          [Successful] local_planner            
+ [Successful] mav_msgs                  [Successful] nmea_msgs                
+ [Successful] path_execution            [    Warned] planner                  
+ [Successful] rosserial_msgs            [Successful] rosserial_server         
+ [Successful] rotors_comm               [Successful] rotors_control           
+ [    Warned] rotors_gazebo_plugins     [Successful] sensor_conversion        
+ [    Warned] terrain_analysis          [    Warned] traversability_analysis  
+ [Successful] ufomap                    [    Warned] ufomap_manager           
+ [    Warned] ufomap_mapping            [Successful] ufomap_msgs              
+ [Successful] ufomap_ros                [Successful] ufomap_rviz_plugins      
+ [Successful] ufomap_srvs               [    Warned] visualization_tools      
+
+[build] Summary: All 28 packages succeeded!
+[build] Ignored: None.
+[build] Warnings: 7 packages succeeded with warnings.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 15 minutes and 26.1 seconds total.
+[build] Note: Workspace packages have changed, please re-source setup files to use them.
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager
+noetic

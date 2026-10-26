@@ -1,0 +1,410 @@
+{
+  "pointcloud_messages": 1788,
+  "pointcloud_max_points": 28579,
+  "odometry_messages": 1788,
+  "odometry_distance_m": 264.40260021880465,
+  "command_messages": 1788,
+  "nonzero_commands": 1788,
+  "path_messages": 1788,
+  "max_path_poses": 101,
+  "planner_results": 1131,
+  "successful_nonempty_plans": 1129,
+  "explored_volume_max": 2147.6800000000003,
+  "reported_travel_distance_max": 269.29529123312227,
+  "sim_time_start": 15260.704,
+  "sim_time_end": 15439.507,
+  "initial_position": [
+    9.11429792392447,
+    0.5501087234251469,
+    1.213945033867736e-05
+  ],
+  "final_position": [
+    -25.68298492448788,
+    15.72593120704223,
+    -2.7830480170687455e-05
+  ],
+  "wall_seconds": 180.02823670600037,
+  "nodes": [
+    "/twist_marker_server",
+    "/twist_mux",
+    "/explorer_node",
+    "/map_to_world",
+    "/topo_planner_node",
+    "/localPlanner",
+    "/path_execution_node",
+    "/controller_spawner",
+    "/terrainAnalysis",
+    "/stgplanner_deployment_test_701_1792986691977",
+    "/slam_sim_output",
+    "/exploration_data",
+    "/robot_state_publisher",
+    "/pathFollower",
+    "/rosout",
+    "/gazebo",
+    "/sensor_to_base_link",
+    "/sensor_odom_to_world"
+  ],
+  "topics": [
+    [
+      "/rosout_agg",
+      "rosgraph_msgs/Log"
+    ],
+    [
+      "/rosout",
+      "rosgraph_msgs/Log"
+    ],
+    [
+      "/jackal_velocity_controller/cmd_vel",
+      "geometry_msgs/Twist"
+    ],
+    [
+      "/diagnostics",
+      "diagnostic_msgs/DiagnosticArray"
+    ],
+    [
+      "/twist_marker_server/update_full",
+      "visualization_msgs/InteractiveMarkerInit"
+    ],
+    [
+      "/twist_marker_server/update",
+      "visualization_msgs/InteractiveMarkerUpdate"
+    ],
+    [
+      "/twist_marker_server/cmd_vel",
+      "geometry_msgs/Twist"
+    ],
+    [
+      "/tf",
+      "tf2_msgs/TFMessage"
+    ],
+    [
+      "/tf_static",
+      "tf2_msgs/TFMessage"
+    ],
+    [
+      "/clock",
+      "rosgraph_msgs/Clock"
+    ],
+    [
+      "/gazebo/link_states",
+      "gazebo_msgs/LinkStates"
+    ],
+    [
+      "/gazebo/model_states",
+      "gazebo_msgs/ModelStates"
+    ],
+    [
+      "/gazebo/performance_metrics",
+      "gazebo_msgs/PerformanceMetrics"
+    ],
+    [
+      "/gazebo/parameter_descriptions",
+      "dynamic_reconfigure/ConfigDescription"
+    ],
+    [
+      "/gazebo/parameter_updates",
+      "dynamic_reconfigure/Config"
+    ],
+    [
+      "/jackal/velodyne/velodyne_points",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/jackal/velodyne/gazebo_gt/pose",
+      "geometry_msgs/Pose"
+    ],
+    [
+      "/jackal/velodyne/gazebo_gt/pose_with_covariance",
+      "geometry_msgs/PoseWithCovarianceStamped"
+    ],
+    [
+      "/jackal/velodyne/gazebo_gt/position",
+      "geometry_msgs/PointStamped"
+    ],
+    [
+      "/jackal/velodyne/gazebo_gt/odometry",
+      "nav_msgs/Odometry"
+    ],
+    [
+      "/jackal/velodyne/gazebo_gt/transform",
+      "geometry_msgs/TransformStamped"
+    ],
+    [
+      "/joint_states",
+      "sensor_msgs/JointState"
+    ],
+    [
+      "/jackal_velocity_controller/odom",
+      "nav_msgs/Odometry"
+    ],
+    [
+      "/jackal_velocity_controller/parameter_descriptions",
+      "dynamic_reconfigure/ConfigDescription"
+    ],
+    [
+      "/jackal_velocity_controller/parameter_updates",
+      "dynamic_reconfigure/Config"
+    ],
+    [
+      "/laser_odom_init",
+      "nav_msgs/Odometry"
+    ],
+    [
+      "/registered_point_cloud",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/dwz_scan_cloud",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/sensor_to_world/odometry",
+      "nav_msgs/Odometry"
+    ],
+    [
+      "/base_link/odometry",
+      "nav_msgs/Odometry"
+    ],
+    [
+      "/path_execution_node/local_path",
+      "nav_msgs/Path"
+    ],
+    [
+      "/path_execution_node/way_pose",
+      "geometry_msgs/PoseStamped"
+    ],
+    [
+      "/path_execution_node/stop_move",
+      "std_msgs/Bool"
+    ],
+    [
+      "/path_execution_node/occupancy_map",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/path_execution_node/inflate_map",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/path_execution_node/executed_path",
+      "nav_msgs/Path"
+    ],
+    [
+      "/path_execution_node/path_list",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/path_execution_node/local_smooth_path",
+      "visualization_msgs/Marker"
+    ],
+    [
+      "/path_execution_node/look_ahead_goal",
+      "geometry_msgs/PointStamped"
+    ],
+    [
+      "/path_execution_node/vehicle_execute/result",
+      "control_planner_interface/VehicleExecuteActionResult"
+    ],
+    [
+      "/path_execution_node/vehicle_execute/feedback",
+      "control_planner_interface/VehicleExecuteActionFeedback"
+    ],
+    [
+      "/path_execution_node/vehicle_execute/status",
+      "actionlib_msgs/GoalStatusArray"
+    ],
+    [
+      "/path_execution_node/vehicle_stop/result",
+      "control_planner_interface/VehicleExecuteActionResult"
+    ],
+    [
+      "/path_execution_node/vehicle_stop/feedback",
+      "control_planner_interface/VehicleExecuteActionFeedback"
+    ],
+    [
+      "/path_execution_node/vehicle_stop/status",
+      "actionlib_msgs/GoalStatusArray"
+    ],
+    [
+      "/terrain_map",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/path",
+      "nav_msgs/Path"
+    ],
+    [
+      "/free_paths",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/cmd_vel",
+      "geometry_msgs/Twist"
+    ],
+    [
+      "/pci_command_trajectory_vis",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/path_execution_node/vehicle_execute/goal",
+      "control_planner_interface/VehicleExecuteActionGoal"
+    ],
+    [
+      "/path_execution_node/vehicle_execute/cancel",
+      "actionlib_msgs/GoalID"
+    ],
+    [
+      "/path_execution_node/vehicle_stop/goal",
+      "control_planner_interface/VehicleExecuteActionGoal"
+    ],
+    [
+      "/path_execution_node/vehicle_stop/cancel",
+      "actionlib_msgs/GoalID"
+    ],
+    [
+      "/topo_planner_node/topo_planner/goal",
+      "control_planner_interface/ExplorerPlannerActionGoal"
+    ],
+    [
+      "/topo_planner_node/topo_planner/cancel",
+      "actionlib_msgs/GoalID"
+    ],
+    [
+      "/explorer_node/explorer_inited",
+      "std_msgs/Float64"
+    ],
+    [
+      "/explorer_node/explorer_finish",
+      "std_msgs/Float64"
+    ],
+    [
+      "/traved_distance_time",
+      "visualization_tools/TravedDistTime"
+    ],
+    [
+      "/explored_volume_time",
+      "visualization_tools/ExploredVolumeTime"
+    ],
+    [
+      "/explored_volume_traved_dist_time",
+      "visualization_tools/ExploredVolumeTravedDistTime"
+    ],
+    [
+      "/run_time",
+      "visualization_tools/IterationTime"
+    ],
+    [
+      "/exploration_data_finish",
+      "std_msgs/Bool"
+    ],
+    [
+      "/topo_planner_node/ufomap",
+      "ufomap_msgs/UFOMapStamped"
+    ],
+    [
+      "/topo_planner_node/ufomap_cloud",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/topo_planner_node/ufomap_and_frontiers",
+      "ufomap_manager/UfomapWithFrontiers"
+    ],
+    [
+      "/topo_planner_node/expand_cloud",
+      "sensor_msgs/PointCloud2"
+    ],
+    [
+      "/topo_planner_node/local_frontier_marker",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/global_frontier_marker",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/polygon",
+      "geometry_msgs/PolygonStamped"
+    ],
+    [
+      "/topo_planner_node/gird_map_2d",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/repre_points_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/frontiers_viewpoints_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/topo_graph_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/global_topo_grid",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/my_topo_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/my_unknown_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/my_grid_src_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/my_skeleton_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/my_full_skeleton_markers",
+      "visualization_msgs/MarkerArray"
+    ],
+    [
+      "/topo_planner_node/topo_planner_msgs",
+      "control_planner_interface/PlannerMsgs"
+    ],
+    [
+      "/topo_planner_node/iteration_time",
+      "visualization_tools/IterationTime"
+    ],
+    [
+      "/topo_planner_node/topo_planner/result",
+      "control_planner_interface/ExplorerPlannerActionResult"
+    ],
+    [
+      "/topo_planner_node/topo_planner/feedback",
+      "control_planner_interface/ExplorerPlannerActionFeedback"
+    ],
+    [
+      "/topo_planner_node/topo_planner/status",
+      "actionlib_msgs/GoalStatusArray"
+    ]
+  ],
+  "node_health": {
+    "/gazebo": true,
+    "/topo_planner_node": true,
+    "/explorer_node": true,
+    "/path_execution_node": true,
+    "/localPlanner": true,
+    "/pathFollower": true,
+    "/exploration_data": true
+  },
+  "checks": {
+    "required_nodes_alive": true,
+    "laser_points": true,
+    "odometry": true,
+    "robot_moves": true,
+    "velocity_commands": true,
+    "local_paths": true,
+    "exploration_plans": true,
+    "map_exploration_metrics": true,
+    "clock_advances": true
+  },
+  "passed": true
+}

@@ -1,0 +1,182 @@
+{
+  "passed": true,
+  "checks": {
+    "enabled_displays_stable_ok": true,
+    "status_stable_seconds": true,
+    "all_robot_links_have_tf": true,
+    "sensor_link_retained_in_gazebo": true,
+    "motion_planning_regression": true,
+    "topo_map_real_messages": true,
+    "topo_map_no_invalid_add": true,
+    "topo_map_empty_categories_cleared": true,
+    "grid_map_real_messages": true,
+    "grid_map_no_invalid_add": true,
+    "grid_map_empty_categories_cleared": true
+  },
+  "rviz_status_ok": {
+    "RobotModel": true,
+    "topo_map": true,
+    "grid_map": true
+  },
+  "stable_samples": 10,
+  "stable_seconds": 17.699310779571533,
+  "last_rviz_status": {
+    "unix_time": 1793002696.3987415,
+    "displays": {
+      "RobotModel": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "URDF",
+                "value": "URDF parsed OK",
+                "children": []
+              },
+              {
+                "name": "base_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "chassis_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_fender_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_left_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_right_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "imu_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/VLP_16",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/VLP_16_base_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/gazebo_gt/odometry_sensor_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "mid_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "navsat_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_fender_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_left_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_right_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "topo_map": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "Topic",
+                "value": "OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "grid_map": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "Topic",
+                "value": "OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "markers": {
+    "topo_map": {
+      "messages": 263,
+      "markers": 2104,
+      "empty_add": 0,
+      "delete": 526,
+      "invalid_floats": 0,
+      "odd_line_lists": 0,
+      "nonempty_add": 1578,
+      "examples": []
+    },
+    "grid_map": {
+      "messages": 254,
+      "markers": 1270,
+      "empty_add": 0,
+      "delete": 254,
+      "invalid_floats": 0,
+      "odd_line_lists": 0,
+      "nonempty_add": 1016,
+      "examples": []
+    }
+  },
+  "robot_link_count": 16,
+  "runtime_seconds": 60.174680956999964,
+  "distance_m": 69.37360553574104,
+  "successful_nonempty_plans": 256
+}

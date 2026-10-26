@@ -1,3 +1,27 @@
 .vscode
 .idea
 files/exploration_data/*.txt
+
+# Local environments, generated products, and credentials
+/build/
+/devel/
+/install/
+/logs/
+/downloads/
+/models/
+/wsl/
+/backups/
+**/__pycache__/
+*.py[cod]
+*.vhd
+*.vhdx
+*.iso
+*.tar
+*.tar.gz
+*.zip
+*.bag
+*.db3
+.env
+.env.*
+*.pem
+*.key

@@ -1,0 +1,34 @@
+{
+  "robot_links": [
+    "front_left_wheel_link",
+    "front_right_wheel_link",
+    "rear_left_wheel_link",
+    "rear_right_wheel_link",
+    "base_link",
+    "chassis_link",
+    "front_fender_link",
+    "rear_fender_link",
+    "imu_link",
+    "navsat_link",
+    "mid_mount",
+    "rear_mount",
+    "front_mount",
+    "jackal/velodyne/gazebo_gt/odometry_sensor_link",
+    "jackal/velodyne/VLP_16_base_link",
+    "jackal/velodyne/VLP_16"
+  ],
+  "missing_world_transforms": [],
+  "virtual_joint_type": "fixed",
+  "sensor_mount_translation": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "sensor_mount_rotation": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "passed": true
+}

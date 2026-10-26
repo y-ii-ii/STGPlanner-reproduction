@@ -68,6 +68,10 @@ float joySpeed = 0;
 float joySpeedRaw = 0;
 float joyYaw = 0;
 int safetyStop = 0;
+bool pathExecutionStop = false;
+void pathExecutionStopHandler(const std_msgs::Bool::ConstPtr &stop) {
+    pathExecutionStop = stop->data;
+}
 
 float vehicleX = 0;
 float vehicleY = 0;
@@ -234,6 +238,7 @@ int main(int argc, char **argv) {
     ros::Subscriber subSpeed = nh.subscribe<std_msgs::Float32>("/speed", 5, speedHandler);
 
     ros::Subscriber subStop = nh.subscribe<std_msgs::Int8>("/stop", 5, stopHandler);
+    ros::Subscriber subExecutionStop = nh.subscribe<std_msgs::Bool>("/path_execution_node/stop_move", 1, pathExecutionStopHandler);
 
     ros::Subscriber subSuspend = nh.subscribe<std_msgs::Bool>("/suspend", 5, suspendHandler);
 
@@ -385,6 +390,10 @@ int main(int argc, char **argv) {
 
             if (safetyStop >= 1) vehicleSpeed = 0;
             if (safetyStop >= 2) vehicleYawRate = 0;
+            if (pathExecutionStop) {
+                vehicleSpeed = 0;
+                vehicleYawRate = 0;
+            }
 
             pubSkipCount--;
             if (pubSkipCount < 0) {

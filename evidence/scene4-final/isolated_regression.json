@@ -1,0 +1,10 @@
+{
+"passed":true,
+"succeeded_path":true,
+"aborted_state_preserved":true,
+"aborted_seconds":0.0203637,
+"completion_cancelled":true,
+"completion_seconds":0.253712,
+"real_timeout":true,
+"timeout_seconds":60.005
+}

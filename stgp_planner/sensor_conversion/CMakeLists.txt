@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
         std_msgs
         tf
         tf2_ros
+        tf2_sensor_msgs
         )
 
 ## System dependencies are found with CMake's conventions
@@ -110,8 +111,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES simulation
-        CATKIN_DEPENDS message_filters geometry_msgs  nav_msgs pcl_ros roscpp sensor_msgs std_msgs tf
+        LIBRARIES slam_output
+        CATKIN_DEPENDS message_filters geometry_msgs  nav_msgs pcl_ros roscpp sensor_msgs std_msgs tf tf2_ros tf2_sensor_msgs
 #          DEPENDS system_lib
 )
 

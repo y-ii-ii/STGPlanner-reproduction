@@ -1,9 +1,12 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="world" default="default"/>
+    <arg name="world" default="Scene4"/>
+    <arg name="rviz" default="true"/>
+    <arg name="plot" default="true"/>
     <include file="$(find planner)/launch/planner.launch">
         <!-- <param name="topo_planner_params" value="topo_planner_1.yaml"/> -->
         <arg name="topo_planner_params" value="topo_planner_$(arg world).yaml"/>
+        <arg name="rviz" value="$(arg rviz)"/>
     </include>
 
     <node pkg="exploration_manager" type="explorer_node" name="explorer_node" output="screen">
@@ -27,6 +30,7 @@
     <!-- statistics and data visualization -->
     <include file="$(find visualization_tools)/launch/visualization_tools.launch">
         <arg name="world" value="$(arg world)"/>
+        <arg name="plot" value="$(arg plot)"/>
     </include>
 
 

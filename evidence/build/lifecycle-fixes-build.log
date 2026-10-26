@@ -1,0 +1,63 @@
+Completion responsiveness, action diagnostics and follower stop repaired; coverage threshold remains 0.95.
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/catkin_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/catkin_ws/build
+Devel Space:        [exists] /opt/stgplanner/catkin_ws/devel
+Install Space:      [unused] /opt/stgplanner/catkin_ws/install
+Log Space:          [exists] /opt/stgplanner/catkin_ws/logs
+Source Space:       [exists] /mnt/d/STGPlanner/catkin_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        -j4
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+[build] Found 28 packages in 0.0 seconds.                                      
+[build] Package table is up to date.                                           
+Starting >>> control_planner_interface               
+Finished <<< control_planner_interface                [ 1.6 seconds ]
+Starting >>> exploration_manager                     
+Finished <<< exploration_manager                      [ 1.2 seconds ]
+Starting >>> local_planner                           
+Finished <<< local_planner                            [ 19.2 seconds ]
+Starting >>> path_execution                          
+Finished <<< path_execution                           [ 1 minute and 8.4 seconds ]
+Starting >>> visualization_tools                     
+Finished <<< visualization_tools                      [ 0.9 seconds ]
+
+[build] Successful packages:
+
+ [Successful] control_planner_interface [Successful] exploration_manager      
+ [   Ignored] jackal_control            [   Ignored] jackal_description       
+ [   Ignored] jackal_gazebo             [   Ignored] jackal_msgs              
+ [   Ignored] jackal_simulator          [Successful] local_planner            
+ [   Ignored] mav_msgs                  [   Ignored] nmea_msgs                
+ [Successful] path_execution            [   Ignored] planner                  
+ [   Ignored] rosserial_msgs            [   Ignored] rosserial_server         
+ [   Ignored] rotors_comm               [   Ignored] rotors_control           
+ [   Ignored] rotors_gazebo_plugins     [   Ignored] sensor_conversion        
+ [   Ignored] terrain_analysis          [   Ignored] traversability_analysis  
+ [   Ignored] ufomap                    [   Ignored] ufomap_manager           
+ [   Ignored] ufomap_mapping            [   Ignored] ufomap_msgs              
+ [   Ignored] ufomap_ros                [   Ignored] ufomap_rviz_plugins      
+ [   Ignored] ufomap_srvs               [Successful] visualization_tools      
+
+[build] Summary: All 5 packages succeeded!
+[build] Ignored: 23 packages were skipped or are skiplisted.
+[build] Warnings: None.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 1 minute and 33.4 seconds total.

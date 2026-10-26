@@ -1,0 +1,33 @@
+{
+  "paper": {
+    "exploration_seconds": 779.8,
+    "exploration_std_seconds": 17.2,
+    "distance_m": 1194.0,
+    "distance_std_m": 12.9,
+    "runtime_seconds": 0.015,
+    "speed_mps": 1.53,
+    "trials": 5
+  },
+  "local": {
+    "wall_exploration_seconds": 968.9892029762268,
+    "ros_sim_exploration_seconds": 776.6730000000007,
+    "ros_sim_start": 15272.588,
+    "ros_sim_end": 16049.261,
+    "real_time_factor_during_exploration": 0.8015290548279262,
+    "reported_distance_m": 1214.9679724518317,
+    "odometry_window_distance_m": 1217.2512197398596,
+    "mean_internal_iteration_seconds": 0.06254630380613363,
+    "iteration_records": 3652,
+    "mean_speed_from_wall_mps": 1.2538508878324826,
+    "mean_speed_from_sim_mps": 1.564323688929357,
+    "final_trial_only": true
+  },
+  "reference_deltas": {
+    "wall_time_percent": 24.261246855120145,
+    "sim_time_percent": -0.4010002564759252,
+    "distance_percent": 1.7561115956307827,
+    "internal_runtime_ratio": 4.169753587075576
+  },
+  "strict_paper_replication": false,
+  "paper_url": "https://arxiv.org/html/2412.13664v1#S4.T1"
+}

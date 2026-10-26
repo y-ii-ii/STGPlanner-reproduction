@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <launch>
-    <arg name="world" default="default"/>
+    <arg name="world" default="Scene4"/>
+    <arg name="plot" default="true"/>
 
     <node pkg="visualization_tools" type="exploration_data" name="exploration_data" output="log">
         <remap from="/explorer_inited" to="/explorer_node/explorer_inited"/>
@@ -13,6 +14,6 @@
 
     </node>
 
-    <node pkg="visualization_tools" type="realTimePlot.py" name="realTimePlot" output="log" respawn="true"/>
+    <node if="$(arg plot)" pkg="visualization_tools" type="realTimePlot.py" name="realTimePlot" output="log" respawn="true"/>
 </launch>
 

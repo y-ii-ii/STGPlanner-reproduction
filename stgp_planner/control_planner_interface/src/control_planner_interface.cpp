@@ -74,20 +74,47 @@ namespace interface {
         pci_manager_->executePath(path_segments,modified_path);
     }
 
-    bool ControlPlannerInterface::callForPlanner(const int &iteration_id,  std::vector<control_planner_interface::Path> &path_segments) {
+    bool ControlPlannerInterface::callForPlanner(const int &iteration_id,
+            std::vector<control_planner_interface::Path> &path_segments,
+            const std::function<bool()> &stop_requested) {
         control_planner_interface::ExplorerPlannerGoal goal;
         goal.iteration_id = iteration_id;
+        path_segments.clear();
         ROS_INFO("call for the path to explore..");
-        if (planner_client_.sendGoalAndWait(goal, ros::Duration(60.0), ros::Duration(10.0)) ==
-            actionlib::SimpleClientGoalState::SUCCEEDED) {
-            ROS_INFO("the path get.");
-            path_segments = planner_client_.getResult()->paths;
-            return true;
-        } else {
-            ROS_INFO("planner timeout.");
-            planner_client_.cancelAllGoals();
-            return false;
+        planner_client_.sendGoal(goal);
+        const ros::WallTime started = ros::WallTime::now();
+        // Pump completion callbacks while waiting. A normal coverage stop can
+        // close the planner before its active action sends a result.
+        while (ros::ok()) {
+            ros::spinOnce();
+            if (stop_requested && stop_requested()) {
+                planner_client_.cancelGoal();
+                ROS_INFO("Planner request %d interrupted by exploration completion signal after %.3f wall seconds.",
+                         iteration_id, (ros::WallTime::now() - started).toSec());
+                return false;
+            }
+            const auto state = planner_client_.getState();
+            if (state.isDone()) {
+                const auto result = planner_client_.getResult();
+                if (state == actionlib::SimpleClientGoalState::SUCCEEDED && result) {
+                    path_segments = result->paths;
+                    ROS_INFO("the path get.");
+                    return true;
+                }
+                ROS_WARN("Planner request %d ended with state %s: %s", iteration_id,
+                         state.toString().c_str(), state.getText().c_str());
+                return false;
+            }
+            if ((ros::WallTime::now() - started).toSec() >= 60.0) {
+                planner_client_.cancelGoal();
+                ROS_ERROR("Planner request %d timed out after 60 wall seconds (state %s).",
+                          iteration_id, state.toString().c_str());
+                return false;
+            }
+            ros::WallDuration(0.02).sleep();
         }
+        planner_client_.cancelGoal();
+        return false;
     }
 
     void ControlPlannerInterface::stopMove() {

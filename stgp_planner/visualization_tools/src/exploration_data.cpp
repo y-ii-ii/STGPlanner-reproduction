@@ -164,7 +164,9 @@ void exploration_data::pubExplorationData(const ros::TimerEvent &event)
             std_msgs::Bool explore_finish;
             explore_finish.data = true;
             explore_finish_pub.publish(explore_finish);
-            ROS_INFO("max volume threshold is reach...");
+            ros::param::set(ros::this_node::getName() + "/finish_reason", "coverage_threshold");
+            ROS_INFO("EXPLORATION_STOP reason=coverage_threshold metric=%.6f map_area=%.6f threshold=%.6f ratio=%.6f",
+                     known_space_volume, max_volume, 0.95 * max_volume, known_space_volume / max_volume);
         }
 
         if (time_second - system_init_time > max_time)
@@ -173,7 +175,8 @@ void exploration_data::pubExplorationData(const ros::TimerEvent &event)
             std_msgs::Bool explore_finish;
             explore_finish.data = true;
             explore_finish_pub.publish(explore_finish);
-            ROS_INFO("max time is reach...");
+            ros::param::set(ros::this_node::getName() + "/finish_reason", "time_limit");
+            ROS_WARN("EXPLORATION_STOP reason=time_limit elapsed=%.6f limit=%.6f", time_second - system_init_time, max_time);
         }
 
         explorated_volume_traved_dist_time_pub.publish(exploration_data);

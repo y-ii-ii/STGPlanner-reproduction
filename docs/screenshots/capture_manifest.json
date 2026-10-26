@@ -1,0 +1,167 @@
+[
+  {
+    "file": "01_gazebo_scene4.jpg",
+    "window": "Gazebo (STGPlanner-Ubuntu20)",
+    "capturedAt": "2026-10-26T07:19:33.041Z",
+    "width": 1920,
+    "height": 1032,
+    "format": "JPEG (native Computer Use capture)"
+  },
+  {
+    "file": "02_rviz_mapping.jpg",
+    "window": "topo_planner.rviz* - RViz (STGPlanner-Ubuntu20)",
+    "capturedAt": "2026-10-26T07:30:15.049Z",
+    "width": 1674,
+    "height": 995,
+    "format": "JPEG (native Computer Use capture)"
+  },
+  {
+    "file": "03_exploration_metrics.jpg",
+    "window": "Figure 1 (STGPlanner-Ubuntu20)",
+    "capturedAt": "2026-10-26T07:30:53.460Z",
+    "width": 1076,
+    "height": 890,
+    "format": "JPEG (native Computer Use capture)"
+  },
+  {
+    "unix_time": 1793008692.4303534,
+    "window_title": "STGPlanner RViz Diagnostic Monitor",
+    "width": 1600,
+    "height": 900,
+    "method": "Live RViz Qt controls plus OGRE framebuffer captured in the same application callback; no generated content",
+    "status": {
+      "RobotModel": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "URDF",
+                "value": "URDF parsed OK",
+                "children": []
+              },
+              {
+                "name": "base_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "chassis_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_fender_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_left_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "front_right_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "imu_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/VLP_16",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/VLP_16_base_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "jackal/velodyne/gazebo_gt/odometry_sensor_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "mid_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "navsat_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_fender_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_left_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_mount",
+                "value": "Transform OK",
+                "children": []
+              },
+              {
+                "name": "rear_right_wheel_link",
+                "value": "Transform OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "topo_map": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "Topic",
+                "value": "OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "grid_map": {
+        "enabled": true,
+        "status": [
+          {
+            "name": "Status: Ok",
+            "value": "",
+            "children": [
+              {
+                "name": "Topic",
+                "value": "OK",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "file": "04_rviz_diagnostics_fixed.png",
+    "capturedAt": "2026-10-26T09:58:12.430353+00:00",
+    "sha256": "48f17581531c19f6090d43544b671dd6f8bce570e835ee52e696573069bf3225",
+    "format": "PNG; live Qt controls and OGRE framebuffer from the completed long-test run"
+  }
+]
