@@ -1,0 +1,11 @@
+--- a/src/tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp
++++ b/src/tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp
+@@ -713,7 +713,7 @@
+   nav_msgs::Path full_path = pd_.exploration_path_.GetPath();
+   full_path.header.frame_id = "map";
+   full_path.header.stamp = ros::Time::now();
+-  // exploration_path_publisher_.publish(full_path);
++  exploration_path_publisher_.publish(full_path);
+   pd_.exploration_path_.GetVisualizationCloud(pd_.exploration_path_cloud_->cloud_);
+   pd_.exploration_path_cloud_->Publish();
+   // pd_.planning_env_->PublishStackedCloud();

@@ -1,0 +1,13 @@
+--- a/gbplanner/src/rrg.cpp
++++ b/gbplanner/src/rrg.cpp
+@@ -9,6 +9,10 @@
+ 
+ namespace explorer {
+ 
++
++// BENCHMARK_DIAGNOSTICS: enable existing native graph/ground diagnostics.
++#undef global_verbosity
++#define global_verbosity Verbosity::DEBUG
+ Rrg::Rrg(const ros::NodeHandle& nh, const ros::NodeHandle& nh_private)
+     : nh_(nh), nh_private_(nh_private) {
+   map_manager_ =

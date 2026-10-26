@@ -16,3 +16,6 @@
 /deployment/windows/*.cmd text eol=crlf
 /deployment/windows/*.ps1 text eol=crlf
 /deployment/*.ps1 text eol=crlf
+/benchmarks/** text=auto eol=lf
+/benchmarks/patches/*.patch whitespace=-blank-at-eol
+/stgp_planner/robot_move/path_execution/src/path_execution.cpp text eol=lf

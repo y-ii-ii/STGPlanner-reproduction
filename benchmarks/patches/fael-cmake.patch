@@ -1,0 +1,11 @@
+--- a/fael_planner/planner/CMakeLists.txt
++++ b/fael_planner/planner/CMakeLists.txt
+@@ -23,7 +23,7 @@
+         ufomap_manager
+         control_planner_interface
+         traversability_analysis
+-#        visualization_tools #这个包里没有库
++        visualization_tools
+         )
+ 
+ ## System dependencies are found with CMake's conventions

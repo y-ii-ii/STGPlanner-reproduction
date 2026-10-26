@@ -1,0 +1,33 @@
+--- a/gbplanner/src/gbplanner.cpp
++++ b/gbplanner/src/gbplanner.cpp
+@@ -1,6 +1,9 @@
+ #include "gbplanner/gbplanner.h"
+ 
+ #include <nav_msgs/Path.h>
++#include <std_msgs/Float64.h>
++#include <chrono>
++
+ 
+ namespace explorer {
+ 
+@@ -172,6 +175,20 @@
+ bool Gbplanner::plannerServiceCallback(
+     planner_msgs::planner_srv::Request& req,
+     planner_msgs::planner_srv::Response& res) {
++  // Measurement only: includes build, gain evaluation and returned path.
++  struct BenchmarkRuntimeScope {
++    ros::Publisher publisher;
++    std::chrono::steady_clock::time_point start;
++    BenchmarkRuntimeScope(ros::NodeHandle& nh) : start(std::chrono::steady_clock::now()) {
++      static ros::Publisher pub = nh.advertise<std_msgs::Float64>("/benchmark/native_runtime", 100);
++      publisher = pub;
++    }
++    ~BenchmarkRuntimeScope() {
++      std_msgs::Float64 value;
++      value.data = std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();
++      publisher.publish(value);
++    }
++  } runtime_scope(nh_);
+   // Extract setting from the request.
+   rrg_->setGlobalFrame(req.header.frame_id);
+   rrg_->setBoundMode(static_cast<BoundModeType>(req.bound_mode));

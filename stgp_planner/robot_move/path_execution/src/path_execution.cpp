@@ -1,5 +1,6 @@
 
 #include "path_execution/path_execution.h"
+#include <limits>
 
 namespace path_execution {
 
@@ -483,99 +484,61 @@ namespace path_execution {
     }
 
     bool PathExecution::MYlookAheadPointControlLoop() {
-        loop_num_++;
-        ROS_INFO("start control loop %d...", loop_num_);
-        ROS_INFO("the will be executed point num of the interpolated path is %zu", global_path_to_follow_.size());
+        if (global_path_to_follow_.empty()) return true;
+        if (control_freq_ <= 0.0) return false;
+        ros::Rate rate(control_freq_);
+        for (std::size_t segment = 0; segment < path_segments_.size(); ++segment) {
+            const Path& path = path_segments_[segment];
+            if (path.empty()) continue;
+            std::size_t cursor = 0;
+            while (ros::ok()) {
+                if (execute_server_.isPreemptRequested()) return false;
+                const auto& end = path.back().position;
+                double remaining = std::hypot(end.x-current_pose_.position.x,
+                                              end.y-current_pose_.position.y);
+                if (cursor+1 >= path.size() && remaining < reach_dist_thres_) break;
 
-        if (global_path_to_follow_.empty())
-            return true;
-
-        if (control_freq_ == 0.0)
-            return false;
-        ros::Rate r(control_freq_);
-
-        int ind = 0;
-        current_waypose_id_ = 0;
-        while (ind < path_segments_.size()) {
-            if (execute_server_.isPreemptRequested()) {
-                return false;
-            }
-
-            Path current_path = path_segments_[ind];
-            int current_waypoint_id = 0;
-            occupancy_map_mutex_.lock();
-            for (int i = 1; i < current_path.size(); ++i){
-                if (true) {
-                    std::vector<Point2D> path_2d;
-                    for (auto &pose : current_path) {
-                        path_2d.emplace_back(Point2D{pose.position.x, pose.position.y});
-                    }
-                    if (path_2d.size() > 1) {
-                        ROS_INFO("get local current_path to the point %d currently ", i);
-                        current_waypoint_id = i;
-
-                        geometry_msgs::PoseStamped way_pose;
-                        way_pose.header.frame_id = global_frame_;
-                        way_pose.header.stamp = ros::Time::now();
-                        way_pose.pose = current_path[i];
-                        way_pose_pub_.publish(way_pose);
-
-                        geometry_msgs::Pose end_pose;
-                        end_pose.position.x = path_2d.back().x();
-                        end_pose.position.y = path_2d.back().y();
-                        end_pose.orientation.w = 1.0;
-                        Path path_msg = generatePath(path_2d, end_pose);
-                        publishPath(path_msg, local_path_pub_);
-
-                        Point2D current_position(current_pose_.position.x, current_pose_.position.y);
-                        geometry_msgs::PointStamped look_ahead_point;
-                        look_ahead_point.header.frame_id = global_frame_;
-                        look_ahead_point.header.stamp = ros::Time::now();
-                        Point2D look_ahead_goal;
-                        if (path_2d.size() > 2) {
-                            for (int j = i; j <= path_2d.size()-1; ++j) {
-                                if ( pow(path_2d[j].x() - current_position.x(), 2) + pow(path_2d[j].y() - current_position.y(), 2) <= 1) {
-                                    look_ahead_goal = path_2d[j+1];
-                                }
-                                else {
-                                    look_ahead_goal = path_2d[j];
-                                    break;
-                                }
-                            }
-                        }
-                        else {
-                            look_ahead_goal = path_2d[1];
-                        }
-                        
-
-                        look_ahead_point.point.x = look_ahead_goal.x();
-                        look_ahead_point.point.y = look_ahead_goal.y();
-                        look_ahead_point.point.z = current_pose_.position.z;
-                        look_ahead_goal_pub_.publish(look_ahead_point);
-                        break;
-                    }
+                // Advance along this path instead of resetting to waypoint 1.
+                // Restrict the search to nearby arc length so crossing paths do
+                // not jump to a distant part of a tour.
+                std::size_t nearest = cursor;
+                double best = std::numeric_limits<double>::infinity();
+                double searched = 0.0;
+                for (std::size_t i=cursor; i<path.size(); ++i) {
+                    if (i>cursor) searched += std::hypot(path[i].position.x-path[i-1].position.x,
+                                                        path[i].position.y-path[i-1].position.y);
+                    if (searched>3.0 && i>cursor+1) break;
+                    double distance=std::hypot(path[i].position.x-current_pose_.position.x,
+                                               path[i].position.y-current_pose_.position.y);
+                    if (distance<best) {best=distance;nearest=i;}
                 }
-            }
-            occupancy_map_mutex_.unlock();
-
-            ros::spinOnce();
-            r.sleep();
-
-            if (current_waypoint_id == current_path.size() - 1) {
-                double dist = sqrt(
-                        std::pow(current_path[current_waypoint_id].position.x - current_pose_.position.x, 2) +
-                        std::pow(current_path[current_waypoint_id].position.y - current_pose_.position.y, 2));
-
-                if (dist < reach_dist_thres_) {
-                    if (ind == (path_segments_.size() - 1)) {
-                        return true;
-                    } else {
-                        ind++;
-                    }
+                cursor=nearest;
+                if (cursor+1==path.size() && remaining<reach_dist_thres_) break;
+                std::size_t target=cursor;
+                double ahead=0.0;
+                while (target+1<path.size() && ahead<1.0) {
+                    ahead+=std::hypot(path[target+1].position.x-path[target].position.x,
+                                     path[target+1].position.y-path[target].position.y);
+                    ++target;
                 }
+                if (target+1==path.size() && remaining<reach_dist_thres_) break;
+                geometry_msgs::PoseStamped way;
+                way.header.frame_id=global_frame_;
+                way.header.stamp=ros::Time::now();
+                way.pose=path[target];
+                way_pose_pub_.publish(way);
+                geometry_msgs::PointStamped lookahead;
+                lookahead.header=way.header;
+                lookahead.point=path[target].position;
+                lookahead.point.z=current_pose_.position.z;
+                look_ahead_goal_pub_.publish(lookahead);
+                Path suffix(path.begin()+cursor,path.end());
+                publishPath(suffix,local_path_pub_);
+                ros::spinOnce();
+                rate.sleep();
             }
+            if (!ros::ok()) return false;
         }
-
         return true;
     }
 

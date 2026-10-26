@@ -25,3 +25,7 @@ files/exploration_data/*.txt
 .env.*
 *.pem
 *.key
+
+/benchmarks/sources/
+/benchmarks/logs/
+/benchmarks/results/
