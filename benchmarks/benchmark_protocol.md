@@ -14,6 +14,7 @@
 ## 控制接口
 
 - STGPlanner/FAEL 使用原生 ExplorerPlanner action 返回的 Path[]，按原探索管理器的0.1s间隔请求新规划；原生路径原样传给公共控制器。
+- 协议修订2使用底层 ActionClient 的独立目标句柄；既保留上述目标替换策略，也等待通信状态 DONE，保证 result 已到达后才读取结果。修订1的单目标客户端曾出现迟到回调和状态早于结果的问题，其 FAEL 记录作为诊断对照保留，不混入最终正式批次。
 - TARE 使用原生 GetLookAheadPoint/PublishWaypoint 选出的 /way_point，转成从当前车体位置到该目标的平面路径。保留原生约1Hz的目标更新；不将全局回路的任意一点当作新目标。额外打开 exploration_path 发布只用于诊断。
 - GBP2 调用原生 /gbplanner 服务，执行返回路径后请求下一段；平面路径按0.2m插值，并把LiDAR中心高度转换到公共车体控制平面。90s墙钟时间的单段执行保护会记录事件，避免控制卡住后无限等待；触发情况必须在报告披露。
 - 坐标系统一 world；TARE 的 registered cloud 和 terrain cloud 通过实际TF转到 world。GBP2输入原始传感器坐标点云，保留射线起点，避免错误地从世界原点积分地图。

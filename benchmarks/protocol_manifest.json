@@ -1,12 +1,12 @@
 {
-  "created_utc": "2026-10-26T15:53:40.992961+00:00",
+  "created_utc": "2026-10-26T16:14:44.356782+00:00",
   "upstream_reproduction_baseline": "dfc712982891f29c266083d7efad72ad48e730a2",
-  "protocol_revision": 1,
+  "protocol_revision": 2,
   "files": {
     "benchmarks/benchmark_cloud_bridge.cpp": "5f4d3cdacc4bbd50af49f9490539bae284f287061f02f33b59db20d054f87d88",
     "benchmarks/benchmark_coverage.cpp": "708626c9f740d58d0f20467b3a1b2c5dbf5f7c9527cd441cfcd98d6cbb0f2c04",
-    "benchmarks/benchmark_protocol.md": "1cbf9cd0b1466cf6a63a66fae1056295dacc0820aa4b61b9f2476aea65058e31",
-    "benchmarks/benchmark_trial.py": "4c648e63e4f06eb2badf0efd94842fa79f5c415479b459f8c227554a8320249b",
+    "benchmarks/benchmark_protocol.md": "4da7afc31a1af38065883225e396205b48fd27c8a36882d75d77a07c5093d5bf",
+    "benchmarks/benchmark_trial.py": "24e1842edb41e8655dc23455aeaf78c49b58fab4c37ee2ddb272467ed672068e",
     "benchmarks/build_all_baselines.sh": "5981ef7849e42a4f059bb390feecb7562ff46017ab5c690d46bb940ee5bc4e86",
     "benchmarks/build_baseline.sh": "bc28c8b320d75e06c818f93b2c48350182ad83ea1a28a6d42a3a8b500f94537b",
     "benchmarks/build_cloud_bridge.sh": "c0f6e07796290185fa3b99442d1e8e46adbfdc579d985773dbdd08ab77ac04b4",
@@ -31,7 +31,7 @@
     "benchmarks/patches/gbp2-runtime-measurement.patch": "662c9e6c74f0179ed2dcbc42ce9a3e4458e0c0f214d8e66470fd0d59d83a1fbf",
     "benchmarks/patches/tare-path-diagnostic.patch": "fd28834465e3ebe3b8626314ec6e7a18a1b8f0cd29c789800bd773f58ac70aed",
     "benchmarks/prepare_benchmark.py": "0fc334360a81593f67821191bc8dbe8413ff2f0cb1ac46637eac85cdb8a70067",
-    "benchmarks/Run-Scene4Suite.ps1": "f561040463ff80adc66129dd0c65f9a33621ef45ae274b1eee7d2c24634e3507",
+    "benchmarks/Run-Scene4Suite.ps1": "0edfdbbcaf545e465a21ac48573e973ba5aa3223d5a88963a564a15d8a1ea521",
     "benchmarks/run_benchmark.sh": "6c3701b921b6755f287dc034c88c954cb57be9c271fce4d6668382711cb7ff53",
     "benchmarks/sources.lock.json": "6c9867d8e228493e5dba029b612117b73f19e4d64d7ef9c330a627501fe871f4",
     "stgp_planner/robot_move/path_execution/src/path_execution.cpp": "519167178f8d4a824dc0743e9ff77a8075dcce93c5ff85134d89b0ea4f7395c1"

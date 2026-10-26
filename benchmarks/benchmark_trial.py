@@ -9,6 +9,7 @@ vehicle action used by STGPlanner and FAEL.
 import argparse, collections, copy, csv, json, math, os, signal, subprocess, threading, time, traceback
 from pathlib import Path
 import actionlib, rosgraph, rospy, rosnode, rosparam
+from actionlib.action_client import ActionClient, CommState
 from std_msgs.msg import Bool, Float32, Float64
 from nav_msgs.msg import Odometry, Path as NavPath
 from sensor_msgs.msg import PointCloud2
@@ -19,6 +20,24 @@ from visualization_tools.msg import IterationTime
 from planner_msgs.srv import planner_srv, planner_srvRequest
 
 ROOT=Path('/mnt/d/STGPlanner/benchmarks')
+class GoalClient:
+    """Poll a specific ActionClient handle; terminal means its result arrived.
+
+    SimpleActionClient's shared transition callback can receive a late update
+    from a replaced goal. Also, /status can precede /result. Handle-local polling
+    keeps the original replacement policy without mislabelling either event.
+    """
+    def __init__(self,namespace,spec):self.client=ActionClient(namespace,spec);self.handle=None
+    def wait_for_server(self,timeout):return self.client.wait_for_server(timeout)
+    def send_goal(self,goal):self.handle=self.client.send_goal(goal)
+    def get_state(self):
+        h=self.handle
+        if h is None:return 9
+        state=h.get_goal_status()
+        if h.get_comm_state()!=CommState.DONE and state in [2,3,4,5,8,9]:return 1
+        return state
+    def get_result(self):return self.handle.get_result() if self.handle else None
+    def cancel_all_goals(self):self.client.cancel_all_goals()
 WS={'stgp':'/opt/stgplanner/catkin_ws','fael':'/opt/stgplanner/benchmarks/fael_ws','tare':'/opt/stgplanner/benchmarks/tare_ws','gbp2':'/opt/stgplanner/benchmarks/gbp2_ws'}
 parser=argparse.ArgumentParser();parser.add_argument('method',choices=WS);parser.add_argument('--name',required=True);parser.add_argument('--limit',type=float,default=1600);parser.add_argument('--pilot',action='store_true')
 a=parser.parse_args();out=ROOT/'results'/a.name;out.mkdir(parents=True,exist_ok=False)
@@ -123,7 +142,7 @@ def ground_path(poses):
 def driver():
     try:
         if a.method in ['stgp','fael']:
-            planner=actionlib.SimpleActionClient('/topo_planner_node/topo_planner',ExplorerPlannerAction)
+            planner=GoalClient('/topo_planner_node/topo_planner',ExplorerPlannerAction)
             if not planner.wait_for_server(rospy.Duration(60)):finish('planner_unavailable');return
             i=0
             while not finished.is_set():
@@ -184,7 +203,7 @@ try:
     rospy.Subscriber('/base_link/odometry',Odometry,odom,queue_size=100)
     rospy.Subscriber('/cmd_vel',Twist,cmd,queue_size=10)
     if not wait_wall(lambda:pose is not None,90):raise RuntimeError('no base odometry')
-    motion=actionlib.SimpleActionClient('/path_execution_node/vehicle_execute',VehicleExecuteAction);stop=actionlib.SimpleActionClient('/path_execution_node/vehicle_stop',VehicleExecuteAction)
+    motion=GoalClient('/path_execution_node/vehicle_execute',VehicleExecuteAction);stop=GoalClient('/path_execution_node/vehicle_stop',VehicleExecuteAction)
     if not motion.wait_for_server(rospy.Duration(60)) or not stop.wait_for_server(rospy.Duration(60)):raise RuntimeError('no common controller')
     launch('cloud_bridge','/opt/stgplanner/benchmarks/bin/benchmark_cloud_bridge')
     for params,ns in rosparam.load_file(str(ROOT/'config/coverage.yaml'),default_namespace='/benchmark_coverage'):rosparam.upload_params(ns,params)
