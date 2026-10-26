@@ -15,3 +15,4 @@
 /baseline_manifest.json text eol=lf
 /deployment/windows/*.cmd text eol=crlf
 /deployment/windows/*.ps1 text eol=crlf
+/deployment/*.ps1 text eol=crlf
