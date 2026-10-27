@@ -797,13 +797,21 @@
     },
     "codex/outputs/STGPlanner项目迁移说明.md": {
       "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner项目迁移说明.md",
-      "sha256": "2843e0db41843e7c7bda72d83e04b00ab0e615dcbe939e5313af002a6074c2e8",
-      "bytes": 2301
+      "sha256": "b20885e0425e796f727a9bd082eef29d2cc8c27d69883ec033f07b3cb624ef16",
+      "bytes": 2685
     },
     "codex/outputs/长时间运行验证结果.json": {
       "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\长时间运行验证结果.json",
       "sha256": "ba12707dafa6e57615b1a3b1db82deb47c17256a30915fd90c56e2375fa70963",
       "bytes": 3091
     }
-  }
+  },
+  "finalized_at": "2026-10-27T16:42:26.489923+08:00",
+  "old_thread_project_membership_verified": false,
+  "new_project_threads": {
+    "algorithm_and_long_test": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+    "reports_and_paper": "01a17c85-a03f-7170-8f21-68dd9119e2d2"
+  },
+  "project_grouping": "project",
+  "all_copy_hashes_verified": true
 }
