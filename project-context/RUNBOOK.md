@@ -62,3 +62,7 @@ AGENTS.md用于持久项目指导，官方说明：https://learn.chatgpt.com/doc
 当前只读表格生成器：codex/work/reporting/summarize_four_algorithms.py（仓库副本benchmarks/reporting/）；逐文件说明benchmarks/FILE_INDEX.md；一次性工作文件已归档，旧路径映射和SHA见codex/work/archive/2026-10-27-scene4/move_manifest.json。已部署运行入口仍在原位置。不要重跑旧prepare_formal_09/run_formal_09、旧报告/备份生成器。
 
 本阶段完成不等于全部代码问题修复或论文多次统计复现。GBP2剩余问题已登记但无自动续跑；未来恢复须明确授权、检查仿真锁与实际进程并使用全新结果目录。私有备份核验见SCENE4_STAGE_BACKUP_VERIFIED.json。
+
+## 本轮阶段收尾私有备份已验收
+
+内容提交`6fd0d05332be4571b845c85f71bbb04ed011dbe7`已推送到私有分支fix/fael-gbp2-progress。远端独立恢复克隆的622项清单SHA、412项原始证据、原生地图解压SHA及归档移动文件均核验通过；main、历史基线分支和两个标签未变。验收记录SCENE4_STAGE_BACKUP_VERIFIED.json指向此内容提交；随后仅提交验收/交接元数据，最终分支HEAD以git log和远端核对为准。GBP2继续暂停，本次未启动仿真。

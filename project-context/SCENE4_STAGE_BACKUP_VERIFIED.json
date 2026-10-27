@@ -1,0 +1,22 @@
+{
+  "verified_at": "2026-10-27T20:45:48.150759+08:00",
+  "repository": "y-ii-ii/STGPlanner-reproduction",
+  "private": true,
+  "branch": "fix/fael-gbp2-progress",
+  "remote_commit": "6fd0d05332be4571b845c85f71bbb04ed011dbe7",
+  "protected_refs_unchanged": {
+    "heads/main": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "heads/benchmark/scene4-baselines": "9dec3c45184259a0d68e3dfe066040966d807aed",
+    "tags/repro-baseline-2026-10-26": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "tags/scene4-baselines-2026-10-27": "9dec3c45184259a0d68e3dfe066040966d807aed"
+  },
+  "stage_status": "stage_complete",
+  "GBP2_followup": "paused_by_user",
+  "remote_head_matches_local": true,
+  "restored_checkout": "D:\\STGPlanner\\codex\\work\\restores\\scene4-stage-complete-20261027",
+  "restored_checkout_clean": true,
+  "restored_manifest_files": 622,
+  "restored_raw_evidence_files": 412,
+  "all_restore_checks_passed": true,
+  "new_simulation_started": false
+}

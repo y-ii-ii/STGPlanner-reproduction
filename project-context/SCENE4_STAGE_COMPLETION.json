@@ -38,5 +38,6 @@
   },
   "backup_branch": "fix/fael-gbp2-progress",
   "previous_backup_commit": "ac6927e8f41d95a406aec778e5536f6b2f529f8b",
-  "backup_verification": "本轮远端提交及恢复核验见SCENE4_STAGE_BACKUP_VERIFIED.json；未生成前不得视为本轮推送已验收"
+  "backup_verification": "内容提交6fd0d05332be4571b845c85f71bbb04ed011dbe7已通过私有性、保护引用及远端独立克隆恢复验收；见SCENE4_STAGE_BACKUP_VERIFIED.json。随后验收元数据提交的最终HEAD以git log为准。",
+  "backup_content_commit": "6fd0d05332be4571b845c85f71bbb04ed011dbe7"
 }
