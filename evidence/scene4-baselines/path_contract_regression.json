@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": {
+    "recorded_bad_plan_rejected": true,
+    "no_bad_motion_goal_sent": true,
+    "previous_motion_cancelled": true,
+    "controller_pause_published": true,
+    "valid_recorded_geometry_accepted": true,
+    "pause_released_for_valid_geometry": true
+  },
+  "source": "actual fael_stall_probe.json and formal FAEL trajectory",
+  "sent_to_real_vehicle": false
+}

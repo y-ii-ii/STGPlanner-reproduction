@@ -1,0 +1,5 @@
+{
+  "stopped_at": "2026-10-27T00:14:44.2236860+08:00",
+  "reason": "Suite intentionally stopped to fix action-client goal-handle/result ordering; preserved as protocol revision 1 diagnostic evidence",
+  "final_protocol_revision": 2
+}

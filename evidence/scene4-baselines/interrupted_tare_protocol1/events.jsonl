@@ -1,0 +1,3 @@
+{"unix": 1793031133.015743, "sim": 15250.579, "kind": "initialization_mapping_ready"}
+{"unix": 1793031137.0806904, "sim": 15254.606, "kind": "initialized", "pose": {"x": 3.1236119189555995, "y": 0.05150789962750077, "z": 3.900484219221401e-06}}
+{"unix": 1793031137.0829377, "sim": 15254.607, "kind": "exploration_start"}

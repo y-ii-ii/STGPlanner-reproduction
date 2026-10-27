@@ -1,0 +1,86 @@
+{
+  "method": "gbp2",
+  "trial": "pilot_gbp2_protocol2",
+  "pilot": true,
+  "sim_time_limit_s": 45.0,
+  "area_threshold_m2": 7400.5,
+  "area_denominator_m2": 7790,
+  "started_unix": 1793031286.7118368,
+  "distance_m": 56.68288495085045,
+  "area_m2": 555.84,
+  "cloud_messages": 769,
+  "odom_messages": 647,
+  "nonempty_plans": 13,
+  "empty_plans": 0,
+  "planner_states": {
+    "0": 13
+  },
+  "motion_states": {
+    "3": 12,
+    "6": 1
+  },
+  "native_finished": false,
+  "errors": [],
+  "runtime_native_s": [
+    0.757982869,
+    0.389050041,
+    0.141864244,
+    0.159026967,
+    0.156055175,
+    0.192370305,
+    0.178761158,
+    0.181832527,
+    0.201640966,
+    0.201176122,
+    0.219697558,
+    0.239810586,
+    0.237136533
+  ],
+  "request_wall_s": [
+    0.7598135570001432,
+    0.39114251900014096,
+    0.14352008500009106,
+    0.16237592700008463,
+    0.2312891280000713,
+    0.196690505000106,
+    0.18075325900008465,
+    0.18436708800004453,
+    0.20358418099999653,
+    0.285361469999998,
+    0.22195462900003804,
+    0.36299534799991306,
+    0.24042720500005998
+  ],
+  "stop_ack": true,
+  "post_stop_distance_m": 0.02786620309011732,
+  "max_parked_command": 0.0,
+  "initial_pose": {
+    "x": 3.0801494655718678,
+    "y": 0.048931215280542534,
+    "z": 3.328863693030648e-06
+  },
+  "finish_reason": "pilot_time_limit",
+  "stop_state": 3,
+  "sim_time_s": 45.01900000000023,
+  "wall_time_s": 45.345597794000014,
+  "average_speed_m_s": 1.2590880506197417,
+  "coverage_fraction": 0.07135301668806163,
+  "runtime_native_s_summary": {
+    "count": 13,
+    "mean": 0.2504926962307692,
+    "max": 0.757982869
+  },
+  "request_wall_s_summary": {
+    "count": 13,
+    "mean": 0.27417499238467474,
+    "max": 0.7598135570001432
+  },
+  "validation": {
+    "reached_common_threshold": false,
+    "sensor_stream_live": true,
+    "stop_ack": true,
+    "parked_command_zero": true,
+    "parking_drift_under_0_1m": true,
+    "planner_produced_motion": true
+  }
+}

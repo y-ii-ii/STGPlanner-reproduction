@@ -1,0 +1,6 @@
+{"unix": 1793029172.0718198, "sim": 15252.582, "kind": "initialized", "pose": {"x": 3.119755057687513, "y": 0.0402884466348355, "z": 3.6787798718962428e-06}}
+{"unix": 1793029172.2664976, "sim": 15252.776, "kind": "exploration_start"}
+{"unix": 1793029173.4950466, "sim": 15254.001, "kind": "planner_service_retry", "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"}
+{"unix": 1793029174.0317304, "sim": 15254.526, "kind": "planner_service_retry", "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"}
+{"unix": 1793029262.7441115, "sim": 15342.799, "kind": "finish", "reason": "pilot_time_limit", "area": 76.48, "distance": 0.07583731142775522}
+{"unix": 1793029264.7510777, "sim": 15344.796, "kind": "stop_result", "ack": true, "state": 3}

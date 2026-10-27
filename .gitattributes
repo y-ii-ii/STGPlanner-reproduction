@@ -19,3 +19,5 @@
 /benchmarks/** text=auto eol=lf
 /benchmarks/patches/*.patch whitespace=-blank-at-eol
 /stgp_planner/robot_move/path_execution/src/path_execution.cpp text eol=lf
+/evidence/scene4-baselines/** -text
+/evidence/scene4-baselines/** whitespace=-blank-at-eol,-blank-at-eof
