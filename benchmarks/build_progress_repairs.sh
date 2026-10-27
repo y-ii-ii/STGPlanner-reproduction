@@ -5,6 +5,7 @@ source /opt/ros/noetic/setup.bash
 base=/mnt/d/STGPlanner/benchmarks
 exec > >(tee "$base/logs/progress_build_${method}.log") 2>&1
 python3 "$base/apply_progress_repairs.py" "$method"
+if [[ "$method" == gbp2 ]]; then python3 "$base/apply_trial_repairs.py"; fi
 if [[ "$method" == fael ]]; then
   source /opt/stgplanner/catkin_ws/devel/setup.bash
   cd /opt/stgplanner/benchmarks/fael_ws

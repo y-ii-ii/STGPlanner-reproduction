@@ -6,19 +6,22 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 root=Path('/mnt/d/STGPlanner/benchmarks');out=root/'progress_report';out.mkdir(exist_ok=True)
+selection=json.loads((root/'progress_trials.json').read_text())
 plt.rcParams.update({'font.size':11,'axes.spines.top':False,'axes.spines.right':False,'savefig.dpi':180})
 fig,axes=plt.subplots(1,2,figsize=(13,4.8),constrained_layout=True)
 for ax,method in zip(axes,['fael','gbp2']):
     curves=[('formal_'+method+'_01','Before','#a7afb9','--')]
-    if method=='gbp2':curves.append(('repair_formal_gbp2_01','Cache only (manual stop)','#d18b2d',':'))
-    curves.append(('repair_formal_'+method+('_02' if method=='gbp2' else '_01'),'Repaired','#2878b5' if method=='fael' else '#8c56a2','-'))
+    if method=='gbp2':
+        curves.extend((trial,label,color,':') for trial,label,color in zip(selection['intermediate_runs'],selection['intermediate_labels'],['#d18b2d','#c36b73','#698879']))
+    curves.append((selection['final_runs'][method],'Repaired','#2878b5' if method=='fael' else '#8c56a2','-'))
     for trial,label,color,style in curves:
         folder=root/'results'/trial;d=json.loads((folder/'result.json').read_text())
         s=[json.loads(x) for x in (folder/'metrics.jsonl').read_text().splitlines()]
         t=[x['sim_s'] for x in s]+[d['sim_time_s']];v=[x['coverage_fraction']*100 for x in s]+[d['coverage_fraction']*100]
         ax.plot(t,v,label=label,color=color,ls=style,lw=1.8)
         ax.plot(t[-1],v[-1],'o' if d['finish_reason']=='coverage_threshold' else 'x',color=color,ms=7)
-        ax.annotate(f"{v[-1]:.2f}% / {t[-1]:.1f}s",(t[-1],v[-1]),xytext=(-10,9),textcoords='offset points',ha='right',fontsize=9,color=color)
+        offset=-18 if 'diagnostic' in label and label.startswith('Geometry') else 9
+        ax.annotate(f"{v[-1]:.2f}% / {t[-1]:.1f}s",(t[-1],v[-1]),xytext=(-10,offset),textcoords='offset points',ha='right',fontsize=9,color=color)
     ax.axhline(95,color='#555555',ls=':',lw=1);ax.axvline(1600,color='#555555',ls=':',lw=.8)
     ax.set(title=method.upper(),xlabel='Exploration simulation time (s)',ylabel='Known-plane area / 7790 (%)',ylim=(0,103));ax.grid(alpha=.15);ax.legend()
 fig.suptitle('Scene4: actual before / after runs | protocol 3 | o: 95% threshold, x: limit / diagnostic stop',fontsize=12)
@@ -26,7 +29,7 @@ fig.savefig(out/'scene4_progress_curves.png');plt.close(fig)
 fig,axes=plt.subplots(2,2,figsize=(12,11),constrained_layout=True)
 for i,method in enumerate(['fael','gbp2']):
     for j,(prefix,label) in enumerate([('formal_','Before'),('repair_formal_','Repaired')]):
-        ax=axes[i,j];folder=root/'results'/(prefix+method+('_02' if prefix=='repair_formal_' and method=='gbp2' else '_01'));d=json.loads((folder/'result.json').read_text())
+        ax=axes[i,j];folder=root/'results'/(selection['final_runs'][method] if prefix=='repair_formal_' else 'formal_'+method+'_01');d=json.loads((folder/'result.json').read_text())
         rows=list(csv.DictReader((folder/'known_plane_cells.csv').open()))
         p=np.array([[float(x['x']),float(x['y']),int(x['occupied'])] for x in rows])
         xmin,xmax,ymin,ymax,res=-51,81,-21,101,.4

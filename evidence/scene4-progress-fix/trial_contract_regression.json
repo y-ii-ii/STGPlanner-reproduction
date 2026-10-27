@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "checks": {
+    "shared_protocol_ast_unchanged_outside_gbp_branch": true,
+    "home_path_once_then_no_new_exploration": true,
+    "reposition_does_not_mean_finished": true,
+    "empty_home_end_is_observed": true,
+    "failed_return_is_not_reported_as_success": true,
+    "native_finish_time_separate_from_common_stop": true,
+    "actual_native_status_helper_preserves_idl": true,
+    "native_global_and_sticky_homing_use_correct_status": true,
+    "native_config_changes_are_explicit_and_limited": true,
+    "no_gain_sensor_threshold_or_bounds_tuning": true
+  },
+  "cases": {
+    "home_once": {
+      "calls": [
+        2
+      ],
+      "native_finished": true,
+      "finish_sim_s": 10.0,
+      "path_empty": false,
+      "paused": [
+        true
+      ],
+      "failures": [],
+      "thread_stopped": true
+    },
+    "reposition_then_home": {
+      "calls": [
+        3,
+        2
+      ],
+      "native_finished": true,
+      "finish_sim_s": 10.0,
+      "path_empty": false,
+      "paused": [
+        true
+      ],
+      "failures": [],
+      "thread_stopped": true
+    },
+    "empty_home": {
+      "calls": [
+        2
+      ],
+      "native_finished": true,
+      "finish_sim_s": 10.0,
+      "path_empty": true,
+      "paused": [
+        true
+      ],
+      "failures": [],
+      "thread_stopped": true
+    },
+    "failed_home_execution": {
+      "calls": [
+        2
+      ],
+      "native_finished": true,
+      "finish_sim_s": 10.0,
+      "path_empty": false,
+      "paused": [],
+      "failures": [
+        "native_homing_motion_failure"
+      ],
+      "thread_stopped": true
+    }
+  },
+  "changed_native_config_keys": [
+    "/PlanningParams/num_edges_max",
+    "/PlanningParams/num_loops_cutoff",
+    "/PlanningParams/num_loops_max",
+    "/PlanningParams/num_vertices_max",
+    "/PlanningParams/v_homing_max",
+    "/PlanningParams/v_max"
+  ],
+  "note": "Actual driver AST with memory-only ROS/action transport. Real sensor, controller and common measurement code are not changed; complete robot runs remain separate evidence."
+}

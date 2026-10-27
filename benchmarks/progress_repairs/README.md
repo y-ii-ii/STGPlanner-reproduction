@@ -26,3 +26,16 @@ inspect rollback_progress_repairs.py (dry run default), then --apply and rebuild
 Switching a Git tag alone does not revert /opt native sources or binaries.
 No new completion threshold, gain weights, common controller or common metric
 was used to manufacture progress. Final claims must follow the full real run.
+
+## Continuation checkpoint: sampling and native-end contract
+
+The complete geometry-repaired _03 run still stopped at its2400s limit with
+41.7582% and2840.573m. Correct native service diagnostics on the same frozen
+map/doorway pose found0/3corridor advances with500vertices and3/3with2000.
+New trial_repairs explicitly archives sampling/time configuration and adapter
+changes. Native gain weights, sensing params, bounds and95% metric are unchanged.
+Native HOMING now reportsIDLstatus2 (ordinary repositioning remains3). The
+adapter executes the return once, then observes parked until the same common
+coverage/time limit; incomplete native termination is never counted as95%.
+All10actual-function/contract/scope regressions passed. Final selection_04
+is running; reports and full release verification remain pending.

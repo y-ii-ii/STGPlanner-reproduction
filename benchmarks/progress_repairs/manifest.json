@@ -1,5 +1,5 @@
 {
-  "captured_utc": "2026-10-27T04:40:53.178762+00:00",
+  "captured_utc": "2026-10-27T06:39:55.200258+00:00",
   "protocol_revision": 3,
   "common_protocol_modified": false,
   "sources": [
@@ -30,6 +30,20 @@
       "original_sha256": "1fca860b3b9da294b9c06f891198a946a485769ba9516367817e1cc12eb2cf5c",
       "repaired_sha256": "8b08d5f5d65b69a433d594430e1b9851c1d3f0d962e7bc043858f14f6fe11145",
       "patch_sha256": "2ea84b2ad0d31193ce8a2f8cd1feedd6df47cb4e9e87591a7dc65abf9a2aed60"
+    },
+    {
+      "method": "gbp2",
+      "relative": "gbplanner/include/gbplanner/rrg.h",
+      "original_sha256": "716ac6af3b40f889de4de212d17daf9329c8843736390433d916cdcafce2a5ac",
+      "repaired_sha256": "1721131e5bdca1b01536aa8c48c9e1154320d6271f242ef2b46bad3a198251d2",
+      "patch_sha256": "42a672e87b4858c79eae6d4384d885fa09fff13f815bb9f393d88c4334eaba19"
+    },
+    {
+      "method": "gbp2",
+      "relative": "gbplanner/src/gbplanner.cpp",
+      "original_sha256": "46eb4e2fe7428fd8535134fdfe6859358156d6d7214f289f997ee39ac4f55c81",
+      "repaired_sha256": "154f2c92082fa353bac80c85578b63a00649a893c4633543447c95c2a6c78899",
+      "patch_sha256": "21fe694229e6acf07287f961ef624c83fb0c10ac975c29631603f8db4f03e089"
     },
     {
       "method": "gbp2",
@@ -64,7 +78,7 @@
     },
     "gbp2": {
       "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
-      "sha256": "46f660250a9a46028e538860f9b8424145ea7ce47916549228efac18e5a44225"
+      "sha256": "55386aeb4c9a827372c0d7406d5d228c9992f17f4a85024c8b159d2f1df69b96"
     }
   }
 }

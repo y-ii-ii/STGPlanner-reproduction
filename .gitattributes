@@ -27,3 +27,6 @@
 /benchmarks/progress_repairs/** -text
 /benchmarks/progress_repairs/** whitespace=-blank-at-eol,-blank-at-eof
 /.gitattributes text eol=lf
+
+/benchmarks/trial_repairs/** -text
+/benchmarks/trial_repairs/** whitespace=-blank-at-eol,-blank-at-eof

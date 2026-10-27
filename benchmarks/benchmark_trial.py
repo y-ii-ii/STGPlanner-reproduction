@@ -44,7 +44,7 @@ a=parser.parse_args();out=ROOT/'results'/a.name;out.mkdir(parents=True,exist_ok=
 os.environ['ROS_LOG_DIR']=str(out/'ros');Path(os.environ['ROS_LOG_DIR']).mkdir()
 children=[];files=[];lock=threading.RLock();finished=threading.Event();active=False
 d={'method':a.method,'trial':a.name,'pilot':a.pilot,'sim_time_limit_s':a.limit,'area_threshold_m2':7400.5,'area_denominator_m2':7790,'started_unix':time.time(),'distance_m':0.,'area_m2':0.,'cloud_messages':0,'odom_messages':0,'nonempty_plans':0,'empty_plans':0,'planner_states':{},'motion_states':{},'native_finished':False,'native_health':[],'errors':[],'runtime_native_s':[],'request_wall_s':[],'stop_ack':False,'post_stop_distance_m':0.,'max_parked_command':0.}
-d.update(protocol_revision=3,rejected_disconnected_paths=0,disconnected_path_examples=[],controller_static_terrain=True)
+d.update(adapter_revision=1,protocol_revision=3,rejected_disconnected_paths=0,disconnected_path_examples=[],controller_static_terrain=True)
 path_paused=False;last_rejection_log=0.
 pose=None;last_odom=None;cloud_wall=0;odom_wall=0;start_wall=None;start_sim=None;end_pose=None;end_wall=None;end_sim=None;last_cmd=0.;native_waypoint=None;waypoint_seq=0
 events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');trajectory=(out/'trajectory.csv').open('w',newline='');tw=csv.writer(trajectory);tw.writerow(['sim_s','wall_s','x','y','z','distance_m','area_m2'])
@@ -198,6 +198,20 @@ def driver():
                     state=motion.get_state();d['motion_states'][str(state)]=d['motion_states'].get(str(state),0)+1
                     if not finished.is_set() and state in [0,1,6,7]:motion.cancel_all_goals();event('segment_watchdog_90_wall_s')
                 else:d['empty_plans']+=1;time.sleep(.2)
+                # IDL kHoming=2 ends native exploration. Execute its return
+                # path once, then observe while parked until the SAME common
+                # coverage/time stop. Do not force another exploration cycle.
+                if response.status == 2 and not finished.is_set():
+                    d['native_finished'] = True
+                    d['native_finish_sim_s'] = rospy.get_time()-start_sim
+                    d['native_homing_path_empty'] = not bool(response.path)
+                    d['native_homing_motion_state'] = motion.get_state() if response.path else None
+                    event('native_homing_ended',path_empty=not bool(response.path),motion_state=d['native_homing_motion_state'])
+                    if response.path and motion.get_state() != 3:
+                        finish('native_homing_motion_failure');return
+                    pause_pub.publish(Bool(True))
+                    while not finished.is_set():time.sleep(.05)
+                    return
     except Exception as e:
         event('driver_exception',error=str(e),trace=traceback.format_exc());finish('driver_exception')
 

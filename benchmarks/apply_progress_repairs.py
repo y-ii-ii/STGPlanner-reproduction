@@ -169,6 +169,40 @@ def lidar_geometry(s):
         cursor=end
     assert changed==2,('lidar endpoint generators',changed)
     return s
+
+def homing_accessor(s):
+    needle='class Rrg {\n public:\n'
+    assert needle in s
+    return s.replace(needle,needle+'''  // End condition is distinct from a normal global repositioning path.
+  bool isHomingEngaged() const { return homing_engaged_; }
+
+''',1)
+
+def homing_service(s):
+    helper='''
+// BEGIN_NATIVE_GLOBAL_STATUS
+static int nativeGlobalResponseStatus(bool homing) {
+  return homing ? planner_msgs::planner_srv::Response::kHoming
+                : planner_msgs::planner_srv::Response::kRepositioning;
+}
+// END_NATIVE_GLOBAL_STATUS
+
+'''
+    assert 'namespace explorer {\n' in s
+    s=s.replace('namespace explorer {\n','namespace explorer {\n'+helper,1)
+    needle='''  rrg_->reset();
+  Rrg::GraphStatus status = rrg_->buildGraph();'''
+    assert needle in s
+    s=s.replace(needle,'''  if (rrg_->isHomingEngaged()) {
+    res.path = rrg_->getHomingPath(req.header.frame_id);
+    res.status = nativeGlobalResponseStatus(true);
+    return true;
+  }
+  rrg_->reset();
+  Rrg::GraphStatus status = rrg_->buildGraph();''',1)
+    needle='res.status = planner_msgs::planner_srv::Response::kRepositioning;'
+    assert s.count(needle)==1
+    return s.replace(needle,'res.status = nativeGlobalResponseStatus(rrg_->isHomingEngaged());')
 if a.method in ['fael','all']:
     edit('fael','planner/src/perception/ufomap.cpp',frontier)
     edit('fael','planner/src/preprocess/viewpoint_manager.cpp',viewpoints)
@@ -178,3 +212,5 @@ if a.method in ['gbp2','all']:
     edit('gbp2','planner_common/src/voxblox/voxblox_alt_impl.cpp',rays)
     edit('gbp2','gbplanner/src/rrg.cpp',sensing_frame)
     edit('gbp2','planner_common/src/params.cpp',lidar_geometry)
+    edit('gbp2','gbplanner/include/gbplanner/rrg.h',homing_accessor)
+    edit('gbp2','gbplanner/src/gbplanner.cpp',homing_service)
