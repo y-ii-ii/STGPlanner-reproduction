@@ -21,7 +21,7 @@ for ax,method in zip(axes,['fael','gbp2']):
         t=[x['sim_s'] for x in s]+[d['sim_time_s']];v=[x['coverage_fraction']*100 for x in s]+[d['coverage_fraction']*100]
         ax.plot(t,v,label=label,color=color,ls=style,lw=1.8)
         ax.plot(t[-1],v[-1],'o' if d['finish_reason']=='coverage_threshold' else 'x',color=color,ms=7)
-        offset=-18 if 'diagnostic' in label and label.startswith('Geometry') else 9
+        offset=-20 if label.startswith('Frontier calibration') else 18 if label.startswith('Geometry repair') else 9
         ax.annotate(f"{v[-1]:.2f}% / {t[-1]:.1f}s",(t[-1],v[-1]),xytext=(-10,offset),textcoords='offset points',ha='right',fontsize=9,color=color)
     ax.axhline(95,color='#555555',ls=':',lw=1);ax.axvline(1600,color='#555555',ls=':',lw=.8)
     ax.set(title=method.upper(),xlabel='Exploration simulation time (s)',ylabel='Known-plane area / 7790 (%)',ylim=(0,103));ax.grid(alpha=.15);ax.legend()

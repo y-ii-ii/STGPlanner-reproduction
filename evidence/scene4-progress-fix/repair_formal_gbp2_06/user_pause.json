@@ -1,0 +1,22 @@
+{
+  "saved_at": "2026-10-27T16:37:35.036294+08:00",
+  "state": "paused_by_user",
+  "reason": "用户要求先暂停项目，迁移到STGPlanner项目并配置跨会话交接。",
+  "trial": "repair_formal_gbp2_06",
+  "sim_time_s": 1082.027,
+  "coverage_fraction": 0.5415353016688063,
+  "distance_m": 1179.2470083836326,
+  "reached_common_threshold": false,
+  "result_finish_reason": "process_exit:native_planner",
+  "intentional_native_stop": true,
+  "resume_requires_fresh_trial": true,
+  "native_runtime_stopped": true,
+  "validation": {
+    "reached_common_threshold": false,
+    "sensor_stream_live": true,
+    "stop_ack": true,
+    "parked_command_zero": true,
+    "parking_drift_under_0_1m": true,
+    "planner_produced_motion": true
+  }
+}

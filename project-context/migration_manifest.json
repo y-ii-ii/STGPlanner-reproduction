@@ -1,0 +1,809 @@
+{
+  "copied_at": "2026-10-27T16:37:35.036294+08:00",
+  "project_id": "bd16d030-19af-4456-a6f4-fecde2256511",
+  "project_root": "D:\\STGPlanner",
+  "original_workspace_preserved": true,
+  "file_count": 160,
+  "files": {
+    "codex/work/adaptive_bound_probe.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\adaptive_bound_probe.cpp",
+      "sha256": "8e68da3ba96fefe4a38bcb244d88ce122d85dbe94a625eb7a50573a5cefc5093",
+      "bytes": 1845
+    },
+    "codex/work/analyze_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\analyze_progress.py",
+      "sha256": "1ea22682b2a5590752332e0daf72edfbace7019ff003602e4c37bcdcde801ce5",
+      "bytes": 10866
+    },
+    "codex/work/apply_progress_repairs.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\apply_progress_repairs.py",
+      "sha256": "9f352e55ddc6f228b30ce90037b9e9cb7d86592819ada52c3de916bb6b9bdefe",
+      "bytes": 11767
+    },
+    "codex/work/apply_trial_repairs.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\apply_trial_repairs.py",
+      "sha256": "8e133b31aa351e7823274a41e3275f2efe282cd9e08b6cae5349c1c6746f5338",
+      "bytes": 4130
+    },
+    "codex/work/benchmark_cloud_bridge.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\benchmark_cloud_bridge.cpp",
+      "sha256": "5f4d3cdacc4bbd50af49f9490539bae284f287061f02f33b59db20d054f87d88",
+      "bytes": 1366
+    },
+    "codex/work/benchmark_coverage.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\benchmark_coverage.cpp",
+      "sha256": "708626c9f740d58d0f20467b3a1b2c5dbf5f7c9527cd441cfcd98d6cbb0f2c04",
+      "bytes": 2395
+    },
+    "codex/work/benchmark_protocol.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\benchmark_protocol.md",
+      "sha256": "0380182314f52d48b8fd02b64bfb778d9cc3561bffbbbe206d5c7f76d52f4a10",
+      "bytes": 6012
+    },
+    "codex/work/benchmark_trial.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\benchmark_trial.py",
+      "sha256": "8fc9535efc6fd9b126272717b09ace6762ae468139e511213da708794fdd7e84",
+      "bytes": 20298
+    },
+    "codex/work/bootstrap.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\bootstrap.sh",
+      "sha256": "3ee0c0ff22d9c5d3f5e918deaec3d8c1634eea7ff871d1c0e1280bfef5555d6c",
+      "bytes": 1866
+    },
+    "codex/work/build.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build.sh",
+      "sha256": "5d3ba64cf4809a40636b337b7253935041c7c8d99520b72284088e4956cd0c34",
+      "bytes": 1047
+    },
+    "codex/work/build_all_baselines.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_all_baselines.sh",
+      "sha256": "5981ef7849e42a4f059bb390feecb7562ff46017ab5c690d46bb940ee5bc4e86",
+      "bytes": 565
+    },
+    "codex/work/build_baseline.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_baseline.sh",
+      "sha256": "bc28c8b320d75e06c818f93b2c48350182ad83ea1a28a6d42a3a8b500f94537b",
+      "bytes": 1710
+    },
+    "codex/work/build_cloud_bridge.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_cloud_bridge.sh",
+      "sha256": "c0f6e07796290185fa3b99442d1e8e46adbfdc579d985773dbdd08ab77ac04b4",
+      "bytes": 255
+    },
+    "codex/work/build_coverage.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_coverage.sh",
+      "sha256": "75ec7a9661f062d0b6b1dddfad90848675bd986fc7b104aba4c1525aabdac7c0",
+      "bytes": 280
+    },
+    "codex/work/build_gbp2.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_gbp2.sh",
+      "sha256": "69249a9e5f1d5a7ca78bfd1f75dee1c2c9b99120780b8ce57e9893ee2ee4524f",
+      "bytes": 1793
+    },
+    "codex/work/build_planner_completion.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_planner_completion.sh",
+      "sha256": "8ccb190f628e826f779a74ca2f7e067dcba42c3a54f096ad16131f3b0e19ffac",
+      "bytes": 443
+    },
+    "codex/work/build_progress_repairs.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_progress_repairs.sh",
+      "sha256": "57343875bd38f9d1f86f97ffbaf7a216a61311b8220d9e781ad94ae1f1859d4d",
+      "bytes": 635
+    },
+    "codex/work/build_rviz_capture.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_rviz_capture.sh",
+      "sha256": "a86f62dfcb184fb92a85bad4603d88e362d415e5ae15adfef57d06a30f0ff721",
+      "bytes": 223
+    },
+    "codex/work/build_rviz_repair.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\build_rviz_repair.sh",
+      "sha256": "3f06dde5b2b555dd57867ef1f18f1452b9a0d1585de842d9951e3501e3d5c018",
+      "bytes": 412
+    },
+    "codex/work/capture_progress_manifest.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\capture_progress_manifest.py",
+      "sha256": "8ce89cb86ff5b1d2740267a8d1a53839a98680e4be8d2d6387c62f5a71b3f6f1",
+      "bytes": 1298
+    },
+    "codex/work/checkpoint_cluster_fix.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\checkpoint_cluster_fix.py",
+      "sha256": "1a1a5600b9a3d03326e396a652152988c345dfca805f9946470b60aa375cd48f",
+      "bytes": 2542
+    },
+    "codex/work/check_final_delivery.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\check_final_delivery.py",
+      "sha256": "7f9bd131c70255d0067dbfda6730ae7ece5c77b0971aa2c099132be4e4392ab0",
+      "bytes": 2125
+    },
+    "codex/work/clone_gbp_dependencies.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\clone_gbp_dependencies.py",
+      "sha256": "21a3f7dcc4503daff1aef838c09feaf547b3ae9b9cde55cf169b7388818994ed",
+      "bytes": 2395
+    },
+    "codex/work/clone_locked_sources.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\clone_locked_sources.py",
+      "sha256": "595095e6be7316e7337327a5eb23a4643fc2fb0ea5b138d681a06cfe377f3256",
+      "bytes": 1295
+    },
+    "codex/work/close_figure1.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\close_figure1.py",
+      "sha256": "c7a7d1ac9a3b393fce17e5c7304c2a7eaa5a4773ee45486afddf537a22aa5c65",
+      "bytes": 1261
+    },
+    "codex/work/cluster_frontier_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\cluster_frontier_regression.py",
+      "sha256": "7b7d7f5c0de431ed7312c87dc2b67ed3c7086c3cf507197f9be3451affd11f06",
+      "bytes": 3172
+    },
+    "codex/work/collect_benchmark_builds.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\collect_benchmark_builds.py",
+      "sha256": "98334fa7d0d6c45ed52ccf63cb29b9861327dfdbb56abc05c9d898d3087c237d",
+      "bytes": 2692
+    },
+    "codex/work/collect_evidence.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\collect_evidence.sh",
+      "sha256": "f07fd37df869e63402af0a17fd120f7160b0f045452c1b8f225436175c5b4ad8",
+      "bytes": 896
+    },
+    "codex/work/collect_fixed_screenshot.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\collect_fixed_screenshot.py",
+      "sha256": "d4773eafbd9c91f269fac7c283aa7c17b3d489919e0b6210fbfbdd371221b331",
+      "bytes": 1378
+    },
+    "codex/work/compare_paper_scene4.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\compare_paper_scene4.py",
+      "sha256": "8e89343ddd3405873d037a0731b1fccdaddf3b6a86d14fe4b5f3309e7c268056",
+      "bytes": 5705
+    },
+    "codex/work/completion_regression.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\completion_regression.cpp",
+      "sha256": "ad80b852204815cc8b060251043b275a23a7c3faa58c7318c28e12862614d0e0",
+      "bytes": 3758
+    },
+    "codex/work/completion_regression.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\completion_regression.sh",
+      "sha256": "dfb2f168e216bff38113f361b18fa0bfa331eb954e7aa2ff2f4ea775d2fea4df",
+      "bytes": 349
+    },
+    "codex/work/diagnose.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\diagnose.sh",
+      "sha256": "b8aa9b53dfa7d882ab8741c4c23ed1a7725a495b65fba061082463e57670a7ea",
+      "bytes": 761
+    },
+    "codex/work/fael_frontier_regression.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\fael_frontier_regression.cpp",
+      "sha256": "c4491000f00f47ef9f1e123078c3d0f6455e51f1b8c1feb206c686da72231f6b",
+      "bytes": 2607
+    },
+    "codex/work/finalize_baseline_assets.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\finalize_baseline_assets.py",
+      "sha256": "53754da31f56635cde0fb289981eca297d62492a1f9d1ceef285f9d9b108fc97",
+      "bytes": 1639
+    },
+    "codex/work/finalize_long_run.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\finalize_long_run.py",
+      "sha256": "f59e31abf55186f23e5e33bd77131c9fc9ef8fb5c64bed7dea6791e746b533fd",
+      "bytes": 2986
+    },
+    "codex/work/finalize_report.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\finalize_report.py",
+      "sha256": "713c37aa927a8ed4af4113d888a82d6d2857aa1199d7f367446421495868a6db",
+      "bytes": 25605
+    },
+    "codex/work/fix_path_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\fix_path_progress.py",
+      "sha256": "288077f34033eeda544281c7c964a2816addfc70239d24bb357ae591dc60135e",
+      "bytes": 3705
+    },
+    "codex/work/fix_plot_events.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\fix_plot_events.py",
+      "sha256": "ad873e1443befaf6181c791b461a2a7caa8d9994e47ff66127f11c2242526ed5",
+      "bytes": 957
+    },
+    "codex/work/gain_frame_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\gain_frame_regression.py",
+      "sha256": "291c4ab836076056443db9b3097bc98fbc668754db206ecf5ca8f93b2200c0a5",
+      "bytes": 1732
+    },
+    "codex/work/gbp_core_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\gbp_core_regression.py",
+      "sha256": "905481c79366c743d5b62d9e1f7b6620d4f12f541f5d0141a1ac4f88df231eaf",
+      "bytes": 4846
+    },
+    "codex/work/gbp_debug.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\gbp_debug.py",
+      "sha256": "15937d2075a53c62f6a095a85bf1a178287b9018d187d4a29bdf5aaf25bb97be",
+      "bytes": 488
+    },
+    "codex/work/gbp_gain_probe.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\gbp_gain_probe.cpp",
+      "sha256": "c75dbc2b753aa1f9c8572b0649a9dbdf0670320c5e9369f8c9c73d9a1523f3d0",
+      "bytes": 3695
+    },
+    "codex/work/github_repo_transport.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\github_repo_transport.py",
+      "sha256": "ea3084a65d908e7c53840af08810ca3b41afed1c28c79f02ec3bde87a8002d30",
+      "bytes": 4437
+    },
+    "codex/work/ground_map_probe.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\ground_map_probe.cpp",
+      "sha256": "0836b18e156b80afc69a0575ef2cb6e0ce739231cdf637d4ac095cc9574a5781",
+      "bytes": 4454
+    },
+    "codex/work/gui_health.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\gui_health.py",
+      "sha256": "3d1b7aef79d0f0eadbbaac6a672481ee3a8b0ec107e7a54c0d63a3246ffdca10",
+      "bytes": 395
+    },
+    "codex/work/inspect_capture_api.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\inspect_capture_api.py",
+      "sha256": "671f6e76fd60579689383f747c76eb6bfc976429c6b80705727454f0ee22d10b",
+      "bytes": 233
+    },
+    "codex/work/inspect_rviz_api.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\inspect_rviz_api.py",
+      "sha256": "aa06ff93a85609c4e2117e641b2e31b9d613674689129c085df62ce3c7c52967",
+      "bytes": 346
+    },
+    "codex/work/install_assets.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\install_assets.sh",
+      "sha256": "474404aa6fca29e8f617112ab164e2ae957ca3c6bcafb7985e3be9a7e038497b",
+      "bytes": 1207
+    },
+    "codex/work/instrument_gbp2.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\instrument_gbp2.py",
+      "sha256": "94f91e428eac2fe9f1702fb6c2b7170e473493556ac9bbb884d49e9f3c4c768f",
+      "bytes": 1131
+    },
+    "codex/work/long_runtime_test.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\long_runtime_test.py",
+      "sha256": "2379adc79623ae0267a07099758422d8253901d2a3585b3fb32595183fabe1cd",
+      "bytes": 10096
+    },
+    "codex/work/long_session.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\long_session.sh",
+      "sha256": "903ab6867477896a052d6f642e66856a699d1b1470c40b18453d243c8ead859d",
+      "bytes": 1245
+    },
+    "codex/work/make_benchmark_report.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\make_benchmark_report.py",
+      "sha256": "ec9e61be1e8ee6fa975adf014d513d2fa399b99c2826b8410058c99f6d636091",
+      "bytes": 16672
+    },
+    "codex/work/make_progress_report.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\make_progress_report.py",
+      "sha256": "5780282df3200124903aac2a2d7f5aea15a4c7ff9c4d590a83abf6ad59ff263f",
+      "bytes": 24817
+    },
+    "codex/work/marker_audit.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\marker_audit.py",
+      "sha256": "97a9c08ea7bae9ee4bd477a1d65d3bd7a61fa418d1192ddc99db12ad8458d688",
+      "bytes": 1703
+    },
+    "codex/work/marker_audit.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\marker_audit.sh",
+      "sha256": "30a61dac0da4d42ff816f29957498bc33936af1e1f6c2b162d2f098b9895f85e",
+      "bytes": 161
+    },
+    "codex/work/mark_report_in_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\mark_report_in_progress.py",
+      "sha256": "146d1448de16a43a9f45c3240f9b928a5dcf1a14d3d55ae4fbcde2a854c5f4cc",
+      "bytes": 767
+    },
+    "codex/work/migrate_project_context.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\migrate_project_context.py",
+      "sha256": "c0ce6c0b8a6fb2864ab0aaa5fc759a63ea96a5850d6f114d5512bce17eced2b2",
+      "bytes": 20113
+    },
+    "codex/work/offline_rrg_probe.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\offline_rrg_probe.py",
+      "sha256": "022e740946cb6978be08049092b2b6e61dbff220cdc17670cc37c2d57a13a054",
+      "bytes": 5124
+    },
+    "codex/work/package_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\package_benchmark.py",
+      "sha256": "9bf2e5a5b82136a739e4d1423b9de30838e0887bfea5f83130846d8633d92ab4",
+      "bytes": 3865
+    },
+    "codex/work/package_deliverables.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\package_deliverables.py",
+      "sha256": "0ed5e6e8bf9a9e57c19ec8b7117feb4a756fafd343c0453a255658bd4bad03bd",
+      "bytes": 3006
+    },
+    "codex/work/package_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\package_progress.py",
+      "sha256": "261ef3794a4693ffd9a660ed4bbafe0feabe63f108fc0cfcba6106cd5ec78b9e",
+      "bytes": 2178
+    },
+    "codex/work/patch_deployment.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\patch_deployment.py",
+      "sha256": "dfb6f0c2026354b0a9067c68ffd28867bbbb8f09d5e2bd08a97998bea430b0dc",
+      "bytes": 5776
+    },
+    "codex/work/path_contract_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\path_contract_regression.py",
+      "sha256": "4a09f80e730918d410966f4df8c401331b0f9695b3108ca3748dec2c51b2e419",
+      "bytes": 3148
+    },
+    "codex/work/plot_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\plot_benchmark.py",
+      "sha256": "474ac9261b411284a5536f66f69d344ec3867434113fb5431ac00ddf669de349",
+      "bytes": 5187
+    },
+    "codex/work/plot_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\plot_progress.py",
+      "sha256": "efc49344b85b483ce3a5b13200da3063e70bb5a015d1ae8f2535886f9611a834",
+      "bytes": 4075
+    },
+    "codex/work/plot_progress_diagnostic.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\plot_progress_diagnostic.py",
+      "sha256": "9e39faa9447499c64e4b45440a525fd675024c26b532c9d99c93246617fd77e3",
+      "bytes": 1667
+    },
+    "codex/work/plot_test.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\plot_test.py",
+      "sha256": "019b06f80247a11144ee7b98a802c48f2132b0e340c4a314f4945e057fc70c99",
+      "bytes": 1324
+    },
+    "codex/work/prepare_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_benchmark.py",
+      "sha256": "f1e404e4e45e6730897b0997a6bf7c8caf145993f4ff6b57ea3226597455a5f9",
+      "bytes": 4501
+    },
+    "codex/work/prepare_gbp_gain_probe.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_gbp_gain_probe.py",
+      "sha256": "047453672ae3a86f30fff5ce0fdcd22cfb41b8cec1797faddc8a7a3ca2b9ec42",
+      "bytes": 741
+    },
+    "codex/work/prepare_github_baseline.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_github_baseline.py",
+      "sha256": "dab915547571ca4aa3bb3fd1c5caab988eb5df234cbe5f156141a17eea208ff0",
+      "bytes": 12834
+    },
+    "codex/work/prepare_ground_map_probe.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_ground_map_probe.py",
+      "sha256": "a5450031b6d65f8a6c1e0b56a90abff161e63415c114cfa249c365cb4028238f",
+      "bytes": 2952
+    },
+    "codex/work/prepare_progress_delivery.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_progress_delivery.py",
+      "sha256": "9877731fa8b79ea7a712706834c79f460ad435bc6303cf07a03cdabfcd3463a3",
+      "bytes": 4411
+    },
+    "codex/work/prepare_screenshot_view.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\prepare_screenshot_view.py",
+      "sha256": "20e11ae463f35747623060c8a3ac18727586bae397cd07e0e6dac1b4370f3e78",
+      "bytes": 1363
+    },
+    "codex/work/probe_gbp_map.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\probe_gbp_map.py",
+      "sha256": "eb5176752c28a1bd31c12e7333182674bc495581c7e8879240da34e2f9291bd5",
+      "bytes": 1040
+    },
+    "codex/work/probe_gbp_tf.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\probe_gbp_tf.py",
+      "sha256": "66e1e7141642d9d11b10daabcdd6805ea5a38081bd0a3a40587755b8740bfe1a",
+      "bytes": 620
+    },
+    "codex/work/probe_obstacles.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\probe_obstacles.py",
+      "sha256": "7ac992d43e2955755c87c2d7810f645e9de1f3f34ccbde9f8546d1ea85af5799",
+      "bytes": 1222
+    },
+    "codex/work/probe_stall.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\probe_stall.py",
+      "sha256": "044a98740e3b7a069159c38a3011d96ebb79feaaeba93ec5cb5ef12419e08533",
+      "bytes": 1354
+    },
+    "codex/work/progress_checkpoint2_whitespace.txt": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\progress_checkpoint2_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "codex/work/progress_checkpoint_whitespace.txt": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\progress_checkpoint_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "codex/work/PROGRESS_RESUME.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\PROGRESS_RESUME.md",
+      "sha256": "d8a58627c9dfd2b7d2451b7a4f338ba22afa80b435b38e9a791f43c0d87f23e9",
+      "bytes": 193
+    },
+    "codex/work/progress_trials.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\progress_trials.json",
+      "sha256": "db909fab8f1be3a092691eb7958f6a9ef7c310dc9b9d7ffba7396f0933243b21",
+      "bytes": 934
+    },
+    "codex/work/ray_cache_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\ray_cache_regression.py",
+      "sha256": "dc45be83c4a17841c502aed9a2ab02be19e2b34e6e4bea3bb529d8abf4b18e26",
+      "bytes": 3243
+    },
+    "codex/work/record_gbp_frontiers.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\record_gbp_frontiers.py",
+      "sha256": "c08b5e9e726ab1b5ab2dc453ac156cdd20ac563148349f08ddfd31a05ed7cd6d",
+      "bytes": 2189
+    },
+    "codex/work/record_linkage.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\record_linkage.py",
+      "sha256": "41ad0ef263674e68082a26f7a2158c3980d47a9fe6bd50b885d2b0dc4f4de906",
+      "bytes": 826
+    },
+    "codex/work/render_long_run.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\render_long_run.py",
+      "sha256": "2d538e656928d8d0dda0090ba8dd129d9751c6a08ac209f575db913ae9615adb",
+      "bytes": 2257
+    },
+    "codex/work/repair_planner_completion.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\repair_planner_completion.py",
+      "sha256": "288c9d8324910c55092240023225ff07c90dff4234769ff50ccd43676c3d378e",
+      "bytes": 7569
+    },
+    "codex/work/repair_rviz_sources.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\repair_rviz_sources.py",
+      "sha256": "7176a79e5a77d2bdabd93613aa2ce4d49706ebfda7ec914168ac762087328248",
+      "bytes": 2528
+    },
+    "codex/work/report-base.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\report-base.md",
+      "sha256": "07de3e65ebe4b79fd612659fa67d43e55eb54144806661818f6a6ce36bed2881",
+      "bytes": 8627
+    },
+    "codex/work/report-style.css": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\report-style.css",
+      "sha256": "13998a94da15187a1c4dea4b85d02483a6a90fac19485be7c5a5663339ca0b7a",
+      "bytes": 1202
+    },
+    "codex/work/restart_rviz_demo.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\restart_rviz_demo.sh",
+      "sha256": "3214210c62ed144430be8ecc0602ffb2390d44f789cee7e1647b0cb2db7e5f9c",
+      "bytes": 523
+    },
+    "codex/work/restart_rviz_status_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\restart_rviz_status_probe.sh",
+      "sha256": "cac9bb4955f331892c4ae5db120ea4cb5d4dba7dea787ea9f020b7d01437a661",
+      "bytes": 205
+    },
+    "codex/work/rollback_progress_repairs.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\rollback_progress_repairs.py",
+      "sha256": "4297cb799a3515109f66bc53724a9bd9bacf474390e7a2b2605a2e994a210313",
+      "bytes": 2113
+    },
+    "codex/work/rollback_trial_repairs.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\rollback_trial_repairs.py",
+      "sha256": "2823a7112fe7cb2b401a2fe2fcf8a27a60152ed4c03b91019a1cd4eeddc2035e",
+      "bytes": 1539
+    },
+    "codex/work/Run-PilotQueue.ps1": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Run-PilotQueue.ps1",
+      "sha256": "5ab8c32b227ea61b025c0a22b9172ea6c5984e2cf8c5e68f1924f884170982f2",
+      "bytes": 961
+    },
+    "codex/work/Run-ProgressSuite.ps1": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Run-ProgressSuite.ps1",
+      "sha256": "5e1eb335140ee76421b5f7813074a466c6b9d7bda427a6aa64abc1bbb0d3011d",
+      "bytes": 1624
+    },
+    "codex/work/Run-Scene4Suite.ps1": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Run-Scene4Suite.ps1",
+      "sha256": "4dceff6d50b1d58ca4ec1214a7a7d3468c88d44d522e77d32ea9666402692d3d",
+      "bytes": 2054
+    },
+    "codex/work/run.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run.sh",
+      "sha256": "21d8c61cfcfe42702f75a95570fbeeb20f6f21128e5695e21c99810a36c98294",
+      "bytes": 3478
+    },
+    "codex/work/runtime_test.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\runtime_test.py",
+      "sha256": "fd23d01fd55ed6850d481e967d08bae27c1f1bbb14e7ee4155dc8f41f847db7e",
+      "bytes": 5240
+    },
+    "codex/work/run_adaptive_bound_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_adaptive_bound_probe.sh",
+      "sha256": "16b88a29f859f99dc07d5e44701b9606ed43a42eb7477a5cc61df5332bcc4399",
+      "bytes": 1015
+    },
+    "codex/work/run_benchmark.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_benchmark.sh",
+      "sha256": "6c3701b921b6755f287dc034c88c954cb57be9c271fce4d6668382711cb7ff53",
+      "bytes": 623
+    },
+    "codex/work/run_fael_frontier_regression.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_fael_frontier_regression.sh",
+      "sha256": "f7ccd805303b2f2e0940c9daad65e61b2dbc53f62d13a63c24262f372099970b",
+      "bytes": 1446
+    },
+    "codex/work/run_gbp_gain_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_gbp_gain_probe.sh",
+      "sha256": "b20489a3b3b5052bd0f6d7ed37fd86a07ad75ce80bad7b84df5820819f5f2800",
+      "bytes": 1014
+    },
+    "codex/work/run_ground_map_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_ground_map_probe.sh",
+      "sha256": "880b231f0f327e8f9be936ac37fec549c0d4a4a9995b4147f4d3e9630f2005e4",
+      "bytes": 852
+    },
+    "codex/work/run_offline_rrg_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\run_offline_rrg_probe.sh",
+      "sha256": "f6b8fb823ad2328fab25f243c26c785f1b484089bd10e1ffd855196c51591abc",
+      "bytes": 462
+    },
+    "codex/work/rviz_native_capture.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\rviz_native_capture.cpp",
+      "sha256": "93945926010c40215ea59051ad1aa538e2338672cb774e252ebffd15a69fb982",
+      "bytes": 1110
+    },
+    "codex/work/rviz_status_probe.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\rviz_status_probe.py",
+      "sha256": "6e3b60a6cc04d05d1a15a995f07490c820509ed8f472f8b504cf5a25d49e2326",
+      "bytes": 3009
+    },
+    "codex/work/rviz_status_probe.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\rviz_status_probe.sh",
+      "sha256": "12be39978632af95a3d1a3bc406b43077ecdfb02b029b2923d04eea1d3689d51",
+      "bytes": 373
+    },
+    "codex/work/scene4_git_whitespace.txt": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\scene4_git_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "codex/work/stage_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\stage_benchmark.py",
+      "sha256": "e550294753d88c375a9eca528c0fc6ac70bf148d13806cd6bec2b30fb24778ec",
+      "bytes": 1650
+    },
+    "codex/work/stage_progress.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\stage_progress.py",
+      "sha256": "e0f6832435b2ed3a9071940f0fed8a58849f5c493d14183d10912a04da11044f",
+      "bytes": 6535
+    },
+    "codex/work/stage_progress_sources.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\stage_progress_sources.py",
+      "sha256": "08a9e048c0400c288340111077a30340c6de62e98e78df38f3f014f8e2a8a834",
+      "bytes": 5513
+    },
+    "codex/work/Start-STGPlanner.cmd": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Start-STGPlanner.cmd",
+      "sha256": "61d8ecb57cb3133596ba3aa525003cae9738367e23a4ddbdd288b76f8420ff31",
+      "bytes": 150
+    },
+    "codex/work/Start-STGPlanner.ps1": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Start-STGPlanner.ps1",
+      "sha256": "f3bda4d44e6b7aa116e0a6b1f982cd93d122d9d75ce37df9c3cbf3dc78607f76",
+      "bytes": 283
+    },
+    "codex/work/Stop-STGPlanner.cmd": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Stop-STGPlanner.cmd",
+      "sha256": "eaa944513d1312a5db996831d444753ee3a464514db3bc86a56f346a3d65bbb0",
+      "bytes": 50
+    },
+    "codex/work/Stop-STGPlanner.ps1": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\Stop-STGPlanner.ps1",
+      "sha256": "80fecc26461b0eb50154e8fc22604e5f7661bac30cd08aba0a432524984ad35f",
+      "bytes": 91
+    },
+    "codex/work/stop_gbp_cache_diagnostic.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\stop_gbp_cache_diagnostic.py",
+      "sha256": "de9569acc4141ab507c73d8007accbe6022c8095474917f57655412c2cd79f41",
+      "bytes": 2201
+    },
+    "codex/work/test.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\test.sh",
+      "sha256": "bc83172bd6c34243c8e6bda4b23280f650aae52c0006a91c8ae0261f9e0a0a46",
+      "bytes": 354
+    },
+    "codex/work/tf_audit.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\tf_audit.py",
+      "sha256": "e69613dee1937d148310ee9de2c3965025be6309af43b7b5a981d24a3056d68b",
+      "bytes": 1258
+    },
+    "codex/work/trial_contract_regression.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\trial_contract_regression.py",
+      "sha256": "96bd777770bfab9eebae3a2b88b547bf24e9c1bd00d6cde89c3dafb90502b860",
+      "bytes": 6567
+    },
+    "codex/work/ufo_probe.cpp": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\ufo_probe.cpp",
+      "sha256": "39e40b26598660721cda58fbb30982ef3aacd5f4152b2cc8bdbb7e0d29f01fd2",
+      "bytes": 354
+    },
+    "codex/work/update_benchmark_readme.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\update_benchmark_readme.py",
+      "sha256": "1f96d883342e081b509d5f2993dcf4a58af2c713d24555de35b131711e30dba9",
+      "bytes": 1847
+    },
+    "codex/work/update_deployment_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\update_deployment_benchmark.py",
+      "sha256": "bf198b0a236eb6af59a084b5707e93f05970a0c6d5745692f0bfb7e773a53dc1",
+      "bytes": 2562
+    },
+    "codex/work/update_progress_docs.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\update_progress_docs.py",
+      "sha256": "26471da28d69a59d54ad64ccded426f926f4587eb82eb4980c1a0a34d2d2634b",
+      "bytes": 4990
+    },
+    "codex/work/validate_benchmark.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\validate_benchmark.py",
+      "sha256": "a8dcced62b7523da7ba05a448a778fdf5dc59fe77e60e5100829c17715eb7c42",
+      "bytes": 3593
+    },
+    "codex/work/validate_frontier_calibration.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\validate_frontier_calibration.py",
+      "sha256": "2d569058f160eaccc31deeefbf08796cd61099758ad80991036c87f7c4aec750",
+      "bytes": 1698
+    },
+    "codex/work/validate_rviz_repair_results.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\validate_rviz_repair_results.py",
+      "sha256": "60adf7d0a61d16601ac750d64012cb42e0ad6d09ccf1cbef353d82a027121ce4",
+      "bytes": 2032
+    },
+    "codex/work/validate_sensor_model.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\validate_sensor_model.py",
+      "sha256": "e2b8b53683647d6b3179baa48bcfee62bac75be58fa925baef93c982d2e6a466",
+      "bytes": 1151
+    },
+    "codex/work/verify_environment.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\verify_environment.sh",
+      "sha256": "45f36855f841551f494da55f80789fbe22581658aea28b026cc9342ade1ed77d",
+      "bytes": 1053
+    },
+    "codex/work/verify_progress_clone.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\verify_progress_clone.py",
+      "sha256": "fd2a0002930963e9721c2e90a4fe36677948c8acfecbcb5c3a8e9c613ba666eb",
+      "bytes": 2153
+    },
+    "codex/work/verify_progress_remote.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\verify_progress_remote.py",
+      "sha256": "9d6d69e50f70525920373dd4ea45cd793b8bf97870640f89668248b8daf1b36e",
+      "bytes": 2540
+    },
+    "codex/work/verify_rviz_repair.sh": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\verify_rviz_repair.sh",
+      "sha256": "e7c64b7c7575470f12fbd8275ab09a71e8e23d9e2dc497077f683fa92bcb9c1f",
+      "bytes": 678
+    },
+    "codex/work/verify_scene4_remote.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\verify_scene4_remote.py",
+      "sha256": "6fd29f928b8d9f02bfaddb7733f78ab0d145e6fea73a45dbf33edb7be98602e9",
+      "bytes": 2654
+    },
+    "codex/work/wait_exploration_ready.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\wait_exploration_ready.py",
+      "sha256": "7f998ebceaa39d536e32b3d96f42b36b1622e3915cfc2e30210d7a8a542663c7",
+      "bytes": 562
+    },
+    "codex/work/wait_topic.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\wait_topic.py",
+      "sha256": "0e7382fed2614ecb51edad41a37e35aad01472799d0863b5a1da916c8cc35bc5",
+      "bytes": 166
+    },
+    "codex/work/write_upload_receipt.py": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\work\\write_upload_receipt.py",
+      "sha256": "7085c9c266b31c1db844c77d6683393773bd3d3da30c79bdc2cd14b05d1c8d6f",
+      "bytes": 3376
+    },
+    "codex/outputs/GitHub上传与回滚说明.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\GitHub上传与回滚说明.md",
+      "sha256": "17b9f82c457af5fbefbcae227d7579edfee42cece2545e3d5510de83a7502b76",
+      "bytes": 2360
+    },
+    "codex/outputs/GitHub上传验证.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\GitHub上传验证.json",
+      "sha256": "74483fa6ebccfc2a67116f16bff3d97aa5cc05289f6276509f9f90309ee7022d",
+      "bytes": 815
+    },
+    "codex/outputs/long_run_metrics.png": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\long_run_metrics.png",
+      "sha256": "c61ba1a9b65bc18d558c9099ed4a4ab69231536f0c3d3c531fb571c93f6607e9",
+      "bytes": 376176
+    },
+    "codex/outputs/runtime_trajectory.png": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\runtime_trajectory.png",
+      "sha256": "e380222adfa2c637a45a3936f13ab38722a6e52b9a928a70c8bb91986e27c610",
+      "bytes": 177895
+    },
+    "codex/outputs/RViz修复验证结果.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\RViz修复验证结果.json",
+      "sha256": "cf56608b8a6f2294e88b36a940c67f224bf1e4b82d779c6dfda375f151db1c1c",
+      "bytes": 4742
+    },
+    "codex/outputs/Scene4GitHub上传验证.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4GitHub上传验证.json",
+      "sha256": "7bf0e732b1216031dd80aee8465f7a7928faf0ca6b6875cc15f8b0e93a8eedd8",
+      "bytes": 2404
+    },
+    "codex/outputs/scene4_curves.png": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\scene4_curves.png",
+      "sha256": "fec5cb557a840404c253c561dc28b73d52aed4bc55d1c64c14163da5b6282abf",
+      "bytes": 193897
+    },
+    "codex/outputs/scene4_maps.png": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\scene4_maps.png",
+      "sha256": "5c0a2795d9aac7b64374c6cf85d49dace0cd4916d2885915a87d13ed7568dbec",
+      "bytes": 458563
+    },
+    "codex/outputs/scene4_paper_comparison.png": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\scene4_paper_comparison.png",
+      "sha256": "84ed4fa369955ac77bf8c7179a0f38b45cb9808f99d5ec246e474a48adf02b2e",
+      "bytes": 124188
+    },
+    "codex/outputs/Scene4交付文件校验.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4交付文件校验.json",
+      "sha256": "b4c9c576f4d65f37f31c5df96c797e51ccd2491a0e326d98e8c3678daa14c115",
+      "bytes": 627
+    },
+    "codex/outputs/Scene4回滚与验证说明.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4回滚与验证说明.md",
+      "sha256": "796633535a83177ebc4db5e0e816cea41d243ce650296daafa37874f827ab87e",
+      "bytes": 2514
+    },
+    "codex/outputs/Scene4基线对比材料.zip": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4基线对比材料.zip",
+      "sha256": "157556c1ce3c7b040fe85469014828ae9b0772c59bfa8df5707b5e5f1ec6b102",
+      "bytes": 98590724
+    },
+    "codex/outputs/Scene4基线算法对比报告.html": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4基线算法对比报告.html",
+      "sha256": "7be1f9e63264fdf38cc19cd939940ef153ecae1f5221f14194c7c6b480715883",
+      "bytes": 1061928
+    },
+    "codex/outputs/Scene4基线算法对比报告.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4基线算法对比报告.md",
+      "sha256": "597301e61059ce3c9a0a7361144c8a01602c1f3c887b0bae63d0bdde28e835e0",
+      "bytes": 14214
+    },
+    "codex/outputs/Scene4对比结果.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4对比结果.json",
+      "sha256": "1175afba2bea1f3d2d3b7d38cf3c53503883bda19b7453777afade6380ce2c72",
+      "bytes": 22020
+    },
+    "codex/outputs/Scene4测试协议.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4测试协议.md",
+      "sha256": "0380182314f52d48b8fd02b64bfb778d9cc3561bffbbbe206d5c7f76d52f4a10",
+      "bytes": 6012
+    },
+    "codex/outputs/Scene4证据校验清单.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\Scene4证据校验清单.json",
+      "sha256": "0d31fab37ab9cb6973775c4ca0a5371010f04ecdb735e977fc0ac4d3ca9537bd",
+      "bytes": 23037
+    },
+    "codex/outputs/STGPlanner-scene4-comparison.bundle": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner-scene4-comparison.bundle",
+      "sha256": "ef8bc7f92492f003a6e2d7857323b9d2087da69b024a9150d76d542bef339f0d",
+      "bytes": 27907896
+    },
+    "codex/outputs/STGPlanner-verified-baseline.bundle": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner-verified-baseline.bundle",
+      "sha256": "731108343d6493bd5c4030ce44e2e600143155d9355ce407155960af4ba8bd97",
+      "bytes": 6378031
+    },
+    "codex/outputs/STGPlanner部署报告.html": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner部署报告.html",
+      "sha256": "5b7bc20a70139e5a557dcf3d53f17fd09cc04099ffef411e01bb37a629e3f02e",
+      "bytes": 2809285
+    },
+    "codex/outputs/STGPlanner部署报告.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner部署报告.md",
+      "sha256": "a7a2f2ba12932d4a9e3e726812a263c7c35dbdb07189c761065515faa6567c00",
+      "bytes": 34017
+    },
+    "codex/outputs/STGPlanner部署材料.zip": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner部署材料.zip",
+      "sha256": "920de37e531de5913ac627c3a13799050e880e8ef1e70b1ea0404e6794d6e2ef",
+      "bytes": 10266197
+    },
+    "codex/outputs/STGPlanner项目迁移说明.md": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\STGPlanner项目迁移说明.md",
+      "sha256": "2843e0db41843e7c7bda72d83e04b00ab0e615dcbe939e5313af002a6074c2e8",
+      "bytes": 2301
+    },
+    "codex/outputs/长时间运行验证结果.json": {
+      "source": "C:\\Users\\Administrator\\Documents\\Codex\\2026-10-26\\add-windowscapability-online-name-openssh-server-9\\outputs\\长时间运行验证结果.json",
+      "sha256": "ba12707dafa6e57615b1a3b1db82deb47c17256a30915fd90c56e2375fa70963",
+      "bytes": 3091
+    }
+  }
+}

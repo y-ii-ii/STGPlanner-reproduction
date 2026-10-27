@@ -13,8 +13,10 @@ Declared parameter calibration: sampling limits4x, time model2/1m/s, native
 sensor-frontier fraction0.05->0.01. Common observer/controller/95% stop unchanged.
 See trial_repairs/manifest.json. Offline probes and unit tests are not full runs.
 
-Latest run06 was selected before its outcome and is undergoing real2400s
-verification. Final claims must follow its recorded result. Prior failures remain.
+Run06 was stopped at the user request to pause the project:1082.027simulated
+seconds,54.153530%,1179.247m. It crossed the old41% plateau but did not reach95%.
+This is a user-interrupted attempt, not a completed2400s or native-finished run.
+Read project-context/STATUS.md before resuming. Final release remains pending.
 Use build_progress_repairs.sh to rebuild native copies under/opt. Restoring a Git
 tag alone does not revert those sources/binaries. Both rollback scripts default
 to checks; --apply restores archived originals and then requires rebuilding.

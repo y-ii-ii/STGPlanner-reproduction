@@ -1,6 +1,6 @@
 """Validate completed real runs; keep exploration success separate from I/O health."""
 from pathlib import Path
-import csv,datetime,hashlib,json,math,re
+import csv,datetime,hashlib,json,math,re,yaml
 root=Path('/mnt/d/STGPlanner/benchmarks');repo=Path('/mnt/d/STGPlanner/catkin_ws/src/STGPlanner')
 selection=json.loads((root/'progress_trials.json').read_text())
 out=root/'progress_report';out.mkdir(exist_ok=True)
@@ -19,6 +19,8 @@ def summarize(folder):
     if rows:
         before=next((x for x in rows if x['sim_s']>=d['sim_time_s']-100),rows[0])
         end['final_100s_area_gain_m2']=d['area_m2']-before['area_m2']
+        end['coverage_milestones_sim_s']={str(p):next((r['sim_s'] for r in rows if r['coverage_fraction']>=p/100),None) for p in [42,50,75,90,95]}
+        end['trajectory_extent_xy']={'x_min':min(r['x'] for r in rows),'x_max':max(r['x'] for r in rows),'y_min':min(r['y'] for r in rows),'y_max':max(r['y'] for r in rows)}
     return d,rows,end
 for method in ['fael','gbp2']:
     folder=root/'results'/selection['final_runs'][method]
@@ -49,7 +51,8 @@ for method in ['fael','gbp2']:
       'runtime_recorded':d['runtime_native_s_summary']['count']>0,
     }
     cells=list(csv.DictReader((folder/'known_plane_cells.csv').open()))
-    flags['saved_cells_match']=d['area_m2']-.001<=len(cells)*.16<=d['area_m2']+100
+    flags['saved_cells_match']=abs(d['area_m2']-len(cells)*.16)<.001
+    summary['saved_csv_area_m2']=len(cells)*.16
     for k,v in flags.items():checks[method+'.'+k]=v
     if d.get('native_finish_sim_s') is not None:
         parked=[r for r in rows if r['sim_s']>d['native_finish_sim_s']+2]
@@ -64,6 +67,12 @@ for method in ['fael','gbp2']:
     else:
         counts=list(map(int,re.findall(r'Have (\d+) frontiers from global graph',log)))
         summary['native_frontier_diagnostics']={'records':len(counts),'max_global_frontiers':max(counts,default=0),'nonzero_records':sum(x>0 for x in counts)}
+        live=yaml.safe_load((folder/'live_rosparams.yaml').read_text())
+        checks['gbp2.live_frontier_fraction_verified']=live['SensorParams']['VLP16']['frontier_percentage_threshold']==.01
+        checks['gbp2.live_sampling_limit_verified']=live['PlanningParams']['num_vertices_max']==2000
+        archived=json.loads((folder/'native_source_manifest.json').read_text())
+        current=json.loads((root/'progress_repairs/manifest.json').read_text())
+        checks['gbp2.source_and_binary_frozen_for_run']=archived==current
 for filename in ['ray_cache_regression.json','fael_frontier_regression.json','gain_frame_regression.json','gbp_core_regression.json','trial_contract_regression.json','frontier_calibration_validation.json','cluster_frontier_regression.json']:
     regression=json.loads((root/filename).read_text())
     for k,v in regression['checks'].items():checks[filename+'.'+k]=v
@@ -97,6 +106,8 @@ checks['native_calibrated_probe.endpoint_dimensions_match']=calibrated['scan_wid
 checks['native_calibrated_probe.physical_ray_range']=abs(calibrated['maximum_generated_ray_length']-calibrated['configured_max_range'])<1e-5
 diagnostics={'intermediate_attempts':attempts,'gain_height_replay':{'visited_positions':len(pairs),'actual_height_unknown_mean':sum(a['unknown'] for a,b in pairs)/len(pairs),'projected_height_unknown_mean':sum(b['unknown'] for a,b in pairs)/len(pairs),'actual_height_frontiers':sum(a['frontier'] for a,b in pairs),'projected_height_frontiers':sum(b['frontier'] for a,b in pairs),'original_maximum_ray_length':probe['maximum_generated_ray_length'],'corrected_maximum_ray_length':calibrated['maximum_generated_ray_length'],'native_scan_shape':[calibrated['scan_width'],calibrated['scan_height']]}}
 diagnostics['native_service_sampling_comparison']=json.loads((root/'offline_rrg_probe.json').read_text())
+diagnostics['frontier_fraction_frozen_map_calibration']=json.loads((root/'frontier_calibration_validation.json').read_text())
+diagnostics['clustered_gain_type_regression']=json.loads((root/'cluster_frontier_regression.json').read_text())
 value={'generated_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'trial_selection':selection,'adapter_and_configuration_changes':trial_repairs,'protocol_checks_passed':all(checks.values()),'exploration_goals_passed':all(goals.values()),'checks':checks,'exploration_goals':goals,'results':results,'intermediate_diagnostics':diagnostics,'note':'Final repair configuration selected before its outcome. Previous attempts include intentional diagnostic stops and a complete 2400s failure; none are pooled as repetitions. Common observer/controller/coverage-time stop unchanged, adapter and native configuration changes explicitly archived. 1600s checkpoint is first sample at or after1600s; earlier completed run uses terminal result. A censored run is not a completion time.'}
 (out/'progress_validation.json').write_text(json.dumps(value,indent=2)+'\n')
 print(json.dumps({k:v for k,v in value.items() if k not in ['checks','results']},indent=2))

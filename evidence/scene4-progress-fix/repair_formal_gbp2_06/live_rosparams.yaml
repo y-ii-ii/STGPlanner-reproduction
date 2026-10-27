@@ -1,0 +1,281 @@
+AdaptiveObbParams:
+  bounding_box_size_max: 35
+  local_pointcloud_range: 50.0
+  type: kPca
+BoundedSpaceParams:
+  Global:
+    max_val:
+    - 80.0
+    - 100.0
+    - 3.0
+    min_val:
+    - -50.0
+    - -20.0
+    - -2.0
+    type: kCuboid
+  Local:
+    max_extension:
+    - 20.0
+    - 20.0
+    - 20.0
+    max_val:
+    - 15.0
+    - 15.0
+    - 3.0
+    min_extension:
+    - -20.0
+    - -20.0
+    - -20.0
+    min_val:
+    - -15.0
+    - -15.0
+    - -3.0
+    type: kCuboid
+  LocalAdaptiveExp:
+    max_val:
+    - 10.0
+    - 10.0
+    - 0.75
+    min_val:
+    - -10.0
+    - -10.0
+    - -0.75
+    type: kCuboid
+  LocalSearch:
+    max_val:
+    - 50.0
+    - 50.0
+    - 10.0
+    min_val:
+    - -50.0
+    - -50.0
+    - -10.0
+    type: kCuboid
+GeofenceParams:
+  AreaList: []
+  GBack:
+    center:
+    - -3.0
+    - 0.0
+    - 0.0
+    size:
+    - 2.0
+    - 6.0
+    - 0.0
+  GLeft:
+    center:
+    - 0.0
+    - 4.0
+    - 0.0
+    size:
+    - 6.0
+    - 2.0
+    - 0.0
+  GRight:
+    center:
+    - 0.0
+    - -4.0
+    - 0.0
+    size:
+    - 6.0
+    - 2.0
+    - 0.0
+NoGainZones:
+  g1:
+    max_val:
+    - 2.0
+    - 50.0
+    - 20.0
+    min_val:
+    - -50.0
+    - -50.0
+    - -20.0
+    type: kCuboid
+PlanningParams:
+  augment_free_voxels_time: 1
+  auto_global_planner_enable: true
+  auto_homing_enable: true
+  bound_mode: kExtremeBound
+  cluster_vertices_for_gain: true
+  clustering_radius: 0.5
+  edge_length_max: 3.0
+  edge_length_min: 0.1
+  edge_overshoot: 0.0
+  exp_gain_voxel_size: 0.8
+  exp_sensor_list:
+  - VLP16
+  free_frustum_before_planning: false
+  free_voxel_gain: 0.0
+  freespace_cloud_enable: false
+  geofence_checking_enable: false
+  global_frame_id: world
+  global_path_inclination_check: true
+  go_home_if_fully_explored: true
+  hanging_vertex_penalty: 5.0
+  homing_backward: false
+  interpolate_projection_distance: false
+  leafs_only_for_volumetric_gain: false
+  max_ground_height: 0.7
+  max_inclination: 0.4363323129985824
+  nearest_range: 2.5
+  nearest_range_max: 3.0
+  nearest_range_min: 0.1
+  no_gain_zones_list: []
+  nonuniform_ray_cast: true
+  num_edges_max: 20000
+  num_loops_cutoff: 8000
+  num_loops_max: 80000
+  num_vertices_max: 2000
+  occupied_voxel_gain: 0.0
+  path_direction_penalty: 0.3
+  path_interpolation_distance: 0.5
+  path_length_penalty: 0.07
+  path_safety_enhance_enable: true
+  ray_cast_step_size_multiplier: 1.0
+  relaxed_corridor_multiplier: 1.5
+  robot_height: 0.456
+  rr_mode: kGraph
+  time_budget_limit: 3600
+  traverse_length_max: 6.0
+  traverse_time_max: 40.0
+  type: kAdaptiveExploration
+  unknown_voxel_gain: 60.0
+  use_current_state: true
+  use_ray_model_for_volumetric_gain: true
+  v_homing_max: 1.0
+  v_max: 2.0
+  yaw_tangent_correction: true
+RandomSamplerParams:
+  SamplerForAdaptiveExp:
+    Heading:
+      max_val: 3.141592653589793
+      min_val: -3.141592653589793
+      pdf_type: kUniform
+      sample_mode: kManual
+    X:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Y:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Z:
+      pdf_type: kUniform
+      sample_mode: kLocal
+  SamplerForExploration:
+    Heading:
+      max_val: 3.141592653589793
+      min_val: -3.141592653589793
+      pdf_type: kUniform
+      sample_mode: kManual
+    X:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Y:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Z:
+      pdf_type: kUniform
+      sample_mode: kLocal
+  SamplerForSearching:
+    Heading:
+      max_val: 3.141592653589793
+      min_val: -3.141592653589793
+      pdf_type: kUniform
+      sample_mode: kManual
+    X:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Y:
+      pdf_type: kUniform
+      sample_mode: kLocal
+    Z:
+      pdf_type: kUniform
+      sample_mode: kLocal
+RobotParams:
+  bound_mode: kExtendedBound
+  center_offset:
+  - 0.0
+  - 0.0
+  - -0.2
+  relax_ratio: 0.5
+  safety_extension:
+  - 2.0
+  - 3.0
+  - 0.2
+  size:
+  - 0.8
+  - 0.6
+  - 0.4
+  size_extension:
+  - 0.2
+  - 0.2
+  - 0.2
+  size_extension_min:
+  - 0.0
+  - 0.0
+  - 0.0
+  type: kGroundRobot
+SensorParams:
+  VLP16:
+    center_offset:
+    - 0.0
+    - 0.0
+    - 0.0
+    fov:
+    - 6.283185307179586
+    - 0.5235987755982988
+    frontier_percentage_threshold: 0.01
+    max_range: 12.0
+    resolution:
+    - 0.08726646259971647
+    - 0.08726646259971647
+    rotations:
+    - 0.0
+    - 0.0
+    - 0.0
+    type: kLidar
+  sensor_list:
+  - VLP16
+accumulate_icp_corrections: true
+allow_clear: true
+clear_sphere_for_planning: false
+clear_sphere_radius: 0.8
+clearing_ray_weight_factor: 0.01
+color_mode: colors
+enable_icp: false
+esdf_max_distance_m: 2.0
+icp_refine_roll_pitch: false
+integration_order_mode: sorted
+max_consecutive_ray_collisions: 0
+max_ray_length_m: 12.0
+max_weight: 200
+mesh_min_weight: 1e-4
+method: fast
+min_ray_length_m: 0.5
+min_time_between_msgs_sec: 0.0
+occupancy_min_distance_voxel_size_factor: 1.0
+pointcloud_queue_size: 1000
+publish_esdf_map: true
+publish_pointclouds: true
+publish_slices: false
+publish_traversable: true
+publish_tsdf_info: false
+publish_tsdf_map: true
+slice_level: 1.0
+sparsity_compensation_factor: 100.0
+timestamp_tolerance_sec: 0.001
+traversability_radius: 0.4
+truncation_distance: 0.6
+tsdf_voxel_size: 0.2
+tsdf_voxels_per_side: 16
+update_mesh_every_n_sec: 0.5
+use_const_weight: false
+use_freespace_pointcloud: true
+use_sparsity_compensation_factor: true
+use_symmetric_weight_drop_off: false
+use_tf_transforms: true
+use_weight_dropoff: true
+verbose: false
+voxel_carving_enabled: true
+weight_ray_by_range: false
+world_frame: world
