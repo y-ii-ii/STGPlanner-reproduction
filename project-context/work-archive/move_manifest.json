@@ -1,0 +1,296 @@
+{
+  "generated_at": "2026-10-27T20:39:43.520895+08:00",
+  "moves": [
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\PROGRESS_RESUME.md",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\PROGRESS_RESUME.md",
+      "sha256": "d8a58627c9dfd2b7d2451b7a4f338ba22afa80b435b38e9a791f43c0d87f23e9",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\Start-STGPlanner.cmd",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\Start-STGPlanner.cmd",
+      "sha256": "61d8ecb57cb3133596ba3aa525003cae9738367e23a4ddbdd288b76f8420ff31",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\Start-STGPlanner.ps1",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\Start-STGPlanner.ps1",
+      "sha256": "f3bda4d44e6b7aa116e0a6b1f982cd93d122d9d75ce37df9c3cbf3dc78607f76",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\Stop-STGPlanner.cmd",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\Stop-STGPlanner.cmd",
+      "sha256": "eaa944513d1312a5db996831d444753ee3a464514db3bc86a56f346a3d65bbb0",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\Stop-STGPlanner.ps1",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\Stop-STGPlanner.ps1",
+      "sha256": "80fecc26461b0eb50154e8fc22604e5f7661bac30cd08aba0a432524984ad35f",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\backup-clone-20261027-200927.log",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\backup-clone-20261027-200927.log",
+      "sha256": "dfc164fa4a0e27eb62e58b45b9bbf770b05eb1cc63349ffc01fe4a458fd336ba",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\backup-clone-20261027-201205.log",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\backup-clone-20261027-201205.log",
+      "sha256": "fadb03fcd57e4a685e52d31ba84d355ad31d91b14127c37d30b9ef3cc8c7d3f2",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\backup09_commit.log",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\backup09_commit.log",
+      "sha256": "7cdffa7a5eb1ce2b93f4a0cf50f86b22c346da3085df7ea104478297f004328c",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\backup09_commit_message.txt",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\backup09_commit_message.txt",
+      "sha256": "d1d35321b54549872614a65ae06aa89d89f4f213cd5936781559adbdf4eb303e",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\backup09_metadata_commit.log",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\backup09_metadata_commit.log",
+      "sha256": "6d417d609dfc45536b929e7cfaa3ff44ab28c55f8e92761302b832e04ed40f74",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\check_final_delivery.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\check_final_delivery.py",
+      "sha256": "7f9bd131c70255d0067dbfda6730ae7ece5c77b0971aa2c099132be4e4392ab0",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\checkpoint_cluster_fix.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\checkpoint_cluster_fix.py",
+      "sha256": "1a1a5600b9a3d03326e396a652152988c345dfca805f9946470b60aa375cd48f",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\clone_gbp_dependencies.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\clone_gbp_dependencies.py",
+      "sha256": "21a3f7dcc4503daff1aef838c09feaf547b3ae9b9cde55cf169b7388818994ed",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\collect_fixed_screenshot.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\collect_fixed_screenshot.py",
+      "sha256": "d4773eafbd9c91f269fac7c283aa7c17b3d489919e0b6210fbfbdd371221b331",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\finalize_baseline_assets.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\finalize_baseline_assets.py",
+      "sha256": "53754da31f56635cde0fb289981eca297d62492a1f9d1ceef285f9d9b108fc97",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\finalize_long_run.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\finalize_long_run.py",
+      "sha256": "f59e31abf55186f23e5e33bd77131c9fc9ef8fb5c64bed7dea6791e746b533fd",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\finalize_report.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\finalize_report.py",
+      "sha256": "713c37aa927a8ed4af4113d888a82d6d2857aa1199d7f367446421495868a6db",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\four_algorithm_summary.log",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\four_algorithm_summary.log",
+      "sha256": "6bf3eab61c29b78ecb42860694c52f972211c607ebd1f31814311c4bcec4f466",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\gbp_sampling_probe_07.cpp",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\gbp_sampling_probe_07.cpp",
+      "sha256": "db719dfb8a60d8dd10c063f32eb76e267f4ee38e5e0b80c6159f0022ab49b420",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\github_repo_transport.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\github_repo_transport.py",
+      "sha256": "ea3084a65d908e7c53840af08810ca3b41afed1c28c79f02ec3bde87a8002d30",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\mark_report_in_progress.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\mark_report_in_progress.py",
+      "sha256": "146d1448de16a43a9f45c3240f9b928a5dcf1a14d3d55ae4fbcde2a854c5f4cc",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\migrate_project_context.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\migrate_project_context.py",
+      "sha256": "c0ce6c0b8a6fb2864ab0aaa5fc759a63ea96a5850d6f114d5512bce17eced2b2",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\package_benchmark.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\package_benchmark.py",
+      "sha256": "9bf2e5a5b82136a739e4d1423b9de30838e0887bfea5f83130846d8633d92ab4",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\package_deliverables.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\package_deliverables.py",
+      "sha256": "0ed5e6e8bf9a9e57c19ec8b7117feb4a756fafd343c0453a255658bd4bad03bd",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\package_progress.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\package_progress.py",
+      "sha256": "261ef3794a4693ffd9a660ed4bbafe0feabe63f108fc0cfcba6106cd5ec78b9e",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\plot_progress_windows.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\report-history\\plot_progress_windows.py",
+      "sha256": "0621422466fdb5165f95d3b9445027200d4130e37e3c85d236cf576cdc4973dc",
+      "category": "report-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\prepare_github_baseline.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\prepare_github_baseline.py",
+      "sha256": "dab915547571ca4aa3bb3fd1c5caab988eb5df234cbe5f156141a17eea208ff0",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\prepare_progress_delivery.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\prepare_progress_delivery.py",
+      "sha256": "9877731fa8b79ea7a712706834c79f460ad435bc6303cf07a03cdabfcd3463a3",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\prepare_resume_07.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\prepare_resume_07.py",
+      "sha256": "2d2e4836c921a978b5b3c53999900c953a52557e1118bf923eb7b3fbf7fb068f",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\prepare_sampling_probe_07.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\prepare_sampling_probe_07.py",
+      "sha256": "3d5ccdf770d72bf28f2edd1c42c4db4f72438784172ec906dc6e1a67bbb4e7e7",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\progress_checkpoint2_whitespace.txt",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\progress_checkpoint2_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\progress_checkpoint_whitespace.txt",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\progress_checkpoint_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\record_backup09_completion.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\record_backup09_completion.py",
+      "sha256": "1f4b3f0d5698ed5bc20a252da2854b5b73c41afaf291c13f5eadd7207b68523a",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\report-base.md",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\report-base.md",
+      "sha256": "07de3e65ebe4b79fd612659fa67d43e55eb54144806661818f6a6ce36bed2881",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\report-style.css",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\report-style.css",
+      "sha256": "13998a94da15187a1c4dea4b85d02483a6a90fac19485be7c5a5663339ca0b7a",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\run_sampling_probe_07.sh",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\run_sampling_probe_07.sh",
+      "sha256": "43fc9fe0eeeb314fb895399d5287a4b9a48995c094a72fea8e7e31ffa3b32358",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\run_supervised_07.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\run_supervised_07.py",
+      "sha256": "2ee9f0aa0478ad587d9e6d679bdfac2322a9aaa9cc0e02925a5c91892958d18d",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\scene4_git_whitespace.txt",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\notes-logs\\scene4_git_whitespace.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "category": "notes-logs"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\stage_benchmark.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\stage_benchmark.py",
+      "sha256": "e550294753d88c375a9eca528c0fc6ac70bf148d13806cd6bec2b30fb24778ec",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\stage_progress_sources.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\stage_progress_sources.py",
+      "sha256": "08a9e048c0400c288340111077a30340c6de62e98e78df38f3f014f8e2a8a834",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\summarize_four_algorithms.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\reporting\\summarize_four_algorithms.py",
+      "sha256": "8806f4bc0a2b57ee2442bace17d734fde16c9b91ba4bccdb4e95f2c065434d00",
+      "category": "reporting",
+      "current_sha256": "21045a52bb797e2d47ab3f8cff35cdd24b88f013af2b8f4306fc79e45991a124",
+      "modified_after_move": "Removed legacy STATUS side effect and added stage-complete heading; original move SHA retained."
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\update_benchmark_readme.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\update_benchmark_readme.py",
+      "sha256": "1f96d883342e081b509d5f2993dcf4a58af2c713d24555de35b131711e30dba9",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\update_deployment_benchmark.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\update_deployment_benchmark.py",
+      "sha256": "bf198b0a236eb6af59a084b5707e93f05970a0c6d5745692f0bfb7e773a53dc1",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\verify_progress_clone.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\verify_progress_clone.py",
+      "sha256": "fd2a0002930963e9721c2e90a4fe36677948c8acfecbcb5c3a8e9c613ba666eb",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\verify_progress_remote.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\verify_progress_remote.py",
+      "sha256": "9d6d69e50f70525920373dd4ea45cd793b8bf97870640f89668248b8daf1b36e",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\verify_scene4_remote.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\verify_scene4_remote.py",
+      "sha256": "6fd29f928b8d9f02bfaddb7733f78ab0d145e6fea73a45dbf33edb7be98602e9",
+      "category": "backup-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\write_status_after09.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\experiment-history\\write_status_after09.py",
+      "sha256": "c8503ea9f2705aca14182c79eeb5d539014995344ced141b4feb1058131b4468",
+      "category": "experiment-history"
+    },
+    {
+      "old_path": "D:\\STGPlanner\\codex\\work\\write_upload_receipt.py",
+      "new_path": "D:\\STGPlanner\\codex\\work\\archive\\2026-10-27-scene4\\backup-history\\write_upload_receipt.py",
+      "sha256": "7085c9c266b31c1db844c77d6683393773bd3d3da30c79bdc2cd14b05d1c8d6f",
+      "category": "backup-history"
+    }
+  ],
+  "policy": "Only unreferenced one-off files moved; all operational script paths retained; no raw result moved."
+}

@@ -1,6 +1,6 @@
 # 新会话恢复与协作清单
 
-> 当前用户已暂停GBP2后续测试。本次仅整理FAEL成功/GBP2未达95%的结果并备份；以下启动命令只是用户未来明确恢复后的参考，不自动执行。
+> Scene4四算法基线测试已阶段性完成；GBP2后续测试保持用户暂停。当前只维护报告/归档；下列启动命令仅为未来明确恢复后的参考，不自动执行。
 
 ## 新会话怎么开始
 
@@ -54,3 +54,11 @@ D:/STGPlanner/codex/work保留最新未发布工具草稿，D:/STGPlanner/benchm
 ## 官方依据
 
 AGENTS.md用于持久项目指导，官方说明：https://learn.chatgpt.com/docs/agent-configuration/agents-md 。本项目用短AGENTS加独立状态文件，避免将全部实验历史塞入自动加载上下文。迁入项目不能扩大单会话上下文或保证不发生其他中断。
+
+## 阶段完成后的交接入口
+
+先读SCENE4_STAGE_COMPLETION.json、STATUS.md最新阶段结论，再看四算法论文对比汇总和代码目录说明。STGPlanner/TARE/修复FAEL达95%，GBP2修复09限时56.338896%。TARE时间比论文均值高25.40%；不将所有成功方法称为所有指标接近。
+
+当前只读表格生成器：codex/work/reporting/summarize_four_algorithms.py（仓库副本benchmarks/reporting/）；逐文件说明benchmarks/FILE_INDEX.md；一次性工作文件已归档，旧路径映射和SHA见codex/work/archive/2026-10-27-scene4/move_manifest.json。已部署运行入口仍在原位置。不要重跑旧prepare_formal_09/run_formal_09、旧报告/备份生成器。
+
+本阶段完成不等于全部代码问题修复或论文多次统计复现。GBP2剩余问题已登记但无自动续跑；未来恢复须明确授权、检查仿真锁与实际进程并使用全新结果目录。私有备份核验见SCENE4_STAGE_BACKUP_VERIFIED.json。

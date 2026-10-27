@@ -1,0 +1,8 @@
+[fix/fael-gbp2-progress ac6927e] Record private backup verification and paused GBP2 handoff
+ 8 files changed, 189 insertions(+), 5 deletions(-)
+ create mode 100644 benchmarks/finalize_backup09_metadata.py
+ create mode 100644 benchmarks/normalize_reports09.py
+ create mode 100644 benchmarks/verify_index09.py
+ create mode 100644 benchmarks/verify_remote_clone09.py
+ create mode 100644 "docs/\347\247\201\346\234\211\344\273\223\345\272\223\345\244\207\344\273\275\350\257\264\346\230\216.md"
+ create mode 100644 project-context/BACKUP_VERIFIED.json

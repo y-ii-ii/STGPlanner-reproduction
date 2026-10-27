@@ -1,7 +1,7 @@
 # STGPlanner 项目协作规则
 
 - 先读最新状态与恢复清单：project-context/STATUS.md、project-context/RUNBOOK.md。不要默认读取整段旧聊天或历史归档。
-- 项目暂停或恢复以用户最新明确授权及状态文件为准。用户已暂停GBP2后续测试，当前仅整理结果与备份；除非用户明确恢复，不启动新GBP2测试或继续算法修改。FAEL成功结果保留，不自动重跑。
+- 项目暂停或恢复以用户最新明确授权及状态文件为准。Scene4四算法基线测试已阶段性完成，用户已暂停GBP2后续测试；除非用户明确恢复，不启动新GBP2测试或继续算法修改。FAEL成功结果保留，不自动重跑。
 - 本项目目录D:/STGPlanner不是Git根。实际Git仓库在D:/STGPlanner/catkin_ws/src/STGPlanner；不要在D盘项目根执行git init。
 - 私有仓库y-ii-ii/STGPlanner-reproduction；当前修复分支fix/fael-gbp2-progress。保留main及两个历史基线标签。
 - 部署工具D:/STGPlanner/benchmarks；WSL发行版STGPlanner-Ubuntu20。真正编译的FAEL/GBP2源码在WSL /opt/stgplanner/benchmarks/*_ws/src，修改D盘上游克隆不会自动改变二进制。

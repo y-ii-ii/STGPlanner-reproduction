@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-10-27T20:39:45.307225+08:00",
+  "paper_url": "https://arxiv.org/html/2412.13664v4",
+  "scene": "Scene4",
+  "paper_repeats": 5,
+  "local_observations_per_version": 1,
+  "records": [
+    {
+      "algorithm": "STGPlanner",
+      "local_version": "本机基线01",
+      "trial": "formal_stgp_01",
+      "source_result": "D:\\STGPlanner\\benchmarks\\results\\formal_stgp_01\\result.json",
+      "source_sha256": "4d138984783907ff58c94df99838cd7dd9566ab9e33db5e0df9c81a2361212f0",
+      "paper": {
+        "exploration_time_s": 779.8,
+        "exploration_time_std_s": 17.2,
+        "path_length_m": 1194.0,
+        "path_length_std_m": 12.9,
+        "censored_lower_bounds": false,
+        "runtime_s": 0.015,
+        "average_speed_m_s": 1.53
+      },
+      "local": {
+        "sim_time_s": 760.1000000000004,
+        "wall_time_s": 763.8576516950016,
+        "distance_m": 1187.5444741385083,
+        "coverage_fraction": 0.9506136071887036,
+        "average_speed_m_s": 1.5623529458472671,
+        "finish_reason": "coverage_threshold"
+      },
+      "local_native_runtime_mean_s": 0.040510645002276864,
+      "descriptive_difference_from_paper_mean": {
+        "exploration_time_percent": -2.5262887919978994,
+        "path_length_percent": -0.540663807495112
+      }
+    },
+    {
+      "algorithm": "TARE",
+      "local_version": "本机基线01",
+      "trial": "formal_tare_01",
+      "source_result": "D:\\STGPlanner\\benchmarks\\results\\formal_tare_01\\result.json",
+      "source_sha256": "89b82d104b20f47f54f1ddb99119ef314f4964d4089cd001a4bca9a98372232f",
+      "paper": {
+        "exploration_time_s": 1018.6,
+        "exploration_time_std_s": 82.3,
+        "path_length_m": 1640.0,
+        "path_length_std_m": 135.3,
+        "censored_lower_bounds": false,
+        "runtime_s": 0.338,
+        "average_speed_m_s": 1.61
+      },
+      "local": {
+        "sim_time_s": 1277.2790000000005,
+        "wall_time_s": 1288.354843999,
+        "distance_m": 1791.348556749956,
+        "coverage_fraction": 0.9540231065468551,
+        "average_speed_m_s": 1.402472409512687,
+        "finish_reason": "coverage_threshold"
+      },
+      "local_native_runtime_mean_s": 0.2513586531744026,
+      "descriptive_difference_from_paper_mean": {
+        "exploration_time_percent": 25.395542902022417,
+        "path_length_percent": 9.228570533533897
+      }
+    },
+    {
+      "algorithm": "FAEL",
+      "local_version": "原生修复01",
+      "trial": "repair_formal_fael_01",
+      "source_result": "D:\\STGPlanner\\benchmarks\\results\\repair_formal_fael_01\\result.json",
+      "source_sha256": "92e6a5f0213c91523c9241ef64bdd426d074f8e096b713a34e3a30fa40851385",
+      "paper": {
+        "exploration_time_s": 1033.9,
+        "exploration_time_std_s": 149.8,
+        "path_length_m": 1420.3,
+        "path_length_std_m": 128.4,
+        "censored_lower_bounds": false,
+        "runtime_s": 0.119,
+        "average_speed_m_s": 1.37
+      },
+      "local": {
+        "sim_time_s": 1017.0079999999998,
+        "wall_time_s": 1022.100535842,
+        "distance_m": 1351.9311561766528,
+        "coverage_fraction": 0.9533658536585367,
+        "average_speed_m_s": 1.3293220468046005,
+        "finish_reason": "coverage_threshold"
+      },
+      "local_native_runtime_mean_s": 0.03796369928412749,
+      "descriptive_difference_from_paper_mean": {
+        "exploration_time_percent": -1.6338137150595067,
+        "path_length_percent": -4.813690334672049
+      }
+    },
+    {
+      "algorithm": "GBP2",
+      "local_version": "原生修复09",
+      "trial": "repair_formal_gbp2_09",
+      "source_result": "D:\\STGPlanner\\benchmarks\\results\\repair_formal_gbp2_09\\result.json",
+      "source_sha256": "da7e7ec39102b8fc57350029fdd33af970075cff7d894541e109970e4302af19",
+      "paper": {
+        "exploration_time_s": 1600,
+        "exploration_time_std_s": null,
+        "path_length_m": 1560,
+        "path_length_std_m": null,
+        "censored_lower_bounds": true,
+        "runtime_s": 0.465,
+        "average_speed_m_s": 0.97
+      },
+      "local": {
+        "sim_time_s": 2400.0069999999996,
+        "wall_time_s": 2412.78335784,
+        "distance_m": 2413.449803404022,
+        "coverage_fraction": 0.5633889602053915,
+        "average_speed_m_s": 1.0056011517483168,
+        "finish_reason": "sim_time_limit"
+      },
+      "local_native_runtime_mean_s": 1.0080147548972427,
+      "descriptive_difference_from_paper_mean": null
+    }
+  ]
+}

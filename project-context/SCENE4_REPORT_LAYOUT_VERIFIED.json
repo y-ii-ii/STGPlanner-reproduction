@@ -1,0 +1,49 @@
+{
+  "all_passed": true,
+  "findings": [
+    {
+      "stem": "Scene4四算法与论文对比汇总",
+      "title": "Scene4四算法与论文对比汇总",
+      "tables": 1,
+      "firstTableRows": 5,
+      "firstTableRight": 1580,
+      "pageWidth": 1680,
+      "pageScrollWidth": 1680,
+      "brokenImages": 0,
+      "containsStageComplete": true
+    },
+    {
+      "stem": "Scene4基线算法对比报告",
+      "title": "Scene4基线算法对比报告",
+      "tables": 6,
+      "firstTableRows": 5,
+      "firstTableRight": 1580,
+      "pageWidth": 1680,
+      "pageScrollWidth": 1680,
+      "brokenImages": 0,
+      "containsStageComplete": true
+    },
+    {
+      "stem": "代码目录说明",
+      "title": "代码目录说明",
+      "tables": 2,
+      "firstTableRows": 22,
+      "firstTableRight": 1580,
+      "pageWidth": 1680,
+      "pageScrollWidth": 1680,
+      "brokenImages": 0,
+      "containsStageComplete": true
+    },
+    {
+      "stem": "STGPlanner部署报告",
+      "title": "STGPlanner部署报告",
+      "tables": 7,
+      "firstTableRows": 5,
+      "firstTableRight": 1580,
+      "pageWidth": 1680,
+      "pageScrollWidth": 1680,
+      "brokenImages": 0,
+      "containsStageComplete": true
+    }
+  ]
+}

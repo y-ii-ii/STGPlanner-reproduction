@@ -1,0 +1,14 @@
+{
+  "state": "paused_by_user",
+  "owner_thread": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+  "trial": "repair_formal_gbp2_09",
+  "updated_at": "2026-10-27T20:11:29.583106+08:00",
+  "runtime_active": false,
+  "phase": "private_backup_verified_gbp2_paused",
+  "finish_reason": "sim_time_limit",
+  "result_path": "D:/STGPlanner/benchmarks/results/repair_formal_gbp2_09",
+  "common_threshold_reached": false,
+  "extra_final_process_check": "not_run_user_denied",
+  "note": "User paused further GBP2 tests. Result/code private backup verified by remote commit and fresh clone hashes; no simulation or automatic continuation scheduled.",
+  "backup_content_commit": "bbab488a560319118da045aaeade532e879b45b6"
+}

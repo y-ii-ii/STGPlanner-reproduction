@@ -6,151 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>STGPlanner部署报告</title>
   <style>
-html {
-color: #1a1a1a;
-background-color: #fdfdfd;
-}
-body {
-margin: 0 auto;
-max-width: 36em;
-padding-left: 50px;
-padding-right: 50px;
-padding-top: 50px;
-padding-bottom: 50px;
-hyphens: auto;
-overflow-wrap: break-word;
-text-rendering: optimizeLegibility;
-font-kerning: normal;
-}
-@media (max-width: 600px) {
-body {
-font-size: 0.9em;
-padding: 12px;
-}
-h1 {
-font-size: 1.8em;
-}
-}
-@media print {
-html {
-background-color: white;
-}
-body {
-background-color: transparent;
-color: black;
-font-size: 12pt;
-}
-p, h2, h3 {
-orphans: 3;
-widows: 3;
-}
-h2, h3, h4 {
-page-break-after: avoid;
-}
-}
-p {
-margin: 1em 0;
-}
-a {
-color: #1a1a1a;
-}
-a:visited {
-color: #1a1a1a;
-}
-img {
-max-width: 100%;
-}
-svg {
-height: auto;
-max-width: 100%;
-}
-h1, h2, h3, h4, h5, h6 {
-margin-top: 1.4em;
-}
-h5, h6 {
-font-size: 1em;
-font-style: italic;
-}
-h6 {
-font-weight: normal;
-}
-ol, ul {
-padding-left: 1.7em;
-margin-top: 1em;
-}
-li > ol, li > ul {
-margin-top: 0;
-}
-blockquote {
-margin: 1em 0 1em 1.7em;
-padding-left: 1em;
-border-left: 2px solid #e6e6e6;
-color: #606060;
-}
-code {
-font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-font-size: 85%;
-margin: 0;
-hyphens: manual;
-}
-pre {
-margin: 1em 0;
-overflow: auto;
-}
-pre code {
-padding: 0;
-overflow: visible;
-overflow-wrap: normal;
-}
-.sourceCode {
-background-color: transparent;
-overflow: visible;
-}
-hr {
-background-color: #1a1a1a;
-border: none;
-height: 1px;
-margin: 1em 0;
-}
-table {
-margin: 1em 0;
-border-collapse: collapse;
-width: 100%;
-overflow-x: auto;
-display: block;
-font-variant-numeric: lining-nums tabular-nums;
-}
-table caption {
-margin-bottom: 0.75em;
-}
-tbody {
-margin-top: 0.5em;
-border-top: 1px solid #1a1a1a;
-border-bottom: 1px solid #1a1a1a;
-}
-th {
-border-top: 1px solid #1a1a1a;
-padding: 0.25em 0.5em 0.25em 0.5em;
-}
-td {
-padding: 0.125em 0.5em 0.25em 0.5em;
-}
-header {
-margin-bottom: 4em;
-text-align: center;
-}
-#TOC li {
-list-style: none;
-}
-#TOC ul {
-padding-left: 1.3em;
-}
-#TOC > ul {
-padding-left: 0;
-}
-#TOC a:not(:hover) {
-text-decoration: none;
-}
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -230,10 +85,101 @@ code span.va { color: #19177c; }
 code span.vs { color: #4070a0; }
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 </style>
+  <style type="text/css">body { max-width: 1480px; margin: 28px auto; padding: 0 24px; font-family: "Microsoft YaHei", sans-serif; color: #243247; line-height: 1.7; overflow-x: auto; }
+h1 { font-size: 26px; } h2 { font-size: 20px; margin-top: 28px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 24px 0; }
+th, td { padding: 10px 9px; border-bottom: 1px solid #d7dfe7; text-align: right; white-space: normal; overflow-wrap: anywhere; }
+th { background: #eaf0f6; color: #213b59; }
+th:first-child, td:first-child, th:last-child, td:last-child { text-align: left; }
+tbody tr:nth-child(even) { background: #f7f9fb; }
+a { color: #245d95; } code { font-family: Consolas, monospace; }
+pre { overflow-x: auto; max-width: 100%; padding: 12px; background: #f4f6f8; }
+img { max-width: 100%; height: auto; }
+header#title-block-header { display: none; }
+</style>
 </head>
 <body>
+<header id="title-block-header">
+<h1 class="title">STGPlanner部署报告</h1>
+</header>
 <h1 id="stgplanner-本机部署与运行测试报告">STGPlanner
 本机部署与运行测试报告</h1>
+<!-- scene4-stage-summary:start -->
+<blockquote>
+<p><strong>阶段状态（2026-10-27）：Scene4四算法基线测试已阶段性完成。STGPlanner、TARE、修复FAEL达到本地公共95%；GBP2修复09在2400.007秒限时结束，覆盖56.338896%，未完成。GBP2保持用户暂停，不启动后续测试。本阶段是单次工程验证与对照归档，不是论文五次统计复现。</strong></p>
+</blockquote>
+<h2 id="最新四算法与论文数据对照">最新四算法与论文数据对照</h2>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>算法（本地版本）</th>
+<th style="text-align: right;">探索时间(s)：论文 → 本地</th>
+<th style="text-align: right;">路径长度(m)：论文 → 本地</th>
+<th style="text-align: right;">平均规划耗时(s)：论文 → 本地</th>
+<th style="text-align: right;">平均速度(m/s)：论文 → 本地</th>
+<th style="text-align: right;">本地覆盖指标</th>
+<th>本地判定</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>STGPlanner（本机基线01）</td>
+<td style="text-align: right;">779.8±17.2 → 760.100</td>
+<td style="text-align: right;">1194.0±12.9 → 1187.544</td>
+<td style="text-align: right;">0.015 → 0.0405</td>
+<td style="text-align: right;">1.53 → 1.562</td>
+<td style="text-align: right;">95.0614%</td>
+<td>达到公共95%</td>
+</tr>
+<tr class="even">
+<td>TARE（本机基线01）</td>
+<td style="text-align: right;">1018.6±82.3 → 1277.279</td>
+<td style="text-align: right;">1640.0±135.3 → 1791.349</td>
+<td style="text-align: right;">0.338 → 0.2514</td>
+<td style="text-align: right;">1.61 → 1.402</td>
+<td style="text-align: right;">95.4023%</td>
+<td>达到公共95%</td>
+</tr>
+<tr class="odd">
+<td>FAEL（原生修复01）</td>
+<td style="text-align: right;">1033.9±149.8 → 1017.008</td>
+<td style="text-align: right;">1420.3±128.4 → 1351.931</td>
+<td style="text-align: right;">0.119 → 0.0380</td>
+<td style="text-align: right;">1.37 → 1.329</td>
+<td style="text-align: right;">95.3366%</td>
+<td>达到公共95%</td>
+</tr>
+<tr class="even">
+<td>GBP2（原生修复09）</td>
+<td style="text-align: right;">&gt;1600（Std —） → 2400.007（限时）</td>
+<td style="text-align: right;">&gt;1560（Std —） → 2413.450</td>
+<td style="text-align: right;">0.465 → 1.0080</td>
+<td style="text-align: right;">0.97 → 1.006</td>
+<td style="text-align: right;">56.3389%</td>
+<td>限时未达95%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="口径与结论">口径与结论</h2>
+<ul>
+<li>本地成功定义为公共观察器的已知平面面积/7790m²达到95%（面积&gt;7400.5m²），并通过停车和传感器验收；不是算法自然结束或严格可达区域100%覆盖。论文未提供可直接对应的本地覆盖比例，故不填造论文覆盖率。</li>
+<li>GBP2的2400.007秒、2413.450米是限时观测窗口及其部分探索轨迹，不是完成时间/完整覆盖路径。论文的&gt;1600和&gt;1560同样不是准确完成值；Std横杠表示未提供，不能单独断言成功或崩溃，因此不计算GBP2相对论文的完成性能差。</li>
+<li>FAEL使用修复后的01运行，GBP2使用最新修复/校准后的09运行；两者含本地实现改动，不能与未经改动的上游/作者配置画等号。原FAEL1600秒41.2775%、原GBP2
+1600秒41.1789%及全部中间失败/中止数据均保留，未用后续结果覆盖。</li>
+<li>规划耗时按各代码原生统计范围：STGPlanner/FAEL为IterationTime，TARE为/runtime分项和，GBP2为服务回调内部稳态时钟。统计边界、CPU和负载不同，不能据此宣称跨论文的计算效率排名。本地速度是里程/探索仿真时长，含转向、等待及停滞，不是2m/s速度上限。</li>
+<li>完成运行的单次数值对照：STGPlanner时间比论文均值低2.53%、路径低0.54%；FAEL时间低1.63%、路径低4.81%；TARE时间高25.40%、路径高9.23%。这些是描述性差值，不证明改进/退化或统计显著性。</li>
+</ul>
+<p>完整数值、原始结果选择与SHA见<a href="Scene4四算法与论文对比汇总.html">四算法论文对比汇总</a>。目录与脚本用途见<a href="代码目录说明.html">代码目录说明</a>。下方保留原报告及历史测试过程。
+<!-- scene4-stage-summary:end --></p>
 <blockquote>
 <p><strong>本次整理结论：FAEL本地一次完整运行达到95.3366%，GBP2最新完整2400秒运行仅56.338896%，未达到95%。用户已暂停GBP2后续测试；保留全部基线、失败、中止数据及源码修改，按当前分支备份到私有仓库。此备份不表示全部问题已修复，也不代表论文五次统计复现。</strong></p>
 </blockquote>

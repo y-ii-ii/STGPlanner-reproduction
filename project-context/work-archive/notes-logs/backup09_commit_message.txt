@@ -1,0 +1,15 @@
+Preserve FAEL success and GBP2 incomplete validation results
+
+Record FAEL reaching the common 95% threshold at 1017.008 simulation seconds
+(95.3366%), and GBP2 trial09 reaching only 56.338896% at its full 2400.007s
+limit. Keep exploration completion separate from the 211 passing protocol and
+data checks. These engineering observations are not five paper repetitions.
+
+Preserve user-interrupted06, complete failed07, logging-only diagnostic08,
+all original baseline evidence, native source changes and frozen manifests.
+Keep previous evidence blobs unchanged and store a differing completed
+regression record separately. Retain selected-path eligibility fixes with
+controlled regressions and the final native-map replay with its limitations.
+
+Pause further GBP2 testing at the user's request. Update reports and handoff
+for a private branch backup, without a fully-fixed release tag.

@@ -1,0 +1,42 @@
+{
+  "updated_at": "2026-10-27T20:39:43.520895+08:00",
+  "stage": "Scene4四算法工程基线测试",
+  "status": "stage_complete",
+  "scope": "四方法部署、公共协议单次正式观测、必要修复验证、论文对照、证据归档和交接；不是论文五次统计复现",
+  "gbp2_followup": "paused_by_user",
+  "new_simulation_started": false,
+  "stgp": {
+    "trial": "formal_stgp_01",
+    "reached_95": true
+  },
+  "tare": {
+    "trial": "formal_tare_01",
+    "reached_95": true,
+    "time_difference_from_paper_mean_percent": 25.4
+  },
+  "fael": {
+    "trial": "repair_formal_fael_01",
+    "reached_95": true
+  },
+  "gbp2": {
+    "trial": "repair_formal_gbp2_09",
+    "reached_95": false,
+    "coverage_percent": 56.338896,
+    "sim_time_s": 2400.007,
+    "finish_reason": "sim_time_limit"
+  },
+  "open_issues": [
+    "GBP2后期平面覆盖停滞未解决；三维残余收益与平面增量分离仅为诊断线索，未证明唯一根因",
+    "TARE单次时间比论文均值高25.40%，尚不能据此判定代码故障",
+    "同条件五次均值/Std及其他场景不在本次阶段完成范围"
+  ],
+  "directory_cleanup": {
+    "moved_files": 48,
+    "original_bytes_preserved": true,
+    "deployed_paths_preserved": true,
+    "raw_results_unchanged": true
+  },
+  "backup_branch": "fix/fael-gbp2-progress",
+  "previous_backup_commit": "ac6927e8f41d95a406aec778e5536f6b2f529f8b",
+  "backup_verification": "本轮远端提交及恢复核验见SCENE4_STAGE_BACKUP_VERIFIED.json；未生成前不得视为本轮推送已验收"
+}

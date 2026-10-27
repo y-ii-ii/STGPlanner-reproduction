@@ -30,3 +30,9 @@
 
 /benchmarks/trial_repairs/** -text
 /benchmarks/trial_repairs/** whitespace=-blank-at-eol,-blank-at-eof
+
+# Historical workspace/hand-off snapshots preserve original bytes
+/project-context/history/** -text
+/project-context/work-archive/** -text
+/project-context/history/** whitespace=-blank-at-eol,-blank-at-eof
+/project-context/work-archive/** whitespace=-blank-at-eol,-blank-at-eof
