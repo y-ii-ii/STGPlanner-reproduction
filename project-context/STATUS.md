@@ -1,6 +1,6 @@
 # STGPlanner 最新交接状态
 
-更新时间：2026-10-27T20:00:46.058077+08:00。本文件覆盖旧聊天及history中的过时运行描述。
+更新时间：2026-10-27T20:11:29.583106+08:00。本文件覆盖旧聊天及history中的过时运行描述。
 
 ## 当前状态：用户暂停GBP2后续测试，整理已完成结果并备份私有仓库
 
@@ -28,7 +28,7 @@
 
 ## 目录、版本及本地交付
 
-- 项目根D:/STGPlanner；实际Git根D:/STGPlanner/catkin_ws/src/STGPlanner。私有远端y-ii-ii/STGPlanner-reproduction，分支fix/fael-gbp2-progress；本轮父提交59eba6c，新本地代码/证据检查点以git log为准。本次备份待推送核验；不创建“全部修复完成”标签，main及历史基线保持不变。
+- 项目根D:/STGPlanner；实际Git根D:/STGPlanner/catkin_ws/src/STGPlanner。私有远端y-ii-ii/STGPlanner-reproduction，分支fix/fael-gbp2-progress；本轮父提交59eba6c，新本地代码/证据检查点以git log为准。本次代码/证据内容提交bbab488a560319118da045aaeade532e879b45b6已推送并通过私有性、远端提交及克隆SHA核验；随后元数据提交记录本次验收。未创建“全部修复完成”标签，main及历史基线保持不变。
 - 保留main/repro-baseline-2026-10-26=dfc712982891f29c266083d7efad72ad48e730a2；benchmark/scene4-baselines及scene4-baselines-2026-10-27=9dec3c45184259a0d68e3dfe066040966d807aed。
 - 专用WSL STGPlanner-Ubuntu20；实际编译源码/opt/stgplanner/benchmarks/*_ws/src，主环境/opt/stgplanner/catkin_ws。当前原生库/源码及benchmarks/progress_repairs对应09，不能当作07版本。preflight_repair_formal_gbp2_09/baseline07_progress_repairs保留07源码/补丁，trial07_validation.json保留07验收。
 - 新工具在codex/work，主要为path_frontier_repair.py、test_path_frontier_selection.py、run_outcome.py、prepare_formal_09.py、run_formal_trial.py及原生收益探针。部署工具D:/STGPlanner/benchmarks。修改D盘上游克隆不会自动改变/opt编译副本。
@@ -42,3 +42,11 @@
 用户已明确要求GBP2先不继续测试。本次只整理报告、证据、代码及私有Git备份，不启动新仿真、不修改算法、不安排续跑。FAEL成功定义为本地一次完整运行达到公共95%并通过停车/传感器验收；GBP2最新09为完整2400秒限时、56.338896%，探索未完成。两者均不冒充论文五次统计复现。
 潜在的感知自由空间/原生收益一致性问题仅作未解决事项留存；待用户明确恢复后才接续，新实验须新名称及单一仿真控制权。06保持用户中止分类，07/09保持完整限时失败，08单列诊断。
 备份目标为私有仓库fix/fael-gbp2-progress分支，保留main及两个历史基线标签。本次不创建scene4-progress-fix-2026-10-27“全部修复完成”标签。远程备份验收另存codex/outputs/私有仓库备份验证.json；未完成的验证不得冒称通过。
+
+## 本次私有备份验收
+
+- 内容检查点：bbab488a560319118da045aaeade532e879b45b6，fix/fael-gbp2-progress，远端私有性已确认。
+- 从远端独立克隆恢复，522项记录文件SHA全部匹配，09原生地图解压SHA匹配，工作树干净，历史基线标签保留。
+- 内容结论仍为FAEL本地成功、GBP2未达95%；GBP2后续测试保持用户暂停，不自动续跑。
+- 验收记录见project-context/BACKUP_VERIFIED.json、docs/私有仓库备份说明.md；本地记录在codex/outputs/私有仓库备份验证.json和私有仓库克隆恢复核验.json。
+- 本文所记录的是内容提交，随后仅增加验收/交接元数据；最终分支HEAD以git log及远端最终核对为准。

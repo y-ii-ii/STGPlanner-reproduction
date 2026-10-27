@@ -1,0 +1,39 @@
+{
+  "content_commit": "bbab488a560319118da045aaeade532e879b45b6",
+  "repository": "y-ii-ii/STGPlanner-reproduction",
+  "branch": "fix/fael-gbp2-progress",
+  "private": true,
+  "content_verification": {
+    "verified_at": "2026-10-27T20:07:17.211367+08:00",
+    "repository": "y-ii-ii/STGPlanner-reproduction",
+    "private": true,
+    "branch": "fix/fael-gbp2-progress",
+    "remote_commit": "bbab488a560319118da045aaeade532e879b45b6",
+    "protected_refs": {
+      "heads/main": "dfc712982891f29c266083d7efad72ad48e730a2",
+      "heads/benchmark/scene4-baselines": "9dec3c45184259a0d68e3dfe066040966d807aed",
+      "tags/repro-baseline-2026-10-26": "dfc712982891f29c266083d7efad72ad48e730a2",
+      "tags/scene4-baselines-2026-10-27": "9dec3c45184259a0d68e3dfe066040966d807aed"
+    },
+    "mode": "after_push",
+    "remote_head_matches_local": true,
+    "protocol_checks_passed": true,
+    "exploration_goals_passed": false,
+    "fael_coverage": 0.9533658536585367,
+    "gbp2_coverage": 0.5633889602053915,
+    "check_count": 211
+  },
+  "fresh_clone_verification": {
+    "verified_at": "2026-10-27T20:09:43.220194+08:00",
+    "commit": "bbab488a560319118da045aaeade532e879b45b6",
+    "fresh_remote_checkout": "D:\\STGPlanner\\codex\\work\\private-backup-restore-20261027-200927",
+    "all_recorded_hashes_passed": true,
+    "file_count": 522,
+    "native_map_decompression_hash_passed": true,
+    "historical_tags_preserved": true,
+    "clean_checkout": true,
+    "fael_success_and_gbp2_unmet95_preserved": true
+  },
+  "decision": "FAEL reached95% locally; GBP2 did not. Further GBP2 tests paused by user.",
+  "note": "This receipt is a follow-up metadata commit; its own commit SHA is available in git log. No fully-fixed tag created."
+}
