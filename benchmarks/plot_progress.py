@@ -12,7 +12,8 @@ fig,axes=plt.subplots(1,2,figsize=(13,4.8),constrained_layout=True)
 for ax,method in zip(axes,['fael','gbp2']):
     curves=[('formal_'+method+'_01','Before','#a7afb9','--')]
     if method=='gbp2':
-        curves.extend((trial,label,color,':') for trial,label,color in zip(selection['intermediate_runs'],selection['intermediate_labels'],['#d18b2d','#c36b73','#698879']))
+        names=selection.get('plot_intermediate_runs',selection['intermediate_runs']);labels=dict(zip(selection['intermediate_runs'],selection['intermediate_labels']))
+        curves.extend((trial,labels[trial],color,':') for trial,color in zip(names,['#d18b2d','#698879','#c36b73']))
     curves.append((selection['final_runs'][method],'Repaired','#2878b5' if method=='fael' else '#8c56a2','-'))
     for trial,label,color,style in curves:
         folder=root/'results'/trial;d=json.loads((folder/'result.json').read_text())

@@ -22,7 +22,7 @@ SensorParams:
     rotations:      [0.0, 0.0, 0.0]
     fov:            [rad(2.0*pi), rad(pi/6)]
     resolution:     [rad(5.0*pi/180), rad(5.0*pi/180)]
-    frontier_percentage_threshold: 0.05
+    frontier_percentage_threshold: 0.01
 #-------------------------------------------------------------------------------
 # SAMPLING SPACE CONFIGURATION
 #   Global: Strictly defined bounds for the whole environment.

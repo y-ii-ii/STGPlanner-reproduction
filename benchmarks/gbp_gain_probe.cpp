@@ -10,13 +10,19 @@ int main(int argc,char**argv){
   ros::AsyncSpinner spinner(1);spinner.start();
   voxblox_msgs::FilePath load;load.request.file_path=argv[1];
   if(!ros::service::call(priv.resolveName("load_map"),load))return 3;
-  SensorParamsBase sensor;if(!sensor.loadParams("/gbp_gain_probe/SensorParams/VLP16"))return 4;
+  const std::string ns="/gbp_gain_probe/SensorParams/VLP16";
+  ros::param::set(ns+"/frontier_percentage_threshold",.05);
+  SensorParamsBase sensor;if(!sensor.loadParams(ns))return 4;
+  ros::param::set(ns+"/frontier_percentage_threshold",.01);
+  SensorParamsBase lower;if(!lower.loadParams(ns))return 5;
+  ros::param::set(ns+"/frontier_percentage_threshold",.05);
+  auto minimum_unknown=[&](SensorParamsBase& s){int low=0,high=100000;while(low<high){int middle=(low+high)/2;if(s.isFrontier(middle*map.getResolution()))high=middle;else low=middle+1;}return low;};
   map.setRaycastingParams(true,1.0);
   std::ifstream positions(argv[2]);std::ofstream output(argv[3]);
   StateVec zero=StateVec::Zero();std::vector<Eigen::Vector3d> shape_endpoints;
   sensor.getFrustumEndpoints(zero,shape_endpoints);
   double max_length=0;for(const auto& p:shape_endpoints)max_length=std::max(max_length,p.norm());
-  output<<"{\"native_map_replay\":true,\"resolution\":"<<map.getResolution()<<",\"scan_width\":"<<sensor.width<<",\"scan_height\":"<<sensor.height<<",\"endpoint_count\":"<<shape_endpoints.size()<<",\"configured_max_range\":"<<sensor.max_range<<",\"maximum_generated_ray_length\":"<<max_length<<",\"cases\":[";
+  output<<"{\"native_map_replay\":true,\"resolution\":"<<map.getResolution()<<",\"scan_width\":"<<sensor.width<<",\"scan_height\":"<<sensor.height<<",\"endpoint_count\":"<<shape_endpoints.size()<<",\"configured_max_range\":"<<sensor.max_range<<",\"maximum_generated_ray_length\":"<<max_length<<",\"minimum_unknown_005\":"<<minimum_unknown(sensor)<<",\"minimum_unknown_001\":"<<minimum_unknown(lower)<<",\"cases\":[";
   double x,y;bool first=true;
   while(positions>>x>>y){
     for(double z:{.456,.7}){
@@ -40,7 +46,7 @@ int main(int argc,char**argv){
         if(p.x()>=-50 && p.x()<=80 && p.y()>=-20 && p.y()<=100 && p.z()>=-2 && p.z()<=3 && item.second==MapManager::VoxelStatus::kUnknown)clipped_unknown++;
       }
       if(!first)output<<",";first=false;
-      output<<"{\"x\":"<<x<<",\"y\":"<<y<<",\"z\":"<<z<<",\"unknown\":"<<unknown<<",\"known\":"<<known<<",\"frontier\":"<<(sensor.isFrontier(unknown*map.getResolution())?"true":"false")<<",\"range_clipped_unknown\":"<<clipped_unknown<<",\"unknown_mean_z\":"<<(unknown?unknown_z_sum/unknown:0)<<"}";
+      output<<"{\"x\":"<<x<<",\"y\":"<<y<<",\"z\":"<<z<<",\"unknown\":"<<unknown<<",\"known\":"<<known<<",\"frontier\":"<<(sensor.isFrontier(unknown*map.getResolution())?"true":"false")<<",\"frontier_001\":"<<(lower.isFrontier(unknown*map.getResolution())?"true":"false")<<",\"range_clipped_unknown\":"<<clipped_unknown<<",\"unknown_mean_z\":"<<(unknown?unknown_z_sum/unknown:0)<<"}";
     }
   }
   output<<"]}\n";return 0;

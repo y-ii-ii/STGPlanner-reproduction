@@ -64,7 +64,7 @@ for method in ['fael','gbp2']:
     else:
         counts=list(map(int,re.findall(r'Have (\d+) frontiers from global graph',log)))
         summary['native_frontier_diagnostics']={'records':len(counts),'max_global_frontiers':max(counts,default=0),'nonzero_records':sum(x>0 for x in counts)}
-for filename in ['ray_cache_regression.json','fael_frontier_regression.json','gain_frame_regression.json','gbp_core_regression.json','trial_contract_regression.json']:
+for filename in ['ray_cache_regression.json','fael_frontier_regression.json','gain_frame_regression.json','gbp_core_regression.json','trial_contract_regression.json','frontier_calibration_validation.json','cluster_frontier_regression.json']:
     regression=json.loads((root/filename).read_text())
     for k,v in regression['checks'].items():checks[filename+'.'+k]=v
 manifest=json.loads((root/'protocol_manifest.json').read_text())

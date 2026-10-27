@@ -10,5 +10,5 @@ for attempt in $(seq 1 30); do rosparam list >/dev/null 2>&1 && break; sleep .2;
 rosparam set /use_sim_time false
 rosparam load "$base/config/gbp2.yaml" /gbp_ground_probe
 rosparam load "$base/config/voxblox.yaml" /gbp_ground_probe
-g++ -O1 -DNDEBUG -std=c++17 /opt/stgplanner/benchmarks/ground_map_probe.cpp -o /opt/stgplanner/benchmarks/bin/ground_map_probe $(pkg-config --cflags --libs planner_common)
+g++ -O1 -DNDEBUG -std=c++17 "$base/ground_map_probe.cpp" -o /opt/stgplanner/benchmarks/bin/ground_map_probe $(pkg-config --cflags --libs planner_common)
 /opt/stgplanner/benchmarks/bin/ground_map_probe "$base/gbp_ground_snapshot.vxblx" "$base/gbp_ground_positions.txt" "$base/gbp_ground_probe.json"

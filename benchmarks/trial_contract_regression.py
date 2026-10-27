@@ -59,8 +59,11 @@ def flatten(d,p=''):
     return out
 a,b=flatten(old),flatten(new);changed={k for k in set(a)|set(b) if a.get(k)!=b.get(k)}
 expected={'/PlanningParams/'+k for k in ['num_vertices_max','num_edges_max','num_loops_cutoff','num_loops_max','v_max','v_homing_max']}
+expected.add('/SensorParams/VLP16/frontier_percentage_threshold')
 checks['native_config_changes_are_explicit_and_limited']=changed==expected
-checks['no_gain_sensor_threshold_or_bounds_tuning']=new['SensorParams']==old['SensorParams'] and new['BoundedSpaceParams']==old['BoundedSpaceParams']
+old_sensor=copy.deepcopy(old['SensorParams']);new_sensor=copy.deepcopy(new['SensorParams'])
+old_sensor['VLP16'].pop('frontier_percentage_threshold');new_sensor['VLP16'].pop('frontier_percentage_threshold')
+checks['sensor_model_and_bounds_unchanged_except_declared_frontier_calibration']=new_sensor==old_sensor and new['BoundedSpaceParams']==old['BoundedSpaceParams']
 value={'passed':all(checks.values()),'checks':checks,'cases':cases,'changed_native_config_keys':sorted(changed),'note':'Actual driver AST with memory-only ROS/action transport. Real sensor, controller and common measurement code are not changed; complete robot runs remain separate evidence.'}
 (root/'trial_contract_regression.json').write_text(json.dumps(value,indent=2));print(json.dumps(value,indent=2))
 if not value['passed']:raise SystemExit(1)

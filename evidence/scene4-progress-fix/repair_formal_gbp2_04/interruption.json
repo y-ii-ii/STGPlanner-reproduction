@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-27T07:07:01.454637+00:00",
+  "classification": "intermediate_repair_diagnostic",
+  "intentional_native_stop": true,
+  "reason": "frozen_map_proves_frontier_fraction_false_negatives_at_narrow_exit",
+  "graph_point_count": 0,
+  "graph_z_range": null,
+  "sample_graph_points": [],
+  "native_homing_end_observed_before_manual_stop": {
+    "unix": 1793084100.3983078,
+    "sim": 16107.655,
+    "kind": "native_homing_ended",
+    "path_empty": false,
+    "motion_state": 3
+  }
+}

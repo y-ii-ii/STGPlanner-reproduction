@@ -2831,6 +2831,10 @@ void Rrg::computeExplorationGain(bool only_leaf_vertices, bool clustering) {
           if (it != vertex_ids.end()) {
             // This vertex was not assigned a gain yet
             v->vol_gain = vertex_map[v_id]->vol_gain;
+            // Clustered vertices leave the work list here. Keep their type
+            // consistent too: addFrontiers selects by type, not by vol_gain.
+            v->type = v->vol_gain.is_frontier ? VertexType::kFrontier
+                                             : VertexType::kUnvisited;
             vertex_ids.remove(v->id);
           }
         }

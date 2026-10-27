@@ -151,6 +151,15 @@ static Eigen::Vector3d gainSensorOrigin(const StateVec& sensing,
     s,n=re.subn(r'time_to_target \+ planning_params_\.auto_homing_enable\s*\? time_to_home\s*: 0',
         'time_to_target + (planning_params_.auto_homing_enable ? time_to_home : 0.0)',s)
     assert n==2,('global time budget expressions',n)
+    needle='''            v->vol_gain = vertex_map[v_id]->vol_gain;
+            vertex_ids.remove(v->id);'''
+    assert s.count(needle)==1
+    s=s.replace(needle,'''            v->vol_gain = vertex_map[v_id]->vol_gain;
+            // Clustered vertices leave the work list here. Keep their type
+            // consistent too: addFrontiers selects by type, not by vol_gain.
+            v->type = v->vol_gain.is_frontier ? VertexType::kFrontier
+                                             : VertexType::kUnvisited;
+            vertex_ids.remove(v->id);''',1)
     return s
 
 def lidar_geometry(s):

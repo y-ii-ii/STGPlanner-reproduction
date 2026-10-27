@@ -39,11 +39,13 @@ def driver(s):
 def config(s):
     for old,new in [('num_vertices_max: 500','num_vertices_max: 2000'),('num_edges_max:    5000','num_edges_max:    20000'),('num_loops_cutoff: 2000','num_loops_cutoff: 8000'),('num_loops_max:    20000','num_loops_max:    80000')]:
         assert old in s;s=s.replace(old,new,1)
+    needle='frontier_percentage_threshold: 0.05';assert s.count(needle)==1
+    s=s.replace(needle,'frontier_percentage_threshold: 0.01',1)
     needle='PlanningParams:\n';assert needle in s
     return s.replace(needle,needle+'''  # Shared controller max is 2m/s; use a conservative 1m/s return estimate.
   v_max:            2.0
   v_homing_max:     1.0
 ''',1)
 edit('benchmark_trial.py',driver);edit('config/gbp2.yaml',config)
-value={'common_protocol_revision':3,'adapter_revision':1,'measurement_controller_threshold_unchanged':True,'native_sampling_limits':{'vertices':[500,2000],'edges':[5000,20000],'loops_cutoff':[2000,8000],'loops_max':[20000,80000]},'native_time_model_m_s':{'v_max':[.2,2.0],'v_homing_max':[.2,1.0]},'files':records,'note':'Only the GBP2 native-end branch changes in the adapter. Common observer, controller, initialization and coverage/time stop remain unchanged. Algorithm parameters changed explicitly; final results are an engineering adaptation, not paper-identical settings.'}
+value={'common_protocol_revision':3,'adapter_revision':1,'measurement_controller_threshold_unchanged':True,'native_sampling_limits':{'vertices':[500,2000],'edges':[5000,20000],'loops_cutoff':[2000,8000],'loops_max':[20000,80000]},'native_time_model_m_s':{'v_max':[.2,2.0],'v_homing_max':[.2,1.0]},'native_frontier_fraction':[.05,.01],'calibration_evidence':'gbp_corridor_gain.json: 0 of125 collision-free corridor views pass0.05,16pass0.01; native cutoffs1296/260unknown voxels. This is NOT the common95% evaluation threshold.','files':records,'note':'Only the GBP2 native-end branch changes in the adapter. Common observer, controller, initialization and coverage/time stop remain unchanged. Algorithm parameters changed explicitly; final results are an engineering adaptation, not paper-identical settings.'}
 (archive/'manifest.json').write_text(json.dumps(value,indent=2)+'\n');print(json.dumps(value,indent=2))

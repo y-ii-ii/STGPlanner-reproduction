@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": {
+    "original_cluster_gain_type_mismatch_reproduced": true,
+    "fixed_all_cluster_frontiers_preserved": true,
+    "zero_gain_cluster_does_not_invent_frontiers": true
+  },
+  "counts_gain_frontiers_and_typed_frontiers": {
+    "original": [
+      2,
+      1
+    ],
+    "fixed": [
+      2,
+      2
+    ],
+    "nonfrontier": [
+      0,
+      0
+    ]
+  },
+  "note": "Full actual extracted clustered-gain function; graph neighbourhood and gain responses controlled. Proves an implementation inconsistency, not full exploration success."
+}

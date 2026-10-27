@@ -40,7 +40,18 @@
        } else if (vs == MapManager::VoxelStatus::kUnknown) {
          double ray_len = std::abs(start(2) - end_voxel(2));
          if (i == 0) {
-@@ -2966,12 +2981,18 @@
+@@ -2816,6 +2831,10 @@
+           if (it != vertex_ids.end()) {
+             // This vertex was not assigned a gain yet
+             v->vol_gain = vertex_map[v_id]->vol_gain;
++            // Clustered vertices leave the work list here. Keep their type
++            // consistent too: addFrontiers selects by type, not by vol_gain.
++            v->type = v->vol_gain.is_frontier ? VertexType::kFrontier
++                                             : VertexType::kUnvisited;
+             vertex_ids.remove(v->id);
+           }
+         }
+@@ -2966,12 +2985,18 @@
    for (int ind = 0; ind < planning_params_.exp_sensor_list.size(); ++ind) {
      std::string sensor_name = planning_params_.exp_sensor_list[ind];
  
@@ -61,7 +72,7 @@
                                                             multiray_endpoints);
  
      // if(iterative) {
-@@ -3029,7 +3050,7 @@
+@@ -3029,7 +3054,7 @@
                                         num_occupied_voxels,
                                         num_unknown_surf_voxels));
      if (vis_en) {
@@ -70,7 +81,7 @@
      }
  
      // Check if it is a potential frontier.
-@@ -3075,12 +3096,18 @@
+@@ -3075,12 +3100,18 @@
    for (int ind = 0; ind < planning_params_.exp_sensor_list.size(); ++ind) {
      std::string sensor_name = planning_params_.exp_sensor_list[ind];
  
@@ -91,7 +102,7 @@
                                                             multiray_endpoints);
      map_manager_->getScanStatus(origin, multiray_endpoints, gain_log_tmp,
                                  voxel_log_tmp,
-@@ -5030,9 +5057,7 @@
+@@ -5030,9 +5061,7 @@
              current_to_frontier_distance / planning_params_.v_homing_max;
          double time_to_home =
              frontier_to_home_distance / planning_params_.v_homing_max;
@@ -102,7 +113,7 @@
          double time_spare = 0;
          if (isRemainingTimeSufficient(time_cost, time_spare)) {
            feasible_global_frontiers.push_back(f);
-@@ -5072,9 +5097,7 @@
+@@ -5072,9 +5101,7 @@
            current_to_frontier_distance / planning_params_.v_homing_max;
        double time_to_home =
            frontier_to_home_distance / planning_params_.v_homing_max;

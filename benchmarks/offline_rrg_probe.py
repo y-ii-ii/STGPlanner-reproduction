@@ -20,7 +20,9 @@ for vertices in [500,2000]:
   for repeat in range(1,4):
     name='gbp_probe_'+str(vertices)+'_'+str(repeat);ns='/'+name
     for filename in ['gbp2.yaml','voxblox.yaml']:
-      for params,namespace in rosparam.load_file(str(root/'config'/filename),default_namespace=ns):rosparam.upload_params(namespace,params)
+      path=root/'config'/filename
+      if filename=='gbp2.yaml' and (root/'trial_repairs/config__gbp2.yaml.before').exists():path=root/'trial_repairs/config__gbp2.yaml.before'
+      for params,namespace in rosparam.load_file(str(path),default_namespace=ns):rosparam.upload_params(namespace,params)
     scale=vertices//500
     for key,val in [('num_vertices_max',vertices),('num_edges_max',5000*scale),('num_loops_cutoff',2000*scale),('num_loops_max',20000*scale)]:rospy.set_param(ns+'/PlanningParams/'+key,val)
     # Explicit request root avoids a fresh node planning from an uninitialised

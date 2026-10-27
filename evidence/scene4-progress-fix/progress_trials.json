@@ -1,0 +1,14 @@
+{
+  "protocol_revision": 3,
+  "common_threshold_m2": 7400.5,
+  "final_runs": {
+    "fael": "repair_formal_fael_01",
+    "gbp2": "repair_formal_gbp2_06"
+  },
+  "pilot_runs": ["repair_pilot_gbp2_01"],
+  "intermediate_runs": ["repair_formal_gbp2_01", "repair_formal_gbp2_02", "repair_formal_gbp2_03", "repair_formal_gbp2_04", "repair_formal_gbp2_05"],
+  "intermediate_labels": ["Cache repair (diagnostic stop)", "Geometry repair (diagnostic stop)", "Geometry repair (2400s limit)", "Homing fixed (diagnostic stop)", "Frontier calibration (2400s failure)"],
+  "plot_intermediate_runs": ["repair_formal_gbp2_03", "repair_formal_gbp2_05"],
+  "adapter_revision": {"fael": 0, "gbp2": 1},
+  "selection_note": "Latest repair plus explicitly calibrated native sampling/time settings selected before its long-run outcome. Earlier versions are preserved separately, including the complete 2400s failure; they are not pooled as repeated trials."
+}

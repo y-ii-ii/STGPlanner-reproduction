@@ -13,4 +13,4 @@ rosparam load "$base/config/voxblox.yaml" /gbp_gain_probe
 if [[ ! -x /opt/stgplanner/benchmarks/bin/gbp_gain_probe || "$base/gbp_gain_probe.cpp" -nt /opt/stgplanner/benchmarks/bin/gbp_gain_probe ]]; then
   g++ -O1 -DNDEBUG -std=c++17 "$base/gbp_gain_probe.cpp" -o /opt/stgplanner/benchmarks/bin/gbp_gain_probe $(pkg-config --cflags --libs planner_common)
 fi
-/opt/stgplanner/benchmarks/bin/gbp_gain_probe "$base/gbp_gain_snapshot.vxblx" "$base/gbp_gain_positions.txt" "${1:-$base/gbp_gain_probe_calibrated.json}"
+/opt/stgplanner/benchmarks/bin/gbp_gain_probe "${2:-$base/gbp_gain_snapshot.vxblx}" "${3:-$base/gbp_gain_positions.txt}" "${1:-$base/gbp_gain_probe_calibrated.json}"

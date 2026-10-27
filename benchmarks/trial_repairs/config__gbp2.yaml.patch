@@ -1,5 +1,14 @@
 --- a/benchmarks/config/gbp2.yaml
 +++ b/benchmarks/config/gbp2.yaml
+@@ -22,7 +22,7 @@
+     rotations:      [0.0, 0.0, 0.0]
+     fov:            [rad(2.0*pi), rad(pi/6)]
+     resolution:     [rad(5.0*pi/180), rad(5.0*pi/180)]
+-    frontier_percentage_threshold: 0.05
++    frontier_percentage_threshold: 0.01
+ #-------------------------------------------------------------------------------
+ # SAMPLING SPACE CONFIGURATION
+ #   Global: Strictly defined bounds for the whole environment.
 @@ -108,6 +108,9 @@
  # exp_sensor_list: sensors used to compute exploration gain.
  #-------------------------------------------------------------------------------

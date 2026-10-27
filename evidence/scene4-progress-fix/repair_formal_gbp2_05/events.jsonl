@@ -1,0 +1,6 @@
+{"unix": 1793084955.6399438, "sim": 15247.924, "kind": "initialization_mapping_ready"}
+{"unix": 1793084959.752809, "sim": 15252.004, "kind": "initialized", "pose": {"x": 3.0635721154265125, "y": 0.0785860981914357, "z": 3.604805668189215e-06}}
+{"unix": 1793084959.755731, "sim": 15252.005, "kind": "exploration_start"}
+{"unix": 1793087087.5768855, "sim": 17368.086, "kind": "native_homing_ended", "path_empty": false, "motion_state": 3}
+{"unix": 1793087373.6490185, "sim": 17652.019, "kind": "finish", "reason": "sim_time_limit", "area": 3225.4400000000005, "distance": 2343.5317888459813}
+{"unix": 1793087375.6552243, "sim": 17654.004, "kind": "stop_result", "ack": true, "state": 3}
