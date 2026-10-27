@@ -1,0 +1,36 @@
+--- a/planner/src/perception/ufomap.cpp
++++ b/planner/src/perception/ufomap.cpp
+@@ -415,6 +415,15 @@
+         known_cell_codes_.insert(changed_cell_codes_.begin(), changed_cell_codes_.end());
+ 
+         map_.resetChangeDetection();
++        // A cell can become frontier when an adjacent cell changes. Its own
++        // probability need not change after saturation, so inspect neighbours.
++        CodeUnorderSet affected = changed_cell_codes_;
++        for (const auto& code : changed_cell_codes_) {
++            if (code.getDepth() != frontier_depth_) continue;
++            auto neighbours = get_XY_NeighborCell(code, frontier_depth_);
++            affected.insert(neighbours.begin(), neighbours.end());
++        }
++        changed_cell_codes_.swap(affected);
+ 
+         findPlaneLocalFrontier();
+         updatePlaneGlobalFrontier();
+@@ -496,7 +505,7 @@
+     void Ufomap::findPlaneLocalFrontier() {
+         local_frontier_cells_.clear();
+         for (const auto &changedCellCode: changed_cell_codes_) {
+-            if (frontier_depth_ == changedCellCode.getDepth() && history_frontier_cells_.count(changedCellCode)==0) {  
++            if (frontier_depth_ == changedCellCode.getDepth()) {  
+                 ufo::map::Point3 point = map_.toCoord(changedCellCode.toKey());
+                 if (isInExplorationArea(point.x(),point.y()) &&
+                     point.z() > current_robot_pose_.z() + robot_bottom_ &&
+@@ -507,7 +516,7 @@
+                     if (point.distanceXY(current) > 0.6) {    
+                         if (isFrontier(changedCellCode)) {
+                             local_frontier_cells_.insert(changedCellCode);
+-                            history_frontier_cells_.insert(changedCellCode);
++                            // Frontier validity is reversible; never permanently blacklist it.
+                         }
+                     }
+                 }

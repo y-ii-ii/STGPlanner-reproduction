@@ -1,0 +1,94 @@
+--- a/planner_common/src/voxblox/voxblox_alt_impl.cpp
++++ b/planner_common/src/voxblox/voxblox_alt_impl.cpp
+@@ -569,7 +569,7 @@
+   int height = sensor_params.height;
+   int width = sensor_params.width;
+   Eigen::MatrixXd starting_points(
+-      height, width);  // This will store the distance along the ray from where
++      width, height);  // This will store the distance along the ray from where
+                        // the raycasting should begin
+   starting_points.setZero();
+ 
+@@ -674,7 +674,7 @@
+           //   starting_points(x-1, y) = std::min(num_steps-1, k);
+           // if(y_increment_dist <= voxel_size && y > 0)
+           //   starting_points(x, y-1) = std::min(num_steps-1, k);
+-          // if(diag_increment_dist <= voxel_size && x < width && y > 0)
++          // if(diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+           //   starting_points(x-1, y-1) = std::min(num_steps-1, k);
+ 
+           continue;
+@@ -691,11 +691,11 @@
+           double y_increment_dist = step * sensor_params.resolution[1];
+           double diag_increment_dist = std::sqrt(std::pow(x_increment_dist, 2) +
+                                                  std::pow(y_increment_dist, 2));
+-          if (x_increment_dist <= voxel_size && x < width)
++          if (x_increment_dist <= voxel_size && x + 1 < width)
+             starting_points(x + 1, y) = std::min(ray_norm, step);
+           if (y_increment_dist <= voxel_size && y > 0)
+             starting_points(x, y - 1) = std::min(ray_norm, step);
+-          if (diag_increment_dist <= voxel_size && x < width && y > 0)
++          if (diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+             starting_points(x + 1, y - 1) = std::min(ray_norm, step);
+           continue;
+         }
+@@ -711,11 +711,11 @@
+         double y_increment_dist = step * sensor_params.resolution[1];
+         double diag_increment_dist = std::sqrt(std::pow(x_increment_dist, 2) +
+                                                std::pow(y_increment_dist, 2));
+-        if (x_increment_dist <= voxel_size && x < width)
++        if (x_increment_dist <= voxel_size && x + 1 < width)
+           starting_points(x + 1, y) = -step;
+         if (y_increment_dist <= voxel_size && y > 0)
+           starting_points(x, y - 1) = -step;
+-        if (diag_increment_dist <= voxel_size && x < width && y > 0)
++        if (diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+           starting_points(x + 1, y - 1) = -step;
+         break;
+       }
+@@ -737,7 +737,7 @@
+   int height = sensor_params.height;
+   int width = sensor_params.width;
+   Eigen::MatrixXd starting_points(
+-      height, width);  // This will store the distance along the ray from where
++      width, height);  // This will store the distance along the ray from where
+                        // the raycasting should begin
+   starting_points.setZero();
+ 
+@@ -842,7 +842,7 @@
+           //   starting_points(x-1, y) = std::min(num_steps-1, k);
+           // if(y_increment_dist <= voxel_size && y > 0)
+           //   starting_points(x, y-1) = std::min(num_steps-1, k);
+-          // if(diag_increment_dist <= voxel_size && x < width && y > 0)
++          // if(diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+           //   starting_points(x-1, y-1) = std::min(num_steps-1, k);
+ 
+           continue;
+@@ -859,11 +859,11 @@
+           double y_increment_dist = step * sensor_params.resolution[1];
+           double diag_increment_dist = std::sqrt(std::pow(x_increment_dist, 2) +
+                                                  std::pow(y_increment_dist, 2));
+-          if (x_increment_dist <= voxel_size && x < width)
++          if (x_increment_dist <= voxel_size && x + 1 < width)
+             starting_points(x + 1, y) = std::min(ray_norm, step);
+           if (y_increment_dist <= voxel_size && y > 0)
+             starting_points(x, y - 1) = std::min(ray_norm, step);
+-          if (diag_increment_dist <= voxel_size && x < width && y > 0)
++          if (diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+             starting_points(x + 1, y - 1) = std::min(ray_norm, step);
+           continue;
+         }
+@@ -879,11 +879,11 @@
+         double y_increment_dist = step * sensor_params.resolution[1];
+         double diag_increment_dist = std::sqrt(std::pow(x_increment_dist, 2) +
+                                                std::pow(y_increment_dist, 2));
+-        if (x_increment_dist <= voxel_size && x < width)
++        if (x_increment_dist <= voxel_size && x + 1 < width)
+           starting_points(x + 1, y) = -step;
+         if (y_increment_dist <= voxel_size && y > 0)
+           starting_points(x, y - 1) = -step;
+-        if (diag_increment_dist <= voxel_size && x < width && y > 0)
++        if (diag_increment_dist <= voxel_size && x + 1 < width && y > 0)
+           starting_points(x + 1, y - 1) = -step;
+         break;
+       }

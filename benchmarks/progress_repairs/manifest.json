@@ -1,0 +1,70 @@
+{
+  "captured_utc": "2026-10-27T04:40:53.178762+00:00",
+  "protocol_revision": 3,
+  "common_protocol_modified": false,
+  "sources": [
+    {
+      "method": "fael",
+      "relative": "planner/src/perception/ufomap.cpp",
+      "original_sha256": "767f905126508f5c875f9ade4a5366fd0b2baa452fc2435ac098528a3f169ed7",
+      "repaired_sha256": "a9d0750710f63d8ed2fb132a24fb0b89b40aab3322bae984e58b50c957f67547",
+      "patch_sha256": "38f3ce553f2f1fee26d1ed6f8db3844b8507533e9c4dd81ed265a6c68c41e247"
+    },
+    {
+      "method": "fael",
+      "relative": "planner/src/preprocess/viewpoint_manager.cpp",
+      "original_sha256": "cef2e36a86445f6d8e76bd6208009fd4c48b17c0be7b578f361c3c78aa473ddf",
+      "repaired_sha256": "d5b6e396f961963514cb8e56080327a4b321e50119b0e2e908d5a263905c0216",
+      "patch_sha256": "d62941eda5d0e6ba38122e0cc8b1e215cd0d0a7686841ce7f9cb6146dc8d948f"
+    },
+    {
+      "method": "fael",
+      "relative": "planner/src/rapid_cover_planner/rapid_cover_planner.cpp",
+      "original_sha256": "d75afec23a7de8d4ce13d501878cc9ec77bd38daac7e171482d51760248a02e5",
+      "repaired_sha256": "a3de800611beac5687e37a99e6eeaaaf4279d000414a2c05fca5befa068b5ab6",
+      "patch_sha256": "d1fb0832b11a72e52d21420fec1b865c3a3f6b3736cf501e07248bf24f4c18e5"
+    },
+    {
+      "method": "fael",
+      "relative": "planner/src/topo_planner/topo_planner.cpp",
+      "original_sha256": "1fca860b3b9da294b9c06f891198a946a485769ba9516367817e1cc12eb2cf5c",
+      "repaired_sha256": "8b08d5f5d65b69a433d594430e1b9851c1d3f0d962e7bc043858f14f6fe11145",
+      "patch_sha256": "2ea84b2ad0d31193ce8a2f8cd1feedd6df47cb4e9e87591a7dc65abf9a2aed60"
+    },
+    {
+      "method": "gbp2",
+      "relative": "gbplanner/src/rrg.cpp",
+      "original_sha256": "e2df3f60a9e8913f729407103c608536552d8ae0b5691e20a7996ddb319fe6fd",
+      "repaired_sha256": "77f4dc733227e7cb39d380040570fcb6ce27068cab35c3bb635c47841da144ef",
+      "patch_sha256": "f62ceee322173ec8a256f250935f9ac83bf92706c0d2adc9a013eba72d2e70e6"
+    },
+    {
+      "method": "gbp2",
+      "relative": "planner_common/src/params.cpp",
+      "original_sha256": "826e7c0ca5926a13452b8f600e782692594a5521ac861e7e545d0f4fd4d25b1c",
+      "repaired_sha256": "b1cf8bbf44edda6afc201800d749d047c4f9f659be075987ba95958293641ad5",
+      "patch_sha256": "e242298f9c19ed7e5030ba2f2b59079d233fba1bef327c9312e629bbc945c718"
+    },
+    {
+      "method": "gbp2",
+      "relative": "planner_common/src/voxblox/voxblox_alt_impl.cpp",
+      "original_sha256": "3b1647d1c5f5a1ede371249bea05f505624c60746d9b15b9062bb62a70e3bad3",
+      "repaired_sha256": "8c8a9be8a7a5b3b530f8ae055d5fca2e63705fcbf00173a24a6a110abf2f13ff",
+      "patch_sha256": "5eb6258f252cec5ec0cb0bd72a6e1b66d96aeb8d834c2fa3da4a0e4a93a86b24"
+    }
+  ],
+  "binaries": {
+    "fael": {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/devel/lib/libtopo_planner.so",
+      "sha256": "41ecaf5f553036bf3362f532a2cdf093a10a32b5f9fa97ccce8f7ddd0dd0621d"
+    },
+    "gbp2_planner_common": {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libplanner_common.so",
+      "sha256": "f20f7e2a862a26f0458a5733d3c4266741d336afce413f3d1f44913a9324b146"
+    },
+    "gbp2": {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
+      "sha256": "46f660250a9a46028e538860f9b8424145ea7ce47916549228efac18e5a44225"
+    }
+  }
+}

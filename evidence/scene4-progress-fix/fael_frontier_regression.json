@@ -1,0 +1,1 @@
+{"passed":true,"native_ufomap_test":true,"checks":{"seen_frontier_can_reactivate":true,"unchanged_free_cell_rechecked_after_neighbour_change":true}}

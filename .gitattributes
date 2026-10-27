@@ -21,3 +21,9 @@
 /stgp_planner/robot_move/path_execution/src/path_execution.cpp text eol=lf
 /evidence/scene4-baselines/** -text
 /evidence/scene4-baselines/** whitespace=-blank-at-eol,-blank-at-eof
+
+/evidence/scene4-progress-fix/** -text
+/evidence/scene4-progress-fix/** whitespace=-blank-at-eol,-blank-at-eof
+/benchmarks/progress_repairs/** -text
+/benchmarks/progress_repairs/** whitespace=-blank-at-eol,-blank-at-eof
+/.gitattributes text eol=lf

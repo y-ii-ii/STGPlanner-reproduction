@@ -1,0 +1,30 @@
+--- a/planner/src/preprocess/viewpoint_manager.cpp
++++ b/planner/src/preprocess/viewpoint_manager.cpp
+@@ -119,6 +119,10 @@
+                 double distance;
+ 
+                 for (const auto &point: representative_points_) {
++                    // The tour selector excludes viewpoints within 1m. Do not
++                    // let such a point monopolise frontier assignments: attach
++                    // to another observable viewpoint without deleting cells.
++                    if (point.distanceXY(current_position_) <= 1.0) continue;
+                     sensor_point.x() = point.x();
+                     sensor_point.y() = point.y();
+                     sensor_point.z() = point.z();
+@@ -146,14 +150,8 @@
+ 
+         Point3DQueue need_to_erase;
+         for (const auto &term:viewpoints_attached_frontiers_) {
+-            if (term.first.distanceXY(current_position_) < sample_dist_ / 2) {
+-                need_to_erase.push_back(term.first);
+-                for (const auto &frontier:term.second) {
+-                    auto code = frontier_map_->map_.toCode(frontier.x(), frontier.y(), frontier.z(),
+-                                                           frontier_map_->frontier_depth_);
+-                    frontier_map_->global_frontier_cells_.erase(code);
+-                }
+-            }
++            // Reaching a viewpoint is not proof that its unknown neighbours
++            // were observed. Only the occupancy map can retire a frontier.
+             if (term.second.size()<viewpoint_gain_thre_)
+                 need_to_erase.push_back(term.first);
+         }

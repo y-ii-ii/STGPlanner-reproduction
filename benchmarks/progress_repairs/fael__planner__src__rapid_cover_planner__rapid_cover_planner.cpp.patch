@@ -1,0 +1,52 @@
+--- a/planner/src/rapid_cover_planner/rapid_cover_planner.cpp
++++ b/planner/src/rapid_cover_planner/rapid_cover_planner.cpp
+@@ -114,6 +114,9 @@
+         ros::WallTime start_time = ros::WallTime::now();
+         initilize_num_++;
+ 
++        // Selection of global viewpoints must use this iteration's roadmap.
++        planGraphConstruct(road_graph_->graph_, plan_graph_);
++        plan_graph_.updateKdtree();
+         getSuitableTourPoints(current_position);
+ 
+         //calculate frontier gain
+@@ -511,9 +514,15 @@
+ 
+             ROS_INFO("cost matrix got, start planning..");
+             std::vector<std::vector<int>> nodes_indexs;
+-            std::vector<int> ids; 
+-            for (int i = 0; i < tour_points_num; ++i) {
+-                ids.push_back(i);
++            std::vector<int> ids;
++            ids.push_back(0);
++            for (int i = 1; i < tour_points_num; ++i) {
++                // Infinite-cost, unreachable targets are not a valid tour.
++                if (path_matrix[0][i].size() >= 2) ids.push_back(i);
++            }
++            if (ids.size() < 2) {
++                ROS_WARN("PROGRESS_DIAGNOSTIC no connected tour candidate");
++                return false;
+             }
+             //two-opt solver ..
+             ROS_INFO("start 2-opt solver..");
+@@ -554,6 +563,11 @@
+             if (max_unity_way.size() > 1) {
+                 Path tsp_path;
+                 for (int i = 0; i < max_unity_way.size() - 1; i++) {
++                    if (path_matrix[max_unity_way[i]][max_unity_way[i+1]].size() < 2) {
++                        path_segments_.clear();
++                        ROS_WARN("PROGRESS_DIAGNOSTIC disconnected optimized tour");
++                        return false;
++                    }
+                     tsp_path.insert(tsp_path.end(),
+                                     path_matrix[max_unity_way[i]][max_unity_way[i + 1]].begin(),
+                                     path_matrix[max_unity_way[i]][max_unity_way[i + 1]].end());
+@@ -587,7 +601,7 @@
+                         Point2D(current_position.x(), current_position.y()),
+                         Point2D(item.x(), item.y()))) {
+                     int item_id;
+-                    if (plan_graph_.getPointId(item, item_id) && current_point_id != item_id) {
++                    if (graph.getPointId(item, item_id) && current_point_id != item_id) {
+                         graph.addTwoWayEdge(current_point_id, item_id);
+                         ROS_INFO("added a edge of the current point, end point coord z is %f ", item.z());
+                     }

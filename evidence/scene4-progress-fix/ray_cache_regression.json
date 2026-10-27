@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "shape": [
+    73,
+    6
+  ],
+  "checks": {
+    "original_cache_failure_reproduced": true,
+    "fixed_rays_independent": true,
+    "original_last_column_failure_reproduced": true,
+    "fixed_last_column_in_bounds": true,
+    "native_endpoint_dimensions_match": true
+  },
+  "cases": {
+    "original": {
+      "allocation": "height, width",
+      "exit": 9,
+      "aliased_cells": 335
+    },
+    "fixed": {
+      "allocation": "width, height",
+      "exit": 0,
+      "aliased_cells": 0
+    },
+    "original_edge": {
+      "condition": "x_increment_dist <= voxel_size && x < width",
+      "exit": -6,
+      "assertion": "original_edge: /usr/include/eigen3/Eigen/src/Core/DenseCoeffsBase.h:364: Eigen::DenseCoeffsBase<Derived, 1>::Scalar& Eigen::DenseCoeffsBase<Derived, 1>::operator()(Eigen::Index, Eigen::Index) [with Derived = Eigen::Matrix<double, -1, -1>; Eigen::Dens"
+    },
+    "fixed_edge": {
+      "condition": "x_increment_dist <= voxel_size && x + 1 < width",
+      "exit": 0,
+      "assertion": ""
+    }
+  }
+}

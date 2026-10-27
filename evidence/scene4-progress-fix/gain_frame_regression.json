@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": {
+    "physical_ground_height_and_unchanged_input_and_aerial_and_rotated_extrinsic": true,
+    "both_native_ray_gain_paths_use_sensor_state": true,
+    "both_native_ray_gain_paths_use_sensor_origin": true
+  },
+  "exit": 0,
+  "ground_projection_m": 0.7,
+  "physical_sensor_reference_m": 0.456
+}

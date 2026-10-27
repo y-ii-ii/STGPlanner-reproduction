@@ -1,0 +1,13 @@
+--- a/planner/src/topo_planner/topo_planner.cpp
++++ b/planner/src/topo_planner/topo_planner.cpp
+@@ -49,6 +49,10 @@
+         elements_->frontier_map_->frontierUpdate();
+         elements_->updateElements();
+         planner_->Initialize(elements_->current_position_);
++        ROS_INFO_THROTTLE(5, "FAEL_PROGRESS frontiers=%zu candidates=%zu tours=%zu roadmap=%zu",
++            elements_->frontier_map_->global_frontier_cells_.size(),
++            elements_->viewpoint_manager_->candidate_viewpoints_.size(),
++            planner_->tour_points_.size(), elements_->road_map_->graph_.getAllVertices().size());
+         preprocess_inited_ = true;
+ 
+         control_planner_interface::ExplorerPlannerResult result;
