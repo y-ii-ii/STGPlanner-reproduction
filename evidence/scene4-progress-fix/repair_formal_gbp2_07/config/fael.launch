@@ -1,0 +1,6 @@
+<launch><node pkg="planner" type="topo_planner_node" name="topo_planner_node" output="screen"><remap from="/odometry" to="/base_link/odometry"/>
+<remap from="/explorer_inited" to="/explorer_node/explorer_inited"/>
+<remap from="point_cloud" to="/jackal/velodyne/velodyne_points"/>
+<remap from="sensor_odometry" to="/sensor_to_world/odometry"/>
+<remap from="/base_odometry" to="/base_link/odometry"/>
+<remap from="/terrain_map" to="/traversability_analysis_node/terrain_map"/><rosparam command="load" file="/mnt/d/STGPlanner/benchmarks/config/fael.yaml"/></node></launch>

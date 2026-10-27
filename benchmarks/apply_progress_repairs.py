@@ -160,7 +160,8 @@ static Eigen::Vector3d gainSensorOrigin(const StateVec& sensing,
             v->type = v->vol_gain.is_frontier ? VertexType::kFrontier
                                              : VertexType::kUnvisited;
             vertex_ids.remove(v->id);''',1)
-    return s
+    from path_frontier_repair import repair_local_frontier_selection
+    return repair_local_frontier_selection(s)
 
 def lidar_geometry(s):
     marker='else if (type == SensorType::kLidar) {'

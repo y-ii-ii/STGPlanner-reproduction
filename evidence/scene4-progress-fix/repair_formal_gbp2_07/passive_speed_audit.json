@@ -1,0 +1,8 @@
+{
+  "sim": 17662.299,
+  "cmd_samples": 24166,
+  "max_abs_command_linear_x": 2.0,
+  "odom_samples": 24203,
+  "max_odom_xy_speed": 2.084014834418603,
+  "vehicle_action_requests": 427
+}

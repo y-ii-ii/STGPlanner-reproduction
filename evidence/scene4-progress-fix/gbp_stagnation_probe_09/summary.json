@@ -1,0 +1,31 @@
+{
+  "groups": {
+    "projected": {
+      "queries": 24,
+      "frontier_queries": 2,
+      "unknown_weighted_sum": 4437,
+      "unknown_unique_sum_across_queries": 1705,
+      "weighted_unknown_above_2m_fraction": 0.8449402749605589,
+      "weighted_unknown_over_known_plane_fraction": 1.0,
+      "weighted_unknown_over_known_free_plane_fraction": 0.9988731124633762,
+      "unique_unknown_over_known_plane_fraction": 1.0
+    },
+    "flat_sensor": {
+      "queries": 24,
+      "frontier_queries": 13,
+      "unknown_weighted_sum": 6389,
+      "unknown_unique_sum_across_queries": 2513,
+      "weighted_unknown_above_2m_fraction": 0.8769760525903897,
+      "weighted_unknown_over_known_plane_fraction": 1.0,
+      "weighted_unknown_over_known_free_plane_fraction": 0.9951479104711223,
+      "unique_unknown_over_known_plane_fraction": 1.0
+    }
+  },
+  "queries": 48,
+  "limitations": [
+    "Queries re-evaluate historical selected states on the final map; do not reconstruct historical gains.",
+    "Fractions aggregate native weighted ray samples or native voxels across queries, not a global area metric.",
+    "Public known-plane projection is an offline diagnostic only; never used for planner control.",
+    "Distributions alone do not establish a unique causal explanation or justify changing bounds/thresholds."
+  ]
+}

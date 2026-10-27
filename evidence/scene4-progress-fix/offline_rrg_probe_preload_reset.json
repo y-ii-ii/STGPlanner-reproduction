@@ -1,0 +1,126 @@
+{
+  "created_utc": "2026-10-27T05:30:40.640647+00:00",
+  "controlled_native_service": true,
+  "robot_motion": false,
+  "explicit_request_root": true,
+  "frozen_map": "gbp_ground_snapshot.vxblx",
+  "pose": [
+    18.4979,
+    55.4525,
+    0.456
+  ],
+  "repeats_per_setting": 3,
+  "cases": [
+    {
+      "vertices": 500,
+      "repeat": 1,
+      "node": "/gbp_probe_500_1",
+      "service_wall_s": 0.22432322900000035,
+      "status": 0,
+      "path": [
+        {
+          "x": 18.4979,
+          "y": 55.4525,
+          "z": 0.615999991953373
+        },
+        {
+          "x": 18.110978414941265,
+          "y": 55.137034125781085,
+          "z": 0.6438023159377235
+        },
+        {
+          "x": 17.782192298968567,
+          "y": 54.868967407583845,
+          "z": 0.667427304748936
+        },
+        {
+          "x": 17.42397399361817,
+          "y": 54.520276548148516,
+          "z": 0.6577149282046457
+        },
+        {
+          "x": 17.356230399583065,
+          "y": 54.454334714153646,
+          "z": 0.6558781954528426
+        },
+        {
+          "x": 16.858107355225574,
+          "y": 54.48164141913127,
+          "z": 0.6222958110334884
+        },
+        {
+          "x": 16.359984310868082,
+          "y": 54.50894812410889,
+          "z": 0.5887134266141342
+        },
+        {
+          "x": 16.009115703551743,
+          "y": 54.5281824591882,
+          "z": 0.5650586196642186
+        },
+        {
+          "x": 15.530815205931168,
+          "y": 54.66572088322828,
+          "z": 0.6131399662393814
+        },
+        {
+          "x": 15.154037682135932,
+          "y": 54.77406571476059,
+          "z": 0.651015675743036
+        },
+        {
+          "x": 15.112034798222973,
+          "y": 55.27214558147535,
+          "z": 0.6386785725011455
+        },
+        {
+          "x": 15.070031914310013,
+          "y": 55.77022544819011,
+          "z": 0.6263414692592549
+        },
+        {
+          "x": 15.028029030397054,
+          "y": 56.26830531490487,
+          "z": 0.6140043660173644
+        },
+        {
+          "x": 14.986026146484093,
+          "y": 56.76638518161963,
+          "z": 0.6016672627754739
+        }
+      ],
+      "corridor_advance": false
+    },
+    {
+      "vertices": 500,
+      "repeat": 2,
+      "node": "/gbp_probe_500_2",
+      "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"
+    },
+    {
+      "vertices": 500,
+      "repeat": 3,
+      "node": "/gbp_probe_500_3",
+      "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"
+    },
+    {
+      "vertices": 2000,
+      "repeat": 1,
+      "node": "/gbp_probe_2000_1",
+      "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"
+    },
+    {
+      "vertices": 2000,
+      "repeat": 2,
+      "node": "/gbp_probe_2000_2",
+      "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"
+    },
+    {
+      "vertices": 2000,
+      "repeat": 3,
+      "node": "/gbp_probe_2000_3",
+      "error": "service [/gbplanner] responded with an error: b'bool pcl::PCA<PointT>::initCompute() [with PointT = pcl::PointXYZI] in /usr/include/pcl-1.10/pcl/common/impl/pca.hpp @ 58 : [pcl::PCA::initCompute] number of points < 3'"
+    }
+  ],
+  "note": "Independent fresh native process per query with explicit root pose. This diagnoses sampling at a corridor; it is not a full exploration trial."
+}

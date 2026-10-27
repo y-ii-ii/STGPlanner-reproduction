@@ -1,0 +1,10 @@
+{
+  "sim": 17662.246,
+  "cmd_samples": 17209,
+  "max_abs_command_linear_x": 2.0,
+  "odom_samples": 17209,
+  "max_odom_xy_speed": 2.0873751146050794,
+  "vehicle_action_requests": 283,
+  "audit_start_absolute_sim": 0.0,
+  "audit_scope": "Attached after initial observer import failure; pre-attachment command/action samples unavailable. No control changes."
+}

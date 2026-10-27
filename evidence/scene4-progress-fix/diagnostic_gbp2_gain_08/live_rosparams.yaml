@@ -1,0 +1,811 @@
+benchmark_coverage:
+  GlobalTopoManager:
+    confluence_step: 2
+    crop_thresh: 3
+    depth_levels: 16
+    grid_size: 0.4
+    max_range: 12.0
+    max_x: 80
+    max_y: 100
+    min_x: -50.0
+    min_y: -20.0
+    small_branch_len_lower_thresh: 4
+    small_branch_len_upper_thresh: 7
+  GridMap2D:
+    connectivity_thre: 0.1
+    frame_id: world
+    grid_size: 0.15
+    inflate_empty_radius: 0.3
+    inflate_radius: 0.3
+    lower_z: 0.2
+  RapidCoverPlanner:
+    alpha: 0.9
+    frontier_gain: 100.0
+    is_directory: true
+    local_range: 24.0
+    max_tour_point_num: 100
+    tourpoint_ignore_distance: 3.0
+    tourpoint_ignore_thre: 0.8
+    viewpoint_ignore_thre: 0.5
+  Roadmap:
+    connectable_num: 3
+    connectable_range: 3
+    frame_id: world
+    sample_dist: 1.0
+  UFOMap:
+    clear_robot_enabled: false
+    depth_levels: 16
+    early_stopping: 0
+    frame_id: world
+    frontier_depth: 0
+    insert_depth: 0
+    insert_discrete: true
+    max_range: 12.0
+    max_x: 1000
+    max_y: 1000
+    min_x: -1000.0
+    min_y: -1000.0
+    navigation_frame_id: world
+    pub_rate: 1
+    resolution: 0.4
+    robot_base_frame_id: base_link
+    robot_bottom: 0.05
+    robot_height: 0.8
+    scan_voxel_size: 0.1
+    sensor_height: 0.45
+    simple_ray_casting: false
+  ViewpointManager:
+    frame_id: world
+    frontier_dist: 15.0
+    sample_dist: 1.0
+    viewpoint_gain_thre: 2.0
+  frame_id: world
+  map_area: 7790
+  output_directory: /mnt/d/STGPlanner/benchmarks/results/diagnostic_gbp2_gain_08
+  robot_base_frame_id: base_link
+gazebo:
+  auto_disable_bodies: false
+  cfm: 0.0
+  contact_max_correcting_vel: 100.0
+  contact_surface_layer: 0.001
+  enable_ros_network: true
+  erp: 0.2
+  gravity_x: 0.0
+  gravity_y: 0.0
+  gravity_z: -9.8
+  max_contacts: 20
+  max_update_rate: 1000.0
+  sor_pgs_iters: 50
+  sor_pgs_precon_iters: 0
+  sor_pgs_rms_error_tol: 0.0
+  sor_pgs_w: 1.3
+  time_step: 0.001
+gbplanner_node:
+  AdaptiveObbParams:
+    bounding_box_size_max: 35
+    local_pointcloud_range: 50.0
+    type: kPca
+  BoundedSpaceParams:
+    Global:
+      max_val:
+      - 80.0
+      - 100.0
+      - 3.0
+      min_val:
+      - -50.0
+      - -20.0
+      - -2.0
+      type: kCuboid
+    Local:
+      max_extension:
+      - 20.0
+      - 20.0
+      - 20.0
+      max_val:
+      - 15.0
+      - 15.0
+      - 3.0
+      min_extension:
+      - -20.0
+      - -20.0
+      - -20.0
+      min_val:
+      - -15.0
+      - -15.0
+      - -3.0
+      type: kCuboid
+    LocalAdaptiveExp:
+      max_val:
+      - 10.0
+      - 10.0
+      - 0.75
+      min_val:
+      - -10.0
+      - -10.0
+      - -0.75
+      type: kCuboid
+    LocalSearch:
+      max_val:
+      - 50.0
+      - 50.0
+      - 10.0
+      min_val:
+      - -50.0
+      - -50.0
+      - -10.0
+      type: kCuboid
+  GeofenceParams:
+    AreaList: []
+    GBack:
+      center:
+      - -3.0
+      - 0.0
+      - 0.0
+      size:
+      - 2.0
+      - 6.0
+      - 0.0
+    GLeft:
+      center:
+      - 0.0
+      - 4.0
+      - 0.0
+      size:
+      - 6.0
+      - 2.0
+      - 0.0
+    GRight:
+      center:
+      - 0.0
+      - -4.0
+      - 0.0
+      size:
+      - 6.0
+      - 2.0
+      - 0.0
+  NoGainZones:
+    g1:
+      max_val:
+      - 2.0
+      - 50.0
+      - 20.0
+      min_val:
+      - -50.0
+      - -50.0
+      - -20.0
+      type: kCuboid
+  PlanningParams:
+    augment_free_voxels_time: 1
+    auto_global_planner_enable: true
+    auto_homing_enable: true
+    bound_mode: kExtremeBound
+    cluster_vertices_for_gain: true
+    clustering_radius: 0.5
+    edge_length_max: 3.0
+    edge_length_min: 0.1
+    edge_overshoot: 0.0
+    exp_gain_voxel_size: 0.8
+    exp_sensor_list:
+    - VLP16
+    free_frustum_before_planning: false
+    free_voxel_gain: 0.0
+    freespace_cloud_enable: false
+    geofence_checking_enable: false
+    global_frame_id: world
+    global_path_inclination_check: true
+    go_home_if_fully_explored: true
+    hanging_vertex_penalty: 5.0
+    homing_backward: false
+    interpolate_projection_distance: false
+    leafs_only_for_volumetric_gain: false
+    max_ground_height: 0.7
+    max_inclination: 0.4363323129985824
+    nearest_range: 2.5
+    nearest_range_max: 3.0
+    nearest_range_min: 0.1
+    no_gain_zones_list: []
+    nonuniform_ray_cast: true
+    num_edges_max: 20000
+    num_loops_cutoff: 8000
+    num_loops_max: 80000
+    num_vertices_max: 2000
+    occupied_voxel_gain: 0.0
+    path_direction_penalty: 0.3
+    path_interpolation_distance: 0.5
+    path_length_penalty: 0.07
+    path_safety_enhance_enable: true
+    ray_cast_step_size_multiplier: 1.0
+    relaxed_corridor_multiplier: 1.5
+    robot_height: 0.456
+    rr_mode: kGraph
+    time_budget_limit: 3600
+    traverse_length_max: 6.0
+    traverse_time_max: 40.0
+    type: kAdaptiveExploration
+    unknown_voxel_gain: 60.0
+    use_current_state: true
+    use_ray_model_for_volumetric_gain: true
+    v_homing_max: 1.0
+    v_max: 2.0
+    yaw_tangent_correction: true
+  RandomSamplerParams:
+    SamplerForAdaptiveExp:
+      Heading:
+        max_val: 3.141592653589793
+        min_val: -3.141592653589793
+        pdf_type: kUniform
+        sample_mode: kManual
+      X:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Y:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Z:
+        pdf_type: kUniform
+        sample_mode: kLocal
+    SamplerForExploration:
+      Heading:
+        max_val: 3.141592653589793
+        min_val: -3.141592653589793
+        pdf_type: kUniform
+        sample_mode: kManual
+      X:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Y:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Z:
+        pdf_type: kUniform
+        sample_mode: kLocal
+    SamplerForSearching:
+      Heading:
+        max_val: 3.141592653589793
+        min_val: -3.141592653589793
+        pdf_type: kUniform
+        sample_mode: kManual
+      X:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Y:
+        pdf_type: kUniform
+        sample_mode: kLocal
+      Z:
+        pdf_type: kUniform
+        sample_mode: kLocal
+  RobotParams:
+    bound_mode: kExtendedBound
+    center_offset:
+    - 0.0
+    - 0.0
+    - -0.2
+    relax_ratio: 0.5
+    safety_extension:
+    - 2.0
+    - 3.0
+    - 0.2
+    size:
+    - 0.8
+    - 0.6
+    - 0.4
+    size_extension:
+    - 0.2
+    - 0.2
+    - 0.2
+    size_extension_min:
+    - 0.0
+    - 0.0
+    - 0.0
+    type: kGroundRobot
+  SensorParams:
+    VLP16:
+      center_offset:
+      - 0.0
+      - 0.0
+      - 0.0
+      fov:
+      - 6.283185307179586
+      - 0.5235987755982988
+      frontier_percentage_threshold: 0.01
+      max_range: 12.0
+      resolution:
+      - 0.08726646259971647
+      - 0.08726646259971647
+      rotations:
+      - 0.0
+      - 0.0
+      - 0.0
+      type: kLidar
+    sensor_list:
+    - VLP16
+  accumulate_icp_corrections: true
+  allow_clear: true
+  clear_sphere_for_planning: false
+  clear_sphere_radius: 0.8
+  clearing_ray_weight_factor: 0.01
+  color_mode: colors
+  enable_icp: false
+  esdf_max_distance_m: 2.0
+  icp_refine_roll_pitch: false
+  integration_order_mode: sorted
+  max_consecutive_ray_collisions: 0
+  max_ray_length_m: 12.0
+  max_weight: 200
+  mesh_min_weight: 1e-4
+  method: fast
+  min_ray_length_m: 0.5
+  min_time_between_msgs_sec: 0.0
+  occupancy_min_distance_voxel_size_factor: 1.0
+  pointcloud_queue_size: 1000
+  publish_esdf_map: true
+  publish_pointclouds: true
+  publish_slices: false
+  publish_traversable: true
+  publish_tsdf_info: false
+  publish_tsdf_map: true
+  slice_level: 1.0
+  sparsity_compensation_factor: 100.0
+  timestamp_tolerance_sec: 0.001
+  traversability_radius: 0.4
+  truncation_distance: 0.6
+  tsdf_voxel_size: 0.2
+  tsdf_voxels_per_side: 16
+  update_mesh_every_n_sec: 0.5
+  use_const_weight: false
+  use_freespace_pointcloud: true
+  use_sparsity_compensation_factor: true
+  use_symmetric_weight_drop_off: false
+  use_tf_transforms: true
+  use_weight_dropoff: true
+  verbose: false
+  voxel_carving_enabled: true
+  weight_ray_by_range: false
+  world_frame: world
+jackal_joint_publisher:
+  publish_rate: 50
+  type: joint_state_controller/JointStateController
+jackal_velocity_controller:
+  angular:
+    z:
+      has_acceleration_limits: true
+      has_velocity_limits: true
+      max_acceleration: 25.0
+      max_velocity: 4.0
+  cmd_vel_timeout: 0.25
+  enable_odom_tf: false
+  k_l: 0.1
+  k_r: 0.1
+  left_wheel:
+  - front_left_wheel
+  - rear_left_wheel
+  left_wheel_radius_multiplier: 1.0
+  linear:
+    x:
+      has_acceleration_limits: true
+      has_velocity_limits: true
+      max_acceleration: 20.0
+      max_velocity: 2.0
+  pose_covariance_diagonal:
+  - 0.001
+  - 0.001
+  - 1000000.0
+  - 1000000.0
+  - 1000000.0
+  - 0.03
+  publish_rate: 50.0
+  right_wheel:
+  - front_right_wheel
+  - rear_right_wheel
+  right_wheel_radius_multiplier: 1.0
+  twist_covariance_diagonal:
+  - 0.001
+  - 0.001
+  - 0.001
+  - 1000000.0
+  - 1000000.0
+  - 0.03
+  type: diff_drive_controller/DiffDriveController
+  wheel_radius_multiplier: 1.0
+  wheel_separation_multiplier: 1.5
+localPlanner:
+  adjacentRange: 4.25
+  autonomyMode: true
+  autonomySpeed: 3.0
+  checkObstacle: true
+  checkRotObstacle: false
+  costHeightThre: 0.1
+  costScore: 0.02
+  dirThre: 90.0
+  dirToVehicle: false
+  dirWeight: 0.02
+  goalClearRange: 0.5
+  goalX: 0.0
+  goalY: 0.0
+  groundHeightThre: 0.1
+  joyToCheckObstacleDelay: 5.0
+  joyToSpeedDelay: 2.0
+  laserVoxelSize: 0.05
+  maxRelZ: 0.25
+  maxSpeed: 2.0
+  minPathRange: 1.0
+  minPathScale: 0.75
+  minRelZ: -0.52
+  obstacleHeightThre: 0.15
+  pathCropByGoal: true
+  pathFolder: /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/local_planner/paths
+  pathRangeBySpeed: true
+  pathRangeStep: 0.5
+  pathScale: 1.25
+  pathScaleBySpeed: true
+  pathScaleStep: 0.25
+  pointPerPathThre: 2
+  sensorOffsetX: 0
+  sensorOffsetY: 0
+  terrainVoxelSize: 0.2
+  twoWayDrive: false
+  useCost: false
+  useTerrainAnalysis: true
+  vehicleLength: 0.4
+  vehicleWidth: 0.3
+pathFollower:
+  autonomyMode: true
+  autonomySpeed: 3.0
+  dirDiffThre: 0.5
+  inclRateThre: 120.0
+  inclThre: 45.0
+  joyToSpeedDelay: 2.0
+  lookAheadDis: 0.5
+  maxAccel: 2.5
+  maxSpeed: 2.0
+  maxYawAccel: 60.0
+  maxYawRate: 60.0
+  noRotAtGoal: true
+  noRotAtStop: false
+  pubSkipNum: 1
+  sensorOffsetX: 0
+  sensorOffsetY: 0
+  slowDwnDisThre: 1.0
+  slowRate1: 0.25
+  slowRate2: 0.5
+  slowTime1: 2.0
+  slowTime2: 2.0
+  stopDisThre: 0.2
+  stopTime: 5.0
+  stopYawRateGain: 12.0
+  switchTimeThre: 1.0
+  twoWayDrive: false
+  useInclRateToSlow: false
+  useInclToStop: false
+  yawRateGain: 7.5
+path_execution_node:
+  cloud_voxel_size: 0.05
+  control_freq: 20.0
+  global_frame: world
+  grid_size: 0.15
+  grid_x_num: 200
+  grid_y_num: 200
+  guide_dist: 2.5
+  inflate_empty_radius: 0.3
+  inflate_radius: 0.3
+  local_frame: base_link
+  lower_z: 0.2
+  reach_dist_thres: 0.35
+  reach_rot_thres: 0.26
+  stop_rot_thres: 0.09
+  stop_vel_thres: 0.05
+  use_sim_time: true
+robot_description: "<?xml version=\"1.0\" ?>\n<!-- ===================================================================================\
+  \ -->\n<!-- |    This document was autogenerated by xacro from /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/jackal/jackal_description/urdf/jackal.urdf.xacro\
+  \ | -->\n<!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                \
+  \                 | -->\n<!-- ===================================================================================\
+  \ -->\n<robot name=\"jackal\">\n  <material name=\"dark_grey\">\n    <color rgba=\"\
+  0.2 0.2 0.2 1.0\"/>\n  </material>\n  <material name=\"light_grey\">\n    <color\
+  \ rgba=\"0.4 0.4 0.4 1.0\"/>\n  </material>\n  <material name=\"yellow\">\n    <color\
+  \ rgba=\"0.8 0.8 0.0 1.0\"/>\n  </material>\n  <material name=\"black\">\n    <color\
+  \ rgba=\"0.15 0.15 0.15 1.0\"/>\n  </material>\n  <link name=\"front_left_wheel_link\"\
+  >\n    <visual>\n      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n\
+  \      <geometry>\n        <mesh filename=\"package://jackal_description/meshes/jackal-wheel.stl\"\
+  />\n      </geometry>\n      <material name=\"black\"/>\n    </visual>\n    <collision>\n\
+  \      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n\
+  \        <cylinder length=\"0.04\" radius=\"0.098\"/>\n      </geometry>\n    </collision>\n\
+  \    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <mass value=\"\
+  0.477\"/>\n      <inertia ixx=\"0.0013\" ixy=\"0\" ixz=\"0\" iyy=\"0.0024\" iyz=\"\
+  0\" izz=\"0.0013\"/>\n    </inertial>\n  </link>\n  <gazebo reference=\"front_left_wheel_link\"\
+  >\n    <material>Gazebo/DarkGrey</material>\n    <selfCollide>false</selfCollide>\n\
+  \    <mu1 value=\"0.5\"/>\n    <mu2 value=\"0.5\"/>\n    <kp value=\"10000000.0\"\
+  />\n    <kd value=\"1\"/>\n    <fdir1 value=\"1 0 0\"/>\n  </gazebo>\n  <joint name=\"\
+  front_left_wheel\" type=\"continuous\">\n    <parent link=\"chassis_link\"/>\n \
+  \   <child link=\"front_left_wheel_link\"/>\n    <origin rpy=\"0 0 0\" xyz=\"0.131\
+  \ 0.187795 0.0345\"/>\n    <axis xyz=\"0 1 0\"/>\n  </joint>\n  <!-- In reality,\
+  \ Jackal has only two motors, one per side. However, it's more\n         straightforward\
+  \ for Gazebo to simulate as if there's an actuator per wheel. -->\n  <transmission\
+  \ name=\"front_left_wheel_trans\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <joint name=\"front_left_wheel\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n    <actuator name=\"front_left_actuator\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n  </transmission>\n  <link name=\"front_right_wheel_link\">\n\
+  \    <visual>\n      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n  \
+  \    <geometry>\n        <mesh filename=\"package://jackal_description/meshes/jackal-wheel.stl\"\
+  />\n      </geometry>\n      <material name=\"black\"/>\n    </visual>\n    <collision>\n\
+  \      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n\
+  \        <cylinder length=\"0.04\" radius=\"0.098\"/>\n      </geometry>\n    </collision>\n\
+  \    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <mass value=\"\
+  0.477\"/>\n      <inertia ixx=\"0.0013\" ixy=\"0\" ixz=\"0\" iyy=\"0.0024\" iyz=\"\
+  0\" izz=\"0.0013\"/>\n    </inertial>\n  </link>\n  <gazebo reference=\"front_right_wheel_link\"\
+  >\n    <material>Gazebo/DarkGrey</material>\n    <selfCollide>false</selfCollide>\n\
+  \    <mu1 value=\"0.5\"/>\n    <mu2 value=\"0.5\"/>\n    <kp value=\"10000000.0\"\
+  />\n    <kd value=\"1\"/>\n    <fdir1 value=\"1 0 0\"/>\n  </gazebo>\n  <joint name=\"\
+  front_right_wheel\" type=\"continuous\">\n    <parent link=\"chassis_link\"/>\n\
+  \    <child link=\"front_right_wheel_link\"/>\n    <origin rpy=\"0 0 0\" xyz=\"\
+  0.131 -0.187795 0.0345\"/>\n    <axis xyz=\"0 1 0\"/>\n  </joint>\n  <!-- In reality,\
+  \ Jackal has only two motors, one per side. However, it's more\n         straightforward\
+  \ for Gazebo to simulate as if there's an actuator per wheel. -->\n  <transmission\
+  \ name=\"front_right_wheel_trans\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <joint name=\"front_right_wheel\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n    <actuator name=\"front_right_actuator\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n  </transmission>\n  <link name=\"rear_left_wheel_link\">\n  \
+  \  <visual>\n      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n    \
+  \  <geometry>\n        <mesh filename=\"package://jackal_description/meshes/jackal-wheel.stl\"\
+  />\n      </geometry>\n      <material name=\"black\"/>\n    </visual>\n    <collision>\n\
+  \      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n\
+  \        <cylinder length=\"0.04\" radius=\"0.098\"/>\n      </geometry>\n    </collision>\n\
+  \    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <mass value=\"\
+  0.477\"/>\n      <inertia ixx=\"0.0013\" ixy=\"0\" ixz=\"0\" iyy=\"0.0024\" iyz=\"\
+  0\" izz=\"0.0013\"/>\n    </inertial>\n  </link>\n  <gazebo reference=\"rear_left_wheel_link\"\
+  >\n    <material>Gazebo/DarkGrey</material>\n    <selfCollide>false</selfCollide>\n\
+  \    <mu1 value=\"0.5\"/>\n    <mu2 value=\"0.5\"/>\n    <kp value=\"10000000.0\"\
+  />\n    <kd value=\"1\"/>\n    <fdir1 value=\"1 0 0\"/>\n  </gazebo>\n  <joint name=\"\
+  rear_left_wheel\" type=\"continuous\">\n    <parent link=\"chassis_link\"/>\n  \
+  \  <child link=\"rear_left_wheel_link\"/>\n    <origin rpy=\"0 0 0\" xyz=\"-0.131\
+  \ 0.187795 0.0345\"/>\n    <axis xyz=\"0 1 0\"/>\n  </joint>\n  <!-- In reality,\
+  \ Jackal has only two motors, one per side. However, it's more\n         straightforward\
+  \ for Gazebo to simulate as if there's an actuator per wheel. -->\n  <transmission\
+  \ name=\"rear_left_wheel_trans\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <joint name=\"rear_left_wheel\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n    <actuator name=\"rear_left_actuator\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n  </transmission>\n  <link name=\"rear_right_wheel_link\">\n \
+  \   <visual>\n      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n   \
+  \   <geometry>\n        <mesh filename=\"package://jackal_description/meshes/jackal-wheel.stl\"\
+  />\n      </geometry>\n      <material name=\"black\"/>\n    </visual>\n    <collision>\n\
+  \      <origin rpy=\"1.5707963267948966 0 0\" xyz=\"0 0 0\"/>\n      <geometry>\n\
+  \        <cylinder length=\"0.04\" radius=\"0.098\"/>\n      </geometry>\n    </collision>\n\
+  \    <inertial>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n      <mass value=\"\
+  0.477\"/>\n      <inertia ixx=\"0.0013\" ixy=\"0\" ixz=\"0\" iyy=\"0.0024\" iyz=\"\
+  0\" izz=\"0.0013\"/>\n    </inertial>\n  </link>\n  <gazebo reference=\"rear_right_wheel_link\"\
+  >\n    <material>Gazebo/DarkGrey</material>\n    <selfCollide>false</selfCollide>\n\
+  \    <mu1 value=\"0.5\"/>\n    <mu2 value=\"0.5\"/>\n    <kp value=\"10000000.0\"\
+  />\n    <kd value=\"1\"/>\n    <fdir1 value=\"1 0 0\"/>\n  </gazebo>\n  <joint name=\"\
+  rear_right_wheel\" type=\"continuous\">\n    <parent link=\"chassis_link\"/>\n \
+  \   <child link=\"rear_right_wheel_link\"/>\n    <origin rpy=\"0 0 0\" xyz=\"-0.131\
+  \ -0.187795 0.0345\"/>\n    <axis xyz=\"0 1 0\"/>\n  </joint>\n  <!-- In reality,\
+  \ Jackal has only two motors, one per side. However, it's more\n         straightforward\
+  \ for Gazebo to simulate as if there's an actuator per wheel. -->\n  <transmission\
+  \ name=\"rear_right_wheel_trans\">\n    <type>transmission_interface/SimpleTransmission</type>\n\
+  \    <joint name=\"rear_right_wheel\">\n      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>\n\
+  \    </joint>\n    <actuator name=\"rear_right_actuator\">\n      <mechanicalReduction>1</mechanicalReduction>\n\
+  \    </actuator>\n  </transmission>\n  <link name=\"base_link\"/>\n  <joint name=\"\
+  base_link_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n \
+  \   <parent link=\"base_link\"/>\n    <child link=\"chassis_link\"/>\n  </joint>\n\
+  \  <link name=\"chassis_link\">\n    <visual>\n      <origin rpy=\"1.5707963267948966\
+  \ 0 1.5707963267948966\" xyz=\"0 0 -0.0655\"/>\n      <geometry>\n        <mesh\
+  \ filename=\"package://jackal_description/meshes/jackal-base.stl\"/>\n      </geometry>\n\
+  \      <material name=\"dark_grey\"/>\n    </visual>\n    <collision>\n      <origin\
+  \ xyz=\"0 0 0.092\"/>\n      <geometry>\n        <box size=\"0.42 0.31 0.184\"/>\n\
+  \      </geometry>\n    </collision>\n    <inertial>\n      <!-- Center of mass\
+  \ -->\n      <origin rpy=\"0 0 0\" xyz=\"0.012  0.002 0.067\"/>\n      <mass value=\"\
+  16.523\"/>\n      <!-- Moments of inertia: ( chassis without wheels ) -->\n    \
+  \  <inertia ixx=\"0.3136\" ixy=\"-0.0008\" ixz=\"0.0164\" iyy=\"0.3922\" iyz=\"\
+  -0.0009\" izz=\"0.4485\"/>\n    </inertial>\n  </link>\n  <link name=\"front_fender_link\"\
+  >\n    <visual>\n      <geometry>\n        <mesh filename=\"package://jackal_description/meshes/jackal-fender.stl\"\
+  />\n      </geometry>\n      <material name=\"yellow\"/>\n    </visual>\n  </link>\n\
+  \  <joint name=\"front_fender_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\"\
+  \ xyz=\"0 0 0\"/>\n    <parent link=\"chassis_link\"/>\n    <child link=\"front_fender_link\"\
+  />\n  </joint>\n  <link name=\"rear_fender_link\">\n    <visual>\n      <geometry>\n\
+  \        <mesh filename=\"package://jackal_description/meshes/jackal-fender.stl\"\
+  />\n      </geometry>\n      <material name=\"yellow\"/>\n    </visual>\n  </link>\n\
+  \  <joint name=\"rear_fender_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 3.141592653589793\"\
+  \ xyz=\"0 0 0\"/>\n    <parent link=\"chassis_link\"/>\n    <child link=\"rear_fender_link\"\
+  />\n  </joint>\n  <!-- TODO: Make this internal_imu_link or something, and use a\
+  \ mixed-in xacro\n       to supply the joint between it and imu_link. This is important\
+  \ so that imu_link\n       always points to the \"active\" IMU. When an upgrade\
+  \ IMU is connected, the\n       internal_imu_link should remain, but imu_link should\
+  \ point to the upgrade one. -->\n  <link name=\"imu_link\">\n    <inertial>\n  \
+  \    <mass value=\"0.001\"/>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0\"/>\n    \
+  \  <inertia ixx=\"1e-09\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"1e-09\" iyz=\"0.0\" izz=\"\
+  1e-09\"/>\n    </inertial>\n  </link>\n  <joint name=\"imu_joint\" type=\"fixed\"\
+  >\n    <parent link=\"chassis_link\"/>\n    <child link=\"imu_link\"/>\n  </joint>\n\
+  \  <!-- TODO: Same note as applies to imu_link -->\n  <link name=\"navsat_link\"\
+  >\n    <visual>\n      <geometry>\n        <cylinder length=\"0.016\" radius=\"\
+  0.026\"/>\n      </geometry>\n      <origin xyz=\"0 0 0.008\"/>\n      <material\
+  \ name=\"black\"/>\n    </visual>\n  </link>\n  <joint name=\"navsat_joint\" type=\"\
+  fixed\">\n    <parent link=\"chassis_link\"/>\n    <child link=\"navsat_link\"/>\n\
+  \    <origin xyz=\"-0.180 0.126 0.1815\"/>\n  </joint>\n  <link name=\"mid_mount\"\
+  />\n  <joint name=\"mid_mount_joint\" type=\"fixed\">\n    <parent link=\"chassis_link\"\
+  />\n    <child link=\"mid_mount\"/>\n    <origin xyz=\"0 0 0.184\"/>\n  </joint>\n\
+  \  <link name=\"rear_mount\"/>\n  <joint name=\"rear_mount_joint\" type=\"fixed\"\
+  >\n    <parent link=\"mid_mount\"/>\n    <child link=\"rear_mount\"/>\n    <origin\
+  \ xyz=\"-0.12 0 0\"/>\n  </joint>\n  <link name=\"front_mount\"/>\n  <joint name=\"\
+  front_mount_joint\" type=\"fixed\">\n    <parent link=\"mid_mount\"/>\n    <child\
+  \ link=\"front_mount\"/>\n    <origin xyz=\"0.12 0 0\"/>\n  </joint>\n  <!-- odometry\
+  \ link -->\n  <link name=\"jackal/velodyne/gazebo_gt/odometry_sensor_link\">\n \
+  \   <inertial>\n      <inertia ixx=\"0.00001\" ixy=\"0.0\" ixz=\"0.0\" iyy=\"0.00001\"\
+  \ iyz=\"0.0\" izz=\"0.00001\"/>\n      <mass value=\"1e-05\"/>\n      <!-- [kg]\
+  \ -->\n    </inertial>\n  </link>\n  <!-- odometry joint -->\n  <joint name=\"jackal/velodyne/gazebo_gt/odometry_sensor_joint\"\
+  \ type=\"fixed\">\n    <parent link=\"jackal/velodyne/VLP_16\"/>\n    <origin rpy=\"\
+  0.0 0.0 0.0\" xyz=\"0.0 0.0 0.0\"/>\n    <child link=\"jackal/velodyne/gazebo_gt/odometry_sensor_link\"\
+  />\n  </joint>\n  <!-- Keep the virtual sensor link for Gazebo odometry while publishing\
+  \ its fixed TF. -->\n  <gazebo reference=\"jackal/velodyne/gazebo_gt/odometry_sensor_joint\"\
+  >\n    <preserveFixedJoint>true</preserveFixedJoint>\n  </gazebo>\n  <gazebo>\n\
+  \    <plugin filename=\"librotors_gazebo_odometry_no_tf_plugin.so\" name=\"odometry_sensor\"\
+  >\n      <linkName>jackal/velodyne/gazebo_gt/odometry_sensor_link</linkName>\n \
+  \     <robotNamespace>jackal/velodyne/gazebo_gt</robotNamespace>\n      <poseTopic>pose</poseTopic>\n\
+  \      <poseWithCovarianceTopic>pose_with_covariance</poseWithCovarianceTopic>\n\
+  \      <positionTopic>position</positionTopic>\n      <transformTopic>transform</transformTopic>\n\
+  \      <odometryTopic>odometry</odometryTopic>\n      <parentFrameId>world</parentFrameId>\n\
+  \      <!-- Use the scoped link name here. e.g. Model::link. -->\n      <childFrameId>jackal/velodyne/VLP_16</childFrameId>\n\
+  \      <measurementDivisor>1</measurementDivisor>\n      <!-- only every (seq %\
+  \ measurementDivisor) == 0 measurement is published [int] -->\n      <measurementDelay>0</measurementDelay>\n\
+  \      <!-- time that measurement gets held back before it's published in [simulation\
+  \ cycles (int)] -->\n      <unknownDelay>0.0</unknownDelay>\n      <!-- additional\
+  \ delay, that just gets added to the timestamp [s] -->\n      <noiseNormalPosition>0\
+  \ 0 0</noiseNormalPosition>\n      <!-- standard deviation of additive white gaussian\
+  \ noise [m] -->\n      <noiseNormalQuaternion>0 0 0</noiseNormalQuaternion>\n  \
+  \    <!-- standard deviation white gaussian noise [rad]: q_m = q*quaternionFromSmallAngleApproximation(noiseNormalQ)\
+  \ -->\n      <noiseNormalLinearVelocity>0 0 0</noiseNormalLinearVelocity>\n    \
+  \  <!-- standard deviation of additive white gaussian noise [m/s] -->\n      <noiseNormalAngularVelocity>0\
+  \ 0 0</noiseNormalAngularVelocity>\n      <!-- standard deviation of additive white\
+  \ gaussian noise [rad/s] -->\n      <noiseUniformPosition>0 0 0</noiseUniformPosition>\n\
+  \      <!-- symmetric bounds of uniform noise [m] -->\n      <noiseUniformQuaternion>0\
+  \ 0 0</noiseUniformQuaternion>\n      <!-- symmetric bounds of uniform noise [rad],\
+  \ computation see above -->\n      <noiseUniformLinearVelocity>0 0 0</noiseUniformLinearVelocity>\n\
+  \      <!-- symmetric bounds of uniform noise [m/s] -->\n      <noiseUniformAngularVelocity>0\
+  \ 0 0</noiseUniformAngularVelocity>\n    </plugin>\n  </gazebo>\n  <joint name=\"\
+  jackal/velodyne/VLP_16_base_mount_joint\" type=\"fixed\">\n    <origin rpy=\"0 0\
+  \ 0\" xyz=\"0 0 0.234\"/>\n    <parent link=\"mid_mount\"/>\n    <child link=\"\
+  jackal/velodyne/VLP_16_base_link\"/>\n  </joint>\n  <link name=\"jackal/velodyne/VLP_16_base_link\"\
+  >\n    <inertial>\n      <!--mass original 0.83, changed for mav-->\n      <!--\
+  \ <mass value=\"0.83\"/> -->\n      <mass value=\"1e-5\"/>\n      <origin xyz=\"\
+  0 0 0.03585\"/>\n      <inertia ixx=\"0.000908059425\" ixy=\"0\" ixz=\"0\" iyy=\"\
+  0.000908059425\" iyz=\"0\" izz=\"0.0011049624\"/>\n    </inertial>\n    <visual>\n\
+  \      <geometry>\n        <mesh filename=\"package://velodyne_description/meshes/VLP16_base_1.dae\"\
+  />\n      </geometry>\n    </visual>\n    <visual>\n      <geometry>\n        <mesh\
+  \ filename=\"package://velodyne_description/meshes/VLP16_base_2.dae\"/>\n      </geometry>\n\
+  \    </visual>\n    <collision>\n      <origin rpy=\"0 0 0\" xyz=\"0 0 0.03585\"\
+  />\n      <geometry>\n        <!-- <cylinder radius=\"0.0516\" length=\"0.0717\"\
+  /> -->\n        <cylinder length=\"0.0001\" radius=\"0.00001\"/>\n      </geometry>\n\
+  \    </collision>\n  </link>\n  <joint name=\"jackal/velodyne/VLP_16_base_scan_joint\"\
+  \ type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.0377\"/>\n    <parent link=\"\
+  jackal/velodyne/VLP_16_base_link\"/>\n    <child link=\"jackal/velodyne/VLP_16\"\
+  />\n  </joint>\n  <link name=\"jackal/velodyne/VLP_16\">\n    <inertial>\n     \
+  \ <!--mass original 0.01, changed for mav-->\n      <mass value=\"0.00001\"/>\n\
+  \      <origin xyz=\"0 0 0\"/>\n      <inertia ixx=\"1e-7\" ixy=\"0\" ixz=\"0\"\
+  \ iyy=\"1e-7\" iyz=\"0\" izz=\"1e-7\"/>\n    </inertial>\n    <visual>\n      <origin\
+  \ xyz=\"0 0 -0.0377\"/>\n      <geometry>\n        <mesh filename=\"package://velodyne_description/meshes/VLP16_scan.dae\"\
+  />\n      </geometry>\n    </visual>\n  </link>\n  <!-- Gazebo requires the velodyne_gazebo_plugins\
+  \ package -->\n  <gazebo reference=\"jackal/velodyne/VLP_16\">\n    <sensor name=\"\
+  jackal/velodyne_VLP_16\" type=\"gpu_ray\">\n      <pose>0 0 0 0 0 0</pose>\n   \
+  \   <!-- Gazebo visualize ray-cast or not. Default:false -->\n      <visualize>false</visualize>\n\
+  \      <update_rate>10</update_rate>\n      <ray>\n        <scan>\n          <horizontal>\n\
+  \            <samples>1800</samples>\n            <resolution>1</resolution>\n \
+  \           <min_angle>-3.141592653589793</min_angle>\n            <max_angle>3.141592653589793</max_angle>\n\
+  \          </horizontal>\n          <vertical>\n            <samples>16</samples>\n\
+  \            <resolution>1</resolution>\n            <min_angle>-0.2617993877991494</min_angle>\n\
+  \            <max_angle> 0.2617993877991494</max_angle>\n          </vertical>\n\
+  \        </scan>\n        <range>\n          <min>0.3</min>\n          <max>131.0</max>\n\
+  \          <resolution>0.001</resolution>\n        </range>\n        <noise>\n \
+  \         <type>gaussian</type>\n          <mean>0.0</mean>\n          <stddev>0.0</stddev>\n\
+  \        </noise>\n      </ray>\n      <plugin filename=\"libgazebo_ros_velodyne_gpu_laser.so\"\
+  \ name=\"{namespace}_gazebo_ros_laser_controller\">\n        <robotNamespace>jackal/velodyne</robotNamespace>\n\
+  \        <topicName>velodyne_points</topicName>\n        <frameName>VLP_16</frameName>\n\
+  \        <min_range>0.9</min_range>\n        <max_range>130.0</max_range>\n    \
+  \    <gaussianNoise>0.008</gaussianNoise>\n      </plugin>\n    </sensor>\n  </gazebo>\n\
+  \  <gazebo>\n    <plugin filename=\"libgazebo_ros_control.so\" name=\"gazebo_ros_control\"\
+  >\n      <robotNamespace>/</robotNamespace>\n    </plugin>\n  </gazebo>\n  <!--\
+  \  <gazebo>-->\n  <!--    <plugin name=\"imu_controller\" filename=\"libhector_gazebo_ros_imu.so\"\
+  >-->\n  <!--      <robotNamespace>/</robotNamespace>-->\n  <!--      <updateRate>50.0</updateRate>-->\n\
+  \  <!--      <bodyName>imu_link</bodyName>-->\n  <!--      <topicName>imu/data</topicName>-->\n\
+  \  <!--      <accelDrift>0.005 0.005 0.005</accelDrift>-->\n  <!--      <accelGaussianNoise>0.005\
+  \ 0.005 0.005</accelGaussianNoise>-->\n  <!--      <rateDrift>0.005 0.005 0.005\
+  \ </rateDrift>-->\n  <!--      <rateGaussianNoise>0.005 0.005 0.005 </rateGaussianNoise>-->\n\
+  \  <!--      <headingDrift>0.005</headingDrift>-->\n  <!--      <headingGaussianNoise>0.005</headingGaussianNoise>-->\n\
+  \  <!--    </plugin>-->\n  <!--  </gazebo>-->\n  <!--  <gazebo>-->\n  <!--    <plugin\
+  \ name=\"gps_controller\" filename=\"libhector_gazebo_ros_gps.so\">-->\n  <!-- \
+  \     <updateRate>40</updateRate>-->\n  <!--      <robotNamespace>/</robotNamespace>-->\n\
+  \  <!--      <bodyName>navsat_link</bodyName>-->\n  <!--      <frameId>base_link</frameId>-->\n\
+  \  <!--      <topicName>/navsat/fix</topicName>-->\n  <!--      <velocityTopicName>/navsat/vel</velocityTopicName>-->\n\
+  \  <!--      <referenceLatitude>49.9</referenceLatitude>-->\n  <!--      <referenceLongitude>8.9</referenceLongitude>-->\n\
+  \  <!--      <referenceHeading>0</referenceHeading>-->\n  <!--      <referenceAltitude>0</referenceAltitude>-->\n\
+  \  <!--      <drift>0.0001 0.0001 0.0001</drift>-->\n  <!--    </plugin>-->\n  <!--\
+  \  </gazebo>-->\n  <!--  <gazebo>-->\n  <!--    <plugin name=\"p3d_base_controller\"\
+  \ filename=\"libgazebo_ros_p3d.so\">-->\n  <!--      <alwaysOn>true</alwaysOn>-->\n\
+  \  <!--      <updateRate>50.0</updateRate>-->\n  <!--      <bodyName>base_link</bodyName>-->\n\
+  \  <!--      <topicName>jackal/ground_truth/state</topicName>-->\n  <!--      <gaussianNoise>0.00000001</gaussianNoise>-->\n\
+  \  <!--      <frameName>world</frameName>-->\n  <!--      <xyzOffsets>0 0 0</xyzOffsets>-->\n\
+  \  <!--      <rpyOffsets>0 0 0</rpyOffsets>-->\n  <!--    </plugin>-->\n  <!-- \
+  \ </gazebo>-->\n  <gazebo reference=\"base_link\">\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <gazebo reference=\"chassis_link\">\n    <material>Gazebo/DarkGrey</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <gazebo reference=\"\
+  imu_link\">\n    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <gazebo\
+  \ reference=\"navsat_link\">\n    <material>Gazebo/DarkGrey</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <gazebo reference=\"front_fender_link\">\n    <material>Gazebo/Yellow</material>\n\
+  \    <turnGravityOff>false</turnGravityOff>\n  </gazebo>\n  <gazebo reference=\"\
+  rear_fender_link\">\n    <material>Gazebo/Yellow</material>\n    <turnGravityOff>false</turnGravityOff>\n\
+  \  </gazebo>\n  <!--\n    As you add to this URDF, please be aware that both the\
+  \ robot and\n    simulation include it. You must retain compatibility with all of\n\
+  \    the following launch files:\n\n    jackal_viz/launch/view_model.launch\n  \
+  \  jackal_gazebo/launch/jackal_world.launch\n    jackal_base/launch/base.launch\n\
+  \  -->\n  <!-- This file is a placeholder which is included by default from\n  \
+  \     jackal.urdf.xacro. If a robot is being customized and requires\n       additional\
+  \ URDF, set the JACKAL_URDF_EXTRAS environment variable\n       to the full path\
+  \ of the file you would like included. -->\n</robot>\n\n"
+rosdistro: 'noetic
+
+  '
+roslaunch:
+  uris:
+    host_localhost__35507: http://localhost:35507/
+    host_localhost__37973: http://localhost:37973/
+    host_localhost__41205: http://localhost:41205/
+rosversion: '1.17.4
+
+  '
+run_id: baed6540-d1ec-11f1-a15a-00155d3863cb
+sensor_odom_to_world:
+  target_frame: base_link
+  use_sim_time: true
+  world_frame: world
+slam_sim_output:
+  child_frame_id: sensor
+  down_voxel_size: 0.1
+  frame_id: map
+  use_sim_time: true
+terrainAnalysis:
+  clearDyObs: false
+  clearingDis: 8.0
+  considerDrop: false
+  decayTime: 2.0
+  disRatioZ: 0.2
+  limitGroundLift: false
+  maxDyObsVFOV: 16.0
+  maxGroundLift: 0.15
+  maxRelZ: 1.0
+  minBlockPointNum: 10
+  minDyObsAngle: 0.0
+  minDyObsDis: 0.3
+  minDyObsPointNum: 1
+  minDyObsRelZ: -0.5
+  minDyObsVFOV: -16.0
+  minRelZ: -2.5
+  noDataBlockSkipNum: 0
+  noDataObstacle: false
+  noDecayDis: 4.0
+  quantileZ: 0.25
+  scanVoxelSize: 0.05
+  useSorting: false
+  vehicleHeight: 0.52
+  voxelPointUpdateThre: 100
+  voxelTimeUpdateThre: 2.0
+twist_mux:
+  locks:
+  - name: e_stop
+    priority: 255
+    timeout: 0.0
+    topic: e_stop
+  topics:
+  - name: joy
+    priority: 10
+    timeout: 0.5
+    topic: joy_teleop/cmd_vel
+  - name: bt_joy
+    priority: 9
+    timeout: 0.5
+    topic: bluetooth_teleop/cmd_vel
+  - name: interactive_marker
+    priority: 8
+    timeout: 0.5
+    topic: twist_marker_server/cmd_vel
+  - name: external
+    priority: 1
+    timeout: 0.5
+    topic: cmd_vel
+use_sim_time: true

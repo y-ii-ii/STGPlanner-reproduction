@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "name": "nonfrontier_score_cannot_displace_frontier_path",
+      "original_id": 1,
+      "repaired_id": 2,
+      "original_frontier_exists": true,
+      "repaired_frontier_exists": true,
+      "passed": true
+    },
+    {
+      "name": "no_frontier_does_not_emit_positive_local_path",
+      "original_id": 1,
+      "repaired_id": 0,
+      "original_frontier_exists": false,
+      "repaired_frontier_exists": false,
+      "passed": true
+    },
+    {
+      "name": "highest_valid_frontier_score_preserved",
+      "original_id": 1,
+      "repaired_id": 1,
+      "original_frontier_exists": true,
+      "repaired_frontier_exists": true,
+      "passed": true
+    },
+    {
+      "name": "hanging_frontier_not_eligible",
+      "original_id": 2,
+      "repaired_id": 2,
+      "original_frontier_exists": true,
+      "repaired_frontier_exists": true,
+      "passed": true
+    },
+    {
+      "name": "inadmissible_frontier_does_not_suppress_global_fallback",
+      "original_id": 2,
+      "repaired_id": 0,
+      "original_frontier_exists": true,
+      "repaired_frontier_exists": false,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "source_scope": "Exact production path-scoring block; controlled paths/gains/inclinations; no ROS or simulated motion.",
+  "baseline_native_sha256": "ab636618dc2e9ec8754b0213702c69ff50f1b833c4237a8570ff935c2ec0505c",
+  "checks": {
+    "nonfrontier_score_cannot_displace_frontier_path": true,
+    "no_frontier_does_not_emit_positive_local_path": true,
+    "highest_valid_frontier_score_preserved": true,
+    "hanging_frontier_not_eligible": true,
+    "inadmissible_frontier_does_not_suppress_global_fallback": true,
+    "transformation_idempotent": true
+  }
+}

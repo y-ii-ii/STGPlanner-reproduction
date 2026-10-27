@@ -1,0 +1,16 @@
+{
+  "after_finish_only": true,
+  "finish_event": {
+    "unix": 1793099250.5135765,
+    "sim": 17653.52,
+    "kind": "finish",
+    "reason": "sim_time_limit",
+    "area": 4388.8,
+    "distance": 2413.449803404022
+  },
+  "changes_planning_or_motion": false,
+  "response": "",
+  "exists": true,
+  "bytes": 44141149,
+  "sha256": "cb24b46f3bd8e3158572335df7a0283439423e4c0755db13a3eb2cfa082a1224"
+}

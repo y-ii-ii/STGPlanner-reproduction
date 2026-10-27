@@ -1467,6 +1467,7 @@ Rrg::GraphStatus Rrg::evaluateGraph() {
   // Gain evaluation for valid paths, starting from the leaf to the root.
   START_TIMER(ttime);
   t1 = std::chrono::high_resolution_clock::now();
+  // BEGIN_LOCAL_FRONTIER_ELIGIBILITY
   double best_gain = 0;
   int best_path_id = 0;
   int num_leaf_vertices = leaf_vertices.size();
@@ -1484,6 +1485,7 @@ Rrg::GraphStatus Rrg::evaluateGraph() {
       double path_gain = 0;
       double lambda = planning_params_.path_length_penalty;
       bool inadmissible_edge = false;
+      bool path_has_frontier = false;
       for (int ind = 0; ind < path_size; ++ind) {
         Vertex* v_id = path[ind];
         double path_length =
@@ -1517,12 +1519,14 @@ Rrg::GraphStatus Rrg::evaluateGraph() {
           v_id->vol_gain.accumulative_gain = path_gain;
           num_unknown_voxels += v_id->vol_gain.num_unknown_voxels;
           if (v_id->vol_gain.is_frontier && !v_id->is_hanging)
-            frontier_exists = true;
+            path_has_frontier = true;
         }
       }
       if (inadmissible_edge) {
         continue;
       }
+      // An inadmissible path must not keep the local-frontier flag alive.
+      frontier_exists = frontier_exists || path_has_frontier;
 
       // Compare with exploring direction to penalty not-forward paths.
       double lambda2 = planning_params_.path_direction_penalty;
@@ -1533,12 +1537,15 @@ Rrg::GraphStatus Rrg::evaluateGraph() {
               path_list, exploring_direction_, 0.2, true);
       path_gain *= exp(-lambda2 * fw_ratio);
 
-      if (path_gain > best_gain) {
+      // Residual non-frontier gain must not displace an exploratory path.
+      if (path_has_frontier && path_gain > best_gain) {
         best_gain = path_gain;
         best_path_id = id;
       }
     }
   }
+
+  // END_LOCAL_FRONTIER_ELIGIBILITY
 
   if (planning_params_.auto_global_planner_enable) {
     if (!frontier_exists) {
@@ -1575,6 +1582,18 @@ Rrg::GraphStatus Rrg::evaluateGraph() {
       local_graph_->getVertex(path[i])->parent =
           local_graph_->getVertex(path[i + 1]);
     }
+    // Selection diagnostics use native graph states; no additional planning.
+    std::vector<Vertex*> diagnostic_path;
+    local_graph_->getShortestPath(best_path_id, local_graph_rep_, true, diagnostic_path);
+    int diagnostic_frontiers = 0;
+    for (auto* vertex : diagnostic_path)
+      if (vertex->vol_gain.is_frontier && !vertex->is_hanging) ++diagnostic_frontiers;
+    auto* diagnostic_leaf = local_graph_->getVertex(best_path_id);
+    auto* diagnostic_root = local_graph_->getVertex(0);
+    ROS_INFO("GBP_DIAGNOSTIC_SELECTED root_x=%.6f root_y=%.6f root_z=%.6f root_yaw=%.6f root_unknown=%d leaf_x=%.6f leaf_y=%.6f leaf_z=%.6f leaf_yaw=%.6f leaf_unknown=%d leaf_frontier=%d path_frontiers=%d any_frontier=%d gain=%.6f",
+      diagnostic_root->state[0], diagnostic_root->state[1], diagnostic_root->state[2], diagnostic_root->state[3], diagnostic_root->vol_gain.num_unknown_voxels,
+      diagnostic_leaf->state[0], diagnostic_leaf->state[1], diagnostic_leaf->state[2], diagnostic_leaf->state[3], diagnostic_leaf->vol_gain.num_unknown_voxels,
+      diagnostic_leaf->vol_gain.is_frontier, diagnostic_frontiers, frontier_exists, best_gain);
     best_vertex_ = local_graph_->getVertex(path[0]);
     //
     ROS_INFO_COND(global_verbosity >= Verbosity::INFO, "Best path: with gain [%f] and ID [%d] ", best_gain, best_path_id);

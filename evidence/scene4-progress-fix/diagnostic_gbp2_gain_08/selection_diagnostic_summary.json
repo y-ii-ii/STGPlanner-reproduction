@@ -1,0 +1,49 @@
+{
+  "status": {
+    "sim_s": 1399.4120000000003,
+    "wall_s": 1406.7500996179997,
+    "area_m2": 3226.2400000000002,
+    "coverage_fraction": 0.41415147625160464,
+    "distance_m": 1535.3512925875557,
+    "x": -12.655234204065017,
+    "y": 0.5022785210310874,
+    "nonempty_plans": 237,
+    "empty_plans": 3
+  },
+  "selection_records": 228,
+  "selected_paths_without_frontier": 72,
+  "nonfrontier_selected_while_other_frontier_exists": 58,
+  "selected_leaf_without_frontier": 96,
+  "selected_frontier_leaf_within_1m_of_earlier_trajectory": 2,
+  "latest_selected_path": {
+    "root_x": -12.39146,
+    "root_y": 0.688095,
+    "root_z": 0.615984,
+    "root_unknown": 79.0,
+    "leaf_x": -28.716971,
+    "leaf_y": 0.27005,
+    "leaf_z": 0.535232,
+    "leaf_unknown": 320.0,
+    "leaf_frontier": 1.0,
+    "path_frontiers": 3.0,
+    "path_unknown": 1741.0,
+    "any_frontier": 1.0,
+    "gain": 17771.278092,
+    "absolute_sim": 16652.929,
+    "earlier_trajectory_distance_m": 0.6534994110766591
+  },
+  "snapshots": [
+    {
+      "name": "native_snapshot_1000.vxblx",
+      "bytes": 32098628
+    },
+    {
+      "name": "native_snapshot_1300.vxblx",
+      "bytes": 32222258
+    },
+    {
+      "name": "native_snapshot_600.vxblx",
+      "bytes": 22468746
+    }
+  ]
+}

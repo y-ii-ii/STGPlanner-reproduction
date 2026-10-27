@@ -1,0 +1,1716 @@
+{
+  "generated_utc": "2026-10-27T09:48:05.304828+00:00",
+  "trial_selection": {
+    "protocol_revision": 3,
+    "common_threshold_m2": 7400.5,
+    "final_runs": {
+      "fael": "repair_formal_fael_01",
+      "gbp2": "repair_formal_gbp2_07"
+    },
+    "pilot_runs": [
+      "repair_pilot_gbp2_01"
+    ],
+    "intermediate_runs": [
+      "repair_formal_gbp2_01",
+      "repair_formal_gbp2_02",
+      "repair_formal_gbp2_03",
+      "repair_formal_gbp2_04",
+      "repair_formal_gbp2_05",
+      "repair_formal_gbp2_06"
+    ],
+    "intermediate_labels": [
+      "Cache repair (diagnostic stop)",
+      "Geometry repair (diagnostic stop)",
+      "Geometry repair (2400s limit)",
+      "Homing fixed (diagnostic stop)",
+      "Frontier calibration (2400s failure)",
+      "Cluster frontier type repair (user interrupted at 1082.027s, 54.153530%)"
+    ],
+    "plot_intermediate_runs": [
+      "repair_formal_gbp2_03",
+      "repair_formal_gbp2_05"
+    ],
+    "adapter_revision": {
+      "fael": 0,
+      "gbp2": 1
+    },
+    "selection_note": "Trial 07 selected before its outcome, same source/binary/configuration as user-interrupted 06. Fresh initial conditions, 2400 simulation-second cap, unchanged common 95% threshold/protocol 3. 06 remains user-interrupted evidence, not completion. Trials are engineering validation, not five paper repeats.",
+    "selected_at": "2026-10-27T17:01:36.608104+08:00"
+  },
+  "adapter_and_configuration_changes": {
+    "common_protocol_revision": 3,
+    "adapter_revision": 1,
+    "measurement_controller_threshold_unchanged": true,
+    "native_sampling_limits": {
+      "vertices": [
+        500,
+        2000
+      ],
+      "edges": [
+        5000,
+        20000
+      ],
+      "loops_cutoff": [
+        2000,
+        8000
+      ],
+      "loops_max": [
+        20000,
+        80000
+      ]
+    },
+    "native_time_model_m_s": {
+      "v_max": [
+        0.2,
+        2.0
+      ],
+      "v_homing_max": [
+        0.2,
+        1.0
+      ]
+    },
+    "native_frontier_fraction": [
+      0.05,
+      0.01
+    ],
+    "calibration_evidence": "gbp_corridor_gain.json: 0 of125 collision-free corridor views pass0.05,16pass0.01; native cutoffs1296/260unknown voxels. This is NOT the common95% evaluation threshold.",
+    "files": {
+      "benchmarks/benchmark_trial.py": {
+        "original_sha256": "8fc9535efc6fd9b126272717b09ace6762ae468139e511213da708794fdd7e84",
+        "repaired_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+        "archive_stem": "benchmark_trial.py"
+      },
+      "benchmarks/config/gbp2.yaml": {
+        "original_sha256": "79ae856e07f37c59f04f426bc3d7040507279f8e0421ee2c92f93553e23b6580",
+        "repaired_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+        "archive_stem": "config__gbp2.yaml"
+      }
+    },
+    "note": "Only the GBP2 native-end branch changes in the adapter. Common observer, controller, initialization and coverage/time stop remain unchanged. Algorithm parameters changed explicitly; final results are an engineering adaptation, not paper-identical settings."
+  },
+  "protocol_checks_passed": true,
+  "exploration_goals_passed": false,
+  "checks": {
+    "fael.no_fatal_error": true,
+    "fael.protocol_revision": true,
+    "fael.adapter_revision_recorded": true,
+    "fael.same_threshold": true,
+    "fael.static_terrain": true,
+    "fael.no_active_ros_errors": true,
+    "fael.native_alive": true,
+    "fael.valid_stop_reason": true,
+    "fael.final_is_complete_observation": true,
+    "fael.real_motion": true,
+    "fael.stop_ack": true,
+    "fael.parked_command_zero": true,
+    "fael.parking_drift": true,
+    "fael.sensor_live": true,
+    "fael.monotonic_time": true,
+    "fael.monotonic_area": true,
+    "fael.monotonic_distance": true,
+    "fael.nominal_ratio": true,
+    "fael.time_bound": true,
+    "fael.finish_matches_metric": true,
+    "fael.map_saved": true,
+    "fael.runtime_recorded": true,
+    "fael.saved_cells_match": true,
+    "gbp2.no_fatal_error": true,
+    "gbp2.protocol_revision": true,
+    "gbp2.adapter_revision_recorded": true,
+    "gbp2.same_threshold": true,
+    "gbp2.static_terrain": true,
+    "gbp2.no_active_ros_errors": true,
+    "gbp2.native_alive": true,
+    "gbp2.valid_stop_reason": true,
+    "gbp2.final_is_complete_observation": true,
+    "gbp2.real_motion": true,
+    "gbp2.stop_ack": true,
+    "gbp2.parked_command_zero": true,
+    "gbp2.parking_drift": true,
+    "gbp2.sensor_live": true,
+    "gbp2.monotonic_time": true,
+    "gbp2.monotonic_area": true,
+    "gbp2.monotonic_distance": true,
+    "gbp2.nominal_ratio": true,
+    "gbp2.time_bound": true,
+    "gbp2.finish_matches_metric": true,
+    "gbp2.map_saved": true,
+    "gbp2.runtime_recorded": true,
+    "gbp2.saved_cells_match": true,
+    "gbp2.live_frontier_fraction_verified": true,
+    "gbp2.live_sampling_limit_verified": true,
+    "gbp2.source_and_binary_frozen_for_run": true,
+    "gbp2.selection_frozen_before_outcome": true,
+    "gbp2.live_common_speed_parameters": true,
+    "gbp2.command_speed_limit_verified": true,
+    "gbp2.common_controller_running_binary_verified": true,
+    "gbp2.loaded_native_libraries_verified": true,
+    "gbp2.common_controller_files_unchanged": true,
+    "ray_cache_regression.json.original_cache_failure_reproduced": true,
+    "ray_cache_regression.json.fixed_rays_independent": true,
+    "ray_cache_regression.json.original_last_column_failure_reproduced": true,
+    "ray_cache_regression.json.fixed_last_column_in_bounds": true,
+    "ray_cache_regression.json.native_endpoint_dimensions_match": true,
+    "fael_frontier_regression.json.seen_frontier_can_reactivate": true,
+    "fael_frontier_regression.json.unchanged_free_cell_rechecked_after_neighbour_change": true,
+    "gain_frame_regression.json.physical_ground_height_and_unchanged_input_and_aerial_and_rotated_extrinsic": true,
+    "gain_frame_regression.json.both_native_ray_gain_paths_use_sensor_state": true,
+    "gain_frame_regression.json.both_native_ray_gain_paths_use_sensor_origin": true,
+    "gbp_core_regression.json.original_lateral_ray_downshift_reproduced": true,
+    "gbp_core_regression.json.fixed_discrete_projection_height": true,
+    "gbp_core_regression.json.fixed_interpolated_projection_height": true,
+    "gbp_core_regression.json.central_projection_preserved": true,
+    "gbp_core_regression.json.unknown_ground_not_fabricated": true,
+    "gbp_core_regression.json.original_outbound_budget_omission_reproduced": true,
+    "gbp_core_regression.json.fixed_outbound_and_optional_return_budget": true,
+    "gbp_core_regression.json.original_lidar_range_overshoot_reproduced": true,
+    "gbp_core_regression.json.fixed_lidar_range_is_physical": true,
+    "gbp_core_regression.json.both_lidar_generators_corrected": true,
+    "trial_contract_regression.json.shared_protocol_ast_unchanged_outside_gbp_branch": true,
+    "trial_contract_regression.json.home_path_once_then_no_new_exploration": true,
+    "trial_contract_regression.json.reposition_does_not_mean_finished": true,
+    "trial_contract_regression.json.empty_home_end_is_observed": true,
+    "trial_contract_regression.json.failed_return_is_not_reported_as_success": true,
+    "trial_contract_regression.json.native_finish_time_separate_from_common_stop": true,
+    "trial_contract_regression.json.actual_native_status_helper_preserves_idl": true,
+    "trial_contract_regression.json.native_global_and_sticky_homing_use_correct_status": true,
+    "trial_contract_regression.json.native_config_changes_are_explicit_and_limited": true,
+    "trial_contract_regression.json.sensor_model_and_bounds_unchanged_except_declared_frontier_calibration": true,
+    "frontier_calibration_validation.json.native_probe_and_real_collision_map_used": true,
+    "frontier_calibration_validation.json.original_fraction_misses_all_free_corridor_views": true,
+    "frontier_calibration_validation.json.calibrated_fraction_retains_outlet_views": true,
+    "frontier_calibration_validation.json.specific_free_gateway_view_reactivated": true,
+    "frontier_calibration_validation.json.deployed_native_fraction_matches_calibration": true,
+    "cluster_frontier_regression.json.original_cluster_gain_type_mismatch_reproduced": true,
+    "cluster_frontier_regression.json.fixed_all_cluster_frontiers_preserved": true,
+    "cluster_frontier_regression.json.zero_gain_cluster_does_not_invent_frontiers": true,
+    "outcome_classification_validation.json.repair_formal_fael_01": true,
+    "outcome_classification_validation.json.repair_formal_gbp2_01": true,
+    "outcome_classification_validation.json.repair_formal_gbp2_03": true,
+    "outcome_classification_validation.json.repair_formal_gbp2_05": true,
+    "outcome_classification_validation.json.repair_formal_gbp2_06": true,
+    "outcome_classification_validation.json.pause_metadata_mismatch_rejected": true,
+    "outcome_classification_validation.json.user_pause_rejected_as_final_observation": true,
+    "recorded_protocol.benchmarks/benchmark_cloud_bridge.cpp": true,
+    "active_protocol.benchmarks/benchmark_cloud_bridge.cpp": true,
+    "recorded_protocol.benchmarks/benchmark_coverage.cpp": true,
+    "active_protocol.benchmarks/benchmark_coverage.cpp": true,
+    "recorded_protocol.benchmarks/benchmark_protocol.md": true,
+    "active_protocol.benchmarks/benchmark_protocol.md": true,
+    "archived_original_protocol.benchmarks/benchmark_trial.py": true,
+    "recorded_protocol.benchmarks/benchmark_trial.py": true,
+    "active_protocol.benchmarks/benchmark_trial.py": true,
+    "recorded_protocol.benchmarks/build_all_baselines.sh": true,
+    "active_protocol.benchmarks/build_all_baselines.sh": true,
+    "recorded_protocol.benchmarks/build_baseline.sh": true,
+    "active_protocol.benchmarks/build_baseline.sh": true,
+    "recorded_protocol.benchmarks/build_cloud_bridge.sh": true,
+    "active_protocol.benchmarks/build_cloud_bridge.sh": true,
+    "recorded_protocol.benchmarks/build_coverage.sh": true,
+    "active_protocol.benchmarks/build_coverage.sh": true,
+    "recorded_protocol.benchmarks/build_gbp2.sh": true,
+    "active_protocol.benchmarks/build_gbp2.sh": true,
+    "recorded_protocol.benchmarks/clone_locked_sources.py": true,
+    "active_protocol.benchmarks/clone_locked_sources.py": true,
+    "recorded_protocol.benchmarks/collect_benchmark_builds.py": true,
+    "active_protocol.benchmarks/collect_benchmark_builds.py": true,
+    "recorded_protocol.benchmarks/config/coverage.yaml": true,
+    "active_protocol.benchmarks/config/coverage.yaml": true,
+    "recorded_protocol.benchmarks/config/fael.launch": true,
+    "active_protocol.benchmarks/config/fael.launch": true,
+    "recorded_protocol.benchmarks/config/fael.yaml": true,
+    "active_protocol.benchmarks/config/fael.yaml": true,
+    "recorded_protocol.benchmarks/config/gbp2.launch": true,
+    "active_protocol.benchmarks/config/gbp2.launch": true,
+    "archived_original_protocol.benchmarks/config/gbp2.yaml": true,
+    "recorded_protocol.benchmarks/config/gbp2.yaml": true,
+    "active_protocol.benchmarks/config/gbp2.yaml": true,
+    "recorded_protocol.benchmarks/config/movement.launch": true,
+    "active_protocol.benchmarks/config/movement.launch": true,
+    "recorded_protocol.benchmarks/config/stgp.launch": true,
+    "active_protocol.benchmarks/config/stgp.launch": true,
+    "recorded_protocol.benchmarks/config/tare.launch": true,
+    "active_protocol.benchmarks/config/tare.launch": true,
+    "recorded_protocol.benchmarks/config/tare.yaml": true,
+    "active_protocol.benchmarks/config/tare.yaml": true,
+    "recorded_protocol.benchmarks/config/terrain_static.launch": true,
+    "active_protocol.benchmarks/config/terrain_static.launch": true,
+    "recorded_protocol.benchmarks/config/voxblox.yaml": true,
+    "active_protocol.benchmarks/config/voxblox.yaml": true,
+    "recorded_protocol.benchmarks/environment.json": true,
+    "active_protocol.benchmarks/environment.json": true,
+    "recorded_protocol.benchmarks/gbp_debug.py": true,
+    "active_protocol.benchmarks/gbp_debug.py": true,
+    "recorded_protocol.benchmarks/instrument_gbp2.py": true,
+    "active_protocol.benchmarks/instrument_gbp2.py": true,
+    "recorded_protocol.benchmarks/patches/fael-cmake.patch": true,
+    "active_protocol.benchmarks/patches/fael-cmake.patch": true,
+    "recorded_protocol.benchmarks/patches/gbp2-native-diagnostics.patch": true,
+    "active_protocol.benchmarks/patches/gbp2-native-diagnostics.patch": true,
+    "recorded_protocol.benchmarks/patches/gbp2-runtime-measurement.patch": true,
+    "active_protocol.benchmarks/patches/gbp2-runtime-measurement.patch": true,
+    "recorded_protocol.benchmarks/patches/tare-path-diagnostic.patch": true,
+    "active_protocol.benchmarks/patches/tare-path-diagnostic.patch": true,
+    "recorded_protocol.benchmarks/path_contract_regression.py": true,
+    "active_protocol.benchmarks/path_contract_regression.py": true,
+    "recorded_protocol.benchmarks/prepare_benchmark.py": true,
+    "active_protocol.benchmarks/prepare_benchmark.py": true,
+    "recorded_protocol.benchmarks/probe_obstacles.py": true,
+    "active_protocol.benchmarks/probe_obstacles.py": true,
+    "recorded_protocol.benchmarks/probe_stall.py": true,
+    "active_protocol.benchmarks/probe_stall.py": true,
+    "recorded_protocol.benchmarks/Run-Scene4Suite.ps1": true,
+    "active_protocol.benchmarks/Run-Scene4Suite.ps1": true,
+    "recorded_protocol.benchmarks/run_benchmark.sh": true,
+    "active_protocol.benchmarks/run_benchmark.sh": true,
+    "recorded_protocol.benchmarks/sources.lock.json": true,
+    "active_protocol.benchmarks/sources.lock.json": true,
+    "recorded_protocol.stgp_planner/robot_move/path_execution/src/path_execution.cpp": true,
+    "active_protocol.stgp_planner/robot_move/path_execution/src/path_execution.cpp": true,
+    "native_source.fael.planner/src/perception/ufomap.cpp": true,
+    "native_source.fael.planner/src/preprocess/viewpoint_manager.cpp": true,
+    "native_source.fael.planner/src/rapid_cover_planner/rapid_cover_planner.cpp": true,
+    "native_source.fael.planner/src/topo_planner/topo_planner.cpp": true,
+    "native_source.gbp2.gbplanner/include/gbplanner/rrg.h": true,
+    "native_source.gbp2.gbplanner/src/gbplanner.cpp": true,
+    "native_source.gbp2.gbplanner/src/rrg.cpp": true,
+    "native_source.gbp2.planner_common/src/params.cpp": true,
+    "native_source.gbp2.planner_common/src/voxblox/voxblox_alt_impl.cpp": true,
+    "native_binary.fael": true,
+    "native_binary.gbp2_planner_common": true,
+    "native_binary.gbp2": true,
+    "repair_formal_gbp2_01.intentional_stop_documented": true,
+    "repair_formal_gbp2_01.stop_confirmed": true,
+    "repair_formal_gbp2_02.intentional_stop_documented": true,
+    "repair_formal_gbp2_02.stop_confirmed": true,
+    "repair_formal_gbp2_03.complete_failed_observation_preserved": true,
+    "repair_formal_gbp2_03.stop_confirmed": true,
+    "repair_formal_gbp2_04.intentional_stop_documented": true,
+    "repair_formal_gbp2_04.stop_confirmed": true,
+    "repair_formal_gbp2_05.complete_failed_observation_preserved": true,
+    "repair_formal_gbp2_05.stop_confirmed": true,
+    "repair_formal_gbp2_06.user_interruption_documented": true,
+    "repair_formal_gbp2_06.user_interruption_not_final": true,
+    "repair_formal_gbp2_06.stop_confirmed": true,
+    "native_calibrated_probe.endpoint_dimensions_match": true,
+    "native_calibrated_probe.physical_ray_range": true
+  },
+  "exploration_goals": {
+    "fael.common_threshold_reached": true,
+    "fael.coverage_improved": true,
+    "gbp2.common_threshold_reached": false,
+    "gbp2.coverage_improved": true
+  },
+  "results": {
+    "fael": {
+      "before": {
+        "finish_reason": "sim_time_limit",
+        "sim_time_s": 1600.0389999999989,
+        "wall_time_s": 1613.2483605910002,
+        "distance_m": 571.3391771155427,
+        "area_m2": 3215.5200000000004,
+        "coverage_fraction": 0.4127753530166881,
+        "nonempty_plans": 2801,
+        "empty_plans": 9596,
+        "runtime_native_s_summary": {
+          "count": 12398,
+          "mean": 0.018164106003025458,
+          "max": 1.0132768154144287
+        },
+        "average_speed_m_s": 0.3570782819140928,
+        "rejected_disconnected_paths": 1,
+        "longest_near_stationary_sim_s": 1184.8780000000006,
+        "checkpoint_1600": null,
+        "completed_before_1600": false,
+        "native_finished": false,
+        "native_finish_sim_s": null,
+        "native_homing_motion_state": null,
+        "adapter_revision": 0,
+        "trial": "formal_fael_01",
+        "final_100s_area_gain_m2": 0.0,
+        "coverage_milestones_sim_s": {
+          "42": null,
+          "50": null,
+          "75": null,
+          "90": null,
+          "95": null
+        },
+        "trajectory_extent_xy": {
+          "x_min": -33.25129816143429,
+          "x_max": 18.15201693059739,
+          "y_min": -0.023813068227298506,
+          "y_max": 67.89351863670274
+        }
+      },
+      "after": {
+        "finish_reason": "coverage_threshold",
+        "sim_time_s": 1017.0079999999998,
+        "wall_time_s": 1022.100535842,
+        "distance_m": 1351.9311561766528,
+        "area_m2": 7426.72,
+        "coverage_fraction": 0.9533658536585367,
+        "nonempty_plans": 6784,
+        "empty_plans": 11,
+        "runtime_native_s_summary": {
+          "count": 6796,
+          "mean": 0.03796369928412749,
+          "max": 6.932850122451782
+        },
+        "average_speed_m_s": 1.3293220468046005,
+        "rejected_disconnected_paths": 1,
+        "longest_near_stationary_sim_s": 0.0,
+        "checkpoint_1600": null,
+        "completed_before_1600": true,
+        "native_finished": false,
+        "native_finish_sim_s": null,
+        "native_homing_motion_state": null,
+        "adapter_revision": 0,
+        "trial": "repair_formal_fael_01",
+        "final_100s_area_gain_m2": 810.4000000000005,
+        "coverage_milestones_sim_s": {
+          "42": 426.08400000000074,
+          "50": 472.3020000000015,
+          "75": 813.4080000000013,
+          "90": 970.2849999999999,
+          "95": null
+        },
+        "trajectory_extent_xy": {
+          "x_min": -33.40042559086621,
+          "x_max": 66.70957795800692,
+          "y_min": -2.597876640390235,
+          "y_max": 88.4147537959765
+        },
+        "outcome_classification": "common_threshold_reached",
+        "saved_csv_area_m2": 7426.72,
+        "native_frontier_diagnostics": {
+          "records": 199,
+          "max_frontiers": 356,
+          "zero_tour_records": 0
+        },
+        "guard_warnings": {
+          "no connected tour candidate": 9,
+          "disconnected optimized tour": 2
+        }
+      }
+    },
+    "gbp2": {
+      "before": {
+        "finish_reason": "sim_time_limit",
+        "sim_time_s": 1600.0439999999999,
+        "wall_time_s": 1612.8027719280008,
+        "distance_m": 1945.5395851618684,
+        "area_m2": 3207.84,
+        "coverage_fraction": 0.41178947368421054,
+        "nonempty_plans": 259,
+        "empty_plans": 1,
+        "runtime_native_s_summary": {
+          "count": 260,
+          "mean": 0.2890360858346155,
+          "max": 0.432640036
+        },
+        "average_speed_m_s": 1.215928802684094,
+        "rejected_disconnected_paths": 0,
+        "longest_near_stationary_sim_s": 0.0,
+        "checkpoint_1600": null,
+        "completed_before_1600": false,
+        "native_finished": false,
+        "native_finish_sim_s": null,
+        "native_homing_motion_state": null,
+        "adapter_revision": 0,
+        "trial": "formal_gbp2_01",
+        "final_100s_area_gain_m2": 0.47999999999956344,
+        "coverage_milestones_sim_s": {
+          "42": null,
+          "50": null,
+          "75": null,
+          "90": null,
+          "95": null
+        },
+        "trajectory_extent_xy": {
+          "x_min": -41.64340997950109,
+          "x_max": 19.211393702430737,
+          "y_min": -0.9276222388882633,
+          "y_max": 73.04195550864736
+        }
+      },
+      "after": {
+        "finish_reason": "sim_time_limit",
+        "sim_time_s": 2400.018,
+        "wall_time_s": 2411.250895101,
+        "distance_m": 2389.9381161895335,
+        "area_m2": 4281.760000000001,
+        "coverage_fraction": 0.5496482670089861,
+        "nonempty_plans": 426,
+        "empty_plans": 2,
+        "runtime_native_s_summary": {
+          "count": 428,
+          "mean": 0.9798558424439254,
+          "max": 1.286216484
+        },
+        "average_speed_m_s": 0.9958000799117063,
+        "rejected_disconnected_paths": 0,
+        "longest_near_stationary_sim_s": 2.00800000000163,
+        "checkpoint_1600": {
+          "sim_s": 1600.6090000000004,
+          "wall_s": 1608.396551159,
+          "area_m2": 4269.6,
+          "coverage_fraction": 0.5480872913992298,
+          "distance_m": 1602.595725280383,
+          "x": 20.590101383429698,
+          "y": 77.64565178476322,
+          "nonempty_plans": 292,
+          "empty_plans": 2
+        },
+        "completed_before_1600": false,
+        "native_finished": false,
+        "native_finish_sim_s": null,
+        "native_homing_motion_state": null,
+        "adapter_revision": 1,
+        "trial": "repair_formal_gbp2_07",
+        "final_100s_area_gain_m2": 0.0,
+        "coverage_milestones_sim_s": {
+          "42": 662.8639999999996,
+          "50": 740.2029999999995,
+          "75": null,
+          "90": null,
+          "95": null
+        },
+        "trajectory_extent_xy": {
+          "x_min": -41.511048499399145,
+          "x_max": 52.62098974634363,
+          "y_min": -1.5324970503732667,
+          "y_max": 97.47387441193932
+        },
+        "outcome_classification": "complete_time_limit_observation",
+        "saved_csv_area_m2": 4281.76,
+        "native_frontier_diagnostics": {
+          "records": 426,
+          "max_global_frontiers": 66,
+          "nonzero_records": 425
+        },
+        "passive_speed_audit": {
+          "sim": 17662.299,
+          "cmd_samples": 24166,
+          "max_abs_command_linear_x": 2.0,
+          "odom_samples": 24203,
+          "max_odom_xy_speed": 2.084014834418603,
+          "vehicle_action_requests": 427
+        }
+      }
+    }
+  },
+  "intermediate_diagnostics": {
+    "intermediate_attempts": [
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_01",
+          "sim_time_s": 1121.2250000000004,
+          "distance_m": 1470.7821047183727,
+          "area_m2": 3252.8,
+          "coverage_fraction": 0.41756097560975614,
+          "finish_reason": "process_exit:native_planner"
+        },
+        "classification": "intentional_diagnostic_stop",
+        "intentional_stop": {
+          "utc": "2026-10-27T04:11:10.022786+00:00",
+          "classification": "intermediate_cache_only_diagnostic",
+          "intentional_native_stop": true,
+          "reason": "Coverage plateau returned after ray-cache repair. Native gain uses projected graph height 0.7m instead of physical lidar height 0.456m. Preserve this attempt and recalibrate before a new full run.",
+          "graph_point_count": 9818,
+          "graph_z_range": [
+            0.5201094222192112,
+            0.6986732611270021
+          ],
+          "sample_graph_points": [
+            {
+              "x": 9.178130447308066,
+              "y": 0.13250366259825153,
+              "z": 0.6859254474829218
+            },
+            {
+              "x": 6.187656092730791,
+              "y": 0.3538129961356058,
+              "z": 0.61600708686927
+            },
+            {
+              "x": 3.3559916672263426,
+              "y": -0.6334017871579323,
+              "z": 0.6801709221745518
+            },
+            {
+              "x": 6.187656092730791,
+              "y": 0.3538129961356058,
+              "z": 0.61600708686927
+            },
+            {
+              "x": 0.35765459654411647,
+              "y": -0.5336791606258603,
+              "z": 0.6546747009081136
+            },
+            {
+              "x": 3.3559916672263426,
+              "y": -0.6334017871579323,
+              "z": 0.6801709221745518
+            },
+            {
+              "x": -2.083747613974404,
+              "y": 1.2097527786689874,
+              "z": 0.6352399528500018
+            },
+            {
+              "x": 0.35765459654411647,
+              "y": -0.5336791606258603,
+              "z": 0.6546747009081136
+            },
+            {
+              "x": -0.08285325335260652,
+              "y": -0.2290830051941578,
+              "z": 0.692913287198699
+            },
+            {
+              "x": 0.35765459654411647,
+              "y": -0.5336791606258603,
+              "z": 0.6546747009081136
+            },
+            {
+              "x": -0.08285325335260652,
+              "y": -0.2290830051941578,
+              "z": 0.692913287198699
+            },
+            {
+              "x": -2.083747613974404,
+              "y": 1.2097527786689874,
+              "z": 0.6352399528500018
+            },
+            {
+              "x": -1.2520997445566007,
+              "y": 1.4364487798745376,
+              "z": 0.6462390246561983
+            },
+            {
+              "x": -2.083747613974404,
+              "y": 1.2097527786689874,
+              "z": 0.6352399528500018
+            },
+            {
+              "x": -1.2520997445566007,
+              "y": 1.4364487798745376,
+              "z": 0.6462390246561983
+            },
+            {
+              "x": -0.08285325335260652,
+              "y": -0.2290830051941578,
+              "z": 0.692913287198699
+            },
+            {
+              "x": 8.249901641103852,
+              "y": 0.6765618788938635,
+              "z": 0.6038394343666736
+            },
+            {
+              "x": 9.178130447308066,
+              "y": 0.13250366259825153,
+              "z": 0.6859254474829218
+            },
+            {
+              "x": 8.249901641103852,
+              "y": 0.6765618788938635,
+              "z": 0.6038394343666736
+            },
+            {
+              "x": 6.187656092730791,
+              "y": 0.3538129961356058,
+              "z": 0.61600708686927
+            },
+            {
+              "x": 11.825805654766238,
+              "y": 1.5392366174285352,
+              "z": 0.5904165322849492
+            },
+            {
+              "x": 9.178130447308066,
+              "y": 0.13250366259825153,
+              "z": 0.6859254474829218
+            },
+            {
+              "x": 9.53871990042828,
+              "y": 0.3788190825430504,
+              "z": 0.6047761697609451
+            },
+            {
+              "x": 9.178130447308066,
+              "y": 0.13250366259825153,
+              "z": 0.6859254474829218
+            },
+            {
+              "x": 9.53871990042828,
+              "y": 0.3788190825430504,
+              "z": 0.6047761697609451
+            },
+            {
+              "x": 8.249901641103852,
+              "y": 0.6765618788938635,
+              "z": 0.6038394343666736
+            },
+            {
+              "x": 7.612123666376618,
+              "y": 1.6535972192487114,
+              "z": 0.667138176104398
+            },
+            {
+              "x": 8.249901641103852,
+              "y": 0.6765618788938635,
+              "z": 0.6038394343666736
+            },
+            {
+              "x": 7.612123666376618,
+              "y": 1.6535972192487114,
+              "z": 0.667138176104398
+            },
+            {
+              "x": 9.178130447308066,
+              "y": 0.13250366259825153,
+              "z": 0.6859254474829218
+            }
+          ]
+        }
+      },
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_02",
+          "sim_time_s": 1234.2250000000004,
+          "distance_m": 1571.1296772439453,
+          "area_m2": 3210.4,
+          "coverage_fraction": 0.4121181001283697,
+          "finish_reason": "native_node_unresponsive"
+        },
+        "classification": "intentional_diagnostic_stop",
+        "intentional_stop": {
+          "utc": "2026-10-27T04:36:17.121852+00:00",
+          "classification": "intermediate_repair_diagnostic",
+          "intentional_native_stop": true,
+          "reason": "projection_fallback_height_bias_confirmed_by_source",
+          "graph_point_count": 9847,
+          "graph_z_range": [
+            0.34224162336216046,
+            0.6995538858999516
+          ],
+          "sample_graph_points": [
+            {
+              "x": 2.131184896005781,
+              "y": -0.13598405214547904,
+              "z": 0.5215317400790316
+            },
+            {
+              "x": -0.8300938316072632,
+              "y": 0.33272801245684,
+              "z": 0.6159983564884459
+            },
+            {
+              "x": -0.5770492973114019,
+              "y": -0.6974653485646206,
+              "z": 0.610140182788667
+            },
+            {
+              "x": -0.8300938316072632,
+              "y": 0.33272801245684,
+              "z": 0.6159983564884459
+            },
+            {
+              "x": 5.037033731271428,
+              "y": 0.5937494915477638,
+              "z": 0.6549315396309885
+            },
+            {
+              "x": 2.131184896005781,
+              "y": -0.13598405214547904,
+              "z": 0.5215317400790316
+            },
+            {
+              "x": 3.069320605604358,
+              "y": 1.3615316431176088,
+              "z": 0.6852888575122144
+            },
+            {
+              "x": 2.131184896005781,
+              "y": -0.13598405214547904,
+              "z": 0.5215317400790316
+            },
+            {
+              "x": 3.069320605604358,
+              "y": 1.3615316431176088,
+              "z": 0.6852888575122144
+            },
+            {
+              "x": 5.037033731271428,
+              "y": 0.5937494915477638,
+              "z": 0.6549315396309885
+            },
+            {
+              "x": 7.93755711168754,
+              "y": 1.3592042344386008,
+              "z": 0.6672294583313895
+            },
+            {
+              "x": 5.037033731271428,
+              "y": 0.5937494915477638,
+              "z": 0.6549315396309885
+            },
+            {
+              "x": 5.482230458844414,
+              "y": 0.9815722583781379,
+              "z": 0.6967317812080785
+            },
+            {
+              "x": 5.037033731271428,
+              "y": 0.5937494915477638,
+              "z": 0.6549315396309885
+            },
+            {
+              "x": 5.482230458844414,
+              "y": 0.9815722583781379,
+              "z": 0.6967317812080785
+            },
+            {
+              "x": 7.93755711168754,
+              "y": 1.3592042344386008,
+              "z": 0.6672294583313895
+            },
+            {
+              "x": 5.482230458844414,
+              "y": 0.9815722583781379,
+              "z": 0.6967317812080785
+            },
+            {
+              "x": 3.069320605604358,
+              "y": 1.3615316431176088,
+              "z": 0.6852888575122144
+            },
+            {
+              "x": 10.844334374821987,
+              "y": 0.6230002623006636,
+              "z": 0.5542259319005419
+            },
+            {
+              "x": 7.93755711168754,
+              "y": 1.3592042344386008,
+              "z": 0.6672294583313895
+            },
+            {
+              "x": -1.0827954220317426,
+              "y": 0.9392824592979105,
+              "z": 0.5522662743008758
+            },
+            {
+              "x": -0.8300938316072632,
+              "y": 0.33272801245684,
+              "z": 0.6159983564884459
+            },
+            {
+              "x": -1.0827954220317426,
+              "y": 0.9392824592979105,
+              "z": 0.5522662743008758
+            },
+            {
+              "x": -0.5770492973114019,
+              "y": -0.6974653485646206,
+              "z": 0.610140182788667
+            },
+            {
+              "x": 6.761261015170115,
+              "y": -0.7885762588915983,
+              "z": 0.5546561067064995
+            },
+            {
+              "x": 5.482230458844414,
+              "y": 0.9815722583781379,
+              "z": 0.6967317812080785
+            },
+            {
+              "x": 6.761261015170115,
+              "y": -0.7885762588915983,
+              "z": 0.5546561067064995
+            },
+            {
+              "x": 7.93755711168754,
+              "y": 1.3592042344386008,
+              "z": 0.6672294583313895
+            },
+            {
+              "x": 6.761261015170115,
+              "y": -0.7885762588915983,
+              "z": 0.5546561067064995
+            },
+            {
+              "x": 5.037033731271428,
+              "y": 0.5937494915477638,
+              "z": 0.6549315396309885
+            }
+          ]
+        }
+      },
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_03",
+          "sim_time_s": 2400.0319999999992,
+          "distance_m": 2840.5734790139636,
+          "area_m2": 3252.9600000000005,
+          "coverage_fraction": 0.4175815147625161,
+          "finish_reason": "sim_time_limit"
+        },
+        "classification": "complete_time_limit_observation",
+        "intentional_stop": null
+      },
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_04",
+          "sim_time_s": 1587.2929999999997,
+          "distance_m": 1020.5375843284799,
+          "area_m2": 3218.7200000000003,
+          "coverage_fraction": 0.4131861360718871,
+          "finish_reason": "process_exit:native_planner"
+        },
+        "classification": "intentional_diagnostic_stop",
+        "intentional_stop": {
+          "utc": "2026-10-27T07:07:01.454637+00:00",
+          "classification": "intermediate_repair_diagnostic",
+          "intentional_native_stop": true,
+          "reason": "frozen_map_proves_frontier_fraction_false_negatives_at_narrow_exit",
+          "graph_point_count": 0,
+          "graph_z_range": null,
+          "sample_graph_points": [],
+          "native_homing_end_observed_before_manual_stop": {
+            "unix": 1793084100.3983078,
+            "sim": 16107.655,
+            "kind": "native_homing_ended",
+            "path_empty": false,
+            "motion_state": 3
+          }
+        }
+      },
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_05",
+          "sim_time_s": 2400.014000000001,
+          "distance_m": 2343.5317888459813,
+          "area_m2": 3225.4400000000005,
+          "coverage_fraction": 0.41404878048780497,
+          "finish_reason": "sim_time_limit"
+        },
+        "classification": "complete_time_limit_observation",
+        "intentional_stop": null
+      },
+      {
+        "result": {
+          "trial": "repair_formal_gbp2_06",
+          "sim_time_s": 1082.027,
+          "distance_m": 1179.2470083836326,
+          "area_m2": 4218.56,
+          "coverage_fraction": 0.5415353016688063,
+          "finish_reason": "process_exit:native_planner"
+        },
+        "classification": "user_interrupted",
+        "intentional_stop": {
+          "utc": "2026-10-27T08:32:21.125243+00:00",
+          "classification": "intermediate_repair_diagnostic",
+          "intentional_native_stop": true,
+          "reason": "user_requested_pause_for_project_migration",
+          "graph_point_count": 39181,
+          "graph_z_range": [
+            0.32127706738475836,
+            0.6998498157622614
+          ],
+          "sample_graph_points": [
+            {
+              "x": -27.013596706254038,
+              "y": 11.792495903274801,
+              "z": 0.6349172476098696
+            },
+            {
+              "x": -29.243982649631576,
+              "y": 9.786539462090413,
+              "z": 0.6159647275511619
+            },
+            {
+              "x": -31.960224588636915,
+              "y": 11.049943829488791,
+              "z": 0.5767102684401428
+            },
+            {
+              "x": -29.243982649631576,
+              "y": 9.786539462090413,
+              "z": 0.6159647275511619
+            },
+            {
+              "x": -34.11291926448443,
+              "y": 8.96084581971372,
+              "z": 0.5963982676334422
+            },
+            {
+              "x": -31.960224588636915,
+              "y": 11.049943829488791,
+              "z": 0.5767102684401428
+            },
+            {
+              "x": -27.74238439645197,
+              "y": 9.044297978613276,
+              "z": 0.556296918726293
+            },
+            {
+              "x": -29.243982649631576,
+              "y": 9.786539462090413,
+              "z": 0.6159647275511619
+            },
+            {
+              "x": -37.020116875135535,
+              "y": 9.680951114371087,
+              "z": 0.5685912193252968
+            },
+            {
+              "x": -34.11291926448443,
+              "y": 8.96084581971372,
+              "z": 0.5963982676334422
+            },
+            {
+              "x": -36.05780546390337,
+              "y": 8.212560397166854,
+              "z": 0.6251994243327744
+            },
+            {
+              "x": -37.020116875135535,
+              "y": 9.680951114371087,
+              "z": 0.5685912193252968
+            },
+            {
+              "x": -36.05780546390337,
+              "y": 8.212560397166854,
+              "z": 0.6251994243327744
+            },
+            {
+              "x": -34.11291926448443,
+              "y": 8.96084581971372,
+              "z": 0.5963982676334422
+            },
+            {
+              "x": -31.670452247158913,
+              "y": 13.481763519336452,
+              "z": 0.6258642260298303
+            },
+            {
+              "x": -31.960224588636915,
+              "y": 11.049943829488791,
+              "z": 0.5767102684401428
+            },
+            {
+              "x": -25.20996220488859,
+              "y": 14.182236331581754,
+              "z": 0.6247678881337335
+            },
+            {
+              "x": -27.013596706254038,
+              "y": 11.792495903274801,
+              "z": 0.6349172476098696
+            },
+            {
+              "x": -24.774460620072627,
+              "y": 17.14909483160222,
+              "z": 0.6947068037888066
+            },
+            {
+              "x": -25.20996220488859,
+              "y": 14.182236331581754,
+              "z": 0.6247678881337335
+            },
+            {
+              "x": -27.76396307557431,
+              "y": 17.399641979151355,
+              "z": 0.6646472004036943
+            },
+            {
+              "x": -24.774460620072627,
+              "y": 17.14909483160222,
+              "z": 0.6947068037888066
+            },
+            {
+              "x": -23.056550220920826,
+              "y": 18.409251380271034,
+              "z": 0.530601898558852
+            },
+            {
+              "x": -24.774460620072627,
+              "y": 17.14909483160222,
+              "z": 0.6947068037888066
+            },
+            {
+              "x": -37.987342062002725,
+              "y": 12.519400203201746,
+              "z": 0.6362394145457698
+            },
+            {
+              "x": -37.020116875135535,
+              "y": 9.680951114371087,
+              "z": 0.5685912193252968
+            },
+            {
+              "x": -40.01004832245487,
+              "y": 9.844009437920057,
+              "z": 0.5522265060400732
+            },
+            {
+              "x": -37.020116875135535,
+              "y": 9.680951114371087,
+              "z": 0.5685912193252968
+            },
+            {
+              "x": -30.46656949753153,
+              "y": 18.697656204056443,
+              "z": 0.5698973648529917
+            },
+            {
+              "x": -27.76396307557431,
+              "y": 17.399641979151355,
+              "z": 0.6646472004036943
+            }
+          ],
+          "native_homing_end_observed_before_manual_stop": null
+        }
+      }
+    ],
+    "gain_height_replay": {
+      "visited_positions": 31,
+      "actual_height_unknown_mean": 136.70967741935485,
+      "projected_height_unknown_mean": 251.38709677419354,
+      "actual_height_frontiers": 0,
+      "projected_height_frontiers": 0,
+      "original_maximum_ray_length": 12.3954,
+      "corrected_maximum_ray_length": 12,
+      "native_scan_shape": [
+        73,
+        6
+      ]
+    },
+    "native_service_sampling_comparison": {
+      "created_utc": "2026-10-27T05:34:48.841155+00:00",
+      "controlled_native_service": true,
+      "robot_motion": false,
+      "explicit_request_root": true,
+      "map_loaded_after_first_odometry_reset": true,
+      "frozen_map": "gbp_ground_snapshot.vxblx",
+      "pose": [
+        18.4979,
+        55.4525,
+        0.456
+      ],
+      "repeats_per_setting": 3,
+      "cases": [
+        {
+          "vertices": 500,
+          "repeat": 1,
+          "node": "/gbp_probe_500_1",
+          "service_wall_s": 0.21765534200000047,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.374725519137264,
+              "y": 54.96826213302243,
+              "z": 0.5975139039625763
+            },
+            {
+              "x": 18.251551038274528,
+              "y": 54.48402426604485,
+              "z": 0.5790278159717797
+            },
+            {
+              "x": 18.174581651696517,
+              "y": 54.18143324785625,
+              "z": 0.5674762117521983
+            },
+            {
+              "x": 17.97925958009136,
+              "y": 53.721626238904264,
+              "z": 0.5468170040593329
+            },
+            {
+              "x": 17.7839375084862,
+              "y": 53.26181922995227,
+              "z": 0.5261577963664675
+            },
+            {
+              "x": 17.764820795910627,
+              "y": 53.21681664341337,
+              "z": 0.5241358224427936
+            },
+            {
+              "x": 17.279213692882358,
+              "y": 53.322101770669065,
+              "z": 0.5798205013701524
+            },
+            {
+              "x": 16.793606589854093,
+              "y": 53.42738689792476,
+              "z": 0.6355051802975106
+            },
+            {
+              "x": 16.31331174987472,
+              "y": 53.53152026630455,
+              "z": 0.690580700791208
+            },
+            {
+              "x": 15.825069890012347,
+              "y": 53.626352110479964,
+              "z": 0.6393283095453316
+            },
+            {
+              "x": 15.336828030149974,
+              "y": 53.72118395465537,
+              "z": 0.5880759182994552
+            },
+            {
+              "x": 15.233350673257425,
+              "y": 53.74128249472583,
+              "z": 0.5772135518853155
+            },
+            {
+              "x": 14.86262799763422,
+              "y": 54.07678726635247,
+              "z": 0.5760973106354189
+            },
+            {
+              "x": 14.491905322011014,
+              "y": 54.412292037979114,
+              "z": 0.5749810693855224
+            },
+            {
+              "x": 14.283837333397871,
+              "y": 54.60059398871659,
+              "z": 0.5743545793245015
+            },
+            {
+              "x": 13.961384299446067,
+              "y": 54.982722943877626,
+              "z": 0.5731288049516494
+            },
+            {
+              "x": 13.638931265494262,
+              "y": 55.364851899038655,
+              "z": 0.5719030305787972
+            }
+          ],
+          "corridor_advance": false
+        },
+        {
+          "vertices": 500,
+          "repeat": 2,
+          "node": "/gbp_probe_500_2",
+          "service_wall_s": 0.19301204599999267,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.063743928833617,
+              "y": 55.20470803505883,
+              "z": 0.6263753464034141
+            },
+            {
+              "x": 17.629587857667236,
+              "y": 54.95691607011766,
+              "z": 0.6367507008534551
+            },
+            {
+              "x": 17.19543178650085,
+              "y": 54.709124105176485,
+              "z": 0.6471260553034962
+            },
+            {
+              "x": 16.94532831770678,
+              "y": 54.566379055442205,
+              "z": 0.6531029661663385
+            },
+            {
+              "x": 16.474752952143124,
+              "y": 54.56296407843169,
+              "z": 0.6327453762190353
+            },
+            {
+              "x": 15.978320591630753,
+              "y": 54.62184160387741,
+              "z": 0.6421447609598261
+            },
+            {
+              "x": 15.478462803883867,
+              "y": 54.68112538946087,
+              "z": 0.6516090022874148
+            },
+            {
+              "x": 15.349572351439589,
+              "y": 55.16207197978823,
+              "z": 0.606027991754605
+            },
+            {
+              "x": 15.220681898995311,
+              "y": 55.64301857011559,
+              "z": 0.5604469812217953
+            },
+            {
+              "x": 15.11613610304283,
+              "y": 56.03312461088804,
+              "z": 0.5234752510734263
+            },
+            {
+              "x": 14.955990130086514,
+              "y": 56.50368149330959,
+              "z": 0.5775999935816317
+            },
+            {
+              "x": 14.820125920325417,
+              "y": 56.90289127547058,
+              "z": 0.6235181970409597
+            },
+            {
+              "x": 14.699334518508108,
+              "y": 57.387669346906016,
+              "z": 0.643509662778883
+            },
+            {
+              "x": 14.578543116690799,
+              "y": 57.87244741834145,
+              "z": 0.6635011285168064
+            },
+            {
+              "x": 14.45775171487349,
+              "y": 58.35722548977688,
+              "z": 0.6834925942547297
+            }
+          ],
+          "corridor_advance": false
+        },
+        {
+          "vertices": 500,
+          "repeat": 3,
+          "node": "/gbp_probe_500_3",
+          "service_wall_s": 0.2101987399999956,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.310041677826042,
+              "y": 54.989247967742955,
+              "z": 0.6056653221618419
+            },
+            {
+              "x": 18.275333704470405,
+              "y": 54.90365932303211,
+              "z": 0.6037559287444365
+            },
+            {
+              "x": 18.00800790336822,
+              "y": 54.48115922880376,
+              "z": 0.6092864298170423
+            },
+            {
+              "x": 17.740682102266035,
+              "y": 54.058659134575414,
+              "z": 0.614816930889648
+            },
+            {
+              "x": 17.573635301798976,
+              "y": 53.79464687445355,
+              "z": 0.6182728356521116
+            },
+            {
+              "x": 17.13477634374882,
+              "y": 53.5551637724518,
+              "z": 0.6253903348443471
+            },
+            {
+              "x": 16.695917385698664,
+              "y": 53.31568067045006,
+              "z": 0.6325078340365827
+            },
+            {
+              "x": 16.678535145473898,
+              "y": 53.3061952703405,
+              "z": 0.6327897425597873
+            },
+            {
+              "x": 16.18061752613859,
+              "y": 53.351284772571006,
+              "z": 0.6394965409065245
+            },
+            {
+              "x": 16.1576962909117,
+              "y": 53.35336043136827,
+              "z": 0.6398052829484914
+            },
+            {
+              "x": 15.710632892882964,
+              "y": 53.57696411767162,
+              "z": 0.651454729911878
+            },
+            {
+              "x": 15.263569494854229,
+              "y": 53.80056780397497,
+              "z": 0.6631041768752647
+            },
+            {
+              "x": 15.012655299076943,
+              "y": 53.9260653047076,
+              "z": 0.6696424254300712
+            },
+            {
+              "x": 14.524769365938582,
+              "y": 54.03508524555782,
+              "z": 0.6786960845093658
+            },
+            {
+              "x": 14.153268678762036,
+              "y": 54.11809846686814,
+              "z": 0.6855899921647567
+            },
+            {
+              "x": 13.973804161533813,
+              "y": 54.58455679375688,
+              "z": 0.671129136996485
+            },
+            {
+              "x": 13.794339644305591,
+              "y": 55.05101512064562,
+              "z": 0.6566682818282135
+            }
+          ],
+          "corridor_advance": false
+        },
+        {
+          "vertices": 2000,
+          "repeat": 1,
+          "node": "/gbp_probe_2000_1",
+          "service_wall_s": 0.586380731999995,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.40490071017859,
+              "y": 55.94377314413002,
+              "z": 0.6146472357612361
+            },
+            {
+              "x": 18.31190142035718,
+              "y": 56.43504628826005,
+              "z": 0.6132944795690993
+            },
+            {
+              "x": 18.30982057597706,
+              "y": 56.446038447049965,
+              "z": 0.6132642118635557
+            },
+            {
+              "x": 18.315700572017125,
+              "y": 56.94600200491147,
+              "z": 0.6118980284818751
+            },
+            {
+              "x": 18.321595258871263,
+              "y": 57.44721469144956,
+              "z": 0.6105284317737376
+            },
+            {
+              "x": 18.331096131709998,
+              "y": 57.94701283689424,
+              "z": 0.6210900237638217
+            },
+            {
+              "x": 18.34059700454873,
+              "y": 58.44681098233891,
+              "z": 0.6316516157539059
+            },
+            {
+              "x": 18.342675661839902,
+              "y": 58.556159783946605,
+              "z": 0.6339623434701074
+            },
+            {
+              "x": 18.33654745381055,
+              "y": 59.055974845404876,
+              "z": 0.6218235871165566
+            },
+            {
+              "x": 18.330419245781194,
+              "y": 59.555789906863154,
+              "z": 0.6096848307630058
+            },
+            {
+              "x": 18.327247220415796,
+              "y": 59.814499475037096,
+              "z": 0.6034016819414532
+            },
+            {
+              "x": 18.32877580771197,
+              "y": 60.3141673056938,
+              "z": 0.5852434213501171
+            },
+            {
+              "x": 18.33031964285631,
+              "y": 60.818819385032135,
+              "z": 0.566904029853687
+            },
+            {
+              "x": 18.33473221601933,
+              "y": 61.3187974722441,
+              "z": 0.5684665617573138
+            },
+            {
+              "x": 18.339144789182352,
+              "y": 61.81877555945606,
+              "z": 0.5700290936609406
+            },
+            {
+              "x": 18.341617228272145,
+              "y": 62.09892170575064,
+              "z": 0.5709046066133269
+            },
+            {
+              "x": 18.33348765818574,
+              "y": 62.59880824612935,
+              "z": 0.5777862371189825
+            },
+            {
+              "x": 18.325358088099332,
+              "y": 63.098694786508055,
+              "z": 0.584667867624638
+            }
+          ],
+          "corridor_advance": true
+        },
+        {
+          "vertices": 2000,
+          "repeat": 2,
+          "node": "/gbp_probe_2000_2",
+          "service_wall_s": 0.58338183299999,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.41017913110419,
+              "y": 55.94448763942741,
+              "z": 0.600087361409989
+            },
+            {
+              "x": 18.322458262208382,
+              "y": 56.436475278854815,
+              "z": 0.5841747308666051
+            },
+            {
+              "x": 18.317058795985808,
+              "y": 56.46675850192876,
+              "z": 0.5831952636974719
+            },
+            {
+              "x": 18.32964606633438,
+              "y": 56.96647140212554,
+              "z": 0.5945344877489974
+            },
+            {
+              "x": 18.342233336682952,
+              "y": 57.466184302322326,
+              "z": 0.6058737118005231
+            },
+            {
+              "x": 18.352092908238355,
+              "y": 57.85760793589885,
+              "z": 0.6147556923906551
+            },
+            {
+              "x": 18.356614121912454,
+              "y": 58.35710945570844,
+              "z": 0.6366141080428029
+            },
+            {
+              "x": 18.361135335586557,
+              "y": 58.85661097551803,
+              "z": 0.6584725236949509
+            },
+            {
+              "x": 18.361236497026425,
+              "y": 58.867787242910566,
+              "z": 0.6589616022831376
+            },
+            {
+              "x": 18.34958802664103,
+              "y": 59.36755444193342,
+              "z": 0.6491097030485558
+            },
+            {
+              "x": 18.337939556255634,
+              "y": 59.867321640956284,
+              "z": 0.639257803813974
+            },
+            {
+              "x": 18.332199426068467,
+              "y": 60.1135967904612,
+              "z": 0.6344029874881969
+            },
+            {
+              "x": 18.323786079683323,
+              "y": 60.61322089703207,
+              "z": 0.6169396620355196
+            }
+          ],
+          "corridor_advance": true
+        },
+        {
+          "vertices": 2000,
+          "repeat": 3,
+          "node": "/gbp_probe_2000_3",
+          "service_wall_s": 0.537442089999999,
+          "status": 0,
+          "path": [
+            {
+              "x": 18.4979,
+              "y": 55.4525,
+              "z": 0.615999991953373
+            },
+            {
+              "x": 18.417658096078785,
+              "y": 55.94600707288713,
+              "z": 0.6125350438325033
+            },
+            {
+              "x": 18.344099732312205,
+              "y": 56.39840876096839,
+              "z": 0.6093586995304351
+            },
+            {
+              "x": 18.334140790448,
+              "y": 56.898296812874186,
+              "z": 0.612930119243894
+            },
+            {
+              "x": 18.324181848583798,
+              "y": 57.398184864779985,
+              "z": 0.6165015389573529
+            },
+            {
+              "x": 18.323959018836927,
+              "y": 57.4093697807669,
+              "z": 0.6165814489077843
+            },
+            {
+              "x": 18.328888793335814,
+              "y": 57.909332618841674,
+              "z": 0.6201672357958745
+            },
+            {
+              "x": 18.332256236713253,
+              "y": 58.250848553986636,
+              "z": 0.6226166245685127
+            },
+            {
+              "x": 18.303545306391843,
+              "y": 58.749546816983845,
+              "z": 0.6008055043852374
+            },
+            {
+              "x": 18.286883790078786,
+              "y": 59.03895120587703,
+              "z": 0.5881480833030388
+            },
+            {
+              "x": 18.31266471874476,
+              "y": 59.5382645566067,
+              "z": 0.5835089562050737
+            },
+            {
+              "x": 18.338510059499974,
+              "y": 60.0388254115098,
+              "z": 0.5788582385289529
+            },
+            {
+              "x": 18.314845515350154,
+              "y": 60.53824396223493,
+              "z": 0.574264705924155
+            },
+            {
+              "x": 18.291180971200333,
+              "y": 61.03766251296006,
+              "z": 0.5696711733193571
+            }
+          ],
+          "corridor_advance": true
+        }
+      ],
+      "note": "Independent fresh native process per query with explicit root pose and correct map loading order. This diagnoses sampling at a corridor; it is not a full exploration trial."
+    },
+    "frontier_fraction_frozen_map_calibration": {
+      "passed": true,
+      "checks": {
+        "native_probe_and_real_collision_map_used": true,
+        "original_fraction_misses_all_free_corridor_views": true,
+        "calibrated_fraction_retains_outlet_views": true,
+        "specific_free_gateway_view_reactivated": true,
+        "deployed_native_fraction_matches_calibration": true
+      },
+      "free_views": 125,
+      "original_frontier_views": 0,
+      "calibrated_frontier_views": 16,
+      "native_unknown_cutoff_005": 1296,
+      "native_unknown_cutoff_001": 260,
+      "specific_gateway": {
+        "x": 18.5,
+        "y": 66,
+        "z": 0.456,
+        "unknown": 275,
+        "known": 2811,
+        "frontier": false,
+        "frontier_001": true,
+        "range_clipped_unknown": 275,
+        "unknown_mean_z": 1.45815
+      },
+      "note": "Native fraction0.05->0.01 is a declared sensor-frontier configuration calibration. Common observer ratio/95% evaluation threshold is unchanged. Frozen map evidence is not a full exploration result."
+    },
+    "clustered_gain_type_regression": {
+      "passed": true,
+      "checks": {
+        "original_cluster_gain_type_mismatch_reproduced": true,
+        "fixed_all_cluster_frontiers_preserved": true,
+        "zero_gain_cluster_does_not_invent_frontiers": true
+      },
+      "counts_gain_frontiers_and_typed_frontiers": {
+        "original": [
+          2,
+          1
+        ],
+        "fixed": [
+          2,
+          2
+        ],
+        "nonfrontier": [
+          0,
+          0
+        ]
+      },
+      "note": "Full actual extracted clustered-gain function; graph neighbourhood and gain responses controlled. Proves an implementation inconsistency, not full exploration success."
+    }
+  },
+  "note": "Final repair configuration selected before its outcome. Previous attempts include intentional diagnostic stops and a complete 2400s failure; none are pooled as repetitions. Common observer/controller/coverage-time stop unchanged, adapter and native configuration changes explicitly archived. 1600s checkpoint is first sample at or after1600s; earlier completed run uses terminal result. A censored run is not a completion time."
+}

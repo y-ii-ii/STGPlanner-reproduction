@@ -1,5 +1,5 @@
 {
-  "captured_utc": "2026-10-27T08:13:19.318556+00:00",
+  "captured_utc": "2026-10-27T10:26:28.550211+00:00",
   "protocol_revision": 3,
   "common_protocol_modified": false,
   "sources": [
@@ -49,8 +49,8 @@
       "method": "gbp2",
       "relative": "gbplanner/src/rrg.cpp",
       "original_sha256": "e2df3f60a9e8913f729407103c608536552d8ae0b5691e20a7996ddb319fe6fd",
-      "repaired_sha256": "ab636618dc2e9ec8754b0213702c69ff50f1b833c4237a8570ff935c2ec0505c",
-      "patch_sha256": "fae77ad396b1a9aff034de236eeccaee953322ebd7bdd70ee218f946ff4b37e9"
+      "repaired_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "patch_sha256": "e487af74c8c46fc9d6e9eceb8f2432b970f3e961aa5e9a86ed5caacf8279fc61"
     },
     {
       "method": "gbp2",
@@ -78,7 +78,7 @@
     },
     "gbp2": {
       "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
-      "sha256": "a8b283d9cb4d2defd8c63153705def0332ece73c8a23d25f8a842ba8bda854fe"
+      "sha256": "851d4a1cf591194f84fc738bd91883ef7dbaac0b56a8a788373e48fa982b2243"
     }
   }
 }

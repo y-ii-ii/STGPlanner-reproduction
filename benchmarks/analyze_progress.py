@@ -1,6 +1,7 @@
 """Validate completed real runs; keep exploration success separate from I/O health."""
 from pathlib import Path
 import csv,datetime,hashlib,json,math,re,yaml
+from run_outcome import classify_outcome
 root=Path('/mnt/d/STGPlanner/benchmarks');repo=Path('/mnt/d/STGPlanner/catkin_ws/src/STGPlanner')
 selection=json.loads((root/'progress_trials.json').read_text())
 out=root/'progress_report';out.mkdir(exist_ok=True)
@@ -25,6 +26,7 @@ def summarize(folder):
 for method in ['fael','gbp2']:
     folder=root/'results'/selection['final_runs'][method]
     d,rows,summary=summarize(folder);old,_,oldsummary=summarize(root/'results'/('formal_'+method+'_01'))
+    summary['outcome_classification']=classify_outcome(folder,d)
     log=(folder/'native_planner.log').read_text(errors='replace')
     results[method]={'before':oldsummary,'after':summary}
     flags={
@@ -36,6 +38,7 @@ for method in ['fael','gbp2']:
       'no_active_ros_errors':not d['errors'],
       'native_alive':bool(d['native_health']) and all(x['alive'] for x in d['native_health']),
       'valid_stop_reason':d['finish_reason'] in ['coverage_threshold','sim_time_limit'],
+      'final_is_complete_observation':summary['outcome_classification'] in ['common_threshold_reached','complete_time_limit_observation'],
       'real_motion':d['validation']['planner_produced_motion'],
       'stop_ack':d['validation']['stop_ack'],
       'parked_command_zero':d['validation']['parked_command_zero'],
@@ -68,12 +71,30 @@ for method in ['fael','gbp2']:
         counts=list(map(int,re.findall(r'Have (\d+) frontiers from global graph',log)))
         summary['native_frontier_diagnostics']={'records':len(counts),'max_global_frontiers':max(counts,default=0),'nonzero_records':sum(x>0 for x in counts)}
         live=yaml.safe_load((folder/'live_rosparams.yaml').read_text())
+        live=live.get('gbplanner_node',live)  # Full-server capture (07) or node-only capture (06).
         checks['gbp2.live_frontier_fraction_verified']=live['SensorParams']['VLP16']['frontier_percentage_threshold']==.01
         checks['gbp2.live_sampling_limit_verified']=live['PlanningParams']['num_vertices_max']==2000
         archived=json.loads((folder/'native_source_manifest.json').read_text())
         current=json.loads((root/'progress_repairs/manifest.json').read_text())
         checks['gbp2.source_and_binary_frozen_for_run']=archived==current
-for filename in ['ray_cache_regression.json','fael_frontier_regression.json','gain_frame_regression.json','gbp_core_regression.json','trial_contract_regression.json','frontier_calibration_validation.json','cluster_frontier_regression.json']:
+        if (folder/'preflight_audit.json').exists():
+            frozen=json.loads((folder/'preflight_audit.json').read_text())
+            running=json.loads((folder/'live_runtime_audit.json').read_text())
+            speed=json.loads((folder/'passive_speed_audit.json').read_text())
+            checks['gbp2.selection_frozen_before_outcome']=json.loads((folder/'progress_trials.json').read_text())==selection
+            checks['gbp2.live_common_speed_parameters']=all(running['parameters']['/'+node+'/maxSpeed']==2.0 for node in ['localPlanner','pathFollower'])
+            checks['gbp2.command_speed_limit_verified']=speed['cmd_samples']>1000 and 0<speed['max_abs_command_linear_x']<=2.0+1e-9
+            controller_hashes={x['sha256'] for x in frozen['common_controller_files']}
+            controller_processes=[p for p in running['processes'] if Path(p['exe']).name in ['localPlanner','pathFollower','path_execution_node']]
+            checks['gbp2.common_controller_running_binary_verified']=len(controller_processes)==3 and all(p['exe_sha256'] in controller_hashes for p in controller_processes)
+            expected_libraries={p['sha256'] for name,p in archived['binaries'].items() if name.startswith('gbp2')}
+            loaded_libraries={p['sha256'] for process in running['processes'] for p in process['loaded_native_libraries']}
+            checks['gbp2.loaded_native_libraries_verified']=expected_libraries==loaded_libraries
+            checks['gbp2.common_controller_files_unchanged']=all(sha(Path(p['path']))==p['sha256'] for p in frozen['common_controller_files'])
+            summary['passive_speed_audit']=speed
+            if (folder/'passive_audit_attachment.json').exists():
+                summary['passive_audit_attachment']=json.loads((folder/'passive_audit_attachment.json').read_text())
+for filename in ['ray_cache_regression.json','fael_frontier_regression.json','gain_frame_regression.json','gbp_core_regression.json','trial_contract_regression.json','frontier_calibration_validation.json','cluster_frontier_regression.json','outcome_classification_validation.json','path_frontier_selection_regression.json']:
     regression=json.loads((root/filename).read_text())
     for k,v in regression['checks'].items():checks[filename+'.'+k]=v
 manifest=json.loads((root/'protocol_manifest.json').read_text())
@@ -94,12 +115,16 @@ for name,item in repairs['binaries'].items():checks['native_binary.'+name]=sha(P
 attempts=[]
 for trial in selection['intermediate_runs']:
     attempt=root/'results'/trial;data=json.loads((attempt/'result.json').read_text());interruption=json.loads((attempt/'interruption.json').read_text()) if (attempt/'interruption.json').exists() else None
-    if interruption:
+    classification=classify_outcome(attempt,data)
+    if classification=='user_interrupted':
+        checks[trial+'.user_interruption_documented']=True
+        checks[trial+'.user_interruption_not_final']=trial not in selection['final_runs'].values()
+    elif interruption:
         checks[trial+'.intentional_stop_documented']=interruption['intentional_native_stop'] and data['finish_reason'] in ['process_exit:native_planner','native_node_unresponsive']
     else:
         checks[trial+'.complete_failed_observation_preserved']=data['finish_reason']=='sim_time_limit' and data['sim_time_s']>=2400
     checks[trial+'.stop_confirmed']=all(data['validation'][x] for x in ['stop_ack','parked_command_zero','parking_drift_under_0_1m'])
-    attempts.append({'result':{k:data[k] for k in ['trial','sim_time_s','distance_m','area_m2','coverage_fraction','finish_reason']},'intentional_stop':interruption})
+    attempts.append({'result':{k:data[k] for k in ['trial','sim_time_s','distance_m','area_m2','coverage_fraction','finish_reason']},'classification':classification,'intentional_stop':interruption})
 probe=json.loads((root/'gbp_gain_probe.json').read_text());pairs=list(zip(probe['cases'][::2],probe['cases'][1::2]))
 calibrated=json.loads((root/'gbp_gain_probe_calibrated.json').read_text())
 checks['native_calibrated_probe.endpoint_dimensions_match']=calibrated['scan_width']*calibrated['scan_height']==calibrated['endpoint_count']
@@ -108,7 +133,12 @@ diagnostics={'intermediate_attempts':attempts,'gain_height_replay':{'visited_pos
 diagnostics['native_service_sampling_comparison']=json.loads((root/'offline_rrg_probe.json').read_text())
 diagnostics['frontier_fraction_frozen_map_calibration']=json.loads((root/'frontier_calibration_validation.json').read_text())
 diagnostics['clustered_gain_type_regression']=json.loads((root/'cluster_frontier_regression.json').read_text())
+diagnostics['path_frontier_selection_regression']=json.loads((root/'path_frontier_selection_regression.json').read_text())
+for trial in selection.get('diagnostic_runs',[]):
+    folder=root/'results'/trial
+    diagnostic_result=json.loads((folder/'result.json').read_text())
+    diagnostics[trial]={'result':{key:diagnostic_result.get(key) for key in ['trial','pilot','diagnostic','sim_time_s','coverage_fraction','finish_reason']},'selection_summary':json.loads((folder/'selection_diagnostic_summary.json').read_text()),'not_a_formal_repeat':True}
 value={'generated_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'trial_selection':selection,'adapter_and_configuration_changes':trial_repairs,'protocol_checks_passed':all(checks.values()),'exploration_goals_passed':all(goals.values()),'checks':checks,'exploration_goals':goals,'results':results,'intermediate_diagnostics':diagnostics,'note':'Final repair configuration selected before its outcome. Previous attempts include intentional diagnostic stops and a complete 2400s failure; none are pooled as repetitions. Common observer/controller/coverage-time stop unchanged, adapter and native configuration changes explicitly archived. 1600s checkpoint is first sample at or after1600s; earlier completed run uses terminal result. A censored run is not a completion time.'}
 (out/'progress_validation.json').write_text(json.dumps(value,indent=2)+'\n')
-print(json.dumps({k:v for k,v in value.items() if k not in ['checks','results']},indent=2))
+print(json.dumps({'protocol_checks_passed':value['protocol_checks_passed'],'exploration_goals_passed':value['exploration_goals_passed'],'check_count':len(checks),'failed_checks':[key for key,passed in checks.items() if not passed],'selected_runs':selection['final_runs'],'validation':str(out/'progress_validation.json')},indent=2))
 if not value['protocol_checks_passed']:raise SystemExit(1)

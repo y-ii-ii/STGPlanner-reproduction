@@ -1,0 +1,1 @@
+<launch><node pkg="tare_planner" type="tare_planner_node" name="tare_planner_node" ns="sensor_coverage_planner" output="screen"><rosparam command="load" file="/mnt/d/STGPlanner/benchmarks/config/tare.yaml"/></node></launch>

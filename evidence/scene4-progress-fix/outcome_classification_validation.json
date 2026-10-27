@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "repair_formal_fael_01": true,
+    "repair_formal_gbp2_01": true,
+    "repair_formal_gbp2_03": true,
+    "repair_formal_gbp2_05": true,
+    "repair_formal_gbp2_06": true,
+    "pause_metadata_mismatch_rejected": true,
+    "user_pause_rejected_as_final_observation": true
+  },
+  "passed": true,
+  "note": "Real preserved fixture outcomes; original result and interruption files not modified."
+}

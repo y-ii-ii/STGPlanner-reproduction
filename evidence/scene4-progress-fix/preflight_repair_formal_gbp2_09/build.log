@@ -1,0 +1,142 @@
+gbp2 planner_common/src/voxblox/voxblox_alt_impl.cpp
+gbp2 gbplanner/src/rrg.cpp
+gbp2 planner_common/src/params.cpp
+gbp2 gbplanner/include/gbplanner/rrg.h
+gbp2 gbplanner/src/gbplanner.cpp
+{
+  "common_protocol_revision": 3,
+  "adapter_revision": 1,
+  "measurement_controller_threshold_unchanged": true,
+  "native_sampling_limits": {
+    "vertices": [
+      500,
+      2000
+    ],
+    "edges": [
+      5000,
+      20000
+    ],
+    "loops_cutoff": [
+      2000,
+      8000
+    ],
+    "loops_max": [
+      20000,
+      80000
+    ]
+  },
+  "native_time_model_m_s": {
+    "v_max": [
+      0.2,
+      2.0
+    ],
+    "v_homing_max": [
+      0.2,
+      1.0
+    ]
+  },
+  "native_frontier_fraction": [
+    0.05,
+    0.01
+  ],
+  "calibration_evidence": "gbp_corridor_gain.json: 0 of125 collision-free corridor views pass0.05,16pass0.01; native cutoffs1296/260unknown voxels. This is NOT the common95% evaluation threshold.",
+  "files": {
+    "benchmarks/benchmark_trial.py": {
+      "original_sha256": "8fc9535efc6fd9b126272717b09ace6762ae468139e511213da708794fdd7e84",
+      "repaired_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_stem": "benchmark_trial.py"
+    },
+    "benchmarks/config/gbp2.yaml": {
+      "original_sha256": "79ae856e07f37c59f04f426bc3d7040507279f8e0421ee2c92f93553e23b6580",
+      "repaired_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_stem": "config__gbp2.yaml"
+    }
+  },
+  "note": "Only the GBP2 native-end branch changes in the adapter. Common observer, controller, initialization and coverage/time stop remain unchanged. Algorithm parameters changed explicitly; final results are an engineering adaptation, not paper-identical settings."
+}
+--------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/benchmarks/gbp2_ws
+--------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/benchmarks/gbp2_ws/build
+Devel Space:        [exists] /opt/stgplanner/benchmarks/gbp2_ws/devel
+Install Space:      [unused] /opt/stgplanner/benchmarks/gbp2_ws/install
+Log Space:          [exists] /opt/stgplanner/benchmarks/gbp2_ws/logs
+Source Space:       [exists] /opt/stgplanner/benchmarks/gbp2_ws/src
+DESTDIR:            [unused] None
+--------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+--------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DUSE_SYSTEM_EIGEN=ON -DUSE_SYSTEM_PROTOBUF=ON
+Additional Make Args:        -j2
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+--------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+--------------------------------------------------------------------------------
+Workspace configuration appears valid.
+--------------------------------------------------------------------------------
+[build] Found 24 packages in 0.0 seconds.                                      
+[build] Package table is up to date.                                           
+Starting >>> catkin_simple                       
+Finished <<< catkin_simple                        [ 0.3 seconds ]
+Starting >>> eigen_catkin                        
+Finished <<< eigen_catkin                         [ 0.2 seconds ]
+Starting >>> gflags_catkin                       
+Finished <<< gflags_catkin                        [ 0.2 seconds ]
+Starting >>> glog_catkin                         
+Finished <<< glog_catkin                          [ 0.2 seconds ]
+Starting >>> eigen_checks                        
+Finished <<< eigen_checks                         [ 0.3 seconds ]
+Starting >>> kdtree                              
+Finished <<< kdtree                               [ 0.2 seconds ]
+Starting >>> minkindr                            
+Finished <<< minkindr                             [ 0.2 seconds ]
+Starting >>> minkindr_conversions                
+Finished <<< minkindr_conversions                 [ 0.2 seconds ]
+Starting >>> planner_msgs                        
+Finished <<< planner_msgs                         [ 1.2 seconds ]
+Starting >>> planner_semantic_msgs               
+Finished <<< planner_semantic_msgs                [ 0.4 seconds ]
+Starting >>> protobuf_catkin                     
+Finished <<< protobuf_catkin                      [ 0.6 seconds ]
+Starting >>> voxblox                             
+Finished <<< voxblox                              [ 0.2 seconds ]
+Starting >>> voxblox_msgs                        
+Finished <<< voxblox_msgs                         [ 0.4 seconds ]
+Starting >>> voxblox_rviz_plugin                 
+Finished <<< voxblox_rviz_plugin                  [ 0.8 seconds ]
+Starting >>> voxblox_ros                         
+Finished <<< voxblox_ros                          [ 1.0 seconds ]
+Starting >>> planner_common                      
+Finished <<< planner_common                       [ 1.0 seconds ]
+Starting >>> adaptive_obb                        
+Finished <<< adaptive_obb                         [ 1.0 seconds ]
+Starting >>> gbplanner                           
+Finished <<< gbplanner                            [ 25.4 seconds ]
+
+[build] Successful packages:
+
+ [Successful] adaptive_obb           [Successful] catkin_simple         
+ [Successful] eigen_catkin           [Successful] eigen_checks          
+ [Successful] gbplanner              [Successful] gflags_catkin         
+ [Successful] glog_catkin            [Successful] kdtree                
+ [   Ignored] mav_comm               [   Ignored] mav_msgs              
+ [   Ignored] mav_planning_msgs      [   Ignored] mav_state_machine_msgs
+ [   Ignored] mav_system_msgs        [Successful] minkindr              
+ [Successful] minkindr_conversions   [Successful] planner_common        
+ [Successful] planner_msgs           [Successful] planner_semantic_msgs 
+ [Successful] protobuf_catkin        [Successful] voxblox               
+ [Successful] voxblox_msgs           [Successful] voxblox_ros           
+ [Successful] voxblox_rviz_plugin    [   Ignored] yaml_cpp_catkin       
+
+[build] Summary: All 18 packages succeeded!
+[build] Ignored: 6 packages were skipped or are skiplisted.
+[build] Warnings: None.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 34.1 seconds total.

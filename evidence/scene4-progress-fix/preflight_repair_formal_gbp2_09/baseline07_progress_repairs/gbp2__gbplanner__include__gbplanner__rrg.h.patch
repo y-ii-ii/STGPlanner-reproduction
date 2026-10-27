@@ -1,0 +1,12 @@
+--- a/gbplanner/include/gbplanner/rrg.h
++++ b/gbplanner/include/gbplanner/rrg.h
+@@ -74,6 +74,9 @@
+ 
+ class Rrg {
+  public:
++  // End condition is distinct from a normal global repositioning path.
++  bool isHomingEngaged() const { return homing_engaged_; }
++
+   enum GraphStatus {
+     OK = 0,                // Everything is OK as expected.
+     ERR_KDTREE,            // Could not search nearest neigbors from kdtree.

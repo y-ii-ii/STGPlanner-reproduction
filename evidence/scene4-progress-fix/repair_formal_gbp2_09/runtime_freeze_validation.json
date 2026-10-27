@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "only_rrg_native_source_changed_since07": true,
+    "loaded_gbp2_libraries_match_frozen09": true,
+    "three_running_common_controller_binaries_match": true,
+    "both_live_speed_limits_2m_s": true,
+    "native_time_model_unchanged_2_and_1": true,
+    "native_sampling_unchanged_2000": true,
+    "native_frontier_threshold_unchanged_001": true,
+    "benchmark_driver_matches_frozen_adapter": true,
+    "gbp2_config_matches_frozen_adapter": true,
+    "selected_trial_frozen_before_outcome": true,
+    "frozen_rrg_source_matches_native_manifest": true
+  },
+  "passed": true,
+  "changed_native_sources": [
+    [
+      "gbp2",
+      "gbplanner/src/rrg.cpp"
+    ]
+  ],
+  "note": "Pre-completion runtime consistency audit; exploration/parking success must be verified from final result separately."
+}

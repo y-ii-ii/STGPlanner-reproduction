@@ -1,0 +1,12 @@
+{"unix": 1793074535.4355612, "sim": 15248.562, "kind": "initialization_mapping_ready"}
+{"unix": 1793074539.622529, "sim": 15252.705, "kind": "initialized", "pose": {"x": 3.0313274394449707, "y": 0.09869519878756092, "z": 4.107092561655978e-06}}
+{"unix": 1793074539.628776, "sim": 15252.706, "kind": "exploration_start"}
+{"unix": 1793075777.3490255, "sim": 16483.696, "kind": "planner_service_retry", "error": "transport error completing service call: unable to receive data from sender, check sender's logs for details"}
+{"unix": 1793075777.8521848, "sim": 16484.195, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075778.355267, "sim": 16484.695, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075778.8588982, "sim": 16485.194, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075779.361888, "sim": 16485.696, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075779.8655136, "sim": 16486.196, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075780.3719513, "sim": 16486.702, "kind": "planner_service_retry", "error": "service [/gbplanner] unavailable"}
+{"unix": 1793075780.6004236, "sim": 16486.931, "kind": "finish", "reason": "native_node_unresponsive", "area": 3210.4, "distance": 1571.1296772439453}
+{"unix": 1793075782.6149337, "sim": 16488.938, "kind": "stop_result", "ack": true, "state": 3}

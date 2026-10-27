@@ -1,0 +1,38 @@
+--- a/gbplanner/src/gbplanner.cpp
++++ b/gbplanner/src/gbplanner.cpp
+@@ -6,6 +6,14 @@
+ 
+ 
+ namespace explorer {
++
++// BEGIN_NATIVE_GLOBAL_STATUS
++static int nativeGlobalResponseStatus(bool homing) {
++  return homing ? planner_msgs::planner_srv::Response::kHoming
++                : planner_msgs::planner_srv::Response::kRepositioning;
++}
++// END_NATIVE_GLOBAL_STATUS
++
+ 
+ Gbplanner::Gbplanner(const ros::NodeHandle& nh,
+                      const ros::NodeHandle& nh_private)
+@@ -201,6 +209,11 @@
+     return false;
+   }
+ 
++  if (rrg_->isHomingEngaged()) {
++    res.path = rrg_->getHomingPath(req.header.frame_id);
++    res.status = nativeGlobalResponseStatus(true);
++    return true;
++  }
+   rrg_->reset();
+   Rrg::GraphStatus status = rrg_->buildGraph();
+   switch (status) {
+@@ -233,7 +246,7 @@
+       case Rrg::GraphStatus::NOT_OK:
+         ROS_WARN_COND(global_verbosity >= Verbosity::PLANNER_STATUS, "[GBPLANNER] Very low local gain. Triggering global planner");
+         res.path = rrg_->runGlobalPlanner(0, false, false);
+-        res.status = planner_msgs::planner_srv::Response::kRepositioning;
++        res.status = nativeGlobalResponseStatus(rrg_->isHomingEngaged());
+         break;
+       default:
+         ROS_WARN_COND(global_verbosity >= Verbosity::WARN, "[PLANNER_ERROR] Error occurred in gain calculation.");

@@ -1,0 +1,37 @@
+{
+  "status": {
+    "sim_s": 2399.3039999999983,
+    "wall_s": 2412.077054968,
+    "area_m2": 4388.8,
+    "coverage_fraction": 0.5633889602053915,
+    "distance_m": 2413.44977536987,
+    "x": 55.40429296375224,
+    "y": 60.612248614233266,
+    "nonempty_plans": 395,
+    "empty_plans": 4
+  },
+  "selection_records": 375,
+  "selected_paths_without_frontier": 0,
+  "nonfrontier_selected_while_other_frontier_exists": 0,
+  "selected_leaf_without_frontier": 148,
+  "selected_frontier_leaf_within_1m_of_earlier_trajectory": 44,
+  "latest_selected_path": {
+    "root_x": 55.277343,
+    "root_y": 60.398957,
+    "root_z": 0.616097,
+    "root_yaw": 1.018566,
+    "root_unknown": 171.0,
+    "leaf_x": 55.423364,
+    "leaf_y": 66.48628,
+    "leaf_z": 0.67749,
+    "leaf_yaw": 1.611484,
+    "leaf_unknown": 283.0,
+    "leaf_frontier": 1.0,
+    "path_frontiers": 1.0,
+    "any_frontier": 1.0,
+    "gain": 13850.514531,
+    "absolute_sim": 17653.538,
+    "earlier_trajectory_distance_m": 0.33827790817361336
+  },
+  "snapshots": []
+}

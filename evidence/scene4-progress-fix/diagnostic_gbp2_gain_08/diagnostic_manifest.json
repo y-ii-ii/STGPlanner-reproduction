@@ -1,0 +1,26 @@
+{
+  "trial": "diagnostic_gbp2_gain_08",
+  "diagnostic_only": true,
+  "protocol_revision": 3,
+  "common_threshold_changed": false,
+  "algorithm_decisions_changed": false,
+  "changes": [
+    "logging-only native selected-path diagnostics",
+    "native map saves during diagnostic run"
+  ],
+  "native_before_sha256": "ab636618dc2e9ec8754b0213702c69ff50f1b833c4237a8570ff935c2ec0505c",
+  "native_diagnostic_sha256": "1684fe97e0ae1361488a8ccc60d66c62673157ea9f429b1a3e683c7cca6021ec",
+  "before_processes": "    PID COMMAND         COMMAND\n      1 init(STGPlanner /init\n      6 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate\n      9 SessionLeader   /init\n     10 Relay(11)       /init\n     11 bash            bash /mnt/d/STGPlanner/codex/work/run_diagnostic_08.sh\n     12 python3         python3 /mnt/d/STGPlanner/codex/work/prepare_diagnostic_08.py\n     13 ps              ps -eo pid,comm,args\n",
+  "limit_sim_s": 1400,
+  "created_utc": "2026-10-27T09:56:13.674599+00:00",
+  "compiled_libraries": [
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
+      "sha256": "5b508a92e4a09a48b90adac80a87aa2458cfa2765a104f5bb9a9b9e1661d0350"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libplanner_common.so",
+      "sha256": "f20f7e2a862a26f0458a5733d3c4266741d336afce413f3d1f44913a9324b146"
+    }
+  ]
+}

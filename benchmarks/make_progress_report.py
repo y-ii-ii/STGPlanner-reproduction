@@ -4,10 +4,10 @@ root=Path('D:/STGPlanner/benchmarks')
 p=argparse.ArgumentParser();p.add_argument('--output',type=Path,default=root/'progress_report');a=p.parse_args()
 out=a.output;out.mkdir(parents=True,exist_ok=True)
 v=json.loads((root/'progress_report/progress_validation.json').read_text())
-lines=['# Scene4 探索停滞修复与长测报告','',f"更新日期：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}（本机时间）",'',
-'本报告延续《Scene4基线算法对比报告》，保留原始 1600 秒失败结果，新增 FAEL、GBP2 原生源码修复后的真实仿真测试。结果来自同一台电脑的公开 Scene4；每种修复版本仅完成一次正式运行。', '',
+lines=['# Scene4 探索停滞修复与长测报告','',f"更新日期：{datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime('%Y-%m-%d %H:%M')}（北京时间）",'',
+'本报告延续《Scene4基线算法对比报告》，保留原始 1600 秒失败结果，新增 FAEL、GBP2 原生源码修复后的真实仿真测试。结果来自同一台电脑的公开 Scene4；本文采用每方法一组预先选定的完整观测，另列失败及用户中止数据，不构成论文五次重复统计。', '',
 '## 1. 实测结论','',
-f"最新GBP2第六轮：**{'已突破原41%平台并达到统一95%门槛' if v['results']['gbp2']['after']['finish_reason']=='coverage_threshold' else '仍未达到统一95%门槛，探索问题尚未解决'}**。接口/数据健康通过与探索完成分开验收。FAEL正式运行已达到95.337%。完整结果如下。",'',
+f"最新GBP2运行 `{v['trial_selection']['final_runs']['gbp2']}`：**{'已突破原41%平台并达到统一95%门槛' if v['results']['gbp2']['after']['finish_reason']=='coverage_threshold' else '仍未达到统一95%门槛，探索问题尚未解决'}**。接口/数据健康通过与探索完成分开验收。FAEL正式运行已达到95.337%。完整结果如下。",'',
 '| 方法 | 修复前覆盖指标 | 修复后覆盖指标 | 修复后仿真时间(s) | 修复后墙钟时间(s) | 修复后里程(m) | 停止原因 |',
 '|---|---:|---:|---:|---:|---:|---|']
 for method in ['fael','gbp2']:
@@ -59,7 +59,10 @@ lines+=['','1600 秒检查点取每秒记录中首次达到或超过 1600 秒的
 '第四轮修正返航契约后仍在约855.756s原生结束，覆盖约41.319%，停车保持超过8分钟后主动停止诊断。第五轮将原生传感器前沿比例0.05调为0.01：冻结地图中125个无碰撞通道观察点，原阈值下0个有效，新阈值下16个有效；出口(18.5,66,0.456)有275个未知单元，原生判断门槛分别为1296和260。这个参数是原生候选前沿判断比例，不是公共95%覆盖门槛。离线证据提示出口可保留，但不能代替全程验证。第五轮实际完整跑满2400.014s（墙钟2413.895s），仅3225.44m²、41.405%，2343.532m；2116.081s返航结束后保持停车，未再请求探索。它证明该配置校准仍不足以突破平台。','',
 '### 聚类收益与前沿类型不同步','',
 '进一步审查发现computeExplorationGain的聚类分支把收益复制给邻近节点后，将它们移出待处理列表，却只给代表节点更新前沿类型。后续addFrontiers按类型筛选，因此部分有前沿收益的节点不会进入全局前沿候选。提取完整原生函数进行两节点受控回归：原版收益前沿2个、类型前沿1个；修复后两者均为2个；零收益用例仍均为0。修复同步复制节点的类型，不改变收益计算或碰撞检查。这证明实现不一致，不能单凭回归断言它解释全部停滞。','',
-'最终GBP2选用加入上述聚类同步修复的全新运行 `repair_formal_gbp2_06`，其余参数与第五轮相同，选择在结果产生前固定于progress_trials.json。不同版本的失败尝试保留，不当作同版本重复或挑选最优成绩。各轮采样具有随机性，一次全程差异不能单独证明某项修复的因果贡献；原生函数回归仅证明具体实现错误已纠正。','',
+f"GBP2第六轮 `repair_formal_gbp2_06` 在1082.027仿真秒达到54.153530%，随后由用户主动暂停；它突破了41%平台，但未达95%，不能记为完整2400秒、自然结束或完成。原始结束字段、interruption.json与user_pause.json均保留。第07轮从相同初始条件重启，源码、二进制和配置与06吻合，完整2400.018秒后仅54.964827%、2389.938m，最后100秒新增面积为零，是完整失败观测。各轮采样具有随机性，一次全程差异不能单独证明某项修复的因果贡献；原生函数回归仅证明具体实现错误已纠正。本文最新预先选定运行是 `{v['trial_selection']['final_runs']['gbp2']}`。",'',
+'### 局部路径资格与全局回退判据','',
+'第08轮为独立诊断：只增加原生选路日志，并在600/1000/1300秒保存地图，带pilot/diagnostic标记，不算论文正式重复。实际日志发现：被选路径可以没有有效前沿，只要其他局部路径存在前沿，就不会触发原有低收益回退。实际评分代码的受控反例也显示，无前沿高分路径可压过有前沿路径；另有前沿所在路径后续因负坡度不可通行，却已把全局frontier_exists标志设为真。','',
+'第09轮据此仅允许包含有效非悬空前沿的可行路径竞争最佳局部路径，并在整条路径可行性检查通过后才更新frontier_exists。沿用已有全局回退机制，不使用公共覆盖率驱动探索，不增加真值地图、强制目标或新控制器。5项实际评分代码受控用例及转换幂等性检查通过；这是明确声明的本地选路资格修改，完整效果仍以新运行结果为准，不能冒充作者原始代码统计复现。','',
 '## 4. 后期稳定性、真实地图和验收','',
 '![修复前后最终已知地图与实际轨迹](scene4_progress_maps.png)','',
 '图中浅灰为已知自由栅格，深色为已知占据栅格，白色为未知；轨迹来自实际里程计，按保存数据可复算。左右运行时长以子图标注为准。','',
@@ -76,10 +79,14 @@ f"数据和接口验收：**{'通过' if v['protocol_checks_passed'] else '未�
 '| 运行 | 仿真秒 | 面积指标 | 里程(m) | 结束说明 |',
 '|---|---:|---:|---:|---|']
 for item in v['intermediate_diagnostics']['intermediate_attempts']:
-    r=item['result'];lines.append(f"| {r['trial']} | {r['sim_time_s']:.3f} | {r['coverage_fraction']*100:.3f}% | {r['distance_m']:.3f} | {'有记录的主动诊断停止' if item['intentional_stop'] else '2400秒限时未完成'} |")
+    r=item['result'];label='用户主动暂停，未完成95%' if item.get('classification')=='user_interrupted' else ('有记录的主动诊断停止' if item['intentional_stop'] else '2400秒限时未完成');lines.append(f"| {r['trial']} | {r['sim_time_s']:.3f} | {r['coverage_fraction']*100:.3f}% | {r['distance_m']:.3f} | {label} |")
 lines+=['',
 '## 5. 与论文Scene4的关系','',
+'[论文v4 IV-A](https://arxiv.org/html/2412.13664v4#S4.SS1)说明各方法共用修改版[25] FALCO、最大速度2.0m/s。部署中四方法无条件启动同一movement.launch，依次使用公共path_execution、localPlanner和pathFollower。两节点将autonomySpeed/maxSpeed截断到[0,1]，pathFollower再乘maxSpeed，因此autonomySpeed=3.0不代表3m/s控制上限。第07轮运行时两节点maxSpeed均为2.0，最大线速度指令实测2.0m/s；里程计可存在物理数值超调。live_runtime_audit.json保存4个实际进程及原生加载库的指纹，live_rosparams.yaml保存实参。','',
+'GBP2原生v_max=2.0/v_homing_max=1.0用于原生时间预算，须与公共低层速度上限分开。05已使用该时间模型仍完整2400秒停留41.4049%，不能把时间模型校准单独认定为解决原因。适配器将GBP2原生路径投影至公共车体平面，按0.2m插值，通过同一车辆动作执行；返航状态2执行一次后保持停车。作者是否公开了论文各基线的具体适配代码尚未核实，共用控制器也不证明全部实验条件完全一致。','',
+'09的附加速度/车辆动作观察器最初因Python消息包路径缺失而未启动；原始错误日志保留。随后以只读方式重新附加，首条补充动作记录在探索相对688.131秒，之前的补充动作/速度样本缺失。原生选路日志、主测试器覆盖/里程/健康与停车记录持续存在，控制器代码和运行时maxSpeed已独立核验。passive_speed_audit中的audit_start_absolute_sim=0为初始化时钟无效值，不能当作全程采样起点；附件passive_audit_attachment.json明确记录采样范围。报告中的补充最大指令仅代表已采样区间，不冒充全程速度记录。','',
 '论文表格：FAEL探索时间1033.9±149.8s、路径1420.3±128.4m；GBP2为>1600s、>1560m。论文数字是原作者实验条件下的统计。本报告的修复版本含新增本地源码改动，采用公共机器人、控制器、12m内部感知范围及统一观察器。每方法仅1次正式运行，不能宣称复现了论文均值、标准差、方法排名或严格同条件速度。编译和独立诊断探针曾在FAEL早期运行阶段执行，计算耗时更不宜用于论文级性能比较。','',
+'[论文Table I及计算性能分析](https://arxiv.org/html/2412.13664v4)中，GBP2四场景时间均以>号报告、标准差为横杠；正文还指出其后期可能在远点之间往返。表中没有给出Scene4的准确完成时间，不能把论文理解为GBP2已在1600秒内正常完成，也不能仅凭>号断言程序崩溃。本文的已知平面面积/7790及95%停止条件是本地公共协议，不能由论文的时间下界推算出相同覆盖百分比。','',
 '正式运行期间执行过独立回归、地图快照及诊断探针，可能造成短暂资源占用，因此这些结果主要用于功能与稳定性验证。FAEL原生辅助txt会在对象构造时重置，回归脚本现已增加“FAEL进程必须停止”的检查；本报告使用独立覆盖观察器、里程计、ROS运行时消息及节点日志作为正式证据，不采用该辅助txt作为统计来源。','',
 '本次重点验证原先的停滞和反复访问问题能否消除，论文完整性能评测还需要作者完整场景配置和多次重复。Scene1—3仍未从公开仓库获得；没有自造场景冒充论文场景。','',
 '## 6. 目录、版本及重建命令','',
@@ -116,7 +123,7 @@ lines+=['',
 '```','',
 '收益高度诊断可在保留原始快照和坐标文件后，通过 `run_gbp_gain_probe.sh` 在独立11312端口重放。若从私有仓库恢复，先解压 `evidence/scene4-progress-fix/gbp_gain_snapshot.vxblx.gz` 到 `D:\\STGPlanner\\benchmarks\\gbp_gain_snapshot.vxblx`，并复制同目录的 `gbp_gain_positions.txt`；脚本会加载已锁定的GBP2配置。该程序只查询保存地图，不生成或执行探索路径。旧射线模型结果保存在 `gbp_gain_probe.json`，最终球坐标模型重放保存为 `gbp_gain_probe_calibrated.json`，默认重放不覆盖旧证据。','',
 '## 7. 私有仓库与回滚','',
-'私有仓库：[y-ii-ii/STGPlanner-reproduction](https://github.com/y-ii-ii/STGPlanner-reproduction)，本次分支 `fix/fael-gbp2-progress`，固定标签 `scene4-progress-fix-2026-10-27`。实际提交与上传验证见 `Scene4修复GitHub上传验证.json`。原 `main`、`repro-baseline-2026-10-26`、`benchmark/scene4-baselines` 和 `scene4-baselines-2026-10-27` 保留。','',
+'私有仓库：[y-ii-ii/STGPlanner-reproduction](https://github.com/y-ii-ii/STGPlanner-reproduction)，本次分支 `fix/fael-gbp2-progress`。最终固定标签、远程上传验收和Git备份bundle尚未完成；本报告不表示已发布。原 `main`、`repro-baseline-2026-10-26`、`benchmark/scene4-baselines` 和 `scene4-baselines-2026-10-27` 保留。','',
 '回滚时先保留未提交改动，再切换到目标标签，并恢复相应部署工具。仅切Git分支不会自动恢复 `/opt` 中已编译的原生副本。要回到旧基线，须将本次归档的 `.before` 按 `manifest.json` 的 method/relative 路径还原到各自 `/opt/..._ws/src`，再按旧构建命令编译。不要继续调用新增修复脚本，否则会重新应用修复。详细操作见 `rollback_progress_repairs.py --help`，默认只检查，指定 `--apply` 才恢复。','',
 '回到修复前的多算法基线（不是最初STGPlanner单算法main）：','',
 '```powershell',
@@ -128,7 +135,15 @@ lines+=['',
 'git -C D:\\STGPlanner\\catkin_ws\\src\\STGPlanner switch --detach scene4-baselines-2026-10-27',
 'Copy-Item -Path D:\\STGPlanner\\catkin_ws\\src\\STGPlanner\\benchmarks\\* -Destination D:\\STGPlanner\\benchmarks -Recurse -Force',
 '```','',
-'交付包含新增报告、曲线、原始结果、压缩原生日志、修复前后源代码、补丁和完整Git备份bundle；旧版报告及数据另行保留，可逐项追溯。','']
+'本地报告关联曲线、原始结果、压缩原生日志、修复前后源代码及补丁；最终ZIP/bundle和上传验收尚待独立完成。旧版报告及数据另行保留，可逐项追溯。','']
+replay_path=Path(__file__).resolve().parents[1]/'outputs/gbp_stagnation_probe_09/summary.json'
+if replay_path.exists():
+    replay=json.loads(replay_path.read_text());projected=replay['groups']['projected'];physical=replay['groups']['flat_sensor']
+    lines+=['## 8. 第09轮剩余收益离线审计','',
+      '第09轮完整运行2400.007仿真秒、2412.783墙钟秒，4388.80m²（56.338896%）、2413.450m；最后100秒新增面积为0，原生未自然结束。375条本地选路日志均包含有效前沿，说明新增资格约束已生效，后期停滞仍存在。停止后保存原生地图44,141,149字节，停车确认、零指令、漂移和传感器检查通过，所属ROS/Gazebo进程和11311/11345端口已清理。','',
+      f"在该最终原生地图上，对近期选路的根/叶状态做{replay['queries']}次查询。按原生投影感知高度查询的{projected['queries']}组中，{projected['frontier_queries']}组仍通过0.01前沿判定；按平地实测感知高度0.456m查询的{physical['queries']}组中，{physical['frontier_queries']}组通过。两组未知样本的XY投影均100%落在已知平面，原生加权未知样本分别有{projected['weighted_unknown_above_2m_fraction']*100:.2f}%、{physical['weighted_unknown_above_2m_fraction']*100:.2f}%位于2m以上。",'',
+      '这些比例统计的是查询中的原生加权射线样本/体素，不是新的面积指标。重放使用最终地图，不能重建各历史时刻的收益；仅凭分布不能认定唯一成因。它显示三维残余收益与公共平面新增量可分离，下一阶段应核查感知自由空间更新、预测收益与实际可获得观测的一致性。公共平面图仅用于离线诊断，未输入规划器；本次未据此缩小高度范围、放宽95%阈值或加入真值目标。','',
+      '完整输入状态、最终地图SHA、原生扫描查询结果及限制说明见 `evidence/scene4-progress-fix/gbp_stagnation_probe_09/`。本轮是已验证的未完成结果，最终发布、标签及ZIP/bundle仍未执行。','']
 (out/'Scene4探索停滞修复报告.md').write_text('\n'.join(lines),encoding='utf-8',newline='\n')
 (out/'Scene4修复长测结果.json').write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf-8',newline='\n')
 print(out/'Scene4探索停滞修复报告.md')

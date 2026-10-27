@@ -1,5 +1,7 @@
 # 新会话恢复与协作清单
 
+> 当前用户已暂停GBP2后续测试。本次仅整理FAEL成功/GBP2未达95%的结果并备份；以下启动命令只是用户未来明确恢复后的参考，不自动执行。
+
 ## 新会话怎么开始
 
 在STGPlanner项目中创建一个**全新会话**，不要复制完整旧聊天。首条可直接粘贴：
@@ -22,11 +24,11 @@ git -C D:/STGPlanner/catkin_ws/src/STGPlanner log -4 --oneline
 wsl.exe --list --running
 ```
 
-当前用户已暂停，不要为了执行上述清单自动启动WSL。恢复后检查实际进程，确认没有其他会话持有仿真；再把锁记录state设为running、owner_thread和trial设为本会话。结束后更新为idle/paused，并写结果路径。锁文件是协作约定，不是操作系统强制互斥。
+2026-10-27用户已在“STGPlanner 报告与论文对照”明确恢复测试；本轮由算法与长测会话01a17c85-9d73-7573-885c-a95dbbc4abbf独占仿真及共享代码/状态写入，报告会话只读。具体运行状态以STATUS.md和SIMULATION_LOCK.json为准，其他会话不能因本清单启动第二套仿真。每次取得控制权前检查实际进程，确认没有其他会话持有仿真；再把锁记录state设为running、owner_thread和trial设为本会话。结束后更新为idle/paused，并写结果路径。锁文件是协作约定，不是操作系统强制互斥。
 
 ## 用户明确恢复后的长测示例
 
-无需因迁移重新安装。先确认最新代码、原生编译指纹和配置，必要时再编译。每次采用新目录，禁止覆盖06。
+无需因迁移重新安装。先确认最新代码、原生编译指纹和配置，必要时再编译。每次采用新目录，禁止覆盖任何已有运行（尤其06/07/08/09）；示例10也须先检查名称是否已占用。
 
 ```powershell
 git -C D:/STGPlanner/catkin_ws/src/STGPlanner branch --show-current
@@ -34,7 +36,7 @@ git -C D:/STGPlanner/catkin_ws/src/STGPlanner branch --show-current
 wsl.exe -d STGPlanner-Ubuntu20 -u root -- bash /mnt/d/STGPlanner/benchmarks/build_progress_repairs.sh gbp2
 # 必须先确认本专用发行版没有别的会话正在使用，才能终止并重启：
 wsl.exe --terminate STGPlanner-Ubuntu20
-wsl.exe -d STGPlanner-Ubuntu20 -u root -- bash /mnt/d/STGPlanner/benchmarks/run_benchmark.sh gbp2 --name repair_formal_gbp2_07 --limit 2400
+wsl.exe -d STGPlanner-Ubuntu20 -u root -- bash /mnt/d/STGPlanner/benchmarks/run_benchmark.sh gbp2 --name repair_formal_gbp2_10 --limit 2400
 ```
 
 运行前固定选择并保存manifest/config。运行后看result.json、metrics.jsonl、events.jsonl、known_plane_cells.csv、原生日志和停车验收，不能只看是否生成路径。06不能从1082秒原地续算正式试验。

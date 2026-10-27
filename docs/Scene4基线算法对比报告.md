@@ -1,5 +1,10 @@
 # Scene4：GBP2、TARE、FAEL 与 STGPlanner 本机部署对比报告
 
+> **本次整理结论：FAEL本地一次完整运行达到95.3366%，GBP2最新完整2400秒运行仅56.338896%，未达到95%。用户已暂停GBP2后续测试；保留全部基线、失败、中止数据及源码修改，按当前分支备份到私有仓库。此备份不表示全部问题已修复，也不代表论文五次统计复现。**
+
+
+> **2026-10-27 后续更新：** 本页保留修复前的历史结果。FAEL、GBP2 的新增源码修复及长测结果见 [探索停滞修复报告](Scene4探索停滞修复报告.html)，原始旧结果未覆盖。
+
 更新：2026年10月27日 11:00（北京时间）<br>
 项目目录：`D:\STGPlanner\benchmarks`<br>
 版本分支：`benchmark/scene4-baselines`，原 `main` / `repro-baseline-2026-10-26` 保留。
@@ -130,3 +135,12 @@ wsl.exe -d STGPlanner-Ubuntu20 -u root -- bash -lc "source /opt/stgplanner/catki
 本次交付包含本报告、3张实际结果图、正式试验原始数据与校验结果、源码锁定清单、适配补丁和重建脚本。上游完整克隆与编译产物继续保留在 D 盘；报告压缩包不包含大型 WSL 虚拟磁盘。全部4场景×4算法×5次的论文统计复现尚未完成，本次范围仅 Scene4 的4算法各1次正式比较。
 
 依据：[论文实验设置和 Table I](https://arxiv.org/html/2412.13664v1)、[GBP2 官方分支](https://github.com/ntnu-arl/gbplanner_ros/tree/gbplanner2)、[TARE 官方代码](https://github.com/caochao39/tare_planner)、[FAEL 官方代码](https://github.com/SYSU-RoboticsLab/FAEL)。
+
+## 后续更新：FAEL 与 GBP2 探索停滞修复（2026-10-27）
+
+本次保留原1600秒基线，另开修复分支并重新进行真实长测。
+
+- FAEL：原指标 41.278%；修复后 95.337%，仿真 1017.008s，里程 1351.931m，达到统一95%门槛。
+- GBP2：原指标 41.179%；修复后 56.339%，仿真 2400.007s，里程 2413.450m，限时未完成。
+
+根因、精确补丁、回归检查、1600秒同期比较、地图和回滚命令见 [新增修复报告](Scene4探索停滞修复报告.html)。每方法1次正式运行，新增本地源码改动不等于论文原始配置的统计复现。私有仓库分支 `fix/fael-gbp2-progress`，最终标签和远程发布验收尚未完成。

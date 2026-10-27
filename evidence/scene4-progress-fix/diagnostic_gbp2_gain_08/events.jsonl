@@ -1,0 +1,8 @@
+{"unix": 1793095049.6734939, "sim": 15248.788, "kind": "initialization_mapping_ready"}
+{"unix": 1793095053.7994142, "sim": 15252.892, "kind": "initialized", "pose": {"x": 3.4557424183294634, "y": 0.06760312611571331, "z": 3.639160114143891e-06}}
+{"unix": 1793095053.8037684, "sim": 15252.895, "kind": "exploration_start"}
+{"unix": 1793095659.3829827, "sim": 15855.125, "kind": "diagnostic_native_snapshot", "requested_at_s": 600.0229999999992, "path": "/mnt/d/STGPlanner/benchmarks/results/diagnostic_gbp2_gain_08/native_snapshot_600.vxblx", "bytes": 22468746, "response": ""}
+{"unix": 1793096062.4217172, "sim": 16256.175, "kind": "diagnostic_native_snapshot", "requested_at_s": 1000.0190000000002, "path": "/mnt/d/STGPlanner/benchmarks/results/diagnostic_gbp2_gain_08/native_snapshot_1000.vxblx", "bytes": 32098628, "response": ""}
+{"unix": 1793096363.556439, "sim": 16555.809, "kind": "diagnostic_native_snapshot", "requested_at_s": 1300.0109999999986, "path": "/mnt/d/STGPlanner/benchmarks/results/diagnostic_gbp2_gain_08/native_snapshot_1300.vxblx", "bytes": 32222258, "response": ""}
+{"unix": 1793096461.161843, "sim": 16652.913, "kind": "finish", "reason": "pilot_time_limit", "area": 3226.2400000000002, "distance": 1535.3632683252144}
+{"unix": 1793096463.1695795, "sim": 16654.909, "kind": "stop_result", "ack": true, "state": 3}

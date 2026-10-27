@@ -1,0 +1,3 @@
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I1027 19:36:19.893348   266 tsdf_server.cc:582] Successfully loaded TSDF layer.
+/gbp_stagnation_probe_09/SensorParams/VLP16 0, 0, 0

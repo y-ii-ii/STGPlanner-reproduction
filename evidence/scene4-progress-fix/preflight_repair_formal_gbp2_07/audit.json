@@ -1,0 +1,132 @@
+{
+  "captured_at": "2026-10-27T17:01:36.608104+08:00",
+  "trial": "repair_formal_gbp2_07",
+  "owner_thread": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+  "processes_before_launch": "    PID COMMAND         COMMAND\n      1 init(STGPlanner /init\n      6 init            plan9 --control-socket 6 --log-level 4 --server-fd 7 --pipe-fd 9 --log-truncate\n      9 SessionLeader   /init\n     10 Relay(11)       /init\n     11 python3         python3 /mnt/d/STGPlanner/codex/work/prepare_resume_07.py\n     12 ps              ps -eo pid,comm,args\n",
+  "ports_free": [
+    11311,
+    11345
+  ],
+  "runtime_matches_trial_06": [
+    {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/src/planner/src/perception/ufomap.cpp",
+      "sha256": "a9d0750710f63d8ed2fb132a24fb0b89b40aab3322bae984e58b50c957f67547",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/src/planner/src/preprocess/viewpoint_manager.cpp",
+      "sha256": "d5b6e396f961963514cb8e56080327a4b321e50119b0e2e908d5a263905c0216",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/src/planner/src/rapid_cover_planner/rapid_cover_planner.cpp",
+      "sha256": "a3de800611beac5687e37a99e6eeaaaf4279d000414a2c05fca5befa068b5ab6",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/src/planner/src/topo_planner/topo_planner.cpp",
+      "sha256": "8b08d5f5d65b69a433d594430e1b9851c1d3f0d962e7bc043858f14f6fe11145",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/gbplanner/include/gbplanner/rrg.h",
+      "sha256": "1721131e5bdca1b01536aa8c48c9e1154320d6271f242ef2b46bad3a198251d2",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/gbplanner/src/gbplanner.cpp",
+      "sha256": "154f2c92082fa353bac80c85578b63a00649a893c4633543447c95c2a6c78899",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/gbplanner/src/rrg.cpp",
+      "sha256": "ab636618dc2e9ec8754b0213702c69ff50f1b833c4237a8570ff935c2ec0505c",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/src/params.cpp",
+      "sha256": "b1cf8bbf44edda6afc201800d749d047c4f9f659be075987ba95958293641ad5",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/src/voxblox/voxblox_alt_impl.cpp",
+      "sha256": "8c8a9be8a7a5b3b530f8ae055d5fca2e63705fcbf00173a24a6a110abf2f13ff",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/fael_ws/devel/lib/libtopo_planner.so",
+      "sha256": "41ecaf5f553036bf3362f532a2cdf093a10a32b5f9fa97ccce8f7ddd0dd0621d",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libplanner_common.so",
+      "sha256": "f20f7e2a862a26f0458a5733d3c4266741d336afce413f3d1f44913a9324b146",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
+      "sha256": "a8b283d9cb4d2defd8c63153705def0332ece73c8a23d25f8a842ba8bda854fe",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/benchmark_trial.py",
+      "sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "matches_trial_06": true
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/config/gbp2.yaml",
+      "sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "matches_trial_06": true
+    }
+  ],
+  "common_controller_files": [
+    {
+      "path": "/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/local_planner/launch/local_planner.launch",
+      "sha256": "4446de3b4136c294830f1175c863d8cbeef9d0cf0ec93e1da145142cd44fe98d"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/local_planner/src/localPlanner.cpp",
+      "sha256": "7ff886e5be3bd6cd0d63bf49c052d3b35f7b7a7cc71e2b950bee9e1cd0977a8c"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/cmu_planner/local_planner/src/pathFollower.cpp",
+      "sha256": "8b6d5990cb8233cb7e7db881592c1151f5613fda9db0f4c603233a148de22345"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/robot_move/path_execution/src/path_execution.cpp",
+      "sha256": "519167178f8d4a824dc0743e9ff77a8075dcce93c5ff85134d89b0ea4f7395c1"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/config/movement.launch",
+      "sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/config/terrain_static.launch",
+      "sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/benchmark_trial.py",
+      "sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84"
+    },
+    {
+      "path": "/mnt/d/STGPlanner/benchmarks/config/gbp2.yaml",
+      "sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d"
+    },
+    {
+      "path": "/opt/stgplanner/catkin_ws/devel/lib/local_planner/localPlanner",
+      "sha256": "428da96494f1b2f618819dcd2948e76e06af999ae6fb1412d8c996b987f71041"
+    },
+    {
+      "path": "/opt/stgplanner/catkin_ws/devel/lib/local_planner/pathFollower",
+      "sha256": "bde62d7901fae9f1e5c245bfe41b1ca4c437b7523f093d436995a0722b8d4931"
+    },
+    {
+      "path": "/opt/stgplanner/catkin_ws/devel/lib/path_execution/path_execution_node",
+      "sha256": "b6378b8e36383fb1338751f116d933376616e0b8e3444b8363f83e70e6540e71"
+    }
+  ],
+  "common_protocol_revision": 3,
+  "common_threshold_m2": 7400.5,
+  "paper_url": "https://arxiv.org/html/2412.13664v4",
+  "paper_audit": "IV-A uses modified [25] FALCO and vmax=2m/s. Shared movement.launch includes common localPlanner/pathFollower. Both clamp autonomySpeed/maxSpeed to [0,1]. Native GBP2 v_max=2 and v_homing_max=1 are time models, not actuator speed. Trial 05 already used them and failed at 41.4049%; calibration alone did not solve stagnation. Adapter executes native path via common vehicle action and honors homing status 2 once. Public author baseline adapters remain unverified; this is engineering validation."
+}

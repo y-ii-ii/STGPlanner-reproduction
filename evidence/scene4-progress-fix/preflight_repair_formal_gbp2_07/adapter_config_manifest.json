@@ -1,0 +1,51 @@
+{
+  "common_protocol_revision": 3,
+  "adapter_revision": 1,
+  "measurement_controller_threshold_unchanged": true,
+  "native_sampling_limits": {
+    "vertices": [
+      500,
+      2000
+    ],
+    "edges": [
+      5000,
+      20000
+    ],
+    "loops_cutoff": [
+      2000,
+      8000
+    ],
+    "loops_max": [
+      20000,
+      80000
+    ]
+  },
+  "native_time_model_m_s": {
+    "v_max": [
+      0.2,
+      2.0
+    ],
+    "v_homing_max": [
+      0.2,
+      1.0
+    ]
+  },
+  "native_frontier_fraction": [
+    0.05,
+    0.01
+  ],
+  "calibration_evidence": "gbp_corridor_gain.json: 0 of125 collision-free corridor views pass0.05,16pass0.01; native cutoffs1296/260unknown voxels. This is NOT the common95% evaluation threshold.",
+  "files": {
+    "benchmarks/benchmark_trial.py": {
+      "original_sha256": "8fc9535efc6fd9b126272717b09ace6762ae468139e511213da708794fdd7e84",
+      "repaired_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_stem": "benchmark_trial.py"
+    },
+    "benchmarks/config/gbp2.yaml": {
+      "original_sha256": "79ae856e07f37c59f04f426bc3d7040507279f8e0421ee2c92f93553e23b6580",
+      "repaired_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_stem": "config__gbp2.yaml"
+    }
+  },
+  "note": "Only the GBP2 native-end branch changes in the adapter. Common observer, controller, initialization and coverage/time stop remain unchanged. Algorithm parameters changed explicitly; final results are an engineering adaptation, not paper-identical settings."
+}

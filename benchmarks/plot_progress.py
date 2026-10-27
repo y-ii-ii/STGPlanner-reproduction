@@ -14,17 +14,17 @@ for ax,method in zip(axes,['fael','gbp2']):
     if method=='gbp2':
         names=selection.get('plot_intermediate_runs',selection['intermediate_runs']);labels=dict(zip(selection['intermediate_runs'],selection['intermediate_labels']))
         curves.extend((trial,labels[trial],color,':') for trial,color in zip(names,['#d18b2d','#698879','#c36b73']))
-    curves.append((selection['final_runs'][method],'Repaired','#2878b5' if method=='fael' else '#8c56a2','-'))
+    curves.append((selection['final_runs'][method],'Selected repair '+selection['final_runs'][method].rsplit('_',1)[-1],'#2878b5' if method=='fael' else '#8c56a2','-'))
     for trial,label,color,style in curves:
         folder=root/'results'/trial;d=json.loads((folder/'result.json').read_text())
         s=[json.loads(x) for x in (folder/'metrics.jsonl').read_text().splitlines()]
         t=[x['sim_s'] for x in s]+[d['sim_time_s']];v=[x['coverage_fraction']*100 for x in s]+[d['coverage_fraction']*100]
         ax.plot(t,v,label=label,color=color,ls=style,lw=1.8)
         ax.plot(t[-1],v[-1],'o' if d['finish_reason']=='coverage_threshold' else 'x',color=color,ms=7)
-        offset=-20 if label.startswith('Frontier calibration') else 18 if label.startswith('Geometry repair') else 9
-        ax.annotate(f"{v[-1]:.2f}% / {t[-1]:.1f}s",(t[-1],v[-1]),xytext=(-10,offset),textcoords='offset points',ha='right',fontsize=9,color=color)
+        offset=-20 if label.startswith('Frontier calibration') else 18 if label.startswith('Geometry repair') else 1 if label.startswith('Cluster type') else 9
+        ax.annotate(f"{v[-1]:.2f}% / {t[-1]:.1f}s",(t[-1],v[-1]),xytext=(-10,offset),textcoords='offset points',ha='right',fontsize=9,color=color,bbox=dict(facecolor='white',edgecolor='none',alpha=.9,pad=1))
     ax.axhline(95,color='#555555',ls=':',lw=1);ax.axvline(1600,color='#555555',ls=':',lw=.8)
-    ax.set(title=method.upper(),xlabel='Exploration simulation time (s)',ylabel='Known-plane area / 7790 (%)',ylim=(0,103));ax.grid(alpha=.15);ax.legend()
+    ax.set(title=method.upper(),xlabel='Exploration simulation time (s)',ylabel='Known-plane area / 7790 (%)',ylim=(0,103));ax.grid(alpha=.15);ax.legend(fontsize=8.5)
 fig.suptitle('Scene4: actual before / after runs | protocol 3 | o: 95% threshold, x: limit / diagnostic stop',fontsize=12)
 fig.savefig(out/'scene4_progress_curves.png');plt.close(fig)
 fig,axes=plt.subplots(2,2,figsize=(12,11),constrained_layout=True)
@@ -42,7 +42,8 @@ for i,method in enumerate(['fael','gbp2']):
         color='#2878b5' if method=='fael' else '#8c56a2'
         ax.plot([x['x'] for x in s],[x['y'] for x in s],color=color,lw=.7)
         ax.plot(s[0]['x'],s[0]['y'],'o',mfc='white',mec=color,ms=5);ax.plot(s[-1]['x'],s[-1]['y'],'x',color=color,ms=6)
-        ax.set(title=f"{method.upper()} {label} | {d['sim_time_s']:.1f}s | {d['coverage_fraction']*100:.2f}%",xlabel='World X (m)',ylabel='World Y (m)',xlim=(xmin,xmax),ylim=(ymin,ymax));ax.set_aspect('equal')
+        display_label=('Selected '+selection['final_runs'][method].rsplit('_',1)[-1]) if prefix=='repair_formal_' else label
+        ax.set(title=f"{method.upper()} {display_label} | {d['sim_time_s']:.1f}s | {d['coverage_fraction']*100:.2f}%",xlabel='World X (m)',ylabel='World Y (m)',xlim=(xmin,xmax),ylim=(ymin,ymax));ax.set_aspect('equal')
 fig.suptitle('Recorded final maps and trajectories | grey: known free, dark: occupied, white: unknown\nNominal known-plane ratio does not mean 100% reachable-area coverage',fontsize=12)
 fig.savefig(out/'scene4_progress_maps.png');plt.close(fig)
 print(out)

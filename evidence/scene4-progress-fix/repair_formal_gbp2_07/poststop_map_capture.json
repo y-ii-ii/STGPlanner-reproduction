@@ -1,0 +1,13 @@
+{
+  "after_finish_only": true,
+  "finish_event": {
+    "unix": 1793094217.4441395,
+    "sim": 17653.27,
+    "kind": "finish",
+    "reason": "sim_time_limit",
+    "area": 4281.760000000001,
+    "distance": 2389.9381161895335
+  },
+  "changes_planning_or_motion": false,
+  "error": "timeout exceeded while waiting for service /gbplanner_node/save_map"
+}

@@ -1,0 +1,24 @@
+--- a/planner_common/src/params.cpp
++++ b/planner_common/src/params.cpp
+@@ -218,8 +218,8 @@
+         if (width == 0) {
+           ++w;
+         }
+-        double x = max_range * cos(dh);
+-        double y = max_range * sin(dh);
++        double x = max_range * cos(dv) * cos(dh);
++        double y = max_range * cos(dv) * sin(dh);
+         double z = max_range * sin(dv);
+         Eigen::Vector3d ep = Eigen::Vector3d(x, y, z);
+         frustum_endpoints.push_back(ep);
+@@ -330,8 +330,8 @@
+     double v_lim_2 = fov[1] / 2;
+     for (double dv = -v_lim_2; dv < v_lim_2; dv += v_res) {
+       for (double dh = -h_lim_2; dh < h_lim_2; dh += h_res) {
+-        double x = max_range * cos(dh);
+-        double y = max_range * sin(dh);
++        double x = max_range * cos(dv) * cos(dh);
++        double y = max_range * cos(dv) * sin(dh);
+         double z = max_range * sin(dv);
+         Eigen::Vector3d ep = Eigen::Vector3d(x, y, z);
+         frustum_endpoints.push_back(ep);

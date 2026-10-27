@@ -1,5 +1,8 @@
 # STGPlanner Scene4 复现基线
 
+> **本次整理结论：FAEL本地一次完整运行达到95.3366%，GBP2最新完整2400秒运行仅56.338896%，未达到95%。用户已暂停GBP2后续测试；保留全部基线、失败、中止数据及源码修改，按当前分支备份到私有仓库。此备份不表示全部问题已修复，也不代表论文五次统计复现。**
+
+
 基于 [Haochen-Niu/STGPlanner](https://github.com/Haochen-Niu/STGPlanner) 的公开代码，保留其 Git 历史、作者信息及各文件原有许可声明。上游基线：`59b41451f7b80ba09a9bcbaf44b58141cd6f9de8`。原始项目说明和论文引用见 [UPSTREAM_README](docs/UPSTREAM_README.md)。
 
 本仓库用于保存本机已验证版本，后续在分支上逐步修改，并通过固定标签回到当前基线。
@@ -65,3 +68,18 @@ wsl.exe -d STGPlanner-Ubuntu20 -u root -- bash /mnt/d/STGPlanner/scripts/build.s
 - [实际覆盖曲线](docs/scene4_curves.png) / [已知平面与实际轨迹](docs/scene4_maps.png)
 
 本机环境为 `D:\STGPlanner\benchmarks`；Linux工作空间在D盘专用WSL虚拟磁盘中。重建入口是 `build_all_baselines.sh`；单项测试入口是 `run_benchmark.sh`，需要给出新的结果目录名。完整数据读取、计时口径和回滚方法见报告。
+
+## Scene4 探索停滞修复（2026-10-27）
+
+`fix/fael-gbp2-progress` 修复 FAEL 前沿生命周期、候选连通性及 GBP2 射线缓存；原1600秒数据保留。
+
+| 方法 | 修复前指标 | 修复后指标 | 仿真时间(s) | 里程(m) | 结果 |
+|---|---:|---:|---:|---:|---|
+| FAEL | 41.278% | 95.337% | 1017.008 | 1351.931 | 统一95%门槛 |
+| GBP2 | 41.179% | 56.339% | 2400.007 | 2413.450 | 限时未完成 |
+
+- [修复与长测报告、重建和回滚命令](docs/Scene4探索停滞修复报告.md) / [单文件HTML](docs/Scene4探索停滞修复报告.html)
+- [修复前后源码、补丁与指纹](benchmarks/progress_repairs/manifest.json)
+- [独立回归与真实长测验收](evidence/scene4-progress-fix/validation.json)
+
+每方法只有1次正式运行，新增2400秒上限与原1600秒预算在报告中分开比较；不声称复现论文5次统计。最终标签和远程发布验收尚未完成，原main和两个历史基线标签保留。Git切换不会自动恢复Linux原生编译副本，回滚步骤须按报告执行。
