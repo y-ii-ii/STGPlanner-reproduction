@@ -9,7 +9,7 @@
   "tare_followup": "complete_original_deployment_restored",
   "result_path": "/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12",
   "supervisor_pid": 16,
-  "updated_at": "2026-10-28T18:00:24.577534+08:00",
+  "updated_at": "2026-10-28T18:13:43.275916+08:00",
   "benchmark_pid": 35,
   "observer_pid": 75,
   "returncode": 0,
@@ -18,5 +18,7 @@
   "used_new_formal_trials": 3,
   "new_experiments_blocked": true,
   "note": "User three-trial cap reached. No further simulation, probe, repeat or optimization authorized.",
-  "native_gbp2_configuration": "repair_formal_gbp2_09"
+  "native_gbp2_configuration": "repair_formal_gbp2_09",
+  "gbp2_backup_verified": true,
+  "backup_content_commit": "05eab1424b4c0f9165441543e95777b8675be126"
 }

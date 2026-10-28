@@ -36,3 +36,7 @@ Scene4四算法原基线阶段已完成；TARE后续已完成且恢复验证原�
 - 旧状态：codex/history/scene4-before-gbp2-phase-close-20261028.md；Git中本阶段前状态在project-context/history/scene4-before-gbp2-optimization-20261028。更早原始聊天工作区路径保存在旧状态，不必读取整段历史聊天。
 - 后续先读本文件、RUNBOOK、SIMULATION_LOCK并核对实际/proc和端口；只有一个会话控制WSL/ROS/Gazebo及共享Git写入。新测试用新目录，不重跑旧prepare、恢复、归档脚本。
 - 本阶段私有备份以GBP2_OPTIMIZATION_BACKUP_VERIFIED.json为准；文件生成前不冒称远端已验收。此前TARE内容7944515、最终8c55a9a已验收；四算法阶段内容6fd0d05、最终7a1b99e已验收。
+
+## GBP2本轮私有备份已验收
+
+内容提交`05eab1424b4c0f9165441543e95777b8675be126`已推送到私有分支fix/fael-gbp2-progress，远端独立克隆恢复通过344项本阶段归档的压缩前后SHA、此前622项索引及261项TARE归档、140项实验检查。旧原始证据不变，main、历史基线分支和两个标签保留。验收记录指向内容提交；随后交接元数据提交的最终HEAD以Git和GBP2_OPTIMIZATION_FINAL_HEAD_VERIFIED.json为准。当前无活动仿真，TARE/FAEL未重跑。

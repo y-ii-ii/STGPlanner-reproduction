@@ -94,3 +94,7 @@ AGENTS.md用于持久项目指导，官方说明：https://learn.chatgpt.com/doc
 已恢复历史修复09的可追溯已测试配置（前沿0.01、名义高度0.456m），原生源码及两库仍与09一致；该配置仍明确标为未达95%。全部候选before/after、失败数据和校准依据保留，不将较差候选作为默认性能优化。
 
 当前无活动仿真；TARE/FAEL未重跑。当前工具统一在codex/work/gbp2_optimization_20261028，逐文件作用见README.md；实验方案v1/v2、原生快照、所有失败/候选、验证和部署指纹保留。先读最新STATUS，旧长测状态只作历史。后续先核对锁、实际进程和端口，使用新结果目录，不把原生结束或健康通过算作95%成功。私有备份验收见GBP2_OPTIMIZATION_BACKUP_VERIFIED.json。
+
+## GBP2本轮私有备份已验收
+
+内容提交`05eab1424b4c0f9165441543e95777b8675be126`已推送到私有分支fix/fael-gbp2-progress，远端独立克隆恢复通过344项本阶段归档的压缩前后SHA、此前622项索引及261项TARE归档、140项实验检查。旧原始证据不变，main、历史基线分支和两个标签保留。验收记录指向内容提交；随后交接元数据提交的最终HEAD以Git和GBP2_OPTIMIZATION_FINAL_HEAD_VERIFIED.json为准。当前无活动仿真，TARE/FAEL未重跑。

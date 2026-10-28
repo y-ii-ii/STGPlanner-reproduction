@@ -1,0 +1,35 @@
+{
+  "verified_at": "2026-10-28T18:11:04.908136+08:00",
+  "repository": "y-ii-ii/STGPlanner-reproduction",
+  "private": true,
+  "branch": "fix/fael-gbp2-progress",
+  "remote_commit": "05eab1424b4c0f9165441543e95777b8675be126",
+  "local_commit": "05eab1424b4c0f9165441543e95777b8675be126",
+  "protected_refs_unchanged": {
+    "heads/main": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "heads/benchmark/scene4-baselines": "9dec3c45184259a0d68e3dfe066040966d807aed",
+    "tags/repro-baseline-2026-10-26": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "tags/scene4-baselines-2026-10-27": "9dec3c45184259a0d68e3dfe066040966d807aed"
+  },
+  "remote_head_matches_local": true,
+  "restored_checkout": "D:\\STGPlanner\\codex\\work\\restores\\gbp2-optimization-20261028",
+  "restored_checkout_clean": true,
+  "verification": {
+    "all_checks_passed": true,
+    "new_archive_files": 344,
+    "previous_manifest_files": 622,
+    "prior_tare_archive_files": 261,
+    "all_archive_and_decompressed_sha_passed": true,
+    "previous_raw_evidence_unchanged": true,
+    "experiment_checks": 140,
+    "completed_trials": [
+      "gbp2_default_frontier_20261028_10",
+      "gbp2_frontier03_20261028_11",
+      "gbp2_sensor_height_20261028_12"
+    ],
+    "public95_trials": [],
+    "decision": "本轮新增正式试验限额3次（10/11/12）已用完，三次均未达公共95%，也未提高历史修复09的56.338896%覆盖。按用户限制停止GBP2优化，不再测试或修改算法。当前配置下GBP2存在明显覆盖停滞，不作为Scene4达95%的成功基线。",
+    "native_deployment": "Historical09 tested configuration restored; GBP2 below95; all candidates retained.",
+    "user_three_trial_limit_enforced": true
+  }
+}
