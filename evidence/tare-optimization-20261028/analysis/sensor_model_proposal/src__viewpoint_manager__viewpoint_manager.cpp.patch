@@ -1,0 +1,14 @@
+--- src/viewpoint_manager/viewpoint_manager.cpp
++++ src/viewpoint_manager/viewpoint_manager.cpp
+@@ -62,9 +62,9 @@
+   kSensorRange = misc_utils_ns::getParam<double>(nh, "kSensorRange", 10.0);
+   kNeighborRange = misc_utils_ns::getParam<double>(nh, "kNeighborRange", 3.0);
+ 
+-  kVerticalFOVRatio = tan(M_PI / 15);
++  kVerticalFOVRatio = tan(M_PI / 12);  // VLP16 physical half-FOV: 15 degrees
+   kDiffZMax = kSensorRange * kVerticalFOVRatio;
+-  kInFovXYDistThreshold = 3 * (kCoveragePointCloudResolution / 2) / tan(M_PI / 15);
++  kInFovXYDistThreshold = 3 * (kCoveragePointCloudResolution / 2) / kVerticalFOVRatio;
+   kInFovZDiffThreshold = 3 * kCoveragePointCloudResolution;
+ 
+   return true;

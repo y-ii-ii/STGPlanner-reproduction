@@ -1,0 +1,4 @@
+/usr/bin/ld: /tmp/ccEqUVbO.o: in function `main':
+sensor_model_regression.cpp:(.text.main+0xc5): undefined reference to `misc_utils_ns::ApproxAtan2(float, float)'
+/usr/bin/ld: sensor_model_regression.cpp:(.text.main+0x462): undefined reference to `misc_utils_ns::ApproxAtan2(float, float)'
+collect2: error: ld returned 1 exit status

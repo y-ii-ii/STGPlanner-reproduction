@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-10-28T11:40:52.258942+08:00",
+  "decision": "reject",
+  "decision_text": "本轮不采用感知模型对齐作为性能优化；修复候选和所有失败/不利观测保留。",
+  "deployment": "已恢复并重建原生原配置，源码与程序SHA均匹配996.477秒新对照所用版本",
+  "deployment_id": "original_stock_restored_exact_tested_binary",
+  "records": [
+    {
+      "trial": "formal_tare_01",
+      "label": "历史原配置",
+      "result_sha256": "89b82d104b20f47f54f1ddb99119ef314f4964d4089cd001a4bca9a98372232f",
+      "result": {
+        "finish_reason": "coverage_threshold",
+        "sim_time_s": 1277.2790000000005,
+        "wall_time_s": 1288.354843999,
+        "distance_m": 1791.348556749956,
+        "coverage_fraction": 0.9540231065468551,
+        "average_speed_m_s": 1.402472409512687,
+        "validation": {
+          "reached_common_threshold": true,
+          "sensor_stream_live": true,
+          "stop_ack": true,
+          "parked_command_zero": true,
+          "parking_drift_under_0_1m": true,
+          "planner_produced_motion": true
+        },
+        "native_finished": false,
+        "runtime_native_s_summary": {
+          "count": 1277,
+          "mean": 0.2513586531744026,
+          "max": 0.4950000047683716
+        },
+        "initial_pose": {
+          "x": 3.337595805395345,
+          "y": 0.09696117324574255,
+          "z": 1.9882511848035023e-06
+        }
+      }
+    },
+    {
+      "trial": "tare_audit_control_20261028_01",
+      "label": "新增原配置对照",
+      "result_sha256": "4574aaa0b37d79b7d39c5e14a74313f00861d738e355064135254d6e7f2aebb1",
+      "result": {
+        "finish_reason": "coverage_threshold",
+        "sim_time_s": 996.4770000000008,
+        "wall_time_s": 1002.4762973030001,
+        "distance_m": 1490.8421385271417,
+        "coverage_fraction": 0.9509011553273428,
+        "average_speed_m_s": 1.4961129444303687,
+        "validation": {
+          "reached_common_threshold": true,
+          "sensor_stream_live": true,
+          "stop_ack": true,
+          "parked_command_zero": true,
+          "parking_drift_under_0_1m": true,
+          "planner_produced_motion": true
+        },
+        "native_finished": false,
+        "runtime_native_s_summary": {
+          "count": 996,
+          "mean": 0.25781526090390233,
+          "max": 0.6380000114440918
+        },
+        "initial_pose": {
+          "x": 3.3352317872797053,
+          "y": 0.052120595783052906,
+          "z": 3.535961012268718e-06
+        }
+      },
+      "runtime_cleanup": {
+        "owned_processes": [
+          {
+            "pid": 101,
+            "command": "/usr/bin/python3 /opt/ros/noetic/bin/rosmaster --core -p 11311 -w 3 __log:=/mnt/d/STGPlanner/benchmarks/results/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/master.log ",
+            "start_ticks": "230462"
+          },
+          {
+            "pid": 123,
+            "command": "/opt/ros/noetic/lib/rosout/rosout __name:=rosout __log:=/mnt/d/STGPlanner/benchmarks/results/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/rosout-1.log ",
+            "start_ticks": "230784"
+          },
+          {
+            "pid": 137,
+            "command": "/bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/gazebo-2.log ",
+            "start_ticks": "230876"
+          },
+          {
+            "pid": 142,
+            "command": "python3 /opt/ros/noetic/lib/controller_manager/spawner jackal_joint_publisher jackal_velocity_controller __name:=controller_spawner __log:=/mnt/d/STGPlanner/benchmarks/results/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/controller_spawner-3.log ",
+            "start_ticks": "230905"
+          },
+          {
+            "pid": 214,
+            "command": "gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/gazebo-2.log ",
+            "start_ticks": "231167"
+          }
+        ],
+        "remaining_owned_pids": [],
+        "ports_free": {
+          "11311": true,
+          "11345": true
+        }
+      },
+      "freeze_validation": {
+        "all_frozen_files_unchanged": true,
+        "changed_files": []
+      }
+    },
+    {
+      "trial": "tare_sensor_model_20261028_01",
+      "label": "感知模型对齐01",
+      "result_sha256": "ad0a740dfaf8237737dacb3db961437482e8922b8f0fa9911115386f90682bb7",
+      "result": {
+        "finish_reason": "coverage_threshold",
+        "sim_time_s": 976.4609999999993,
+        "wall_time_s": 982.499504459,
+        "distance_m": 1474.4607927752359,
+        "coverage_fraction": 0.9507573812580232,
+        "average_speed_m_s": 1.5100047956602842,
+        "validation": {
+          "reached_common_threshold": true,
+          "sensor_stream_live": true,
+          "stop_ack": true,
+          "parked_command_zero": true,
+          "parking_drift_under_0_1m": true,
+          "planner_produced_motion": true
+        },
+        "native_finished": false,
+        "runtime_native_s_summary": {
+          "count": 976,
+          "mean": 0.2557090162681263,
+          "max": 0.5490000247955322
+        },
+        "initial_pose": {
+          "x": 3.1117666032897184,
+          "y": 0.04661786125184569,
+          "z": 3.6955093118962168e-06
+        }
+      },
+      "runtime_cleanup": {
+        "owned_processes": [
+          {
+            "pid": 101,
+            "command": "/usr/bin/python3 /opt/ros/noetic/bin/rosmaster --core -p 11311 -w 3 __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/master.log ",
+            "start_ticks": "377338"
+          },
+          {
+            "pid": 123,
+            "command": "/opt/ros/noetic/lib/rosout/rosout __name:=rosout __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/rosout-1.log ",
+            "start_ticks": "377708"
+          },
+          {
+            "pid": 137,
+            "command": "/bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/gazebo-2.log ",
+            "start_ticks": "377739"
+          },
+          {
+            "pid": 142,
+            "command": "python3 /opt/ros/noetic/lib/controller_manager/spawner jackal_joint_publisher jackal_velocity_controller __name:=controller_spawner __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/controller_spawner-3.log ",
+            "start_ticks": "377763"
+          },
+          {
+            "pid": 214,
+            "command": "gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/gazebo-2.log ",
+            "start_ticks": "378066"
+          }
+        ],
+        "remaining_owned_pids": [],
+        "ports_free": {
+          "11311": true,
+          "11345": true
+        }
+      },
+      "freeze_validation": {
+        "all_frozen_files_unchanged": true,
+        "changed_files": []
+      }
+    },
+    {
+      "trial": "tare_sensor_model_20261028_02",
+      "label": "感知模型对齐02",
+      "result_sha256": "78f9b63a6125206f72a1fae7cf9d53f48f78b299c5553db47bd5429e16549b7b",
+      "result": {
+        "finish_reason": "coverage_threshold",
+        "sim_time_s": 1060.3559999999998,
+        "wall_time_s": 1066.8104296860001,
+        "distance_m": 1546.5793352010958,
+        "coverage_fraction": 0.9502233632862647,
+        "average_speed_m_s": 1.4585472569600173,
+        "validation": {
+          "reached_common_threshold": true,
+          "sensor_stream_live": true,
+          "stop_ack": true,
+          "parked_command_zero": true,
+          "parking_drift_under_0_1m": true,
+          "planner_produced_motion": true
+        },
+        "native_finished": false,
+        "runtime_native_s_summary": {
+          "count": 1060,
+          "mean": 0.26345566025460665,
+          "max": 0.5130000114440918
+        },
+        "initial_pose": {
+          "x": 3.034826422100781,
+          "y": 0.10400793916788041,
+          "z": 3.7613806466163524e-06
+        }
+      },
+      "runtime_cleanup": {
+        "owned_processes": [
+          {
+            "pid": 10760,
+            "command": "/usr/bin/python3 /opt/ros/noetic/bin/rosmaster --core -p 11311 -w 3 __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/master.log ",
+            "start_ticks": "482962"
+          },
+          {
+            "pid": 10782,
+            "command": "/opt/ros/noetic/lib/rosout/rosout __name:=rosout __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/rosout-1.log ",
+            "start_ticks": "483200"
+          },
+          {
+            "pid": 10796,
+            "command": "/bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/gazebo-2.log ",
+            "start_ticks": "483263"
+          },
+          {
+            "pid": 10801,
+            "command": "python3 /opt/ros/noetic/lib/controller_manager/spawner jackal_joint_publisher jackal_velocity_controller __name:=controller_spawner __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/controller_spawner-3.log ",
+            "start_ticks": "483281"
+          },
+          {
+            "pid": 10873,
+            "command": "gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/gazebo-2.log ",
+            "start_ticks": "483530"
+          }
+        ],
+        "remaining_owned_pids": [],
+        "ports_free": {
+          "11311": true,
+          "11345": true
+        }
+      },
+      "freeze_validation": {
+        "all_frozen_files_unchanged": true,
+        "changed_files": []
+      }
+    }
+  ],
+  "descriptive_statistics": {
+    "stock": {
+      "complete_count": 2,
+      "attempt_count": 2,
+      "sim_time_s": {
+        "mean": 1136.8780000000006,
+        "sample_std": 198.55699837074468
+      },
+      "distance_m": {
+        "mean": 1641.095347638549,
+        "sample_std": 212.4901261154327
+      }
+    },
+    "aligned": {
+      "complete_count": 2,
+      "attempt_count": 2,
+      "sim_time_s": {
+        "mean": 1018.4084999999995,
+        "sample_std": 59.32272340764571
+      },
+      "distance_m": {
+        "mean": 1510.520063988166,
+        "sample_std": 50.995510398615274
+      }
+    }
+  },
+  "differences_from_fresh_control": [
+    {
+      "trial": "tare_sensor_model_20261028_01",
+      "time_vs_fresh_control_percent": -2.008676567547618,
+      "distance_vs_fresh_control_percent": -1.0987981442548755
+    },
+    {
+      "trial": "tare_sensor_model_20261028_02",
+      "time_vs_fresh_control_percent": 6.410484135609651,
+      "distance_vs_fresh_control_percent": 3.738638399972971
+    }
+  ],
+  "GBP2_followup": "paused_by_user",
+  "paper_statistical_replication_claimed": false
+}

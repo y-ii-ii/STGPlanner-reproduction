@@ -1,0 +1,72 @@
+{
+  "trial": "formal_tare_01",
+  "last_metric": {
+    "sim_s": 1277.2199999999993,
+    "wall_s": 1288.2968601739994,
+    "area_m2": 7377.92,
+    "coverage_fraction": 0.9471014120667522,
+    "distance_m": 1791.348556749956,
+    "x": -26.096506304843476,
+    "y": 20.57630278786796,
+    "nonempty_plans": 1274,
+    "empty_plans": 0
+  },
+  "commands": 0,
+  "waypoints": 0,
+  "path_counts": {
+    "local_path": 0,
+    "global_path": 0,
+    "exploration_path": 0
+  },
+  "stages": [
+    {
+      "end_sim_s": 199.09399999999914,
+      "coverage_percent": 22.231578947368423,
+      "distance_m": 287.11505945107075,
+      "stage_speed_m_s": 1.4421080467069425,
+      "stage_new_area_m2": 1731.8400000000001
+    },
+    {
+      "end_sim_s": 399.0069999999996,
+      "coverage_percent": 42.409242618741985,
+      "distance_m": 573.3928688742911,
+      "stage_speed_m_s": 1.4320119723240596,
+      "stage_new_area_m2": 1571.8400000000001
+    },
+    {
+      "end_sim_s": 599.143,
+      "coverage_percent": 52.52682926829269,
+      "distance_m": 856.8018003701501,
+      "stage_speed_m_s": 1.416081721908394,
+      "stage_new_area_m2": 788.1599999999999
+    },
+    {
+      "end_sim_s": 799.512999999999,
+      "coverage_percent": 69.30937098844674,
+      "distance_m": 1137.1572315868611,
+      "stage_speed_m_s": 1.3991886570679866,
+      "stage_new_area_m2": 1307.3600000000006
+    },
+    {
+      "end_sim_s": 999.9869999999992,
+      "coverage_percent": 79.10654685494224,
+      "distance_m": 1396.6412862256093,
+      "stage_speed_m_s": 1.2943526573957118,
+      "stage_new_area_m2": 763.1999999999998
+    },
+    {
+      "end_sim_s": 1199.1089999999986,
+      "coverage_percent": 91.45263157894738,
+      "distance_m": 1690.1943244561721,
+      "stage_speed_m_s": 1.47423709198664,
+      "stage_new_area_m2": 961.7600000000002
+    },
+    {
+      "end_sim_s": 1277.2199999999993,
+      "coverage_percent": 94.71014120667522,
+      "distance_m": 1791.348556749956,
+      "stage_speed_m_s": 1.2950062384783567,
+      "stage_new_area_m2": 253.7599999999993
+    }
+  ]
+}

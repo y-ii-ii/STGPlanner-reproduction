@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-28",
+  "supersedes": "experiment_plan.json candidate choice only; control and all fixed conditions retained",
+  "reason_before_candidate_results": "Runtime momentum_activation_count was zero during observed control despite turns; code requires repeated rapid reversals before it can affect relocation. Native LiDARModel FOV=24 degrees and viewpoint half-FOV=12 degrees do not match the actual simulated VLP16 +/-15 degrees. This supplies a direct integration-consistency hypothesis to test first.",
+  "control": "tare_audit_control_20261028_01",
+  "unused_candidate": "tare_momentum_20261028_01 was never started",
+  "candidate": "tare_sensor_model_20261028_01",
+  "confirmation_if_adopted": "tare_sensor_model_20261028_02",
+  "change_scope": "Only native TARE physical vertical LiDAR model alignment: 30-degree full FOV, include both 2-degree beam endpoints (16 rows), match viewpoint FOV ratio and derived near-field threshold. Not a new exploration strategy.",
+  "unchanged": {"kUseMomentum": false, "public_threshold_m2": 7400.5, "area_denominator_m2": 7790, "max_speed_m_s": 2.0, "sensor_range_m": 12.0, "limit_s": 1600, "protocol_revision": 3},
+  "required_validation": ["Actual native LiDARModel physical 16-ray fixture before and after", "No source or binary changes while runtime active", "Native rebuild before fresh trial", "Public95 and parking/sensor checks", "Independent candidate confirmation before adoption", "Save all runs, failures and configuration/source fingerprints"],
+  "decision": "Do not claim sensor mismatch is the unique cause. Compare all completed control/candidate observations. If performance is not improved, record failure or inconclusive outcome and restore original native files/binary or clearly document remaining candidate deployment. Never change the observer threshold or hide unfavorable runs.",
+  "comparability": "Native stochastic sampler remains unmodified; small-sample experiments are not paired deterministic tests or the paper's five-run statistics. Previous formal_tare_01 is preserved as historical reference."
+}

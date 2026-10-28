@@ -1,0 +1,16 @@
+{
+  "state": "paused_by_user",
+  "owner_thread": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+  "trial": "repair_formal_gbp2_09",
+  "updated_at": "2026-10-27T20:46:49.034567+08:00",
+  "runtime_active": false,
+  "phase": "scene4_baseline_stage_complete_gbp2_paused",
+  "finish_reason": "sim_time_limit",
+  "result_path": "D:/STGPlanner/benchmarks/results/repair_formal_gbp2_09",
+  "common_threshold_reached": false,
+  "extra_final_process_check": "not_run_user_denied",
+  "note": "Scene4 baseline stage complete; GBP2 follow-up paused by user. Documentation/archive maintenance only; no simulation started or scheduled.",
+  "backup_content_commit": "6fd0d05332be4571b845c85f71bbb04ed011dbe7",
+  "stage_status": "stage_complete",
+  "stage_backup_verified": true
+}

@@ -1,0 +1,17 @@
+{
+  "owner_thread": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+  "trial": "tare_sensor_model_20261028_01",
+  "method": "tare",
+  "state": "idle",
+  "phase": "tare_optimization_trial_ended",
+  "runtime_active": false,
+  "gbp2_followup": "paused_by_user",
+  "stage_status": "Scene4_prior_baseline_complete_TARE_followup_authorized",
+  "result_path": "/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_01",
+  "supervisor_pid": 13,
+  "updated_at": "2026-10-28T11:18:13.051199+08:00",
+  "benchmark_pid": 32,
+  "observer_pid": 72,
+  "returncode": 0,
+  "finish_reason": "coverage_threshold"
+}

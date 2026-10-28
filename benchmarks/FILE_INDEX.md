@@ -105,3 +105,7 @@
 | maintenance/verify_scene4_stage.py | 当前报告/证据/归档/交接只读一致性核验 |
 | maintenance/backup_scene4_stage.py | 私有性、保护引用及远端克隆恢复核验，凭据仅在内存中使用 |
 | maintenance/check_report_layout.cjs | 以本机无头Edge检查本地HTML表格与图片，不访问外部站点 |
+
+## TARE后续优化（2026-10-28）
+
+新增[tare_optimization/README.md](tare_optimization/README.md)，列明运行监督、只读诊断、感知模型补丁、实际原生回归、重建/恢复、报告/归档与验证工具的作用。当前真实部署以project-context/TARE_DEPLOYMENT_STATE.json为准。

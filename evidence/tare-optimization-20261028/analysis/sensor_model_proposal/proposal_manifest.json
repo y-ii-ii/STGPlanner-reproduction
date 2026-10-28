@@ -1,0 +1,15 @@
+{
+  "changes": [
+    {
+      "native_path": "/opt/stgplanner/benchmarks/tare_ws/src/tare_planner/include/lidar_model/lidar_model.h",
+      "before_sha256": "95e03c90ad14ab3004b75eb2459431d072d394f6f6553706101f18377a455c3e",
+      "after_sha256": "762922df1d9a9c34b4ad2ee3d4ecb62303b7c2c14780e135ca448f788e1c99b8"
+    },
+    {
+      "native_path": "/opt/stgplanner/benchmarks/tare_ws/src/tare_planner/src/viewpoint_manager/viewpoint_manager.cpp",
+      "before_sha256": "65c656049f47d58b3bd87d7098b4a1dad0b782496072d7dd4de1d4e3273386a8",
+      "after_sha256": "59196117b9bef1dd1943f9219ba293c6894e8a1d6092db005dc7c763c8c1622f"
+    }
+  ],
+  "native_sources_modified": false
+}

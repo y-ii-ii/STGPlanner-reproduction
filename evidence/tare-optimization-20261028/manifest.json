@@ -1,0 +1,1834 @@
+{
+  "generated_at": "2026-10-28T11:42:00.750787+08:00",
+  "files": [
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\cloud_bridge.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/cloud_bridge.log.gz",
+      "source_sha256": "a9e0bf22c3ba2b72166dfd5468c7502947e371e7853ffc4157177f91b8092bad",
+      "archive_sha256": "0688010bbe9c6635b2545071a04a99618640f5c6c052e1c74dd45dc24ccb609d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\coverage.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/coverage.log.gz",
+      "source_sha256": "40bd7b541f075415ba4fc431fe255de259d3d6c74bee232192463ebf73eba036",
+      "archive_sha256": "7387ff2ac7f8f65adbc2cb14a62b28e5ea99d0d6a3ab173717aa26bfa7efc828",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\coverage.ufo",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/coverage.ufo.gz",
+      "source_sha256": "ea39029c61ede6653c6acb859985058eadcd8633ef89b02a3ffef294ac552b7a",
+      "archive_sha256": "a2555b195313a3787b743b3d054e335682ce7e29bdb3de6b231cc331280e8d69",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\coverage_insert.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/coverage_insert.tsv.gz",
+      "source_sha256": "3d52529b88b8fff8d9448915c4a4af2fca6044d690c167ecce0a9566e28f9bd5",
+      "archive_sha256": "68bfbf02f86a84be7ccb6a75376211f77ef993981b3742f4ff438b35669b3e50",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\coverage_mapping.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/coverage_mapping.tsv",
+      "source_sha256": "e57fd83f7dbd9dde601f813798299bb5e9af20b3b791163c3bf72354a8d4ee3c",
+      "archive_sha256": "e57fd83f7dbd9dde601f813798299bb5e9af20b3b791163c3bf72354a8d4ee3c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\events.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/events.jsonl.gz",
+      "source_sha256": "f8a265f79cf8841361bbb5b49769c9a66ca6e88c63c761ce403a13c34d1cb5f4",
+      "archive_sha256": "fe2bc3dba20699adcfc503aadbc9f5dae0a334e67ef61ec00676e2e68e5b1ca1",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\freeze_validation.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\known_plane_cells.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/known_plane_cells.csv.gz",
+      "source_sha256": "4537b4a40ce0f737f27ae17e32969c895e9c0d1f9ca8f2700480f18e78669da9",
+      "archive_sha256": "040dc0a07225c1eb55e489e9dd93dd42740c6aa158ecef57b2aa1f285d288f2a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\metrics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/metrics.jsonl.gz",
+      "source_sha256": "54b6cfd8aa8fe4ba88772178597a590f648d96eaaf5e64cb343c5a156feda645",
+      "archive_sha256": "4b18e14974212fcc6dc87210e16e5f1045843747e7be8eaa7e786e92fe771746",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\movement.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/movement.log.gz",
+      "source_sha256": "59df82b4998e743cacb9a61454ddc3c733ce90af08114dafbc9af4afbdb76a03",
+      "archive_sha256": "71696d4aaf62c88abe83bc1db0d3c4e33f49fff964c6ddc2499057b49c8ee92c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\native_planner.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/native_planner.log.gz",
+      "source_sha256": "300b59ae46b8fe0ba678c81273b928093683bdb46adfc6cef9430986244c7a21",
+      "archive_sha256": "456a7cac211000194005035fa4db2cceaf66755c428da56dda944d4423d25c9b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\observer.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\result.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/result.json",
+      "source_sha256": "4574aaa0b37d79b7d39c5e14a74313f00861d738e355064135254d6e7f2aebb1",
+      "archive_sha256": "4574aaa0b37d79b7d39c5e14a74313f00861d738e355064135254d6e7f2aebb1",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\runtime_cleanup.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/runtime_cleanup.json",
+      "source_sha256": "60eefb0a515ba522fc11c8ab76fdbcb6b09f009605bd981559fb092a6e0783d6",
+      "archive_sha256": "60eefb0a515ba522fc11c8ab76fdbcb6b09f009605bd981559fb092a6e0783d6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\runtime_fingerprint.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/runtime_fingerprint.json",
+      "source_sha256": "3f9b7a1e22465c87106bfd4d0c68ef3aa492d93ed5c2c8bf1d83658916cedb45",
+      "archive_sha256": "3f9b7a1e22465c87106bfd4d0c68ef3aa492d93ed5c2c8bf1d83658916cedb45",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\runtime_fingerprint_2.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/runtime_fingerprint_2.json",
+      "source_sha256": "8dc0ee46123df53b5fc8856c73248a857fbedb5ab2e6a0e92bf012c990ed3381",
+      "archive_sha256": "8dc0ee46123df53b5fc8856c73248a857fbedb5ab2e6a0e92bf012c990ed3381",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\simulation.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/simulation.log.gz",
+      "source_sha256": "db574d4c15daba1a7f7d72ab5e8bab47647058b44e3ddc75b7b3562da4922067",
+      "archive_sha256": "8ed47e01eb8fc340c2b2c363960b64c061587f1372eb1315716201aa399ae031",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\status.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/status.json",
+      "source_sha256": "27b1b18845ba0c3a02c643a5e9e7c73ad51dca485b1be34564307b458521a8d9",
+      "archive_sha256": "27b1b18845ba0c3a02c643a5e9e7c73ad51dca485b1be34564307b458521a8d9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\tare_diagnostics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/tare_diagnostics.jsonl.gz",
+      "source_sha256": "abd4c42bc7fc7375a9383163a2df43592456da5533db92a6af5c154a72b81191",
+      "archive_sha256": "5d9df66a4893105aa5810ab5bd2de45db11ced23bf9952b1c3d99d5795ad5b60",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\trajectory.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/trajectory.csv.gz",
+      "source_sha256": "19efa6bc651cbcc8bde58a270fe36aeba4a5a56af57132ece6529e092e6af3f8",
+      "archive_sha256": "754983fa12de5f51f4d0b8694951ea24a53e767369b66efb35a6189ab234c8a4",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/manifest.json.gz",
+      "source_sha256": "e7a32c7bc4f276360d95fdbb2f147fcd10e2812d70c26c1425111cf55a319ca0",
+      "archive_sha256": "390613d9539d9aabbe0163dcbe99ddf56c4c7a58e1a7dea0ab0fc704fbd13cd9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/previous_simulation_lock.json",
+      "source_sha256": "fb2b9743180b2c9cb50f1d028526787f7d14e99742e7cae193100cba858f06bc",
+      "archive_sha256": "fb2b9743180b2c9cb50f1d028526787f7d14e99742e7cae193100cba858f06bc",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/run_tare_trial.py",
+      "source_sha256": "c7c3463052c7fdc302e161062bba2fdd3364b3edbc3b3b9fdb62a8766a72de00",
+      "archive_sha256": "c7c3463052c7fdc302e161062bba2fdd3364b3edbc3b3b9fdb62a8766a72de00",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\rosservice_313_1793154995859.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/rosservice_313_1793154995859.log.gz",
+      "source_sha256": "b7d93ebe9034f48debf2ec31a5f40092641e51661c8cfc14d638058702f66422",
+      "archive_sha256": "2331f88b2b600b748d25e778721fb9473c24f564a80bb78b91728e924a602caa",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\scene4_benchmark.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/scene4_benchmark.log.gz",
+      "source_sha256": "3d1517745e1e80224db14fc6b9abc404082787a0e424f53101e080600f6dca77",
+      "archive_sha256": "227acef73da3a9d993c9c3243f7457a1c56774783a4e2954096dc1a8edc64096",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "7995800ae62250b581a50663fd92262fd9e88a0844891d8d3514fe814f3df2b9",
+      "archive_sha256": "b1e2de4cc218c4ef19fc2b62d6167709443d4dc750b101c4e2a61dbe30f4b1be",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "2a6aa128a99368f61d8da6b893f807dfe86be1a507656fa79a786bba499bd9df",
+      "archive_sha256": "12d30d379e33cbbaa2046455588fc6aa413fd9ff9bde41c0bd0b5da70265c2a9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\master.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/master.log.gz",
+      "source_sha256": "766fb562f9977ebc997b67f9d464b8436c9d1b240cc5e9dac11799c13d7723b2",
+      "archive_sha256": "2621c004e42bb41938249ea878fe01116cc61311a2e804d2c9d66d35581cc235",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "674d4fe175e88cecbc799b21f05a2a247bb7117c0734e81594a108b9263e6f0b",
+      "archive_sha256": "148aa96719ca044b1d74e767c3fdd3c2c0f4934da7ba96278f1e94f74e03c324",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\roslaunch-PC-20231212HLZZ-352.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/roslaunch-PC-20231212HLZZ-352.log.gz",
+      "source_sha256": "cdf4a4f8205b3e988ff76213edaffdfe68d1cfdfc50fc41ae1eb883961037a6b",
+      "archive_sha256": "eec69a2c5a001d1c6404277755d9ffbeda6a5fb79f2c872b58b5487f13a1dc3c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\roslaunch-PC-20231212HLZZ-52.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/roslaunch-PC-20231212HLZZ-52.log.gz",
+      "source_sha256": "3360551574e3346c6612afbad5385fc5e88a329688fcea590c3457b67adbc7ca",
+      "archive_sha256": "2d60f04c88d15fc1f69c78d599515cae8d980ac243dd9ca81836f88b67e98c65",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\roslaunch-PC-20231212HLZZ-534.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/roslaunch-PC-20231212HLZZ-534.log.gz",
+      "source_sha256": "e893e9bc22a8b4dfbb71c459223539c4697233323e6d36bfa93c61593049189d",
+      "archive_sha256": "2d0beb68d294739b1ab4090e05fd4e9383f12e0b94c397d3f3a89ed25504a67d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "aff310cad2e2af178dbfde632303e40801280fba6a99c92c4fa270753d96258e",
+      "archive_sha256": "d8400efc70c8734ac490c0039391b452e10606a9c669a8df4be18ef71f3a98aa",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\rosout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/rosout.log.gz",
+      "source_sha256": "896c332a2dea62b80daaf769847e24df6c6d0da9ad0e81ed0995b6a865aa0050",
+      "archive_sha256": "9eba6ca481b549269051dada7663bd36b90ac4a0010c9ab47874dc7ac581c82a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "5841da2704a5072f85ddb4f50fa7a24635376e9966d2a44fb8f51e6c7210f4c0",
+      "archive_sha256": "ebd52e211d843aa291bf7b01d3b971ab801f2e886d1d81fe31d7ae517973287d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "6c39fa1d83284ff2d385daa0f601e8a29c68496c7a2e82a825f5fb86abdc1e4f",
+      "archive_sha256": "5c215852a3d5948baba6d3db80a841cd12be72a6dcb964df606f9293ad62f6e2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "046cdc5da8cb79dadaa8a35edb6136e1b575ace4e8bdb5e933f9aaefd5fba84b",
+      "archive_sha256": "e24323ec749f5550f440eda7cfce0364c04afede034e313220de0a0496f9fbcf",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "ff4483419d2955bbe3bedb3a273747a1ed9e89db88722f3f7a7030eeb3400574",
+      "archive_sha256": "015d8140bb0dbfeb5e2e5442061b2fd12d649bd7feaed73b1cfbe3ce9defe0d2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\ros\\5860e654-d278-11f1-97dd-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/ros/5860e654-d278-11f1-97dd-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "71edb701b2325f91f603b8f56956caeb4bcabb6bd04d9eaca7d0f460f9aa0b6c",
+      "archive_sha256": "91211e71ae3ab4ab726e9240ac7a602b849c9b7815626abe488af7fa2ae93c41",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_audit_control_20261028_01\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_audit_control_20261028_01/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\cloud_bridge.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/cloud_bridge.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\coverage.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/coverage.log.gz",
+      "source_sha256": "fd46a9703a84da549b09abea82fc3cca9d559f9152a164a2370382dcceebc21b",
+      "archive_sha256": "28256ef93ad4afc7d4149f23efea73251ab7aad27b65a88feebfeba1a7063090",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\coverage.ufo",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/coverage.ufo.gz",
+      "source_sha256": "718a6acf3bc69a83d65b763fc7072b1093f971bf8fdcb5059d59167c4d927e4b",
+      "archive_sha256": "a7e30411aced25028cc498d342ca51cff8988bd48aafdae639b5e111dd2f0434",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\coverage_insert.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/coverage_insert.tsv.gz",
+      "source_sha256": "f4e1f829dd4352414143609dce549667a62ff6a1ec05370fedb58e6c66bffbf0",
+      "archive_sha256": "973a45365d86266a0e939dbf6a21e464cb1591f9b813c7c6061dc2c1cf34abb4",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\coverage_mapping.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/coverage_mapping.tsv",
+      "source_sha256": "aa496283215627819dfa4703a94991fbb038ed6b56b33a2170f1c66dc83535d5",
+      "archive_sha256": "aa496283215627819dfa4703a94991fbb038ed6b56b33a2170f1c66dc83535d5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\events.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/events.jsonl.gz",
+      "source_sha256": "e43dc584a105c5a215609c3f701774a8293ab649aea6c5b5f5b5acd547829e18",
+      "archive_sha256": "e6cf51e1aa67301a9138e27f9f201fffe6c6c8c3fa72e093fc940353a7a1fcf3",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\freeze_validation.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\known_plane_cells.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/known_plane_cells.csv.gz",
+      "source_sha256": "ea40dfabdb08ba3dbf62ad13c842b63439cc864983038d02d549fb99969eccdb",
+      "archive_sha256": "8c1ec045decc569a3868091bb4525c3c8b1b6105596513ba4c77d50fabd0756b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\metrics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/metrics.jsonl.gz",
+      "source_sha256": "33d82aa0f82866f708b4d6a80cb5c794ea8ab714044f16a70a3c7fdf64be2270",
+      "archive_sha256": "794c285d036d79575f9f869876dafc0b8d8ef73880d3d3407c8889b8e12e251e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\movement.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/movement.log.gz",
+      "source_sha256": "ae979f991baec6b88adb2a514f7ef5fa3fb2fcd4b5bfc00bc21106250a966b7c",
+      "archive_sha256": "53e205a5a20dd2ec41989e6eb8d616eff328794d747ceed4b6897419cb59b8f1",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\native_planner.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/native_planner.log.gz",
+      "source_sha256": "5dd5a96b042c66d9be384c633997333239c78d1b4b3d6bbafba2fcd8ebb5f76c",
+      "archive_sha256": "3a4adf3315d7d4f45c3e2664ab861f3889a9e518686116789a22e83790b1bbf9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\observer.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\result.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/result.json",
+      "source_sha256": "ad0a740dfaf8237737dacb3db961437482e8922b8f0fa9911115386f90682bb7",
+      "archive_sha256": "ad0a740dfaf8237737dacb3db961437482e8922b8f0fa9911115386f90682bb7",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\runtime_cleanup.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/runtime_cleanup.json",
+      "source_sha256": "e70bdd865a4c0de7e711cc2679ae1e40332fb4e3949df9f8a0065d1d669306a0",
+      "archive_sha256": "e70bdd865a4c0de7e711cc2679ae1e40332fb4e3949df9f8a0065d1d669306a0",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\runtime_fingerprint.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/runtime_fingerprint.json",
+      "source_sha256": "db1895f6b3efee63741424f935d7bed2a5b3f99ad20aa26c827323aabb8a3faf",
+      "archive_sha256": "db1895f6b3efee63741424f935d7bed2a5b3f99ad20aa26c827323aabb8a3faf",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\simulation.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/simulation.log.gz",
+      "source_sha256": "52ad758be2ed535c424886e473f386c9e5cf851ce13acee2a4140f5f8ebb6d66",
+      "archive_sha256": "a5f27c77361f99ede2c2a52d36d5150212787cad5abf2fe9a773eb73a760e367",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\status.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/status.json",
+      "source_sha256": "0805beee0a23b8d7bfd9dfd2b994892b2b50a8c4c8da8aa09e1fbbc106e6ee14",
+      "archive_sha256": "0805beee0a23b8d7bfd9dfd2b994892b2b50a8c4c8da8aa09e1fbbc106e6ee14",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\tare_diagnostics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/tare_diagnostics.jsonl.gz",
+      "source_sha256": "97a8d950205ab731256f30d482d8a0e1e5b7674b49e2121f801cb38d770378a4",
+      "archive_sha256": "5b7325f3d0ce9cf81b3d7c3d6866c4cf835a009592b341a07f9bc7759259721f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\trajectory.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/trajectory.csv.gz",
+      "source_sha256": "43c06ddf7876aafefab50edb6cc81f184624880e72ef32bdfeafa72e4f9a6137",
+      "archive_sha256": "ded81df6825df45003d6ae3fbdc0d068437c813a2ce79a4cc8292c6b267754b8",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/manifest.json.gz",
+      "source_sha256": "5e776ae3215f8203a0e8ecd2545a4e1945fba625a99bdd9667bb4e5ec5584b23",
+      "archive_sha256": "f1fba1b0a3182c77e992a3168f43c90a8aed623e93b0736695d2680b5e61a259",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/previous_simulation_lock.json",
+      "source_sha256": "655a4cc2f0ae35e888e1da4848e0d0611067757b66ba95fa1f2a65c99a126184",
+      "archive_sha256": "655a4cc2f0ae35e888e1da4848e0d0611067757b66ba95fa1f2a65c99a126184",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/run_tare_trial.py",
+      "source_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "archive_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\rosservice_330_1793156463121.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/rosservice_330_1793156463121.log.gz",
+      "source_sha256": "d0439c511c4629ef3ecb8d89603c17b008ea30e8c410c721f5bbc75989c95385",
+      "archive_sha256": "124138200179f6ce1277a04b7eb1dc69c06dd89b0161d2e04f94e30bf651eeb8",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\scene4_benchmark.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/scene4_benchmark.log.gz",
+      "source_sha256": "6e25626d7345d4ceaa3c0cfbd487e1ca0c69cdd33d149b6d15017971ff2cb49f",
+      "archive_sha256": "c80cec9e529e59bcb658550166149fa29cf0de2d9b2e6e5756a05e2a7d0ceb96",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "43a40822ad9ed3849c3f411cd632ec6c54a54635eed404fcf557f87caacfd1b7",
+      "archive_sha256": "4eb586fabb2274237960e4c66f1d9e3bd6b0279698b3a5aa62f1ec3ff50ca6c2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "8c05d971b46835b4b0791977039bfecd559b256704d6192196d76be8d4138bd4",
+      "archive_sha256": "4ae85f6264bfe9e3894f81ccb9834c63ce755cac1cdd98844d0d6ce33e719b31",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\master.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/master.log.gz",
+      "source_sha256": "30534b5bd1e902a0b2aa627c2a9553e8aa5ac8c4d6302956f5eedab5163b2653",
+      "archive_sha256": "d213eb5594ad61f31f2857eb970d59e19eceebc404b3a2036ebe8eaff7cd4a10",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "8848ed61f32a98eb2c84f073b3f6f977bf7724def50b8c82406fd7efed58908c",
+      "archive_sha256": "7bd76132a515fb59f3b09e113337b7fee003706de91af9eca86563015af5942e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\roslaunch-PC-20231212HLZZ-352.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/roslaunch-PC-20231212HLZZ-352.log.gz",
+      "source_sha256": "f5f0dfc9e27541e2931111cf5f802c7a292f130cb7817d86819b11aa60b890af",
+      "archive_sha256": "b4a3a759720f64461513234d1ec8568e283f0a33f7a62bf92f868a4e596f7f14",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\roslaunch-PC-20231212HLZZ-52.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/roslaunch-PC-20231212HLZZ-52.log.gz",
+      "source_sha256": "c3cf2470e3f7021cc97987edfd49a0e391980cab0dc31bfe43ab9f6489022fb5",
+      "archive_sha256": "9e001494783a3ab5a36b9dd8c0eff2f4713e25c28ad2773060907ed67b77aac1",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\roslaunch-PC-20231212HLZZ-535.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/roslaunch-PC-20231212HLZZ-535.log.gz",
+      "source_sha256": "b255bfb0c8b134787191b10c0b53b2a965e432e94e20dc29e0ba65d3cc45b337",
+      "archive_sha256": "e93f892716d2e1a4f4c2d511e389b78630bbe88f77ef8868fc531c77b00003fa",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "5295ec784431a0af20b076a471a632269d373d640c745b5b05645a3ca60b2bae",
+      "archive_sha256": "88473c6e21ae537b5a8f77621010b9e9d1cbac29a83dd0812b0cf94bec56986f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\rosout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/rosout.log.gz",
+      "source_sha256": "92e7d87506f2ae6e59fdc46e84835f22ac3b460925ed6146a124863e47388a3a",
+      "archive_sha256": "893348efce8a1170b2f7ed4c7ec276af56b020bdfcbf9d13a1737624013b9dcd",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "1d574d89be5e55803afa5e3b57c96a8e0d196c63ab478b247c350e845211ae4a",
+      "archive_sha256": "84033399e057271371e2c0a82a4c5a6511c1b8098e4c5b86608fbf81ef392d78",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "95e89b2baa9a7fb4014215a1ea74b5a9f087b6b266f37066fa4a1c21a41965a1",
+      "archive_sha256": "190d34293ebde82ab7cf686aefc5903b0a014ab05f4fedc5d14dc8655413636e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "47ad0690bc43303d7577e149957623c95b540d7c6991ad6fde7011d25e73088e",
+      "archive_sha256": "efc3cd33989fdb6f2330d06b1b84e1d4e4cdacc20b7f099ef5f863e4b57a9e5b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "7c09b717b118aec6e4e845e1a578066db4e3af2a8f470b3c00ca4d34880b6b4b",
+      "archive_sha256": "7010d235f3312d4e4a0cdc807a3a1ddc2f7b8df10e45e376cd0c7deef6191a9d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\ros\\c4c11d98-d27b-11f1-8584-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/ros/c4c11d98-d27b-11f1-8584-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "a64656d6cc0d4f47a4ffa8776d2ab0852ff267ace59c57f3e7464c86a9954633",
+      "archive_sha256": "15dd599d989aef52c98ccf645f3d9c54e06bc443144ddd63bb4e1324c4c5500c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_01\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_01/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\cloud_bridge.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/cloud_bridge.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\coverage.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/coverage.log.gz",
+      "source_sha256": "49f8d30316f9cb1ca6a1c1286a5fd2a29170ecb241233df7878505e7786a692f",
+      "archive_sha256": "ea905ec596a535af6bd5a65c842074b8f638487d9b840623b7a8e7adc0388a97",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\coverage.ufo",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/coverage.ufo.gz",
+      "source_sha256": "036acb2dd9bd96d5a74788c9803d87f5551c828c852ca54cc1c974102f098266",
+      "archive_sha256": "c3691fdedaadaffbfd0de8ea3d8f97cba7db6c3da0a49f9f1912b26fac36be64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\coverage_insert.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/coverage_insert.tsv.gz",
+      "source_sha256": "6e3a7567ca46e85ca94008609b5edf6495ff7eebb17e8c346b708a2d826fd877",
+      "archive_sha256": "d6c0fba8593e28b7ce01b01cdaf344010dc7a4ce1e4cbdb2bad071054e5c369f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\coverage_mapping.tsv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/coverage_mapping.tsv",
+      "source_sha256": "c64ef7b527eb72fc589291ebf9c9efe1315f26aab9f184ef8403ceada4409fc9",
+      "archive_sha256": "c64ef7b527eb72fc589291ebf9c9efe1315f26aab9f184ef8403ceada4409fc9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\events.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/events.jsonl.gz",
+      "source_sha256": "41e1825d974cd60032b219ccb17ed5994f6add8f8466505d1ca29f1ee7435743",
+      "archive_sha256": "29f3144cdc457936aecf425da8e1e7757474f8b6b36cd886993e82f438c531a6",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\freeze_validation.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\known_plane_cells.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/known_plane_cells.csv.gz",
+      "source_sha256": "d87d2d66d2636100f52e59fa13b904ccad7005e9d1d063d160adf6a55cbacc75",
+      "archive_sha256": "13de27ae4804351eff4d345acfc62b6ce34dd688c00dfd59c833aba690bba2a4",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\metrics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/metrics.jsonl.gz",
+      "source_sha256": "2be99abd31a7996c339837626982c6bbdfbebff2e92a737687ae31e07d27e889",
+      "archive_sha256": "919dc70ded3b8e124b7d7af27d19de576380520dc6ac8ca75698b40e5bcace49",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\movement.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/movement.log.gz",
+      "source_sha256": "8ada135d1cbd5acc6f3beea802ca9b31185459e63525fb8ac60e500fecc3b2c7",
+      "archive_sha256": "185d220037ee6c220668f2d06e3c5a58865a6ec20cde661f16db923563d23003",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\native_planner.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/native_planner.log.gz",
+      "source_sha256": "ceeeb9cc936fbab6b33fb7e6e830f2aa09b2e58adb7fce6053f7015681ec7779",
+      "archive_sha256": "d1a935178fcfaf8e859695eb6d1132e47c65dec6c883ee55562b03279e44204b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\observer.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\result.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/result.json",
+      "source_sha256": "78f9b63a6125206f72a1fae7cf9d53f48f78b299c5553db47bd5429e16549b7b",
+      "archive_sha256": "78f9b63a6125206f72a1fae7cf9d53f48f78b299c5553db47bd5429e16549b7b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\runtime_cleanup.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/runtime_cleanup.json",
+      "source_sha256": "ad03f9217bc71dba8ebd9b97d77d319b457c890f51376ca0f0fa567b8622f500",
+      "archive_sha256": "ad03f9217bc71dba8ebd9b97d77d319b457c890f51376ca0f0fa567b8622f500",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\runtime_fingerprint.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/runtime_fingerprint.json",
+      "source_sha256": "019e788ca1196f4d440a29b02f986ef07c0d79e526fbdfcce1b318c511a9146a",
+      "archive_sha256": "019e788ca1196f4d440a29b02f986ef07c0d79e526fbdfcce1b318c511a9146a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\simulation.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/simulation.log.gz",
+      "source_sha256": "016b6049e48ef735e4f3d1bd37b41ecfaf642b62df4940d2df08ed737e57e91b",
+      "archive_sha256": "5cae14ead8b3718d8cc674809ed674b00ccf007a77817a3c10dd3c8f9fa07890",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\status.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/status.json",
+      "source_sha256": "14bdf0ac7c23c2f67cd3055594befe8654eb49deb36b2dbbf164e6545120601f",
+      "archive_sha256": "14bdf0ac7c23c2f67cd3055594befe8654eb49deb36b2dbbf164e6545120601f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\tare_diagnostics.jsonl",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/tare_diagnostics.jsonl.gz",
+      "source_sha256": "fe800055031ca0518ac6b91516c28256844ca7aa6ade2fb2f428bdd3fbba87f6",
+      "archive_sha256": "ac18f32a929178fec85f08c31e6b83ca937736b99fd97a0d3a83a519c9ee4398",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\trajectory.csv",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/trajectory.csv.gz",
+      "source_sha256": "da74fb028adfba6f335132bf235038e62269f19e5bb03e87de19c730aeef89d8",
+      "archive_sha256": "e818529c6f33a976efe6460720afa4a39639b4f33bc59c6f124c573628140abc",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/manifest.json.gz",
+      "source_sha256": "e0f5774354d08bfa029f479f0f0f149d0904fe9751e90b400aa03c6a7f1447da",
+      "archive_sha256": "be4d2ace7c7feb916a3ae93ada89845afb6ca3e2728d07db4ee921e0a315e079",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/previous_simulation_lock.json",
+      "source_sha256": "5a949097d0486991499c8ce78334fb84566ea8269c2805f0adf373895e95ce00",
+      "archive_sha256": "5a949097d0486991499c8ce78334fb84566ea8269c2805f0adf373895e95ce00",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/run_tare_trial.py",
+      "source_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "archive_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\rosservice_10972_1793157515906.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/rosservice_10972_1793157515906.log.gz",
+      "source_sha256": "0b60b38c644f616921b8a7be257863285058a8bb9ff471edc8a5374904da81ef",
+      "archive_sha256": "14dad718ea07ac5f6f80d70c5630293ea66dd3daa9a1ba3ea33b57413fd59d4c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\scene4_benchmark.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/scene4_benchmark.log.gz",
+      "source_sha256": "09376839c667a5eb39cd70b89b935ace8f08dd5974fe305f9827946c9f53b7b3",
+      "archive_sha256": "f133a2c4d4ed0126c8b92d9b2293964181eb2c410acef2f44267efef0db43b79",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "d783fc6dacc2785fd5ad90c40b2cdb6aae15533b0e20a4177d60b437a4f1368c",
+      "archive_sha256": "2c49a30740a2cdea1169cb5b0ecf4612a33665d7fa79bd47b19e15e989199827",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "c513b51817f2af6dcc17b49dde5c8f21dd8fac27f8eaad78e4777305b7ffe1b2",
+      "archive_sha256": "c2c973b18997ded6f5507c7567fe45c5a8a9b88caf3ce8732ca0839bdad189db",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\master.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/master.log.gz",
+      "source_sha256": "d1f8f48ba8e197877b8df912de02a8dbbb1f22f5c9bfa6a5d37eae2dd201a518",
+      "archive_sha256": "7377cae81c6ec7f687619d404b01cf3fc7087628e29abab3ffd7f1811f8bf1c2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "a408f3c02716e2caca0f2e10a91e5ea975d0356d9b0e260d4c6db5bcfc9124f0",
+      "archive_sha256": "932b0b855d6f12d100ca247df2d27ff9b808cddbce6ef11a3f60f584e0d426f5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\roslaunch-PC-20231212HLZZ-10711.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/roslaunch-PC-20231212HLZZ-10711.log.gz",
+      "source_sha256": "8b42e88e3314355dfb7959f0dd5caa2c662f1dff415f9da20cfc2b56116beb00",
+      "archive_sha256": "ccb1bef8af55d799d956b5462c27fc2f595bec56c67e38d2aca65dc21abc3a11",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\roslaunch-PC-20231212HLZZ-11010.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/roslaunch-PC-20231212HLZZ-11010.log.gz",
+      "source_sha256": "e020f082408bbfe492f9cc9a9ebc1269511aec7225ce69b7319c6122868ae18a",
+      "archive_sha256": "0d5a93a7692af50331ea15da8cc4785679f51faa36bfaa1e7aa88e1f2bcd7ec7",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\roslaunch-PC-20231212HLZZ-11198.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/roslaunch-PC-20231212HLZZ-11198.log.gz",
+      "source_sha256": "48c544ef27dc827977ccd58daba4befee8f984cbe97369270f793d55a349b95f",
+      "archive_sha256": "8a10bdd44963805869896ccc1b235c4406b74f92e64a3d8ba5fec659d77e8ab4",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "3d9f77e7aa552fb6d569427a85d31343e5ab28c8137f6353645fc005d0b4491c",
+      "archive_sha256": "56ef19623fc132600324e9655b484ffc5c4831cf865694e18d9aabc45933a14f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\rosout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/rosout.log.gz",
+      "source_sha256": "78636a5982e2b510469818e34b4704a5bd411f0e5fcf4aea198d2458dc91956d",
+      "archive_sha256": "48a9302d1949c10aca48c87d55b7f6674c4b245feda999aef2a06a8085a44e3d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "66fdf7cb2f32a67ca973561a290824026df528adab34b23f172c295a0910d232",
+      "archive_sha256": "0460ee5e60105cf93b7fc0da7f6e248ff22951b3b1d5d25b3633bbc2a06319b8",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "88407dfb464122ed7f71ee598e9f7d573498d7e8722724153c6850792d5a9935",
+      "archive_sha256": "e1d53d8d70b6ed52c9f1446b01a0d507a9f767ef742602833825b0b7ea24bd53",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "ad06c4dc65960b1ed86207d814fa59835b11d8105435f54531bf213b2fbcbc4c",
+      "archive_sha256": "b2b4c00bd2ac5a77f21535847776d78a18977c29dc339e2c10f22b4c9ec36e9a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "7dba9c3d94b7430c982c78071e445f9280243dff34abb2c297dbdea0d728d0b4",
+      "archive_sha256": "6ec612a19edea2ff67add8ef5f897f21ddb74886a5e833e702e7e5689b58af61",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\ros\\3a20134e-d27e-11f1-aa52-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/ros/3a20134e-d27e-11f1-aa52-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "1d90c0c1f407a03c8a15556038a1e15b40b188d0ee19943c333efd5d2b9931d0",
+      "archive_sha256": "3fb303f8b5897238b82cddd3302aa266d6e77e1bc569c317a822cf239df23571",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\tare_sensor_model_20261028_02\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/tare_sensor_model_20261028_02/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\backup_preflight.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/backup_preflight.json",
+      "source_sha256": "16c32e20385b51b9698a9939aece38aed52e757bbcbd73507a3c0c50c32f62c8",
+      "archive_sha256": "16c32e20385b51b9698a9939aece38aed52e757bbcbd73507a3c0c50c32f62c8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\build_restored_original.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/build_restored_original.log",
+      "source_sha256": "4c1c582e910b2de6ae9ed12f5fedd91dba741201606f66a2967a017c6cd43085",
+      "archive_sha256": "4c1c582e910b2de6ae9ed12f5fedd91dba741201606f66a2967a017c6cd43085",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\build_sensor_model.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/build_sensor_model.log",
+      "source_sha256": "050f208fb273ffd7e289ec8bfd15c571d024d37987972f794c36597ecd2b0b60",
+      "archive_sha256": "050f208fb273ffd7e289ec8bfd15c571d024d37987972f794c36597ecd2b0b60",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\deployment_state.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/deployment_state.json",
+      "source_sha256": "c516caf0a54a28a6370787266dae24e04e279f6a318d86c4c5666d28598ae4e2",
+      "archive_sha256": "c516caf0a54a28a6370787266dae24e04e279f6a318d86c4c5666d28598ae4e2",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\final_processes.txt",
+      "archive": "evidence/tare-optimization-20261028/analysis/final_processes.txt",
+      "source_sha256": "3ad28d24a25afe19dbfe39c1ad939e8997d67d2719ef8b85e17d37bccabb9c67",
+      "archive_sha256": "3ad28d24a25afe19dbfe39c1ad939e8997d67d2719ef8b85e17d37bccabb9c67",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\formal_tare_01_diagnostics.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/formal_tare_01_diagnostics.json",
+      "source_sha256": "0fc0c97c4007c725ee6633ca23d3636cbf34ba25b7562318e9971cde4087cd1c",
+      "archive_sha256": "0fc0c97c4007c725ee6633ca23d3636cbf34ba25b7562318e9971cde4087cd1c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\report_layout.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/report_layout.json",
+      "source_sha256": "1fadb313164e6726434b1c792ec4c1d4ad95f57f371ffb56ba8a5faef16bdef7",
+      "archive_sha256": "1fadb313164e6726434b1c792ec4c1d4ad95f57f371ffb56ba8a5faef16bdef7",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\restored_binary_verification.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/restored_binary_verification.json",
+      "source_sha256": "0bfa4d47194c15d2dab622129b2267008987485a0dba47821b986e9e9f03f02e",
+      "archive_sha256": "0bfa4d47194c15d2dab622129b2267008987485a0dba47821b986e9e9f03f02e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\runtime_before.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/runtime_before.json",
+      "source_sha256": "5a0a8e89e81778fcdd831ed37d289c5123d1fb2423f9045f36f5df8f72931ef5",
+      "archive_sha256": "5a0a8e89e81778fcdd831ed37d289c5123d1fb2423f9045f36f5df8f72931ef5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\summary.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/summary.json",
+      "source_sha256": "e4d0058cc861b0770f5896755bc40e4503d4cd1ebedc2f54f6581fc6becd70ff",
+      "archive_sha256": "e4d0058cc861b0770f5896755bc40e4503d4cd1ebedc2f54f6581fc6becd70ff",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\tare_audit_control_20261028_01_diagnostics.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/tare_audit_control_20261028_01_diagnostics.json",
+      "source_sha256": "224829bb401ace58210354ccdf8990d8cf7b6cfdba5ebaa84ca6d114417896af",
+      "archive_sha256": "224829bb401ace58210354ccdf8990d8cf7b6cfdba5ebaa84ca6d114417896af",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\tare_optimization_curves.png",
+      "archive": "evidence/tare-optimization-20261028/analysis/tare_optimization_curves.png",
+      "source_sha256": "b9c0d9544e0cdd303c67d9a7caba6d73566de62d2f19e3c3deedfe8475d388c9",
+      "archive_sha256": "b9c0d9544e0cdd303c67d9a7caba6d73566de62d2f19e3c3deedfe8475d388c9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\tare_sensor_model_20261028_01_diagnostics.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/tare_sensor_model_20261028_01_diagnostics.json",
+      "source_sha256": "a178a9a0f927beb295a15a92aa7b0528a35dd9263bfd27a3d3d93c9bb77c7b25",
+      "archive_sha256": "a178a9a0f927beb295a15a92aa7b0528a35dd9263bfd27a3d3d93c9bb77c7b25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\tare_sensor_model_20261028_02_diagnostics.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/tare_sensor_model_20261028_02_diagnostics.json",
+      "source_sha256": "792ba93ab9bade5ceb4f1a0b74befb86c918af6eff9a32619801a13916c66144",
+      "archive_sha256": "792ba93ab9bade5ceb4f1a0b74befb86c918af6eff9a32619801a13916c66144",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\validation.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/validation.json",
+      "source_sha256": "35a1fe356cdcf4dff722e68792f0abcae7c44e516cdc71b3ab99282d37a3e2e8",
+      "archive_sha256": "35a1fe356cdcf4dff722e68792f0abcae7c44e516cdc71b3ab99282d37a3e2e8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\源码核对与实验边界.md",
+      "archive": "evidence/tare-optimization-20261028/analysis/源码核对与实验边界.md",
+      "source_sha256": "f93d699e581b8e9036b4a862aff5667b5aa368e7e1ed0b6f67f5248e77908878",
+      "archive_sha256": "f93d699e581b8e9036b4a862aff5667b5aa368e7e1ed0b6f67f5248e77908878",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/manifest.json.gz",
+      "source_sha256": "e7a32c7bc4f276360d95fdbb2f147fcd10e2812d70c26c1425111cf55a319ca0",
+      "archive_sha256": "390613d9539d9aabbe0163dcbe99ddf56c4c7a58e1a7dea0ab0fc704fbd13cd9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/previous_simulation_lock.json",
+      "source_sha256": "fb2b9743180b2c9cb50f1d028526787f7d14e99742e7cae193100cba858f06bc",
+      "archive_sha256": "fb2b9743180b2c9cb50f1d028526787f7d14e99742e7cae193100cba858f06bc",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/run_tare_trial.py",
+      "source_sha256": "c7c3463052c7fdc302e161062bba2fdd3364b3edbc3b3b9fdb62a8766a72de00",
+      "archive_sha256": "c7c3463052c7fdc302e161062bba2fdd3364b3edbc3b3b9fdb62a8766a72de00",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/manifest.json.gz",
+      "source_sha256": "5e776ae3215f8203a0e8ecd2545a4e1945fba625a99bdd9667bb4e5ec5584b23",
+      "archive_sha256": "f1fba1b0a3182c77e992a3168f43c90a8aed623e93b0736695d2680b5e61a259",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/previous_simulation_lock.json",
+      "source_sha256": "655a4cc2f0ae35e888e1da4848e0d0611067757b66ba95fa1f2a65c99a126184",
+      "archive_sha256": "655a4cc2f0ae35e888e1da4848e0d0611067757b66ba95fa1f2a65c99a126184",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/run_tare_trial.py",
+      "source_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "archive_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\benchmark_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\manifest.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/manifest.json.gz",
+      "source_sha256": "e0f5774354d08bfa029f479f0f0f149d0904fe9751e90b400aa03c6a7f1447da",
+      "archive_sha256": "be4d2ace7c7feb916a3ae93ada89845afb6ca3e2728d07db4ee921e0a315e079",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\observe_tare.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/observe_tare.py",
+      "source_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "archive_sha256": "7b8c10e9cfbcdb868cc4ec47134b6460123544bfcb4f4ca6fcf1ad1af42933c6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\previous_simulation_lock.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/previous_simulation_lock.json",
+      "source_sha256": "5a949097d0486991499c8ce78334fb84566ea8269c2805f0adf373895e95ce00",
+      "archive_sha256": "5a949097d0486991499c8ce78334fb84566ea8269c2805f0adf373895e95ce00",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\run_tare_trial.py",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/run_tare_trial.py",
+      "source_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "archive_sha256": "0781802929099401db6133b0bc576780103b99032b7942fe5630316a4a0e50b6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\APPLIED.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/APPLIED.json",
+      "source_sha256": "8451e26a0a87fe557674885d8fac13f6f51f4f86360b062cfa251a01e8b7fa0d",
+      "archive_sha256": "8451e26a0a87fe557674885d8fac13f6f51f4f86360b062cfa251a01e8b7fa0d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\include__lidar_model__lidar_model.h.after",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/include__lidar_model__lidar_model.h.after",
+      "source_sha256": "762922df1d9a9c34b4ad2ee3d4ecb62303b7c2c14780e135ca448f788e1c99b8",
+      "archive_sha256": "762922df1d9a9c34b4ad2ee3d4ecb62303b7c2c14780e135ca448f788e1c99b8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\include__lidar_model__lidar_model.h.before",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/include__lidar_model__lidar_model.h.before",
+      "source_sha256": "95e03c90ad14ab3004b75eb2459431d072d394f6f6553706101f18377a455c3e",
+      "archive_sha256": "95e03c90ad14ab3004b75eb2459431d072d394f6f6553706101f18377a455c3e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\include__lidar_model__lidar_model.h.patch",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/include__lidar_model__lidar_model.h.patch",
+      "source_sha256": "3c3392893f2ca887e081fa864804aeeca640882ac46677af3817896820481130",
+      "archive_sha256": "3c3392893f2ca887e081fa864804aeeca640882ac46677af3817896820481130",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\proposal_manifest.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/proposal_manifest.json",
+      "source_sha256": "bc90ee8e1d237e9c6a1a63c8da8be5e3b7cd1fb77390687285b981e053c20310",
+      "archive_sha256": "bc90ee8e1d237e9c6a1a63c8da8be5e3b7cd1fb77390687285b981e053c20310",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\src__viewpoint_manager__viewpoint_manager.cpp.after",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/src__viewpoint_manager__viewpoint_manager.cpp.after",
+      "source_sha256": "59196117b9bef1dd1943f9219ba293c6894e8a1d6092db005dc7c763c8c1622f",
+      "archive_sha256": "59196117b9bef1dd1943f9219ba293c6894e8a1d6092db005dc7c763c8c1622f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\src__viewpoint_manager__viewpoint_manager.cpp.before",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/src__viewpoint_manager__viewpoint_manager.cpp.before",
+      "source_sha256": "65c656049f47d58b3bd87d7098b4a1dad0b782496072d7dd4de1d4e3273386a8",
+      "archive_sha256": "65c656049f47d58b3bd87d7098b4a1dad0b782496072d7dd4de1d4e3273386a8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\src__viewpoint_manager__viewpoint_manager.cpp.patch",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/src__viewpoint_manager__viewpoint_manager.cpp.patch",
+      "source_sha256": "b4f89fc74b7d713592d353af291145d21a69ec389b3068981d6d163e0674914b",
+      "archive_sha256": "b4f89fc74b7d713592d353af291145d21a69ec389b3068981d6d163e0674914b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\tare_planner_node.before",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/tare_planner_node.before.gz",
+      "source_sha256": "a1194e9c16735053ebfaa9ec8e77ed3080cf5f5b7f0c193bfb0a593f65c48228",
+      "archive_sha256": "75eec86c6db474d6ac2e8c11873c40d49921aafb6e29b534074819cb7024c1ab",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_proposal\\tare_planner_node.candidate",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_proposal/tare_planner_node.candidate.gz",
+      "source_sha256": "33f77df00d5094d7ef9ccaa7a48692e81d977d8c7e82a92164040125d4b9526d",
+      "archive_sha256": "e1c8cce122eee2d5571aefd154becc7b18764e9d1f7404eda35c7850035ac9d1",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline.compile.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline.compile.json",
+      "source_sha256": "4337a74226dcbaa204ae990c00f57f915883a8c8e0db4b2248d785cb73cbf2fb",
+      "archive_sha256": "4337a74226dcbaa204ae990c00f57f915883a8c8e0db4b2248d785cb73cbf2fb",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline.compile.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline.compile.log",
+      "source_sha256": "bd2178a1c3d74b2a73fda1e4242e269ca3bec94a2a38a4231912601ca617fd3f",
+      "archive_sha256": "bd2178a1c3d74b2a73fda1e4242e269ca3bec94a2a38a4231912601ca617fd3f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline_v2",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline_v2.gz",
+      "source_sha256": "f7196ebd5851f15807be4492575a409ee378c26aca089cdcefb2b36ec8edd758",
+      "archive_sha256": "8b7f6a0143e7f38b3c4f8bf7c1ef42dcd36f4124481f6320f4897d184ab15d29",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline_v2.compile.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline_v2.compile.json",
+      "source_sha256": "a9cf0118f6b783bd2b862b07c4c6a3d1869b243a3feecdc2381b43fbdb79ec74",
+      "archive_sha256": "a9cf0118f6b783bd2b862b07c4c6a3d1869b243a3feecdc2381b43fbdb79ec74",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline_v2.compile.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline_v2.compile.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline_v2.exitcode",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline_v2.exitcode",
+      "source_sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "archive_sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\baseline_v2.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/baseline_v2.log",
+      "source_sha256": "7bf590bdb0a9d5b649b145502de061103c7bd7d02e3c677b7bb95e8f3c1d041a",
+      "archive_sha256": "7bf590bdb0a9d5b649b145502de061103c7bd7d02e3c677b7bb95e8f3c1d041a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\candidate",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/candidate.gz",
+      "source_sha256": "47a1afe69f598af1c56d798bcdcdd1c8e81fa538690bc2cd5337bfc5006905ab",
+      "archive_sha256": "7393444681e247e31e561c7322bac537885c0999646f8303c8474a880ef0dbf0",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\candidate.compile.json",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/candidate.compile.json",
+      "source_sha256": "744877596553134eb7e07167cdd2068f22c7f3de3b62f64e2e1a69b9de787a7e",
+      "archive_sha256": "744877596553134eb7e07167cdd2068f22c7f3de3b62f64e2e1a69b9de787a7e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\candidate.compile.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/candidate.compile.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\candidate.exitcode",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/candidate.exitcode",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "archive_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\sensor_model_regression\\candidate.log",
+      "archive": "evidence/tare-optimization-20261028/analysis/sensor_model_regression/candidate.log",
+      "source_sha256": "259c4a32f75b9a167a04f8617500edc9d61d8ff6249d2eb55e25e52fc7154969",
+      "archive_sha256": "259c4a32f75b9a167a04f8617500edc9d61d8ff6249d2eb55e25e52fc7154969",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_02\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_02/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_sensor_model_20261028_01\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_sensor_model_20261028_01/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\coverage.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\fael.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\fael.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\gbp2.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\gbp2.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\movement.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\stgp.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\tare.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\tare.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\terrain_static.launch",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\tare_optimization_20261028\\preflight_tare_audit_control_20261028_01\\config\\voxblox.yaml",
+      "archive": "evidence/tare-optimization-20261028/analysis/preflight_tare_audit_control_20261028_01/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    }
+  ],
+  "raw_runs_preserved_in_place": true,
+  "old_baseline_result_sha256": "89b82d104b20f47f54f1ddb99119ef314f4964d4089cd001a4bca9a98372232f"
+}

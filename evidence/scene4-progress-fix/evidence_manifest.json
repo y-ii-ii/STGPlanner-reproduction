@@ -5,8 +5,8 @@
   "raw_evidence_policy": "Original scene4-final/baselines/progress-fix run evidence unchanged; report/context hashes refreshed only.",
   "files": {
     "AGENTS.md": "4bf755e877c109fe905e5f0f0c20e2294e6e122e3704ba8edbbba17b0d1dc2e0",
-    "README.md": "9f94923871a178d90946e081b28b5147d07bac00aa4fc1b27af002c99397f21e",
-    "benchmarks/FILE_INDEX.md": "c0c90c6f45a6506671a1a140d47680b375f279c9213e777dfc944bf3cd89f721",
+    "README.md": "0ad24680031a6c66c01c9302725124e6d34a9baff4327de0effdec9bba580019",
+    "benchmarks/FILE_INDEX.md": "1665020f0f3dcfe5707602b09952c5f1d184a94ddb3c82674c5dca2bd05d4b64",
     "benchmarks/Run-ProgressSuite.ps1": "5e1eb335140ee76421b5f7813074a466c6b9d7bda427a6aa64abc1bbb0d3011d",
     "benchmarks/adaptive_bound_probe.cpp": "8e68da3ba96fefe4a38bcb244d88ce122d85dbe94a625eb7a50573a5cefc5093",
     "benchmarks/analyze_progress.py": "647950680f72e188e50ebf0370d5672d1c319b8a5324d499b613863d63e31c69",
@@ -556,10 +556,10 @@
     "evidence/scene4-progress-fix/validation.json": "3918dbbaee3050e0ba0db43ba6937b8b9095361219b9271caa09bc55ec50e64c",
     "project-context/BACKUP_VERIFIED.json": "771774395f3e47d08ab5bb79eb68ae6f3496a1e485177210f79bb3b8cb94ee66",
     "project-context/PAUSED.json": "860d79b8c555253e74f0472c5a21f1af27b91549808dd2dd8d4a245b102746cd",
-    "project-context/RUNBOOK.md": "4bcf0c7d132c742e23e6391b8ceb3bc33da2cf471530c1f500592c76614cfcff",
+    "project-context/RUNBOOK.md": "0f6dd7c95cef9f77ab22f0051976ed8e95d92e511a84f2cb4cdc325acd8b71d1",
     "project-context/SCENE4_STAGE_COMPLETION.json": "a39b66eeaabe2d807ce8218f52f02e22e90e9b0810590dce55f22d2a0859dcca",
-    "project-context/SIMULATION_LOCK.json": "fb2b9743180b2c9cb50f1d028526787f7d14e99742e7cae193100cba858f06bc",
-    "project-context/STATUS.md": "5f563d23cc96baf3545df54f9c226e0815af9991d3136889adc082ff2998e7a0",
+    "project-context/SIMULATION_LOCK.json": "75eb6add70e467e431b1e7462caa7be1f69a6cee8608a51e39343ecd4235936f",
+    "project-context/STATUS.md": "8101c096b991a8e66248f94dfbef1a4a1262211ebdc51c0077913d437bd6b239",
     "project-context/WORKSPACE_README.md": "6d20b81b431f74e4626024c9631dde0e657813c2f551e32f0a967100e1b4186d",
     "project-context/history/scene4-stage-before-closure/README.md": "87cadc99c90f8ebc96bf4ecae97f220f35474516f94be3448ebdd039f7520814",
     "project-context/history/scene4-stage-before-closure/docs/FAEL成功与GBP2未完成阶段总结.md": "1454bc6c073bf72b6c42dd5bef25bc56cb45ab891df757321c26fcdb5ac17a72",
@@ -625,6 +625,8 @@
     "project-context/history/root-entrypoints/部署报告.md": "a7a2f2ba12932d4a9e3e726812a263c7c35dbdb07189c761065515faa6567c00",
     "benchmarks/maintenance/backup_scene4_stage.py": "ce9c45b4a6e1a5ebc2229d51a8bfe1d950b991f2e3616fe9b37645642254d93e",
     "benchmarks/maintenance/check_report_layout.cjs": "168128a4703bf38937cecc939d37aa75a06b8d49a9ab2972ca29a06d457e7aba",
-    ".gitattributes": "6dd09b5bc22c2eeb9786dc818e352de2f4750b84078cbc05d378ed1014d7916f"
-  }
+    ".gitattributes": "da6c6f729a09345a8e18006bca27ce8620fe8b5960a447b65b69c1f48be141ad"
+  },
+  "before_tare_snapshot_commit": "7a1b99e5042906097b7e60beaa98e2db6390e6f7",
+  "before_tare_manifest": "project-context/history/scene4-before-tare-20261028/evidence/scene4-progress-fix/evidence_manifest.json"
 }

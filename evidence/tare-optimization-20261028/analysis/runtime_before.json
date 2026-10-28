@@ -1,0 +1,18 @@
+{
+  "processes": [],
+  "occupied_simulation_ports": [],
+  "native_sources": [
+    "/opt/stgplanner/benchmarks/tare_ws/src/tare_planner/src/sensor_coverage_planner/sensor_coverage_planner_ground.cpp"
+  ],
+  "binaries": [
+    {
+      "path": "/opt/stgplanner/benchmarks/tare_ws/devel/lib/tare_planner/tare_planner_node",
+      "sha256": "a1194e9c16735053ebfaa9ec8e77ed3080cf5f5b7f0c193bfb0a593f65c48228"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/tare_ws/devel/lib/tare_planner/navigationBoundary",
+      "sha256": "cd280fb57516c20ea8d465bbbef3ee9a0063d04cbf1b33c4fb7c65ae4964be94"
+    }
+  ],
+  "agents_files": []
+}

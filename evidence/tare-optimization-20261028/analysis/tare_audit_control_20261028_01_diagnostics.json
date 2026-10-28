@@ -1,0 +1,77 @@
+{
+  "trial": "tare_audit_control_20261028_01",
+  "last_metric": {
+    "sim_s": 995.6760000000013,
+    "wall_s": 1001.67427791,
+    "area_m2": 7361.760000000001,
+    "coverage_fraction": 0.9450269576379976,
+    "distance_m": 1489.2439789018138,
+    "x": 23.39576397986424,
+    "y": 78.99470441938256,
+    "nonempty_plans": 995,
+    "empty_plans": 0
+  },
+  "commands": 6956,
+  "waypoints": 996,
+  "path_counts": {
+    "local_path": 996,
+    "global_path": 996,
+    "exploration_path": 996
+  },
+  "command_summary": {
+    "mean_abs_linear": 1.4543020414031052,
+    "slow_fraction_under_0_2": 0.15756181713628523,
+    "fast_fraction_over_1_8": 0.5876940770557791,
+    "turning_fraction_over_0_5_rad_s": 0.27889591719378953,
+    "max_abs_linear": 2.0
+  },
+  "waypoint_summary": {
+    "target_distance_mean_m": 7.04545035871391,
+    "reversals_over_120_degrees": 24,
+    "targets_behind_robot": 80
+  },
+  "stages": [
+    {
+      "end_sim_s": 199.79600000000028,
+      "coverage_percent": 26.789216944801037,
+      "distance_m": 285.6545369935045,
+      "stage_speed_m_s": 1.429731010598331,
+      "stage_new_area_m2": 2086.8800000000006
+    },
+    {
+      "end_sim_s": 399.4860000000008,
+      "coverage_percent": 39.30577663671374,
+      "distance_m": 585.4459951486134,
+      "stage_speed_m_s": 1.5012842814117289,
+      "stage_new_area_m2": 975.0399999999995
+    },
+    {
+      "end_sim_s": 599.2610000000004,
+      "coverage_percent": 56.87496790757381,
+      "distance_m": 891.5379303243649,
+      "stage_speed_m_s": 1.5321833821837167,
+      "stage_new_area_m2": 1368.6400000000003
+    },
+    {
+      "end_sim_s": 799.0619999999999,
+      "coverage_percent": 73.83414634146341,
+      "distance_m": 1182.3130222030215,
+      "stage_speed_m_s": 1.4553235062820378,
+      "stage_new_area_m2": 1321.12
+    },
+    {
+      "end_sim_s": 995.6760000000013,
+      "coverage_percent": 94.50269576379976,
+      "distance_m": 1489.2439789018138,
+      "stage_speed_m_s": 1.561083934505122,
+      "stage_new_area_m2": 1610.0800000000008
+    }
+  ],
+  "trajectory_summary": {
+    "one_second_speed_mean": 1.4957451267825896,
+    "slow_samples_fraction_under_0_2_m_s": 0.06754032258064516,
+    "measured_heading_changes_over_90_degrees": 44,
+    "measured_heading_changes_over_120_degrees": 30,
+    "heading_method": "XY displacement headings sampled after >=1m chord, diagnostic only, not planner BFM ground truth"
+  }
+}

@@ -1,0 +1,41 @@
+-------------------------------------------------------------------------------
+Profile:                     default
+Extending:        [explicit] /opt/ros/noetic
+Workspace:                   /opt/stgplanner/benchmarks/tare_ws
+-------------------------------------------------------------------------------
+Build Space:        [exists] /opt/stgplanner/benchmarks/tare_ws/build
+Devel Space:        [exists] /opt/stgplanner/benchmarks/tare_ws/devel
+Install Space:      [unused] /opt/stgplanner/benchmarks/tare_ws/install
+Log Space:          [exists] /opt/stgplanner/benchmarks/tare_ws/logs
+Source Space:       [exists] /opt/stgplanner/benchmarks/tare_ws/src
+DESTDIR:            [unused] None
+-------------------------------------------------------------------------------
+Devel Space Layout:          linked
+Install Space Layout:        None
+-------------------------------------------------------------------------------
+Additional CMake Args:       -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17
+Additional Make Args:        -j2
+Additional catkin Make Args: None
+Internal Make Job Server:    True
+Cache Job Environments:      False
+-------------------------------------------------------------------------------
+Buildlisted Packages:        None
+Skiplisted Packages:         None
+-------------------------------------------------------------------------------
+Workspace configuration appears valid.
+-------------------------------------------------------------------------------
+[build] Found 1 packages in 0.0 seconds.                                       
+[build] Package table is up to date.                                           
+Starting >>> tare_planner               
+Finished <<< tare_planner                [ 1 minute and 28.5 seconds ]
+
+[build] Successful packages:
+
+ [Successful] tare_planner
+
+[build] Summary: All 1 packages succeeded!
+[build] Ignored: None.
+[build] Warnings: None.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 1 minute and 28.8 seconds total.

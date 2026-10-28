@@ -1,0 +1,84 @@
+{
+  "trial": "tare_sensor_model_20261028_02",
+  "last_metric": {
+    "sim_s": 1060.2610000000004,
+    "wall_s": 1066.715712839,
+    "area_m2": 7396.160000000001,
+    "coverage_fraction": 0.9494428754813865,
+    "distance_m": 1546.5463612052533,
+    "x": -25.108564412364075,
+    "y": 32.72975266453246,
+    "nonempty_plans": 1059,
+    "empty_plans": 0
+  },
+  "commands": 7413,
+  "waypoints": 1060,
+  "path_counts": {
+    "local_path": 1060,
+    "global_path": 1060,
+    "exploration_path": 1060
+  },
+  "command_summary": {
+    "mean_abs_linear": 1.4171388101983002,
+    "slow_fraction_under_0_2": 0.16552003237555646,
+    "fast_fraction_over_1_8": 0.5422905706191825,
+    "turning_fraction_over_0_5_rad_s": 0.28800755429650615,
+    "max_abs_linear": 2.0
+  },
+  "waypoint_summary": {
+    "target_distance_mean_m": 6.938293813667746,
+    "reversals_over_120_degrees": 20,
+    "targets_behind_robot": 88
+  },
+  "stages": [
+    {
+      "end_sim_s": 199.78399999999965,
+      "coverage_percent": 27.910654685494222,
+      "distance_m": 296.29889605271694,
+      "stage_speed_m_s": 1.483096224185708,
+      "stage_new_area_m2": 2174.2400000000002
+    },
+    {
+      "end_sim_s": 399.5579999999991,
+      "coverage_percent": 43.22464698331194,
+      "distance_m": 593.5635465208254,
+      "stage_speed_m_s": 1.4880046976488899,
+      "stage_new_area_m2": 1192.96
+    },
+    {
+      "end_sim_s": 599.3320000000003,
+      "coverage_percent": 62.564313222079605,
+      "distance_m": 895.2656244719597,
+      "stage_speed_m_s": 1.5102169348920897,
+      "stage_new_area_m2": 1506.5600000000009
+    },
+    {
+      "end_sim_s": 799.1790000000001,
+      "coverage_percent": 74.85905006418486,
+      "distance_m": 1162.4663037586404,
+      "stage_speed_m_s": 1.3370262214928472,
+      "stage_new_area_m2": 957.7599999999993
+    },
+    {
+      "end_sim_s": 999.0419999999995,
+      "coverage_percent": 84.1181001283697,
+      "distance_m": 1456.1104175529872,
+      "stage_speed_m_s": 1.4692269894595185,
+      "stage_new_area_m2": 721.2799999999997
+    },
+    {
+      "end_sim_s": 1060.2610000000004,
+      "coverage_percent": 94.94428754813865,
+      "distance_m": 1546.5463612052533,
+      "stage_speed_m_s": 1.4772528733279655,
+      "stage_new_area_m2": 843.3600000000006
+    }
+  ],
+  "trajectory_summary": {
+    "one_second_speed_mean": 1.4587615516941272,
+    "slow_samples_fraction_under_0_2_m_s": 0.07196969696969698,
+    "measured_heading_changes_over_90_degrees": 44,
+    "measured_heading_changes_over_120_degrees": 33,
+    "heading_method": "XY displacement headings sampled after >=1m chord, diagnostic only, not planner BFM ground truth"
+  }
+}

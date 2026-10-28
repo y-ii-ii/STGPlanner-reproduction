@@ -1,0 +1,15 @@
+{
+  "verified_unix": 1793158820.8474014,
+  "deployment": "original_stock",
+  "native_hashes": {
+    "/opt/stgplanner/benchmarks/tare_ws/devel/lib/tare_planner/tare_planner_node": "a1194e9c16735053ebfaa9ec8e77ed3080cf5f5b7f0c193bfb0a593f65c48228",
+    "/opt/stgplanner/benchmarks/tare_ws/src/tare_planner/include/lidar_model/lidar_model.h": "95e03c90ad14ab3004b75eb2459431d072d394f6f6553706101f18377a455c3e",
+    "/opt/stgplanner/benchmarks/tare_ws/src/tare_planner/src/viewpoint_manager/viewpoint_manager.cpp": "65c656049f47d58b3bd87d7098b4a1dad0b782496072d7dd4de1d4e3273386a8"
+  },
+  "matches_frozen_version": {
+    "tare_audit_control_20261028_01": true,
+    "tare_sensor_model_20261028_01": false
+  },
+  "simulation_ports_free": true,
+  "GBP2_followup": "paused_by_user"
+}
