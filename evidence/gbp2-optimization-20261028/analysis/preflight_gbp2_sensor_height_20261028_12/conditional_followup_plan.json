@@ -1,0 +1,27 @@
+{
+  "fixed_while_trial11_running": true,
+  "trial11": "gbp2_frontier03_20261028_11",
+  "if_trial11_reaches_public95": {
+    "action": "Independently repeat the same threshold03 on a fresh scene before proposing adoption",
+    "no_height_or_gain_change": true
+  },
+  "if_trial11_complete_observation_fails_public95": {
+    "trial": "gbp2_sensor_height_20261028_12",
+    "single_change_from11": {"PlanningParams/robot_height": [0.456, 0.5192]},
+    "basis": "Captured runtime URDF: sensor0.4557 above base_link, wheel contact-0.0635, nominal sensor height0.5192. Agrees with flat-floor raw Gazebo sensor odometry. GBP2 receives sensor-frame odometry. Correct the nominal physical reference height, not TF or common scoring.",
+    "fixed": {
+      "frontier_percentage_threshold": 0.03,
+      "native_sources_and_libraries": "same09",
+      "gain_objective": "native3D ray volume",
+      "max_speed_m_s": 2,
+      "sensing_range_m": 12,
+      "vertices_max": 2000,
+      "public_area_threshold_m2": 7400.5,
+      "denominator_m2": 7790,
+      "full_limit_s": 2400
+    },
+    "independent_fresh_scene": true,
+    "repeat_policy": "If this candidate improves coverage enough to propose adoption, independently repeat it; retain every result and report single-run uncertainty. Native completion alone is not public95 success."
+  },
+  "scope": "No native source mutation during an active run. No common plane or successful-run map enters planning. Geometry calibration does not establish a unique cause or guarantee performance improvement."
+}

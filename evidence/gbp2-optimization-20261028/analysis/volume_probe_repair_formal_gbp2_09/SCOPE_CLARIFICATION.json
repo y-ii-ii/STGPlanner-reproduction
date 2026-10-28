@@ -1,0 +1,11 @@
+{
+  "original_probe_outputs_preserved": true,
+  "native_map_unchanged": true,
+  "grid_origin_filter": "Native voxel at(x,y,z0.7) must be free",
+  "query_sensor_z_m": 0.456,
+  "box_filter": "A1.0x0.8x0.6m box centered atz0.7. This is a simplified diagnostic filter, not the exact per-query projected native robot box.",
+  "does_not_prove_native_vertex_or_route_feasibility": true,
+  "threshold_counts_with_box_filter_are_diagnostic_only": true,
+  "effect_on_formal_trial11_selection": "None. Intermediate0.03 was preregistered before trial10 and before this probe.",
+  "unknown_over_native_known_columns": "XY0.4m columns are marked known if at least one native voxel atz0.1..1.9 is known. This is neither the public known-plane map nor a ground-truth reachable mask."
+}

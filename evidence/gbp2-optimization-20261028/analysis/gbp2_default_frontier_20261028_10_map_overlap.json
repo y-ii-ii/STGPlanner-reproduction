@@ -1,0 +1,30 @@
+{
+  "reference_union_cells": 48847,
+  "records": {
+    "formal_stgp_01": {
+      "known_cells": 46283,
+      "known_area_m2": 7405.28,
+      "overlap_with_reference_union_fraction": 0.94750957070035,
+      "own_cells_outside_reference_union_fraction": 0.0
+    },
+    "formal_tare_01": {
+      "known_cells": 46449,
+      "known_area_m2": 7431.84,
+      "overlap_with_reference_union_fraction": 0.9509079370278625,
+      "own_cells_outside_reference_union_fraction": 0.0
+    },
+    "repair_formal_fael_01": {
+      "known_cells": 46417,
+      "known_area_m2": 7426.72,
+      "overlap_with_reference_union_fraction": 0.9502528302659324,
+      "own_cells_outside_reference_union_fraction": 0.0
+    },
+    "gbp2_default_frontier_20261028_10": {
+      "known_cells": 19705,
+      "known_area_m2": 3152.8,
+      "overlap_with_reference_union_fraction": 0.4031567957090507,
+      "own_cells_outside_reference_union_fraction": 0.0006089824917533621
+    }
+  },
+  "scope": "Offline overlap diagnostic with the union of other successful runs. This union is not ground truth or a reachable-area mask, is never fed into native control, and does not replace the public95 metric."
+}

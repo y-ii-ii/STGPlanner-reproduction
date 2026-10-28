@@ -1,0 +1,37 @@
+{
+  "map_unchanged": true,
+  "native_only": true,
+  "groups": {
+    "True": {
+      "native_free_origins": 232,
+      "box_free_origins": 180,
+      "frontier_counts": {
+        "0.01": 28,
+        "0.03": 4,
+        "0.1": 2
+      },
+      "box_free_frontier_counts": {
+        "0.01": 21,
+        "0.03": 1,
+        "0.1": 0
+      },
+      "unknown_samples_over_native_known_columns_fraction": 0.8185030155729589
+    },
+    "False": {
+      "native_free_origins": 232,
+      "box_free_origins": 180,
+      "frontier_counts": {
+        "0.01": 26,
+        "0.03": 4,
+        "0.1": 2
+      },
+      "box_free_frontier_counts": {
+        "0.01": 19,
+        "0.03": 1,
+        "0.1": 0
+      },
+      "unknown_samples_over_native_known_columns_fraction": 0.8198545240307267
+    }
+  },
+  "scope": "Frozen-map grid queries on native-known free origins. No common coverage input and no reachability proof. Uniform ray casting changes count normalization; it is a diagnostic, not an adopted parameter."
+}

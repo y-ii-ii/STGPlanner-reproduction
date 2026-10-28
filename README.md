@@ -1,5 +1,7 @@
 # STGPlanner Scene4 复现基线
 
+> **2026-10-28 GBP2后续阶段结束：** 本轮新增正式试验限额3次（10/11/12）已用完，三次均未达公共95%，也未提高历史修复09的56.338896%覆盖。按用户限制停止GBP2优化，不再测试或修改算法。当前配置下GBP2存在明显覆盖停滞，不作为Scene4达95%的成功基线。 详见[全部GBP2优化测试](docs/GBP2优化测试报告.md)和[当前原生部署](project-context/GBP2_DEPLOYMENT_STATE.json)。TARE保持验证原版，FAEL成功数据未重跑。
+
 > **2026-10-28 TARE后续已完成：** 新原配置996.477s/1490.842m已接近论文时间；旧单次偏差不代表稳定性能。本轮不采用感知模型对齐作为性能优化；修复候选和所有失败/不利观测保留。详见[全部TARE优化测试](docs/TARE优化测试报告.md)及[当前部署](project-context/TARE_DEPLOYMENT_STATE.json)。GBP2继续暂停。
 
 <!-- scene4-stage-summary:start -->

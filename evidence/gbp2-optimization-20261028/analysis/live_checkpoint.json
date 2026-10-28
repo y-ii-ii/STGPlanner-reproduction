@@ -1,0 +1,74 @@
+{
+  "trial": "gbp2_sensor_height_20261028_12",
+  "stage": "ended",
+  "summary": {
+    "trial": "gbp2_sensor_height_20261028_12",
+    "sim_time_s": 2400.036,
+    "wall_time_s": 2412.5117046470004,
+    "distance_m": 2482.3850199823155,
+    "area_m2": 2222.8800000000006,
+    "coverage_fraction": 0.2853504492939667,
+    "finish_reason": "sim_time_limit",
+    "native_finished": false,
+    "native_finish_sim_s": null,
+    "runtime_native_s_summary": {
+      "count": 405,
+      "mean": 1.182837938555556,
+      "max": 1.921658664
+    },
+    "average_speed_m_s": 1.0343115769856432,
+    "nonempty_plans": 404,
+    "empty_plans": 1,
+    "native_frontier_threshold": 0.01,
+    "native_robot_height": 0.5192,
+    "public95_reached": false,
+    "observed_hold_after_native_end_s": null,
+    "native_global_transitions": 0,
+    "native_global_targets": 0,
+    "local_selected_paths": 396,
+    "incomplete_or_interleaved_selection_lines": 10,
+    "coverage_at_1600": 0.2852477535301669,
+    "final100s_area_gain_m2": 0.0,
+    "coverage_milestones": {
+      "40": null,
+      "50": null,
+      "60": null,
+      "75": null,
+      "90": null,
+      "95": null
+    },
+    "command_samples": 15615,
+    "max_abs_command_linear_x": 2.0
+  },
+  "updated_at": "2026-10-28T17:54:37.323356+08:00",
+  "experiment_limits": {
+    "set_by": "explicit_user_request_2026-10-28",
+    "scope": "GBP2 optimization phase started after TARE follow-up",
+    "max_new_formal_trials": 3,
+    "counted_trials": [
+      "gbp2_default_frontier_20261028_10",
+      "gbp2_frontier03_20261028_11",
+      "gbp2_sensor_height_20261028_12"
+    ],
+    "new_experiments_blocked": true,
+    "finish_current_trial_only": "gbp2_sensor_height_20261028_12",
+    "current_trial_limit_s": 2400,
+    "cancelled": [
+      "frontier0.015 trial",
+      "all confirmation repeats",
+      "all further ROS/Gazebo or native-map replay experiments",
+      "further algorithm or parameter optimization changes"
+    ],
+    "allowed_after_current": [
+      "parking and sensor acceptance",
+      "save existing final native map/graph",
+      "owned-runtime cleanup and idle verification",
+      "restore an already tested configuration",
+      "offline analysis and plots",
+      "reports and handoff",
+      "private repository backup and restore verification"
+    ],
+    "resume_requires": "New explicit user authorization with a new finite experiment limit",
+    "note": "This is a user-imposed experiment cap, not evidence that GBP2 is theoretically incapable of complete exploration. Do not expand the limit automatically."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "owned_processes": [
+    {
+      "pid": 104,
+      "command": "/usr/bin/python3 /opt/ros/noetic/bin/rosmaster --core -p 11311 -w 3 __log:=/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/master.log ",
+      "start_ticks": "2582682"
+    },
+    {
+      "pid": 126,
+      "command": "/opt/ros/noetic/lib/rosout/rosout __name:=rosout __log:=/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/rosout-1.log ",
+      "start_ticks": "2583004"
+    },
+    {
+      "pid": 140,
+      "command": "/bin/sh /opt/ros/noetic/lib/gazebo_ros/gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/gazebo-2.log ",
+      "start_ticks": "2583098"
+    },
+    {
+      "pid": 145,
+      "command": "python3 /opt/ros/noetic/lib/controller_manager/spawner jackal_joint_publisher jackal_velocity_controller __name:=controller_spawner __log:=/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/controller_spawner-3.log ",
+      "start_ticks": "2583125"
+    },
+    {
+      "pid": 217,
+      "command": "gzserver -e ode /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/stgp_planner/exploration_manager/worlds/Scene4.world -s /opt/ros/noetic/lib/libgazebo_ros_paths_plugin.so -s /opt/ros/noetic/lib/libgazebo_ros_api_plugin.so __name:=gazebo __log:=/mnt/d/STGPlanner/benchmarks/results/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/gazebo-2.log ",
+      "start_ticks": "2583347"
+    }
+  ],
+  "remaining_owned_pids": [],
+  "ports_free": {
+    "11311": true,
+    "11345": true
+  }
+}

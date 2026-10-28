@@ -1,0 +1,2420 @@
+{
+  "generated_at": "2026-10-28T18:00:24.577534+08:00",
+  "files": [
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\cloud_bridge.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/cloud_bridge.log.gz",
+      "source_sha256": "babcb335057a661d736840e5275062920fd8c706fdf0198f25e7d171aed00f01",
+      "archive_sha256": "820be6a290f60b150ca34238e6a8c05c6d907d72659195e3cbc9999c451d1392",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\coverage.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/coverage.log.gz",
+      "source_sha256": "c64131f54b5a9d79d283e9b1551585b65a5b2db53129fc79fb7be06f161fd576",
+      "archive_sha256": "ce3550fc6274fd26714e276c68a5c190d72fdb82ac36b28b12346d93e7a50622",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\coverage.ufo",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/coverage.ufo.gz",
+      "source_sha256": "f1dbe39adf789e84d5532140a8af80c00cc8328fba3a10efa7019c4fb412cdcd",
+      "archive_sha256": "95653f8e49dd929264ee3faf58701c4e092e3a717a7006213e5f9eed0f52dab5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\coverage_insert.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/coverage_insert.tsv.gz",
+      "source_sha256": "482442ffa913aaa4c8dbf8f8b28b045bcaa878efb4a39dacd0cb20032838026d",
+      "archive_sha256": "eb9565f23a2583fb37dda2bdeabab4d6c1fbe2b2bf038a0b9eda156c607d40fd",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\coverage_mapping.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/coverage_mapping.tsv.gz",
+      "source_sha256": "d50462327c76121c3d7b503ed47d50d62129fea917662f26f807e68f33a70f75",
+      "archive_sha256": "3caeefb2a1ef6df47c55084e22a6437f6609e9a90e4430043a1602ce1a2c0db3",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\events.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/events.jsonl.gz",
+      "source_sha256": "d1d4bf6c144901ec4f6a4fedf77a34b7d53851d88c96272ce892154d3af25cbd",
+      "archive_sha256": "8e67b24d78d95e1a3171e3c561d2d423a097b6b02b59710b3737fb56effbc235",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\freeze_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\known_plane_cells.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/known_plane_cells.csv.gz",
+      "source_sha256": "ea5eac3eca5fad03d72caedbd37b591701208097c73140f958bfcd7539408d00",
+      "archive_sha256": "d0cf810fba2328414e3e0181d4ee2a1f00df6ad9d814a7d54b7398a5a0d51f2f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\live_rosparams.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/live_rosparams.yaml",
+      "source_sha256": "a1393f60305c697cfb16bca6d40a8a2e77ed3a1e847c5e1564e246c3ea0d5fec",
+      "archive_sha256": "a1393f60305c697cfb16bca6d40a8a2e77ed3a1e847c5e1564e246c3ea0d5fec",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\live_runtime_audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/live_runtime_audit.json",
+      "source_sha256": "ab37e0b71854c39bc02c3de71c66b02c53950bfe76fbc8e9e9979b61cc1621f6",
+      "archive_sha256": "ab37e0b71854c39bc02c3de71c66b02c53950bfe76fbc8e9e9979b61cc1621f6",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\metrics.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/metrics.jsonl.gz",
+      "source_sha256": "4f41228e270441d7c5c31c1aee8d2a2abe59af18a41a88c894d886feca352565",
+      "archive_sha256": "f8d211ea8241a939fbcf9ec5102d0d59eb2d598798b61673d0c623788e057873",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\movement.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/movement.log.gz",
+      "source_sha256": "e9e1a691bb81729b41f4d3e33ff4921b9529a74304d8ef2a817697c3d6e72a55",
+      "archive_sha256": "654b099abaf25c7031f3f2e1a01a716f17c2aa29ea47216cd3b6a26c404f615b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\native_planner.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/native_planner.log.gz",
+      "source_sha256": "fe0da951be9fea120763887f6c1164b498f658d6cd2956f27cb3a185927c429d",
+      "archive_sha256": "cc5ce8c68aac780c72b66a2b27ff8268cb2f573b6f570cf79e90f770fcdd0d84",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\passive_actions.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/passive_actions.jsonl.gz",
+      "source_sha256": "16d9f12bc960e3d5654e53b71990ab6144ec0a2252316880904a985c30cd939f",
+      "archive_sha256": "6266db33fea2cb1d0369c3d825490a905b5181f118f9e7c9955f79813e550a6e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\passive_observer.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/passive_observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\poststop_map_capture.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/poststop_map_capture.json",
+      "source_sha256": "4c109613c1d271323a024e6315fe88147864240f9102fbda416f4aedd96a19ec",
+      "archive_sha256": "4c109613c1d271323a024e6315fe88147864240f9102fbda416f4aedd96a19ec",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\poststop_native_map.vxblx",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/poststop_native_map.vxblx.gz",
+      "source_sha256": "382fd470d356cc02f5db6b9208dfeffcd5c9d21c1a882f06fb60fc1d8b0d3698",
+      "archive_sha256": "9caa4d495cc03c454f89927d314c9760ae050c7a3927dc8deca8f3a00a394157",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\result.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/result.json",
+      "source_sha256": "bea67576645d37c0c5492af5cce5abd45b6eb7470f2c0b2f716445c9dfb84627",
+      "archive_sha256": "bea67576645d37c0c5492af5cce5abd45b6eb7470f2c0b2f716445c9dfb84627",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\runtime_cleanup.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/runtime_cleanup.json",
+      "source_sha256": "cd9db3fa20701a732847d08904009456221f79bfdef65281214fb199f61dac7b",
+      "archive_sha256": "cd9db3fa20701a732847d08904009456221f79bfdef65281214fb199f61dac7b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\sensor_frame_snapshot.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/sensor_frame_snapshot.json",
+      "source_sha256": "695f5217b111c4a821b783b0d7eaa07d172f649af3bb9f2307cbc0a5b09bee0f",
+      "archive_sha256": "695f5217b111c4a821b783b0d7eaa07d172f649af3bb9f2307cbc0a5b09bee0f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\simulation.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/simulation.log.gz",
+      "source_sha256": "7af959e35430f61aabf76a4c332a83ba2742bfe191c164e717f3930367951f08",
+      "archive_sha256": "098f318542ac7f96cf6ec55d645c7bb0d3d4f4956119a3f84e752c6eb4bb8758",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\status.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/status.json",
+      "source_sha256": "fd81ba5defe28f413883fb0c130494b264ab1471a1462a63f31727c88b976611",
+      "archive_sha256": "fd81ba5defe28f413883fb0c130494b264ab1471a1462a63f31727c88b976611",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\tf_frame_snapshot.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/tf_frame_snapshot.json",
+      "source_sha256": "de8d76f8d9ca704f8c1a9bec33472eff144306e5b8bf97e5f25d88923442db97",
+      "archive_sha256": "de8d76f8d9ca704f8c1a9bec33472eff144306e5b8bf97e5f25d88923442db97",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\trajectory.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/trajectory.csv.gz",
+      "source_sha256": "a9cd74406c47c14e008577f3db6e80fd2f1fbcc74b683ba4011a5b902c84c089",
+      "archive_sha256": "e5dae3cbc3bf8e4eaa3682d678d2f15bf053bb244d297c2756e4f6e902f39dd0",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/manifest.json",
+      "source_sha256": "121790e948fc0cfd8c73cb2aad0b4bc28a7499887930fe869b8defb613effd40",
+      "archive_sha256": "121790e948fc0cfd8c73cb2aad0b4bc28a7499887930fe869b8defb613effd40",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/observe_and_save.py",
+      "source_sha256": "acc89e0800b2fc75b82752393c7a024a26c48c5e44639ea2e4b78e8cb282eb28",
+      "archive_sha256": "acc89e0800b2fc75b82752393c7a024a26c48c5e44639ea2e4b78e8cb282eb28",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/previous_lock.json",
+      "source_sha256": "8e100b683f1ec435cc5390b8e694a94ea3dd7031cb52acd5e0cc707995383832",
+      "archive_sha256": "8e100b683f1ec435cc5390b8e694a94ea3dd7031cb52acd5e0cc707995383832",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/run_gbp2_trial.py",
+      "source_sha256": "5c809830ab089a9c1dea33a8fd805d1261aad36cbc5c640c257bf6b7cd7ef33a",
+      "archive_sha256": "5c809830ab089a9c1dea33a8fd805d1261aad36cbc5c640c257bf6b7cd7ef33a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\rosservice_328_1793160300263.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/rosservice_328_1793160300263.log.gz",
+      "source_sha256": "7263f81cc1e6308121bfdb29315d92eb24e9f96fe40fdf7a16d05adb35ee94da",
+      "archive_sha256": "e0858d5a02f75a96722090e7dbdafa9bf53991bd0bdea62601eb798df91bb035",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\scene4_benchmark.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/scene4_benchmark.log.gz",
+      "source_sha256": "1f1939a0db35044b2d1ddec160fb33613d0dae74da6d9f06cbdddd738c795258",
+      "archive_sha256": "b9b863d90641681c8d05dafe3ab694eebf8c933e8307b083e8d3e013fe72bb6b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "523b74ee59976b2b997823f4f9c7ff801e0df64463fe50297f2d77400714c250",
+      "archive_sha256": "d8debfefc2e0491d33ea747af7fbd4f563cfe5029ff512276e392e65e2ef055c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "ae11fa44a8a82a5807720f7d3531e1da24c152eb89795ea82b73120782c85cc1",
+      "archive_sha256": "afb09364ffbdd743096365ea16a5e15ecf7d7a741f3694ab7ac144463b72d6d7",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\master.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/master.log.gz",
+      "source_sha256": "b2f41128026468ad650574a92677783b514e09d52202b882fb272068d3916cb4",
+      "archive_sha256": "d1d8e6b47c1909153951182a23af6cfcbee5380a8d9a96f43a7e59bb3ecfaf46",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "928f8157945175c818e37af5bd24978febf221a3fb8e31677f96868d08a5f04c",
+      "archive_sha256": "a5dd02542789af8672d6c5f9486261d036753b8cf835f3d00d4d67ea861e901b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\roslaunch-PC-20231212HLZZ-355.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/roslaunch-PC-20231212HLZZ-355.log.gz",
+      "source_sha256": "d23c69924e085b2a978bae60f37c002708cec24ba2b2f247621f4f5ef98c01f6",
+      "archive_sha256": "5ff6d375412a153e636236675c991fabb92ce0fc50a97d3193b25ce5284cf03e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\roslaunch-PC-20231212HLZZ-538.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/roslaunch-PC-20231212HLZZ-538.log.gz",
+      "source_sha256": "56b7b3649f959ff9d8c82865680b8a46e7affbc59f2834753d2c95d6e9a31ac6",
+      "archive_sha256": "5863d46a11063c40fd5e1552d327d56c4939a50a82116b44bbb2a829ae2a0e6d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\roslaunch-PC-20231212HLZZ-55.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/roslaunch-PC-20231212HLZZ-55.log.gz",
+      "source_sha256": "4bd565fb7ca196eb75cbc6c390b3556a56156e59988968fca1f40e7d4dd04191",
+      "archive_sha256": "6df9dab827c9f808a2d7317f0c84dfe240a2ee5ada05a58c43e2250fca64a6bd",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "ac5e7d33af6acaa90768c0ee41db1168a09f6b1a2ec23b8ebdd248aaaadd9ab9",
+      "archive_sha256": "ca052f9a72db66abba7837714a33fbf35fc7e8596366fa8e3d2120da6d046978",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\rosout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/rosout.log.gz",
+      "source_sha256": "01b069ac89e35248884a687403447919b2226366d09deff37777d5a0e41aedd9",
+      "archive_sha256": "70b568bb3104ab391c5a4fca1c8b967e36f84e3684c410f7043484d5b285381b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "c34c5b9b782214aeb1ac3b7a2c1256a6ba01f1eedaab367208a1b3383c6e2f2d",
+      "archive_sha256": "8f0bcbe54eebdd75f55005bc4f6da4ab6b3e806d24d5792ec35955a12d4426d9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "e70db493a0dc222f352604ffacc4bb14dd34b6b9f89a1e59a5083b607aed2bd9",
+      "archive_sha256": "96af00149dbf238986f7d3fc0e5626af11f14bdae8cf8f3870caea443691a3c7",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "9afc8204e2816ffed948cb26d2cb392c02aadca83573e5f36ff05728a86c3fb3",
+      "archive_sha256": "d20f18861ba29c49c905881902a90ae17c0931264964a462c95aea3cef0246ce",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "3f8042a6f2405271f94f7fb07ddb4e89544c8c4fc093cc17bc0aa1a84db79ca2",
+      "archive_sha256": "43516a317234e109bd85ee4276e553ae18c0c1fb01edc7c1e0f0d109983f88c6",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\ros\\b4cef546-d284-11f1-9d8e-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/ros/b4cef546-d284-11f1-9d8e-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "eca3c8adf1b8059186f06ab8c9f11a7b05b52f8a2a735f877c4b197d9ff12865",
+      "archive_sha256": "c80c37d2eacb827f53f6ce0222e68425cea4a76a7df0bec476eb33531e0528d5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/gbp2.yaml",
+      "source_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "archive_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_default_frontier_20261028_10\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_default_frontier_20261028_10/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\cloud_bridge.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/cloud_bridge.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\coverage.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/coverage.log.gz",
+      "source_sha256": "68c50d018797d5d880432abbf7ac163b5a38b0a2b6e6314c3e8e9d933436426a",
+      "archive_sha256": "e0627190e370a50cca98ae064253a93bb2c603d2ad6d4fd089f1f8027d86079a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\coverage.ufo",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/coverage.ufo.gz",
+      "source_sha256": "d717686c8fa3651c2e503401723f7a956fffcae81cb377f24e97e044b109b2e1",
+      "archive_sha256": "e8d2478c510e19f618b9b59a5122e86ae9d3fdfe479532430edef094dc177d1e",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\coverage_insert.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/coverage_insert.tsv.gz",
+      "source_sha256": "be681a6021faed0ce2c9a918aeae3dd77aae551e1b6af9b627723eb1149da609",
+      "archive_sha256": "cc9d0593af775afb2ef5c31169d2f6b31415b5fc99df7d2ebbe0242d4b2fccac",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\coverage_mapping.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/coverage_mapping.tsv.gz",
+      "source_sha256": "d03bc020d3eceae06580e7853b83fbdabc2a1b6855da813271e18ce59a3ea528",
+      "archive_sha256": "d8d42953ef230bd114b5106552ef9b60cd57cffe8ef77048c45c0e077283aeaa",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\events.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/events.jsonl.gz",
+      "source_sha256": "bcea069e397ec384f18e26c489f865fbce72b7f2c085f524ee82bbf50407add0",
+      "archive_sha256": "9cd36d5577259ed3aa6c0fd536866384a30969712bd1b80fd27b4aca1088c644",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\freeze_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\known_plane_cells.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/known_plane_cells.csv.gz",
+      "source_sha256": "6491ee302e201d648bae5fb63179adc371ecd43c31ad980278f8d2b9b1a24cef",
+      "archive_sha256": "4ad7d9d8654ea9da473e2cdf20e1e33624e5202c3a4747b42c7a18ae725fd238",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\live_rosparams.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/live_rosparams.yaml",
+      "source_sha256": "cb199d8ab11628afca32007b3132110877cd9a927f17531a37b40b40c8e40dc4",
+      "archive_sha256": "cb199d8ab11628afca32007b3132110877cd9a927f17531a37b40b40c8e40dc4",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\live_runtime_audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/live_runtime_audit.json",
+      "source_sha256": "86a27eed9378202a85b28ca135baaa6e9cb140875eba5b0e051dbfc62b9b0b0e",
+      "archive_sha256": "86a27eed9378202a85b28ca135baaa6e9cb140875eba5b0e051dbfc62b9b0b0e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\metrics.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/metrics.jsonl.gz",
+      "source_sha256": "aba967370b6b776f746bc7026e07f0df23d479c994d5c9781acf50e14756746f",
+      "archive_sha256": "1feb98b08ebe3fb44d18631e8d040632510c19475884cf923f1858bb389b843b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\movement.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/movement.log.gz",
+      "source_sha256": "030e84be730a6e44f621cb63bd7875436637a7c4d7b53791fe03e2127e0a37af",
+      "archive_sha256": "599dc9bbec9a0f3ae10ae54cb57390bab78c19d71414a00b9616ccdfc6008135",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\native_planner.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/native_planner.log.gz",
+      "source_sha256": "20c06f4554f66bb4f4096eae5632d098925c878a7d1b460d04a8d11ba9c57f67",
+      "archive_sha256": "9e5ccd73a8c6d336205f3bd4572e6229f1f5e2ab12a6352348e8705bdb2bba3a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\passive_actions.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/passive_actions.jsonl.gz",
+      "source_sha256": "7cda5c65b697c55aa9fb384f0b0e64918029e5b1131c077e901df65430102cd2",
+      "archive_sha256": "b7ddb2e7e5b1e2210d9de3294a5a448d642ff178613e1a18277d5ee7622842d9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\passive_observer.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/passive_observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\poststop_global_graph.bin",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/poststop_global_graph.bin.gz",
+      "source_sha256": "27206a12bc9d7f897a71011026c88fe56b04d988f2ad075a0aba24af1cd5c0b3",
+      "archive_sha256": "7d3b3db10430858bb3105a34cc2f0f134df337cc2cba0846d7de8687cd9735e2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\poststop_global_graph.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/poststop_global_graph.json.gz",
+      "source_sha256": "f7467da5171aa744150c2e811a04a7f03b5cc0bee87384f646cb8b71c6a9e930",
+      "archive_sha256": "5f415701bcd6733253121878a14d8d5b15d67c02a0feee87db5415638153cf70",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\poststop_graph_capture.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/poststop_graph_capture.json",
+      "source_sha256": "7fd552727bd1836653aec3bc9a8d166b263882b1bbae71238ff6b4ca039b226b",
+      "archive_sha256": "7fd552727bd1836653aec3bc9a8d166b263882b1bbae71238ff6b4ca039b226b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\poststop_map_capture.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/poststop_map_capture.json",
+      "source_sha256": "804e0f6f4850cf900af8acea59bddf9cd7333f0136935d266b6afef73bdefeb7",
+      "archive_sha256": "804e0f6f4850cf900af8acea59bddf9cd7333f0136935d266b6afef73bdefeb7",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\poststop_native_map.vxblx",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/poststop_native_map.vxblx.gz",
+      "source_sha256": "12b5ffba92be2fb7c378b1026f3b163bbb090230ccae6cbbc043d2ac98157cc0",
+      "archive_sha256": "baf87b04cbf89e062bba2aa9ec227ee87c7c3499602786613f497e187acff05a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\result.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/result.json",
+      "source_sha256": "a29574c3d403a368b041e4d00d9055b8891253d1a587714f28d394c40e50ce14",
+      "archive_sha256": "a29574c3d403a368b041e4d00d9055b8891253d1a587714f28d394c40e50ce14",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\runtime_cleanup.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/runtime_cleanup.json",
+      "source_sha256": "d699da3e1f6a530880a0af14239e66210a2155f4c208727d7cd59ec6fcf6eda3",
+      "archive_sha256": "d699da3e1f6a530880a0af14239e66210a2155f4c208727d7cd59ec6fcf6eda3",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\simulation.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/simulation.log.gz",
+      "source_sha256": "8b48c0bb8a9891937ba97b945b0fca171e2420364d28ce1b284fb5250ca534ac",
+      "archive_sha256": "78cc686a70f845f0e403816789ddd186ce73f3eb6c59a548403cd2ea212086e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\status.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/status.json",
+      "source_sha256": "588cf38bb7e4afe10581d4e70d5fe9aee8733c1b219dacae892af6de1ebd8f0e",
+      "archive_sha256": "588cf38bb7e4afe10581d4e70d5fe9aee8733c1b219dacae892af6de1ebd8f0e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\trajectory.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/trajectory.csv.gz",
+      "source_sha256": "38621912ee824b8e12f476ff9cbd510528126b4f210f3e8e34b87cd372a9b25c",
+      "archive_sha256": "3f6b6a9330f8272dfcfd3d18a795f528e6dba9981c912a2680b835f582dd7432",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\actual_idle_check.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/actual_idle_check.json",
+      "source_sha256": "d9f673b083231bb77e738167785d03e6151fd3d926f149b53a763563ff4ac2e0",
+      "archive_sha256": "d9f673b083231bb77e738167785d03e6151fd3d926f149b53a763563ff4ac2e0",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\assert_idle.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/assert_idle.py",
+      "source_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "archive_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/manifest.json",
+      "source_sha256": "34fa18255b2302fb9eae85073d30b95f83555f835b2d23cedd7cdffd9752ffa8",
+      "archive_sha256": "34fa18255b2302fb9eae85073d30b95f83555f835b2d23cedd7cdffd9752ffa8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/observe_and_save.py",
+      "source_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "archive_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/previous_lock.json",
+      "source_sha256": "f05946fcd8779769383e8a1e9e206ba406751ef8b8a9483e2d05591399f3c50c",
+      "archive_sha256": "f05946fcd8779769383e8a1e9e206ba406751ef8b8a9483e2d05591399f3c50c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/run_gbp2_trial.py",
+      "source_sha256": "aab3d7b19c4c8e3e831ad3973f041ee727a0ebc1c0048fdbce8a1ed703a273f2",
+      "archive_sha256": "aab3d7b19c4c8e3e831ad3973f041ee727a0ebc1c0048fdbce8a1ed703a273f2",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\rosservice_316_1793175952347.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/rosservice_316_1793175952347.log.gz",
+      "source_sha256": "7ce31aab0bbf1005e79a07b97e669d2d173a690ba1f7c5b18c39056b9907df82",
+      "archive_sha256": "ccd2b16ac0afc8880ca10503468d02a17fab0bacb38548df7e776ce723ecddad",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\scene4_benchmark.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/scene4_benchmark.log.gz",
+      "source_sha256": "1a78cf0d9930eb91948b4e6a9fd7d92dea568cc57db180341e108d4ad112a909",
+      "archive_sha256": "93a8a15cc0963d3a4ccd9c3d3e4017703effeddb7aa952702bbdd87802d9f525",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "75abc2653e85067209f1b84f11c03768cdba8d2cee421719920760e7831eb4f5",
+      "archive_sha256": "bc6ce491a7fc9f150d8ccb63cb0016634879dc5c44c103e95f7fb11d276848c6",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "0e2b7025a7b8118b730459f9984e540aab6c31aa47648999ba28188bc72130a7",
+      "archive_sha256": "16b4f1fdcfa758e44d3e5c0ad364b1afaafa5de4ad02b43e201bb5a21955a632",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\master.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/master.log.gz",
+      "source_sha256": "83e56fa37ecc30ac48fc1dfaacebc412d8c4084ee145a3304c8a48dde7f6715a",
+      "archive_sha256": "f2dae2646a31236bdca7b0a042c02d2d0d9e6d96c39db11267ed0ff1e11c7965",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "2adb22ee1fac09b1f11576300402a13e288b3cc4db2c755565f642630f07f642",
+      "archive_sha256": "af5c44b0d353b122bce99a76b2d04cc228cc6e809897509c94c0cc149f0e45c3",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\roslaunch-PC-20231212HLZZ-357.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/roslaunch-PC-20231212HLZZ-357.log.gz",
+      "source_sha256": "ea96f522359f985c97b023e586a77f1b301c22d3902c6331b6b94b2ca990141c",
+      "archive_sha256": "e7cd5e82a59e4df446c21dfdbae0e8d91fc9045d55a520470dbbac5bfd855b12",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\roslaunch-PC-20231212HLZZ-540.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/roslaunch-PC-20231212HLZZ-540.log.gz",
+      "source_sha256": "cdeb7301853a14f723adbb69b9f377bccd76279699b3ddf8d76dd916619dd8c0",
+      "archive_sha256": "0c6ac9b84ac718ed12746a03fdeb6fd0a4af347ba4d26c3df5677c612eae47a5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\roslaunch-PC-20231212HLZZ-55.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/roslaunch-PC-20231212HLZZ-55.log.gz",
+      "source_sha256": "01fa36d7171423612ec3098013b05df27b91c9cf8fa5e7a3cf0d85a9dbd409a4",
+      "archive_sha256": "ba1f6c93ba9ddd8d98e4f2ab8e1264d3e33d043685bde8282fa0c5d2ee1b0180",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "d3ea7a2b5143a29cd7535a9053dee9bd077d6a61b67580bc3d0e0dd3c9186628",
+      "archive_sha256": "769fd58a182414f5e69d2896df476eb5f283004770c1910803a38469c7c33343",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\rosout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/rosout.log.gz",
+      "source_sha256": "2d424dc166329dfba26a367b2edf1e23bcb3ba2305bfaa47f388920bc765d546",
+      "archive_sha256": "fa5f0b61a65693e2ced70095ac3bb3c8a118572c3d99e14243de3783d49b58c4",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "df9bd075fb5fdd9c9586e74fa3ff166da287aa25f9c030d9ca504c982e64a115",
+      "archive_sha256": "3405d020442ff201ff569edb01b2f64664dc982898d229aaac24fd62f38bfa36",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "464bc33f5200ec9aaea16e1415a4a103da254e1f9ae2d9fded54dc179e10bc87",
+      "archive_sha256": "80dcf27f13d2a5868421dc889ceada7e43e379cb60d76ddcf4e74cd5cc8c838a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "2a8b6e2f25d1c1c82ab971986922ba67371e57772cdad170f3404762e91dabbc",
+      "archive_sha256": "50bd925fd2b45d63412d9c90cb00947638703ba40990094e0ba61803a3acc8fb",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "6b1833c8dd25a28fcb6a589fc712023516c0f1791834bd4e37ca98afc792b9c2",
+      "archive_sha256": "1fc84b716a23ae35bcc977719f6333271130fdbf770ae5c844428db45437cfc5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\ros\\2600e8b8-d2a9-11f1-bf7a-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/ros/2600e8b8-d2a9-11f1-bf7a-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "389047a087821f6fc3b0acb897169a88cf26c157b4f2d5d89fdd42796eafde6f",
+      "archive_sha256": "931d9d7550c82a9688bb3ccaf67d825158335c6526c1f5c05bdef4ac22cb6f2d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/gbp2.yaml",
+      "source_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "archive_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_frontier03_20261028_11\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_frontier03_20261028_11/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\cloud_bridge.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/cloud_bridge.log.gz",
+      "source_sha256": "a04e3ad3742c043848f1a389dc82fd849854b65eba0c57b751ed252b03d76b5c",
+      "archive_sha256": "b439232b1f7311bdc78de3e1486260d7dd69d33e70575b20a4c6f2b2e30dd06b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\coverage.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/coverage.log.gz",
+      "source_sha256": "a38776213740f99c823e924a282f6250f5a141f829c9e60d00c1e9c0d0ffe6be",
+      "archive_sha256": "4b82b545f510075f51991be956af1a24d642a7b3ceb95e53ae6ab14cfa874709",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\coverage.ufo",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/coverage.ufo.gz",
+      "source_sha256": "5dde79e6fec0374fee717ce9964d97cffdd6fa3c9e252fa5b4b0370c48e98076",
+      "archive_sha256": "478b8040bbe00e269b5d189967f7411114ca560e03343000c64cdd2df325b945",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\coverage_insert.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/coverage_insert.tsv.gz",
+      "source_sha256": "46b90c1aaf289953cb76bdf44ed3bfe25dc8bf2c79c4fef3ebe930ef8edbcb95",
+      "archive_sha256": "af71acf48af50aeb87c3d7d462e07bb58f93a06cf89c2840de393b1e6c10a390",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\coverage_mapping.tsv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/coverage_mapping.tsv.gz",
+      "source_sha256": "53f5ab6f80f76aa0980a84a4713cfc091407f8763bf6db17075d566fc5a7b722",
+      "archive_sha256": "bb575aef405fad04ddb502731ca4d94c24cfb86b4cee907f1927db97404bc18b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\events.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/events.jsonl.gz",
+      "source_sha256": "d077f832594f514365aa48ca43fd06829a2438a5c192619daf2dcea34c2db3fa",
+      "archive_sha256": "df71026895d29326c316212c925cef18fbae75f229039582071eacfc66917cac",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\freeze_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/freeze_validation.json",
+      "source_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "archive_sha256": "30b752f5f1cf5c1a4ea36983f4d0d2e42b729004f67eef0c42c3d0bb5f9bb0e5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\known_plane_cells.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/known_plane_cells.csv.gz",
+      "source_sha256": "7171a5aa2c9d14acef0c72069215b07b0c49206fcd20a7a99c5963735ef9375f",
+      "archive_sha256": "7ba04aed6c68813ee2eca2fadd57b5405e33e1ef54bc25b2d89d1caefe310250",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\live_rosparams.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/live_rosparams.yaml",
+      "source_sha256": "b84b8b1e149cabdf3662d9b56b2728c477ae29ff4ae3d90e64598dd908be6ed9",
+      "archive_sha256": "b84b8b1e149cabdf3662d9b56b2728c477ae29ff4ae3d90e64598dd908be6ed9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\live_runtime_audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/live_runtime_audit.json",
+      "source_sha256": "e255becdc5b61af9a5b543158f74f4a9f95c5b43dd397940381c91591ea4bc5b",
+      "archive_sha256": "e255becdc5b61af9a5b543158f74f4a9f95c5b43dd397940381c91591ea4bc5b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\metrics.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/metrics.jsonl.gz",
+      "source_sha256": "3c2cce41a61fe7100e3740b29dd6bf6de9309d645526a1ecf8633028143e621c",
+      "archive_sha256": "1c8a9f83b0e4e65950cc194fccbe020d3c7c5b63770299671c25b721a87f0389",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\movement.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/movement.log.gz",
+      "source_sha256": "d3f895ed7b39c675ede12fa37e7bb6ed4ae3cabf6d1bbc09304f787b6854f5f2",
+      "archive_sha256": "9dd12cf1281b392a5622255e5519febab8891542a51cdafbb2aeb36a1d52280d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\native_planner.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/native_planner.log.gz",
+      "source_sha256": "903cc761572822e5e173afc1b07c84d6372009a5a40c4ec962f639532136a25d",
+      "archive_sha256": "8514a95f358ac4a3d124fe1d5b8c987e5cdc5a0e00d91371c313327b2918d181",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\passive_actions.jsonl",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/passive_actions.jsonl.gz",
+      "source_sha256": "57a56ef291c7705bfd8ca6f6c829586a992088748ac467a5ed01d4353355c4cb",
+      "archive_sha256": "00c7c4d76b087cdd8c7d0d26b4ea0ad3d09a4e6308bd29700cbfb2f9c496f3a7",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\passive_observer.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/passive_observer.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\poststop_global_graph.bin",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/poststop_global_graph.bin.gz",
+      "source_sha256": "97e0d8a4723f8ce9bd55df80fab978c343dc2fb14ff393e5c3ecf9f453631e20",
+      "archive_sha256": "48f9c74b0551bcdefb1c142a9f55e044c05da88c65ff758949dd2d274ce6a725",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\poststop_global_graph.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/poststop_global_graph.json.gz",
+      "source_sha256": "f442fd7436f03d88492523b08180366e96684641d8f38d1ac51e9d7574c44459",
+      "archive_sha256": "903b9c4692f3e2023061dfa1e7aaa80a095fde423d5d895a7fcce8e197056391",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\poststop_graph_capture.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/poststop_graph_capture.json",
+      "source_sha256": "5a1b2e28fe518e1f30cb416d0376da06f530cb0534d0f2905c14072aab287117",
+      "archive_sha256": "5a1b2e28fe518e1f30cb416d0376da06f530cb0534d0f2905c14072aab287117",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\poststop_map_capture.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/poststop_map_capture.json",
+      "source_sha256": "145749f9706fbf36bfd70267b904e330f1d7937d68ad98f6fc93eed05e8a2b85",
+      "archive_sha256": "145749f9706fbf36bfd70267b904e330f1d7937d68ad98f6fc93eed05e8a2b85",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\poststop_native_map.vxblx",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/poststop_native_map.vxblx.gz",
+      "source_sha256": "813661f27c14a417faf7ab22736daa560dc70b46f073bfc60c8f54a53d86e61f",
+      "archive_sha256": "f566fafa444794d5739e1a5b7a5c791958abd83e1c8db47245cca7aff2387574",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\result.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/result.json",
+      "source_sha256": "15c2edd284caeaceef4407f938460938a5882a31969b7064fcab682bc1dd1d84",
+      "archive_sha256": "15c2edd284caeaceef4407f938460938a5882a31969b7064fcab682bc1dd1d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\runtime_cleanup.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/runtime_cleanup.json",
+      "source_sha256": "b534f72094908c59d2c057caa3c0971429ade35e89d5f26bff8ac694b53a462b",
+      "archive_sha256": "b534f72094908c59d2c057caa3c0971429ade35e89d5f26bff8ac694b53a462b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\sensor_frame_snapshot.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/sensor_frame_snapshot.json",
+      "source_sha256": "3e1104cb15e009e85363c6007ee931e2174e05b8c2c1ba435cce854d44e99236",
+      "archive_sha256": "3e1104cb15e009e85363c6007ee931e2174e05b8c2c1ba435cce854d44e99236",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\simulation.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/simulation.log.gz",
+      "source_sha256": "ce076b8791cb267f8c720dc02e03dc00254d0f6a0449b498e0bc9369e46efada",
+      "archive_sha256": "93e3367f78a9ac5506b4ea970148ef749815fbe7a283c244e326f944727e02b3",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\status.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/status.json",
+      "source_sha256": "570fe1e3d073a00c8531d83a0c8c4543f082c38e94fe94b689209a549348272c",
+      "archive_sha256": "570fe1e3d073a00c8531d83a0c8c4543f082c38e94fe94b689209a549348272c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\trajectory.csv",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/trajectory.csv.gz",
+      "source_sha256": "47d30f2ab4c23aac3de307acbc7df9b1538b9c1d134ad8a0debaf31b4544e4d8",
+      "archive_sha256": "748b0ce60a6bb7ada0c92ed84b5c38d8f594554f2bbd7a3f577cd1c9aaf48915",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\actual_idle_check.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/actual_idle_check.json",
+      "source_sha256": "fee607b6f0473d7c612576e1d285051da743bc5f70b34ac6ff387672145810e0",
+      "archive_sha256": "fee607b6f0473d7c612576e1d285051da743bc5f70b34ac6ff387672145810e0",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\assert_idle.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/assert_idle.py",
+      "source_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "archive_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\conditional_followup_plan.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/conditional_followup_plan.json",
+      "source_sha256": "79255618719be10edb42c271abac5eb297e8ebfe9e97765f3dcc51c6cf68c692",
+      "archive_sha256": "79255618719be10edb42c271abac5eb297e8ebfe9e97765f3dcc51c6cf68c692",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\conditional_followup_plan.v2.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/conditional_followup_plan.v2.json",
+      "source_sha256": "d272235d7dd9d579ee94d972c7c8d2867bb0a109c55f91a6da59151884480293",
+      "archive_sha256": "d272235d7dd9d579ee94d972c7c8d2867bb0a109c55f91a6da59151884480293",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\experiment_plan.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/experiment_plan.json",
+      "source_sha256": "526f4bd036f5a597a095e7710d3cd45092d30b4d70c8b45487e1ec6504d94aae",
+      "archive_sha256": "526f4bd036f5a597a095e7710d3cd45092d30b4d70c8b45487e1ec6504d94aae",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/manifest.json",
+      "source_sha256": "528da2f45cd7fc585a7e3d0e09e11f1503688f14e390730822f3a79b33b92fa3",
+      "archive_sha256": "528da2f45cd7fc585a7e3d0e09e11f1503688f14e390730822f3a79b33b92fa3",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/observe_and_save.py",
+      "source_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "archive_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/previous_lock.json",
+      "source_sha256": "5543b122f10c09bbbd5ba83c67f32a81672cdb17dd7a1a1b41d0027b0e8fec3e",
+      "archive_sha256": "5543b122f10c09bbbd5ba83c67f32a81672cdb17dd7a1a1b41d0027b0e8fec3e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/run_gbp2_trial.py",
+      "source_sha256": "6b81e5704a181f9e9a4a5275f09e9b9a468e94a57d9440d3807420e29f5af5f5",
+      "archive_sha256": "6b81e5704a181f9e9a4a5275f09e9b9a468e94a57d9440d3807420e29f5af5f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\trial_catalog.json",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/trial_catalog.json",
+      "source_sha256": "6e3b761161b2fd858ce21042ff077943e687ee59ed25691531c530461401b994",
+      "archive_sha256": "6e3b761161b2fd858ce21042ff077943e687ee59ed25691531c530461401b994",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\rosservice_334_1793178515721.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/rosservice_334_1793178515721.log.gz",
+      "source_sha256": "bde4408e3dcb7962f5170409d84effd996536d265ed07b106b7b234045ab5b33",
+      "archive_sha256": "0b6a7eca68187c7d8f8a183684c3e2d72123411bfce9133c16c279a6e6a79aea",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\scene4_benchmark.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/scene4_benchmark.log.gz",
+      "source_sha256": "3193ce0538601f2d1df4ba11208356cfb2d67f8838fd950e38bc34882dcc76af",
+      "archive_sha256": "72b3aa82bceb66d2609339b25e3497692267b65cebc09cac95817b7f93cbc07b",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\controller_spawner-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/controller_spawner-3-stdout.log.gz",
+      "source_sha256": "bc63d16cdcd42844e4dbc03ffb7396da4f83334227411ac4d86c93a32b0cf2da",
+      "archive_sha256": "c255cbc0a26cd3d66fd699a010e055b139e387705623361e4a599d50bfcc57b9",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\controller_spawner-3.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/controller_spawner-3.log.gz",
+      "source_sha256": "aef2a29d83a710ad4e3e7a171479cb543a175922f6de8b006fec279aaf354611",
+      "archive_sha256": "6f438ef91974375e28ec29c0eddf5abfae0675c16fbf52d13e0a27ff15a72a26",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\localPlanner-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/localPlanner-7-stdout.log.gz",
+      "source_sha256": "02e70dec2e91cd2e7faaebbbb147715a481e4ebd2980b4b9a95bcf0c4438295a",
+      "archive_sha256": "9348f3b2f99997fd34e43fd9da6d0bc5c66258d8afba9fd49d2954264dbbf987",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\map_to_world-2-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/map_to_world-2-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\master.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/master.log.gz",
+      "source_sha256": "c266d9152c72cb00edb0aa74f0beb154959575c2b4423f6224da9b2c4e0fc9a4",
+      "archive_sha256": "54caf5ef31006849764ff434ffbf5220eadb259227f75ac07780c8e2abb4502d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\pathFollower-8-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/pathFollower-8-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\path_execution_node-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/path_execution_node-5-stdout.log.gz",
+      "source_sha256": "bba078f118c2a2c9fb3ca20e5bb7a886bdf0029b387e8872480840f98b54d867",
+      "archive_sha256": "d980861373c87c9bb14444102a8685198c890177e00291bca6f143d960fed0ae",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\robot_state_publisher-7-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/robot_state_publisher-7-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\roslaunch-PC-20231212HLZZ-357.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/roslaunch-PC-20231212HLZZ-357.log.gz",
+      "source_sha256": "2ec9c15391d98516289eb627b8b9b4443362ff042c1130cf113c6a7022988a44",
+      "archive_sha256": "2fc80ff6270bbe17f55fa7c440278107dfb13e715fe6e8c37bd9cd8dc3ada268",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\roslaunch-PC-20231212HLZZ-542.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/roslaunch-PC-20231212HLZZ-542.log.gz",
+      "source_sha256": "b91db51a4cdbf608b63dd71cb3bfae49009f0feada783884558d99ed2336dc94",
+      "archive_sha256": "fc57838caabe612260f48d4e4b6bc03189bcef5e99623400fd30490ccc9e3a79",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\roslaunch-PC-20231212HLZZ-55.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/roslaunch-PC-20231212HLZZ-55.log.gz",
+      "source_sha256": "2e9279daa67129dfe3abbda6b909e9655850069e47b67c69e6d1eba64d334359",
+      "archive_sha256": "dce2be98d8f04a10bc07207b2c5d3db0cdda6736e6227d5ee89df228d8b41ade",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\rosout-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/rosout-1-stdout.log.gz",
+      "source_sha256": "ec2cfbd9151743933e354167ecbd6f4af60528af1110b7126f576eccbd9d471e",
+      "archive_sha256": "65306810a21638ab507fee551a93826761e0be86244d782a2f5d067993f5e857",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\rosout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/rosout.log.gz",
+      "source_sha256": "90afe7446b0941363d7841a71911edbe2c6f39a86db3ef65d25aaa414be50884",
+      "archive_sha256": "7c5fbfe56872496607f4fb5143698b093bcd03092555d89eee3144dd08b1f513",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\sensor_odom_to_world-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/sensor_odom_to_world-4-stdout.log.gz",
+      "source_sha256": "f95b498bdbb42ff3b13b15d16e72fc092d88dde0e15c74243dfabf7d42824c0a",
+      "archive_sha256": "e855259e93614246498471941d49f7a628b3fb3753e1fcf3e5665d32fcae489d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\sensor_to_base_link-3-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/sensor_to_base_link-3-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\slam_sim_output-1-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/slam_sim_output-1-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\terrainAnalysis-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/terrainAnalysis-6-stdout.log.gz",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\twist_marker_server-5-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/twist_marker_server-5-stdout.log.gz",
+      "source_sha256": "0ae7f3831652dc978a3d5f763343c3de85367438236b0a885a4c7af3b83a1333",
+      "archive_sha256": "b0db11a50700ec77f1bbb10620fb64ac485ee7dac40fffa3a1b0c692c6ed990a",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\twist_mux-4-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/twist_mux-4-stdout.log.gz",
+      "source_sha256": "c6a7a023cef09cd799f72c765901bbbb7f4df5424f27d8dc41f831072ea16be9",
+      "archive_sha256": "e91593136f90ea7cdf911746889caa4d0234da8dbcc9d8de97565a36b067d624",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\urdf_spawner-6-stdout.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/urdf_spawner-6-stdout.log.gz",
+      "source_sha256": "6688e9ed2becff98324fc13f634c4a649103b0ce6f78efec1632ea8df793e160",
+      "archive_sha256": "e96cd7bc7e0032f09fc5f8984a2156916e4cf6f75f9395ee225249ee916e5e9d",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\ros\\1df93a2a-d2af-11f1-a4a5-00155dc93727\\urdf_spawner-6.log",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/ros/1df93a2a-d2af-11f1-a4a5-00155dc93727/urdf_spawner-6.log.gz",
+      "source_sha256": "7f02cf90ccaa7d5a79db7c8fb5040df61b0ea9fc88d10eb3834ba6d509f60e3b",
+      "archive_sha256": "3b0f799e804e924b0e4db9ab4b8f83e2b6806fe4657a062f9998250ad7d910b3",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/gbp2.yaml",
+      "source_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "archive_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\benchmarks\\results\\gbp2_sensor_height_20261028_12\\preflight\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/gbp2_sensor_height_20261028_12/preflight/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\backup_preflight.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/backup_preflight.json",
+      "source_sha256": "c407be39b79bc179183da946f288004605b96136f83c0742a7b1b71e3b790148",
+      "archive_sha256": "c407be39b79bc179183da946f288004605b96136f83c0742a7b1b71e3b790148",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\deployment_state.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/deployment_state.json",
+      "source_sha256": "3a1ad0e99e707661fc9045512755b0332ee44ddbee881c6e035591c8c48e6d2e",
+      "archive_sha256": "3a1ad0e99e707661fc9045512755b0332ee44ddbee881c6e035591c8c48e6d2e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\experiment_limit_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/experiment_limit_validation.json",
+      "source_sha256": "1df5f3bb00cabe2a2dd27975874283cc0ca09d3f8e30778835525734cfbca027",
+      "archive_sha256": "1df5f3bb00cabe2a2dd27975874283cc0ca09d3f8e30778835525734cfbca027",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_default_frontier_20261028_10_map_overlap.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_default_frontier_20261028_10_map_overlap.json",
+      "source_sha256": "d72bdf03369d4e51a41d947aa43dd394444538fbb34ffbb9e58059d22e0dfc79",
+      "archive_sha256": "d72bdf03369d4e51a41d947aa43dd394444538fbb34ffbb9e58059d22e0dfc79",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_default_frontier_20261028_10_progress.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_default_frontier_20261028_10_progress.json",
+      "source_sha256": "07386f6f7ef6828abfac8da6780ff2dfe6c82e6e05be059e96f4f49234500638",
+      "archive_sha256": "07386f6f7ef6828abfac8da6780ff2dfe6c82e6e05be059e96f4f49234500638",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_default_frontier_20261028_10_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_default_frontier_20261028_10_validation.json",
+      "source_sha256": "23e1d264dbab64f42579fdbdcf875bb5b3c32e6fd19f9409f6989de355a238b5",
+      "archive_sha256": "23e1d264dbab64f42579fdbdcf875bb5b3c32e6fd19f9409f6989de355a238b5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_frontier03_20261028_11_map_overlap.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_frontier03_20261028_11_map_overlap.json",
+      "source_sha256": "29afb6e919c4ab1ed00513569df1ceb42802a4dd73c16f21c9ef1b14010ee8ae",
+      "archive_sha256": "29afb6e919c4ab1ed00513569df1ceb42802a4dd73c16f21c9ef1b14010ee8ae",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_frontier03_20261028_11_progress.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_frontier03_20261028_11_progress.json",
+      "source_sha256": "472170e8fccfeb52690eeb6c5fa126864a2363c3babee64c3688dcbc2dc03b70",
+      "archive_sha256": "472170e8fccfeb52690eeb6c5fa126864a2363c3babee64c3688dcbc2dc03b70",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_frontier03_20261028_11_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_frontier03_20261028_11_validation.json",
+      "source_sha256": "79a434897f49d85153881d4193d8d1e508da60db3417541250b2898d62a9b430",
+      "archive_sha256": "79a434897f49d85153881d4193d8d1e508da60db3417541250b2898d62a9b430",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_frontier_curves.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_frontier_curves.png",
+      "source_sha256": "b9497939719fa203cc8a89dd8fab1664dfc9d540430288b6ea718d0f760dfd7f",
+      "archive_sha256": "b9497939719fa203cc8a89dd8fab1664dfc9d540430288b6ea718d0f760dfd7f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_frontier_maps.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_frontier_maps.png",
+      "source_sha256": "c2cfe69a7a41e37c7da1a94a96cb73f10d9455e16721ecfef7702abe4f9d6b7a",
+      "archive_sha256": "c2cfe69a7a41e37c7da1a94a96cb73f10d9455e16721ecfef7702abe4f9d6b7a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_sensor_height_20261028_12_map_overlap.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_sensor_height_20261028_12_map_overlap.json",
+      "source_sha256": "79d29962b4fd9be2c2967300e446db1ab7fdb158397c560e398cea22e607bec9",
+      "archive_sha256": "79d29962b4fd9be2c2967300e446db1ab7fdb158397c560e398cea22e607bec9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_sensor_height_20261028_12_progress.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_sensor_height_20261028_12_progress.json",
+      "source_sha256": "f9ce9717bbfde8404033690ddefbe151a74a460d2c30965c6670fa2fd6eca103",
+      "archive_sha256": "f9ce9717bbfde8404033690ddefbe151a74a460d2c30965c6670fa2fd6eca103",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\gbp2_sensor_height_20261028_12_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/gbp2_sensor_height_20261028_12_validation.json",
+      "source_sha256": "15179ce8b983e588fa35271811440a9c8490b97b9e4c99994e1737d0e8718cdd",
+      "archive_sha256": "15179ce8b983e588fa35271811440a9c8490b97b9e4c99994e1737d0e8718cdd",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\height_reference_validation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/height_reference_validation.json",
+      "source_sha256": "dcc9c80efdbb785fd5d05c05d033a3f0b8fb73a741e45b969c7162a2aef88239",
+      "archive_sha256": "dcc9c80efdbb785fd5d05c05d033a3f0b8fb73a741e45b969c7162a2aef88239",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\live_checkpoint.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/live_checkpoint.json",
+      "source_sha256": "08056fe725b9e62bc1d3a0f5bcf1c896f260ef4676a5c13fe3903042a93c834c",
+      "archive_sha256": "08056fe725b9e62bc1d3a0f5bcf1c896f260ef4676a5c13fe3903042a93c834c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\phase_decision.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/phase_decision.json",
+      "source_sha256": "b52c0674febcc7a4347e1c9f55f39d7c5fa2f4b4c0e99dd0034cc5c134e53026",
+      "archive_sha256": "b52c0674febcc7a4347e1c9f55f39d7c5fa2f4b4c0e99dd0034cc5c134e53026",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\previous_simulation_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/previous_simulation_lock.json",
+      "source_sha256": "bd5286f8398abd43b4a57d8425f3561646c6df3407a071c8bdc3bb3b6efa8128",
+      "archive_sha256": "bd5286f8398abd43b4a57d8425f3561646c6df3407a071c8bdc3bb3b6efa8128",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\repair_formal_gbp2_09_map_overlap.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/repair_formal_gbp2_09_map_overlap.json",
+      "source_sha256": "0915ac7060a4afbdc1ec04fc14656bd143aae643a8a0fdca8e225ca11976b793",
+      "archive_sha256": "0915ac7060a4afbdc1ec04fc14656bd143aae643a8a0fdca8e225ca11976b793",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\replay_threshold_sensitivity.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/replay_threshold_sensitivity.json",
+      "source_sha256": "1d8f1d85a2f0a25943ea34075e456c9e364ac78aa6afa8f959203da85f1cf82e",
+      "archive_sha256": "1d8f1d85a2f0a25943ea34075e456c9e364ac78aa6afa8f959203da85f1cf82e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\report_layout.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/report_layout.json",
+      "source_sha256": "88b9ebf8d14341f1c721ff001d435491a6625def01a90524d1eb5fb9a592bdaf",
+      "archive_sha256": "88b9ebf8d14341f1c721ff001d435491a6625def01a90524d1eb5fb9a592bdaf",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\report_preview.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/report_preview.png",
+      "source_sha256": "6b302b8def6f08b35570b8706dd9d99f858d60541c2a925449aab0ba1a41fa16",
+      "archive_sha256": "6b302b8def6f08b35570b8706dd9d99f858d60541c2a925449aab0ba1a41fa16",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\revisit_diagnostics.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/revisit_diagnostics.json",
+      "source_sha256": "b7ce31ed62f954b2b46ec211176d6417b0cb054d58c2dfca85a8d6d9ffecab19",
+      "archive_sha256": "b7ce31ed62f954b2b46ec211176d6417b0cb054d58c2dfca85a8d6d9ffecab19",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\sensor_ground_geometry.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/sensor_ground_geometry.json",
+      "source_sha256": "18761fa948a0ae5ef600c567a4cbdeacad31119c8e9fc669bf1dbf4b36750123",
+      "archive_sha256": "18761fa948a0ae5ef600c567a4cbdeacad31119c8e9fc669bf1dbf4b36750123",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\sensor_model_audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/sensor_model_audit.json",
+      "source_sha256": "61d79af21a0df4e9f803cf2f0c87d31acd9c745e4b89358717365f023feaf04b",
+      "archive_sha256": "61d79af21a0df4e9f803cf2f0c87d31acd9c745e4b89358717365f023feaf04b",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\SENSOR_RANGE_SCOPE.md",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/SENSOR_RANGE_SCOPE.md",
+      "source_sha256": "dfffa566dc0f02fc5592695b7c75dab6133e2dfa5ea5db231e3701d49d324bd2",
+      "archive_sha256": "dfffa566dc0f02fc5592695b7c75dab6133e2dfa5ea5db231e3701d49d324bd2",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\summary.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/summary.json.gz",
+      "source_sha256": "9b302bfd2846c21c144e3caa160ca761b3233b8782ce09a8a8bfa7c27f93041c",
+      "archive_sha256": "02a9bd78b35d97469e170a9f8e5b36144c9f050b47e4d56b0730e26701ad1ba2",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\trial11_plan.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/trial11_plan.json",
+      "source_sha256": "ee63edb434a32e2cd453c1b75b203f1e91575ffeab115fd4a48f6e375f805b43",
+      "archive_sha256": "ee63edb434a32e2cd453c1b75b203f1e91575ffeab115fd4a48f6e375f805b43",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\workspace_geometry_audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/workspace_geometry_audit.json",
+      "source_sha256": "e464e7243125eb0d45250db2741973bcb5d8945dbecc98b569b8afbf5e954ac7",
+      "archive_sha256": "e464e7243125eb0d45250db2741973bcb5d8945dbecc98b569b8afbf5e954ac7",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\final_configuration\\gbp2.yaml.after",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/final_configuration/gbp2.yaml.after",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\final_configuration\\gbp2.yaml.before",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/final_configuration/gbp2.yaml.before",
+      "source_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "archive_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier03_configuration\\change.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier03_configuration/change.json",
+      "source_sha256": "7e2790393d32db0d5cb97c6b5a1efd5106b443644f0b0f51f1ec7f8ebba69c17",
+      "archive_sha256": "7e2790393d32db0d5cb97c6b5a1efd5106b443644f0b0f51f1ec7f8ebba69c17",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier03_configuration\\gbp2.yaml.after",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier03_configuration/gbp2.yaml.after",
+      "source_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "archive_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier03_configuration\\gbp2.yaml.before",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier03_configuration/gbp2.yaml.before",
+      "source_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "archive_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier10_configuration\\change.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier10_configuration/change.json",
+      "source_sha256": "3a82aa99426eac306be08e9efcff118d4d825c5c759deb6e2523f183c32d2f8a",
+      "archive_sha256": "3a82aa99426eac306be08e9efcff118d4d825c5c759deb6e2523f183c32d2f8a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier10_configuration\\gbp2.yaml.after",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier10_configuration/gbp2.yaml.after",
+      "source_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "archive_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\frontier10_configuration\\gbp2.yaml.before",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/frontier10_configuration/gbp2.yaml.before",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\interpretation.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/interpretation.json",
+      "source_sha256": "5022fbf8d5c95bb37bfa77494b1e3e08fee05655aa9077eb836619c6d84165c8",
+      "archive_sha256": "5022fbf8d5c95bb37bfa77494b1e3e08fee05655aa9077eb836619c6d84165c8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\paper_fig5d_scene4.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/paper_fig5d_scene4.png",
+      "source_sha256": "39f6f8a4b5e23d2f807f42ea0413db9e6decef73a3ffb4efb596ed2f939f2aa5",
+      "archive_sha256": "39f6f8a4b5e23d2f807f42ea0413db9e6decef73a3ffb4efb596ed2f939f2aa5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\paper_page5_table.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/paper_page5_table.png",
+      "source_sha256": "9f2564ac2ebca8a6819b6b6cd5641ab4dc6b5473249ed6908dc11d5c45d80287",
+      "archive_sha256": "9f2564ac2ebca8a6819b6b6cd5641ab4dc6b5473249ed6908dc11d5c45d80287",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\paper_page6_curves.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/paper_page6_curves.png",
+      "source_sha256": "b07a7c792c7d5b14fe055b9b17944ff36b603fcbf5a7bfc027e5750c91c8b166",
+      "archive_sha256": "b07a7c792c7d5b14fe055b9b17944ff36b603fcbf5a7bfc027e5750c91c8b166",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\paper_scene4_curve.png",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/paper_scene4_curve.png",
+      "source_sha256": "cf55ab3af6e468dfdb51ef3a8a592c6bad5492f33774d68b9ea8eef300a72427",
+      "archive_sha256": "cf55ab3af6e468dfdb51ef3a8a592c6bad5492f33774d68b9ea8eef300a72427",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\source.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/source.json",
+      "source_sha256": "75b06cb54156140d85fb339ce271ac2646ea5ab54e81305f758598dc3eda67e1",
+      "archive_sha256": "75b06cb54156140d85fb339ce271ac2646ea5ab54e81305f758598dc3eda67e1",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\paper_review\\STGPlanner_2412.13664v4.pdf",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/paper_review/STGPlanner_2412.13664v4.pdf.gz",
+      "source_sha256": "f6ac13d82f5442a8f53247719bd6ace366692d2ef9f46f3669a58beeb8624db2",
+      "archive_sha256": "576dd6cd3e1c9b4e15bb6df114ecd7dcdb5704c8a64734135ec5b1889562f96f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\audit.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/audit.json",
+      "source_sha256": "fb95f8e07018c615878c2fb475ba03c247a87fff279894b47202a62d6429ffaf",
+      "archive_sha256": "fb95f8e07018c615878c2fb475ba03c247a87fff279894b47202a62d6429ffaf",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\libgbplanner.so",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/libgbplanner.so.gz",
+      "source_sha256": "851d4a1cf591194f84fc738bd91883ef7dbaac0b56a8a788373e48fa982b2243",
+      "archive_sha256": "eef1e3bec382bde909cb9444105fc9e3428aa56243b2ad9b08351159f6433110",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\libplanner_common.so",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/libplanner_common.so.gz",
+      "source_sha256": "f20f7e2a862a26f0458a5733d3c4266741d336afce413f3d1f44913a9324b146",
+      "archive_sha256": "977d10c50a4978c324a32396367897f4f86a7e2e8fdb08201369a8761ea7f120",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\map_manager_voxblox_impl.h",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/map_manager_voxblox_impl.h",
+      "source_sha256": "f91a55b7d123d65a72ff32e88c37585892043cc2c185befe2ac4bed9bffe95d1",
+      "archive_sha256": "f91a55b7d123d65a72ff32e88c37585892043cc2c185befe2ac4bed9bffe95d1",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\params.cpp",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/params.cpp",
+      "source_sha256": "b1cf8bbf44edda6afc201800d749d047c4f9f659be075987ba95958293641ad5",
+      "archive_sha256": "b1cf8bbf44edda6afc201800d749d047c4f9f659be075987ba95958293641ad5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\params.h",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/params.h",
+      "source_sha256": "f077bc077632b2fa63758723972c3f4ae09b3eb536dabce0a5f4a85c9e0975bc",
+      "archive_sha256": "f077bc077632b2fa63758723972c3f4ae09b3eb536dabce0a5f4a85c9e0975bc",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\rrg.cpp",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/rrg.cpp.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\voxblox_alt_impl.cpp",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/voxblox_alt_impl.cpp",
+      "source_sha256": "8c8a9be8a7a5b3b530f8ae055d5fca2e63705fcbf00173a24a6a110abf2f13ff",
+      "archive_sha256": "8c8a9be8a7a5b3b530f8ae055d5fca2e63705fcbf00173a24a6a110abf2f13ff",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/manifest.json",
+      "source_sha256": "121790e948fc0cfd8c73cb2aad0b4bc28a7499887930fe869b8defb613effd40",
+      "archive_sha256": "121790e948fc0cfd8c73cb2aad0b4bc28a7499887930fe869b8defb613effd40",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/observe_and_save.py",
+      "source_sha256": "acc89e0800b2fc75b82752393c7a024a26c48c5e44639ea2e4b78e8cb282eb28",
+      "archive_sha256": "acc89e0800b2fc75b82752393c7a024a26c48c5e44639ea2e4b78e8cb282eb28",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/previous_lock.json",
+      "source_sha256": "8e100b683f1ec435cc5390b8e694a94ea3dd7031cb52acd5e0cc707995383832",
+      "archive_sha256": "8e100b683f1ec435cc5390b8e694a94ea3dd7031cb52acd5e0cc707995383832",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/run_gbp2_trial.py",
+      "source_sha256": "5c809830ab089a9c1dea33a8fd805d1261aad36cbc5c640c257bf6b7cd7ef33a",
+      "archive_sha256": "5c809830ab089a9c1dea33a8fd805d1261aad36cbc5c640c257bf6b7cd7ef33a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\actual_idle_check.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/actual_idle_check.json",
+      "source_sha256": "d9f673b083231bb77e738167785d03e6151fd3d926f149b53a763563ff4ac2e0",
+      "archive_sha256": "d9f673b083231bb77e738167785d03e6151fd3d926f149b53a763563ff4ac2e0",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\assert_idle.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/assert_idle.py",
+      "source_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "archive_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/manifest.json",
+      "source_sha256": "34fa18255b2302fb9eae85073d30b95f83555f835b2d23cedd7cdffd9752ffa8",
+      "archive_sha256": "34fa18255b2302fb9eae85073d30b95f83555f835b2d23cedd7cdffd9752ffa8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/observe_and_save.py",
+      "source_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "archive_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/previous_lock.json",
+      "source_sha256": "f05946fcd8779769383e8a1e9e206ba406751ef8b8a9483e2d05591399f3c50c",
+      "archive_sha256": "f05946fcd8779769383e8a1e9e206ba406751ef8b8a9483e2d05591399f3c50c",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/run_gbp2_trial.py",
+      "source_sha256": "aab3d7b19c4c8e3e831ad3973f041ee727a0ebc1c0048fdbce8a1ed703a273f2",
+      "archive_sha256": "aab3d7b19c4c8e3e831ad3973f041ee727a0ebc1c0048fdbce8a1ed703a273f2",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\actual_idle_check.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/actual_idle_check.json",
+      "source_sha256": "fee607b6f0473d7c612576e1d285051da743bc5f70b34ac6ff387672145810e0",
+      "archive_sha256": "fee607b6f0473d7c612576e1d285051da743bc5f70b34ac6ff387672145810e0",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\assert_idle.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/assert_idle.py",
+      "source_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "archive_sha256": "0820a446d925ad85951647d94894bdeaddd989508fd2adf5dd4e16242c982804",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\benchmark_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/benchmark_trial.py",
+      "source_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "archive_sha256": "f3d096c98ac3885674cd4baa3df661b6575ed7471f62ef24b8b898591cb03b84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\conditional_followup_plan.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/conditional_followup_plan.json",
+      "source_sha256": "79255618719be10edb42c271abac5eb297e8ebfe9e97765f3dcc51c6cf68c692",
+      "archive_sha256": "79255618719be10edb42c271abac5eb297e8ebfe9e97765f3dcc51c6cf68c692",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\conditional_followup_plan.v2.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/conditional_followup_plan.v2.json",
+      "source_sha256": "d272235d7dd9d579ee94d972c7c8d2867bb0a109c55f91a6da59151884480293",
+      "archive_sha256": "d272235d7dd9d579ee94d972c7c8d2867bb0a109c55f91a6da59151884480293",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\experiment_plan.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/experiment_plan.json",
+      "source_sha256": "526f4bd036f5a597a095e7710d3cd45092d30b4d70c8b45487e1ec6504d94aae",
+      "archive_sha256": "526f4bd036f5a597a095e7710d3cd45092d30b4d70c8b45487e1ec6504d94aae",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\manifest.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/manifest.json",
+      "source_sha256": "528da2f45cd7fc585a7e3d0e09e11f1503688f14e390730822f3a79b33b92fa3",
+      "archive_sha256": "528da2f45cd7fc585a7e3d0e09e11f1503688f14e390730822f3a79b33b92fa3",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\observe_and_save.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/observe_and_save.py",
+      "source_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "archive_sha256": "400ffd0228cc5cff409dad5f2572f26e8b554269b0525292109cf9ac1a638062",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\previous_lock.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/previous_lock.json",
+      "source_sha256": "5543b122f10c09bbbd5ba83c67f32a81672cdb17dd7a1a1b41d0027b0e8fec3e",
+      "archive_sha256": "5543b122f10c09bbbd5ba83c67f32a81672cdb17dd7a1a1b41d0027b0e8fec3e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\rrg.cpp.frozen",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/rrg.cpp.frozen.gz",
+      "source_sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6",
+      "archive_sha256": "84f910885f81f121d77e64dd5d81a9a26755374ce8a8f0ae0d9eb662f350f1e5",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\run_gbp2_trial.py",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/run_gbp2_trial.py",
+      "source_sha256": "6b81e5704a181f9e9a4a5275f09e9b9a468e94a57d9440d3807420e29f5af5f5",
+      "archive_sha256": "6b81e5704a181f9e9a4a5275f09e9b9a468e94a57d9440d3807420e29f5af5f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\trial_catalog.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/trial_catalog.json",
+      "source_sha256": "6e3b761161b2fd858ce21042ff077943e687ee59ed25691531c530461401b994",
+      "archive_sha256": "6e3b761161b2fd858ce21042ff077943e687ee59ed25691531c530461401b994",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\sensor_height_configuration\\change.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/sensor_height_configuration/change.json",
+      "source_sha256": "3c689d4be7332dc6c6a763930debf30e3b1a0a599afa7ea3a9924b45c3264302",
+      "archive_sha256": "3c689d4be7332dc6c6a763930debf30e3b1a0a599afa7ea3a9924b45c3264302",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\sensor_height_configuration\\gbp2.yaml.after",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/sensor_height_configuration/gbp2.yaml.after",
+      "source_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "archive_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\sensor_height_configuration\\gbp2.yaml.before",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/sensor_height_configuration/gbp2.yaml.before",
+      "source_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "archive_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\native_map.before.sha256",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/native_map.before.sha256",
+      "source_sha256": "1f35a12afb81b839732b8ed991184d6da68694280bc386aec205cb94dc7fdd9e",
+      "archive_sha256": "1f35a12afb81b839732b8ed991184d6da68694280bc386aec205cb94dc7fdd9e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\native_map_verified.txt",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/native_map_verified.txt",
+      "source_sha256": "afb8fbfd4cd7953ca255a8ed37d10529cbab0dacf0adb681fd8b3647a977bfe1",
+      "archive_sha256": "afb8fbfd4cd7953ca255a8ed37d10529cbab0dacf0adb681fd8b3647a977bfe1",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\probe",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/probe.gz",
+      "source_sha256": "f48fb47fdcbb1ef91139fce36d59cc2e9507711d415bddc5dc10274745f624f5",
+      "archive_sha256": "5fd78fa323e96c9d43d6e31ebefa395a31a4dba51f61cafeaaccc1fc3652826f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\probe.log",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/probe.log.gz",
+      "source_sha256": "85f0126d0dbd794119fea13b709330948c14805a5cd17a459a2f55a9b9a440a9",
+      "archive_sha256": "5f29d0c66f85e2ce129723a2f74e553dd4fb6f2954c463bf70342811aa060a55",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\result.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/result.json.gz",
+      "source_sha256": "0941737ac9ace8dbb531b258334b1c906b37e2122f7305127667811571987205",
+      "archive_sha256": "c36abed1af2bebeae7805818c8b25cbb2f86003679a732d8f48ac023558ee5dd",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\roscore.log",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/roscore.log.gz",
+      "source_sha256": "5bc240340242344e792705af524ad2285fc1d382ab9bbbe160dbaa6efb9a9ca3",
+      "archive_sha256": "b7fa66d7b352a1c6f1c3416a25c51602dd858e4d36f29f469958d8eca1acc846",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\SCOPE_CLARIFICATION.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/SCOPE_CLARIFICATION.json",
+      "source_sha256": "699c3b509900d22295d50e03b9d455e768a32a25c2cff070656d21c5df24ae4d",
+      "archive_sha256": "699c3b509900d22295d50e03b9d455e768a32a25c2cff070656d21c5df24ae4d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_gbp2_default_frontier_20261028_10\\summary.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_gbp2_default_frontier_20261028_10/summary.json",
+      "source_sha256": "3ddae924e9bad2acd582b1695902961e33ee15560dc2304d205b727272e35d5f",
+      "archive_sha256": "3ddae924e9bad2acd582b1695902961e33ee15560dc2304d205b727272e35d5f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\native_map.before.sha256",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/native_map.before.sha256",
+      "source_sha256": "9ee6332be55a06ae3de5583946c21ae3cdf86eff2a9f8f30df816fa19f2ab968",
+      "archive_sha256": "9ee6332be55a06ae3de5583946c21ae3cdf86eff2a9f8f30df816fa19f2ab968",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\native_map_verified.txt",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/native_map_verified.txt",
+      "source_sha256": "9f15eb92f06e7811f9ea620217c1f616494b09504287c44205024211ed664db8",
+      "archive_sha256": "9f15eb92f06e7811f9ea620217c1f616494b09504287c44205024211ed664db8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\probe",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/probe.gz",
+      "source_sha256": "f48fb47fdcbb1ef91139fce36d59cc2e9507711d415bddc5dc10274745f624f5",
+      "archive_sha256": "5fd78fa323e96c9d43d6e31ebefa395a31a4dba51f61cafeaaccc1fc3652826f",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\probe.log",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/probe.log.gz",
+      "source_sha256": "8f077b7181bca49c827cc440f912ab66eff2f4c5796464114cd46e45176ab0c9",
+      "archive_sha256": "6c7c013e6299e0010032af66f76b6e19b2035ab50ec01308e079b4ab290a2688",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\result.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/result.json.gz",
+      "source_sha256": "7d277bdb627742a7bc645d4daf2f791d8b3f66c8a223df87c83c99ce6904ff64",
+      "archive_sha256": "f3915bbb83f526ee3df5506f1b22db95bb8ae54ee1744d9fda2cdcab651c8cc6",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\roscore.log",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/roscore.log.gz",
+      "source_sha256": "83d0a2322dc47e46c5cdaf646d2278d8b63a11830e7383e6f4ed627ec45a8fd7",
+      "archive_sha256": "81a6db6abb84356441ea1635bc3ea13fc9a7da97662aa8d163f59cbe0626bf5c",
+      "gzip": true
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\SCOPE_CLARIFICATION.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/SCOPE_CLARIFICATION.json",
+      "source_sha256": "699c3b509900d22295d50e03b9d455e768a32a25c2cff070656d21c5df24ae4d",
+      "archive_sha256": "699c3b509900d22295d50e03b9d455e768a32a25c2cff070656d21c5df24ae4d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\volume_probe_repair_formal_gbp2_09\\summary.json",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/volume_probe_repair_formal_gbp2_09/summary.json",
+      "source_sha256": "8683b828803a37f8074883e1b4345d34311b47b7821e26f9a2f966aec24dc0f8",
+      "archive_sha256": "8683b828803a37f8074883e1b4345d34311b47b7821e26f9a2f966aec24dc0f8",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/gbp2.yaml",
+      "source_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "archive_sha256": "b4468f95aaaf64bcbb2e4f3c2cf324045aca40d8451e6797fda505649da39a64",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_sensor_height_20261028_12\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_sensor_height_20261028_12/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/gbp2.yaml",
+      "source_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "archive_sha256": "3d6c616e69c988d76e4bb004156d705f32de5048ce56cf8ab815b699933e298e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_frontier03_20261028_11\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_frontier03_20261028_11/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/gbp2.yaml",
+      "source_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "archive_sha256": "8e860cde5664a2922afbfd0a1f862bc48f81e354f95fd3756252f1dcf82f83cd",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_gbp2_default_frontier_20261028_10\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_gbp2_default_frontier_20261028_10/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\coverage.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/coverage.yaml",
+      "source_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "archive_sha256": "62689a65b4221196d7178fc87efdf6c7ca2f875b952c6237e6aabaa7ae4ef562",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\fael.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/fael.launch",
+      "source_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "archive_sha256": "b4bbc4db6414a05527de54d55275c13be1fe8fc8f5e3392cab3654ce468844f9",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\fael.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/fael.yaml",
+      "source_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "archive_sha256": "b8c31c72abaa733b589d65755639a6b90c4025c081b80caee2878dbd32968d84",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\gbp2.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/gbp2.launch",
+      "source_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "archive_sha256": "44ef4dfb12f82289f80296bdde75e65eae1a7e2524c787e413bbfa851ba84d25",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\gbp2.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/gbp2.yaml",
+      "source_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "archive_sha256": "2fcf7735cf39ce22c7845f9bb8fd5fbc4263c106bb67f701d11c56bcbeb33f8d",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\movement.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/movement.launch",
+      "source_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "archive_sha256": "fa38858e8df35542ca1f7c2054495b5185293890a800c7b4a69e9b8de53a328a",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\stgp.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/stgp.launch",
+      "source_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "archive_sha256": "20566377a2d925b7c1b45931958db5a43d0a7ef5a368da2b317a02595120c853",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\tare.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/tare.launch",
+      "source_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "archive_sha256": "d1a2fc8486215cd6cf0aa4f6da40dbfea567aef062da9356c8872ca94f2db918",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\tare.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/tare.yaml",
+      "source_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "archive_sha256": "f128b281e4f051b41fbb9299e5f2341fd1ea9edd71186c2872db31e1ee14663f",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\terrain_static.launch",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/terrain_static.launch",
+      "source_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "archive_sha256": "095c8996d6077c1982343c87a56cb909c50fd99425a4516f2c6fc5f01a9df79e",
+      "gzip": false
+    },
+    {
+      "source": "D:\\STGPlanner\\codex\\outputs\\gbp2_optimization_20261028\\preflight_audit\\config\\voxblox.yaml",
+      "archive": "evidence/gbp2-optimization-20261028/analysis/preflight_audit/config/voxblox.yaml",
+      "source_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "archive_sha256": "4d2040eed69baa338229a0f43499df9edd568ae277b535ec4431e7abf079c1f5",
+      "gzip": false
+    }
+  ],
+  "raw_runs_preserved_in_place": true,
+  "previous_checkpoint": "8c55a9aee073a292df78aeb2d8f82d8aa4e13593",
+  "completed_trials": [
+    "gbp2_default_frontier_20261028_10",
+    "gbp2_frontier03_20261028_11",
+    "gbp2_sensor_height_20261028_12"
+  ]
+}

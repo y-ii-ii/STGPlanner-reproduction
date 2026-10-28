@@ -1,0 +1,33 @@
+{
+  "native_scan_full_fov_denominator": 5184.0,
+  "native_voxel_size": 0.2,
+  "groups": {
+    "projected": {
+      "queries": 24,
+      "qualified_at_threshold": {
+        "0.01": 2,
+        "0.03": 0,
+        "0.05": 0,
+        "0.1": 0
+      },
+      "native_unknown_ratio_range": [
+        0.001388888888888889,
+        0.01068672839506173
+      ]
+    },
+    "flat_sensor": {
+      "queries": 24,
+      "qualified_at_threshold": {
+        "0.01": 13,
+        "0.03": 0,
+        "0.05": 0,
+        "0.1": 0
+      },
+      "native_unknown_ratio_range": [
+        0.003935185185185186,
+        0.013310185185185185
+      ]
+    }
+  },
+  "scope": "Historical chosen states re-evaluated on final native map, not historical gain reconstruction or proof of reachable alternatives. This only diagnoses the tiny residual gains that can keep a local frontier flag alive."
+}

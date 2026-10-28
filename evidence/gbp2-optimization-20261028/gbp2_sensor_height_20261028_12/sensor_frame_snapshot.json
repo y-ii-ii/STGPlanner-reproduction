@@ -1,0 +1,60 @@
+{
+  "read_only": true,
+  "odometry": {
+    "/sensor_to_world/odometry": {
+      "frame": "world",
+      "child": "sensor",
+      "stamp": 15570.745,
+      "position": [
+        -24.377208132392333,
+        12.440957684401209,
+        0.4559726206338021
+      ],
+      "orientation": [
+        -8.846093768183186e-07,
+        -1.7484402414072429e-06,
+        0.23436796876485258,
+        0.9721479595273538
+      ]
+    },
+    "/base_link/odometry": {
+      "frame": "world",
+      "child": "base_link",
+      "stamp": 15570.846,
+      "position": [
+        -24.29433165611835,
+        12.469547087707758,
+        -2.7537446289527256e-05
+      ],
+      "orientation": [
+        -3.010452311654983e-07,
+        -2.3130860889260855e-06,
+        0.2995983339538664,
+        0.9540654266278736
+      ]
+    },
+    "/jackal/velodyne/gazebo_gt/odometry": {
+      "frame": "world",
+      "child": "jackal/velodyne/VLP_16",
+      "stamp": 15570.879,
+      "position": [
+        -24.26843327277868,
+        12.483248334966925,
+        0.5191997225187276
+      ],
+      "orientation": [
+        2.2758319956387742e-07,
+        -2.340612142267433e-06,
+        -0.3234407474698145,
+        -0.9462484255578115
+      ]
+    }
+  },
+  "cloud_frame": "jackal/velodyne/VLP_16",
+  "robot_description_parameter": "/robot_description",
+  "sensor_joints": [
+    "<joint name=\"jackal/velodyne/gazebo_gt/odometry_sensor_joint\" type=\"fixed\">\n    <parent link=\"jackal/velodyne/VLP_16\" />\n    <origin rpy=\"0.0 0.0 0.0\" xyz=\"0.0 0.0 0.0\" />\n    <child link=\"jackal/velodyne/gazebo_gt/odometry_sensor_link\" />\n  </joint>\n  \n  ",
+    "<joint name=\"jackal/velodyne/VLP_16_base_mount_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.234\" />\n    <parent link=\"mid_mount\" />\n    <child link=\"jackal/velodyne/VLP_16_base_link\" />\n  </joint>\n  ",
+    "<joint name=\"jackal/velodyne/VLP_16_base_scan_joint\" type=\"fixed\">\n    <origin rpy=\"0 0 0\" xyz=\"0 0 0.0377\" />\n    <parent link=\"jackal/velodyne/VLP_16_base_link\" />\n    <child link=\"jackal/velodyne/VLP_16\" />\n  </joint>\n  "
+  ]
+}

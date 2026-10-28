@@ -1,0 +1,26 @@
+{
+  "supersedes": "conditional_followup_plan.json; original preserved",
+  "fixed_before_trial12": true,
+  "basis_for_revision": "Trial11 has already natively homed at769.861s and41.70%, while its full2400s observation remains running. Test the physical geometry correction against the stronger historical09 frontier0.01 control, changing only robot_height relative to09. Original v1 used the newly disfavored0.03 frontier setting. No results for12 or13 yet exist.",
+  "if_trial11_complete_and_not95": {
+    "trial": "gbp2_sensor_height_20261028_12",
+    "single_change_from_historical09": {"PlanningParams/robot_height": [0.456, 0.5192]},
+    "frontier_percentage_threshold": 0.01,
+    "native_code_and_libraries": "same09",
+    "basis": "Runtime URDF sensor0.4557 minus wheel-contact-0.0635 = physical nominal input-sensor height0.5192. No TF or public scoring change."
+  },
+  "if_trial12_reaches95": {
+    "next_trial": "gbp2_sensor_height_repeat_20261028_13",
+    "action": "Repeat the identical height-corrected frontier0.01 configuration on an independent fresh scene"
+  },
+  "if_trial12_not95": {
+    "next_trial": "gbp2_frontier015_height_20261028_13",
+    "single_change_from12": {"SensorParams/VLP16/frontier_percentage_threshold": [0.01, 0.015]},
+    "robot_height": 0.5192,
+    "basis": "Finer intermediate between residual ratios near1% and the early pruning observed at3%/10%. Prior09 final chosen-pose queries were at most1.331% at physical flat sensor height. This is a data-informed candidate fixed before its fresh outcome, not a universal separator."
+  },
+  "confirmation_policy": "If a candidate is proposed for adoption because it improves area beyond historical09 or reaches95, repeat that exact candidate on an independent fresh scene, preserve all results and report uncertainty. If13 is reached and improves, its repeat uses gbp2_frontier015_height_repeat_20261028_14. If12 is best after13, its repeat uses gbp2_sensor_height_repeat_20261028_14.",
+  "phase_scope": "This phase tests up to four native parameter configurations10/11/12/13 plus one confirmation when useful. All keep the native3D objective and native09 source. No altered gain objective or pose-novelty method variant is automatically adopted in this phase.",
+  "fixed_for_every_trial": {"fresh_scene": true, "public_area_threshold_m2": 7400.5, "denominator_m2": 7790, "full_limit_s": 2400, "max_speed_m_s": 2, "range_m": 12, "vertices_max": 2000},
+  "rules": ["Full observation and health validation before next run", "No public plane or successful-run map enters planning", "No native compilation during active trials", "No overwrites or best-run replacement of the four-algorithm baseline", "Native early end is not95 success"]
+}

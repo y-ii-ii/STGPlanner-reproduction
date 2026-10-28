@@ -1,0 +1,56 @@
+{
+  "trial": "gbp2_default_frontier_20261028_10",
+  "last_metric": {
+    "sim_s": 1184.2710000000006,
+    "wall_s": 1191.466057304,
+    "area_m2": 3152.8,
+    "coverage_fraction": 0.40472400513478823,
+    "distance_m": 794.0029037213533,
+    "x": 2.9842386911538403,
+    "y": 0.11906388879069053,
+    "nonempty_plans": 93,
+    "empty_plans": 18
+  },
+  "native_homing_events": [
+    {
+      "unix": 1793161037.5176516,
+      "sim": 15959.594,
+      "kind": "native_homing_ended",
+      "path_empty": false,
+      "motion_state": 3
+    }
+  ],
+  "reference09_same_budget": {
+    "sim_s": 1183.5660000000007,
+    "wall_s": 1190.502776357,
+    "area_m2": 4388.8,
+    "coverage_fraction": 0.5633889602053915,
+    "distance_m": 1194.9694771658994,
+    "x": 65.15756710966181,
+    "y": 64.46794336623677,
+    "nonempty_plans": 202,
+    "empty_plans": 3
+  },
+  "local_selected_paths": 87,
+  "incomplete_or_interleaved_selection_lines": 3,
+  "selected_without_valid_frontier": 0,
+  "telemetry_counts": {
+    "No frontier": 21,
+    "global planner": 8,
+    "Global planner": 3,
+    "Homing": 0,
+    "fully explored": 0,
+    "Global graph:": 90
+  },
+  "native_global_transitions": 4,
+  "native_global_targets": 3,
+  "actual_frontier_threshold": 0.1,
+  "actual_speed_parameters": {
+    "/localPlanner/maxSpeed": 2.0,
+    "/pathFollower/maxSpeed": 2.0,
+    "/localPlanner/autonomySpeed": 3.0,
+    "/pathFollower/autonomySpeed": 3.0,
+    "/use_sim_time": true
+  },
+  "runtime_processes": 4
+}

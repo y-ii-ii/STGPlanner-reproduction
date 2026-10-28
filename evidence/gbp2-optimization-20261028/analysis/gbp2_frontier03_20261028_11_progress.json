@@ -1,0 +1,48 @@
+{
+  "trial": "gbp2_frontier03_20261028_11",
+  "last_metric": {
+    "sim_s": 744.3649999999998,
+    "wall_s": 748.4242661919998,
+    "area_m2": 3248.1600000000003,
+    "coverage_fraction": 0.41696534017971765,
+    "distance_m": 849.9573867233477,
+    "x": 3.9868389091808973,
+    "y": 31.224701050490285,
+    "nonempty_plans": 107,
+    "empty_plans": 19
+  },
+  "native_homing_events": [],
+  "reference09_same_budget": {
+    "sim_s": 743.6619999999984,
+    "wall_s": 748.4275556030001,
+    "area_m2": 3115.0400000000004,
+    "coverage_fraction": 0.3998767650834404,
+    "distance_m": 741.6028337465428,
+    "x": 18.43741660770216,
+    "y": 58.77113260630246,
+    "nonempty_plans": 124,
+    "empty_plans": 3
+  },
+  "local_selected_paths": 99,
+  "incomplete_or_interleaved_selection_lines": 1,
+  "selected_without_valid_frontier": 0,
+  "telemetry_counts": {
+    "No frontier": 24,
+    "global planner": 12,
+    "Global planner": 5,
+    "Homing": 0,
+    "fully explored": 0,
+    "Global graph:": 99
+  },
+  "native_global_transitions": 6,
+  "native_global_targets": 5,
+  "actual_frontier_threshold": 0.03,
+  "actual_speed_parameters": {
+    "/localPlanner/maxSpeed": 2.0,
+    "/pathFollower/maxSpeed": 2.0,
+    "/localPlanner/autonomySpeed": 3.0,
+    "/pathFollower/autonomySpeed": 3.0,
+    "/use_sim_time": true
+  },
+  "runtime_processes": 4
+}

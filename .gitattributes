@@ -41,3 +41,6 @@
 /evidence/tare-optimization-20261028/** whitespace=-blank-at-eol,-blank-at-eof
 /benchmarks/tare_optimization/native_repairs/** -text
 /benchmarks/tare_optimization/native_repairs/** whitespace=-blank-at-eol,-blank-at-eof
+
+/evidence/gbp2-optimization-20261028/** -text
+/evidence/gbp2-optimization-20261028/** whitespace=-blank-at-eol,-blank-at-eof

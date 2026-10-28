@@ -1,0 +1,19 @@
+{
+  "trial": "gbp2_frontier03_20261028_11",
+  "fixed_before_outcome": true,
+  "single_change_from09": {
+    "SensorParams/VLP16/frontier_percentage_threshold": [
+      0.01,
+      0.03
+    ]
+  },
+  "limit_s": 2400,
+  "native_sources_binaries": "same09",
+  "public_threshold_m2": 7400.5,
+  "speed_limit_m_s": 2,
+  "samples": 2000,
+  "gain_objective": "native3D",
+  "independent_fresh_scene": true,
+  "reason": "Prespecified intermediate after10 native early end40.4724%. No public-plane feedback or uniform-ray change.",
+  "diagnostic_addition": "After common stop only, serialize the final native graph as well as map; saved gain flag is not internal active vertex type."
+}

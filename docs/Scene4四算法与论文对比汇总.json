@@ -118,5 +118,51 @@
       "local_native_runtime_mean_s": 1.0080147548972427,
       "descriptive_difference_from_paper_mean": null
     }
-  ]
+  ],
+  "followups_updated_at": "2026-10-28T17:56:00.889763+08:00",
+  "baseline_records_preserved": true,
+  "followups": {
+    "gbp2_optimization_20261028": {
+      "report": "GBP2优化测试报告.html",
+      "conclusion": "本轮新增正式试验限额3次（10/11/12）已用完，三次均未达公共95%，也未提高历史修复09的56.338896%覆盖。按用户限制停止GBP2优化，不再测试或修改算法。当前配置下GBP2存在明显覆盖停滞，不作为Scene4达95%的成功基线。",
+      "records": [
+        {
+          "trial": "gbp2_default_frontier_20261028_10",
+          "frontier_threshold": 0.1,
+          "robot_height_m": 0.456,
+          "sim_time_s": 2400.040000000001,
+          "distance_m": 794.0061229255839,
+          "area_m2": 3152.8,
+          "coverage_fraction": 0.40472400513478823,
+          "finish_reason": "sim_time_limit",
+          "native_finished": true,
+          "native_finish_sim_s": 707.0789999999997
+        },
+        {
+          "trial": "gbp2_frontier03_20261028_11",
+          "frontier_threshold": 0.03,
+          "robot_height_m": 0.456,
+          "sim_time_s": 2400.026,
+          "distance_m": 905.1292948708042,
+          "area_m2": 3248.9600000000005,
+          "coverage_fraction": 0.4170680359435174,
+          "finish_reason": "sim_time_limit",
+          "native_finished": true,
+          "native_finish_sim_s": 769.860999999999
+        },
+        {
+          "trial": "gbp2_sensor_height_20261028_12",
+          "frontier_threshold": 0.01,
+          "robot_height_m": 0.5192,
+          "sim_time_s": 2400.036,
+          "distance_m": 2482.3850199823155,
+          "area_m2": 2222.8800000000006,
+          "coverage_fraction": 0.2853504492939667,
+          "finish_reason": "sim_time_limit",
+          "native_finished": false,
+          "native_finish_sim_s": null
+        }
+      ]
+    }
+  }
 }

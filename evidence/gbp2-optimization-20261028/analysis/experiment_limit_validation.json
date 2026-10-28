@@ -1,0 +1,12 @@
+{
+  "max_new_formal_trials": 3,
+  "counted_trials": [
+    "gbp2_default_frontier_20261028_10",
+    "gbp2_frontier03_20261028_11",
+    "gbp2_sensor_height_20261028_12"
+  ],
+  "new_experiment_guard_rejects": true,
+  "guard_reason": "User experiment limit reached: finish current12 only; no new tests, probes, or repeats",
+  "cancelled_future_trials_not_started": true,
+  "new_ros_or_gazebo_started_for_this_check": false
+}

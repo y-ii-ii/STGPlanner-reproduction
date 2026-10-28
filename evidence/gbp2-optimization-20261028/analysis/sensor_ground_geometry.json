@@ -1,0 +1,155 @@
+{
+  "source": "Captured runtime robot_description in10/live_rosparams.yaml",
+  "sensor_z_above_base_link_m": 0.4557,
+  "wheel_contact_z_in_base_link_m": -0.0635,
+  "nominal_sensor_z_above_wheel_contact_m": 0.5192,
+  "old_native_robot_height_m": 0.456,
+  "geometry_difference_m": 0.06319999999999998,
+  "raw_gazebo_sensor_z_on_flat_floor_m": 0.5192000634255244,
+  "geometry_agrees_with_flat_snapshot": true,
+  "sensor_chain": [
+    {
+      "joint": "jackal/velodyne/VLP_16_base_scan_joint",
+      "xyz": [
+        0.0,
+        0.0,
+        0.0377
+      ],
+      "parent": "jackal/velodyne/VLP_16_base_link"
+    },
+    {
+      "joint": "jackal/velodyne/VLP_16_base_mount_joint",
+      "xyz": [
+        0.0,
+        0.0,
+        0.234
+      ],
+      "parent": "mid_mount"
+    },
+    {
+      "joint": "mid_mount_joint",
+      "xyz": [
+        0.0,
+        0.0,
+        0.184
+      ],
+      "parent": "chassis_link"
+    },
+    {
+      "joint": "base_link_joint",
+      "xyz": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "parent": "base_link"
+    }
+  ],
+  "wheels": [
+    {
+      "link": "front_left_wheel_link",
+      "center_z": 0.0345,
+      "radius": 0.098,
+      "bottom_z": -0.0635,
+      "chain": [
+        {
+          "joint": "front_left_wheel",
+          "xyz": [
+            0.131,
+            0.187795,
+            0.0345
+          ],
+          "parent": "chassis_link"
+        },
+        {
+          "joint": "base_link_joint",
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "parent": "base_link"
+        }
+      ]
+    },
+    {
+      "link": "front_right_wheel_link",
+      "center_z": 0.0345,
+      "radius": 0.098,
+      "bottom_z": -0.0635,
+      "chain": [
+        {
+          "joint": "front_right_wheel",
+          "xyz": [
+            0.131,
+            -0.187795,
+            0.0345
+          ],
+          "parent": "chassis_link"
+        },
+        {
+          "joint": "base_link_joint",
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "parent": "base_link"
+        }
+      ]
+    },
+    {
+      "link": "rear_left_wheel_link",
+      "center_z": 0.0345,
+      "radius": 0.098,
+      "bottom_z": -0.0635,
+      "chain": [
+        {
+          "joint": "rear_left_wheel",
+          "xyz": [
+            -0.131,
+            0.187795,
+            0.0345
+          ],
+          "parent": "chassis_link"
+        },
+        {
+          "joint": "base_link_joint",
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "parent": "base_link"
+        }
+      ]
+    },
+    {
+      "link": "rear_right_wheel_link",
+      "center_z": 0.0345,
+      "radius": 0.098,
+      "bottom_z": -0.0635,
+      "chain": [
+        {
+          "joint": "rear_right_wheel",
+          "xyz": [
+            -0.131,
+            -0.187795,
+            0.0345
+          ],
+          "parent": "chassis_link"
+        },
+        {
+          "joint": "base_link_joint",
+          "xyz": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "parent": "base_link"
+        }
+      ]
+    }
+  ],
+  "scope": "Robot geometry calibration only. Actual GBP2 odometry input is the sensor frame, so its nominal height above ground differs from sensor-to-base offset. No exploration targets or common coverage input. TSDF projection quantization and slopes remain separate errors."
+}

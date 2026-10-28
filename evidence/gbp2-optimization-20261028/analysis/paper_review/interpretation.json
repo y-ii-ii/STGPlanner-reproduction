@@ -1,0 +1,12 @@
+{
+  "source": "https://arxiv.org/pdf/2412.13664v4",
+  "complete_relevant_physical_pages_visually_reviewed": [5, 6],
+  "table": "TableI Scene4 GBP2: time>1600s, distance>1560m, both std dashes, runtime0.465s, speed0.97m/s",
+  "curve": "Fig5(d): GBP2 purple curve visibly plateaus below the terminal coverage level of the other three methods during the shown time window",
+  "qualitative_only": true,
+  "author_raw_area_values_or_success_counts_recovered": false,
+  "does_not_establish_local_public95_or_theoretical_completeness": true,
+  "shading_label_from_caption": "upper and lower bounds; not relabeled as std or confidence interval",
+  "source_panel_render": {"file":"paper_fig5d_scene4.png","physical_page":6,"dpi":300,"pixel_rectangle":[755,565,520,357]},
+  "notes": "Original PDF unchanged. The paper's Scene1 runtime paragraph about later oscillation is not relabeled as a Scene4-specific textual claim."
+}

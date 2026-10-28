@@ -44,7 +44,7 @@ header#title-block-header { display: none; }
 <ol type="1">
 <li>先读project-context/STATUS.md和RUNBOOK.md；本机对应D:/STGPlanner/codex/STATUS.md和RUNBOOK.md。</li>
 <li>最新结论看<a href="Scene4四算法与论文对比汇总.html">四算法论文对比表</a>，详细故障证据看<a href="Scene4探索停滞修复报告.html">修复长测报告</a>。</li>
-<li>找程序看<a href="../benchmarks/FILE_INDEX.md">benchmarks逐文件索引</a>和下表；不要把历史prepare/run脚本批量执行。</li>
+<li>找程序看<a href="../../benchmarks/FILE_INDEX.md">benchmarks逐文件索引</a>和下表；不要把历史prepare/run脚本批量执行。</li>
 </ol>
 <h2 id="各目录的职责">各目录的职责</h2>
 <table>
@@ -248,5 +248,7 @@ header#title-block-header { display: none; }
 </tbody>
 </table>
 <p>本次没有删除历史脚本、基线、失败/中止数据；没有移动Catkin源码、原生库或已部署入口。完整整理移动清单见project-context/work-archive/move_manifest.json。</p>
+<h2 id="后续工具">2026-10-28后续工具</h2>
+<p>TARE工具在<code>codex/work/tare_optimization</code>，GBP2工具在<code>codex/work/gbp2_optimization_20261028</code>；两个目录各有README逐文件说明。Git对应<code>benchmarks/tare_optimization</code>与<code>benchmarks/gbp2_optimization_20261028</code>。GBP2本轮包括单参数配置、运行监督、被动记录、冻结地图诊断、URDF几何审计、报告/交接与私有备份；历史已执行record/prepare不能无条件重跑。当前原生部署和结果以最新STATUS及GBP2优化报告为准。</p>
 </body>
 </html>

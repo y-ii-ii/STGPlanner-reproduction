@@ -1,7 +1,9 @@
 # STGPlanner 项目协作规则
 
-- 先读最新状态与恢复清单：project-context/STATUS.md、project-context/RUNBOOK.md。不要默认读取整段旧聊天或历史归档。
-- 项目暂停或恢复以用户最新明确授权及状态文件为准。Scene4四算法基线测试已阶段性完成，用户已暂停GBP2后续测试；除非用户明确恢复，不启动新GBP2测试或继续算法修改。FAEL成功结果保留，不自动重跑。
+- 2026-10-28最新用户限制：本轮GBP2新增正式试验硬上限3次（10/11/12），12结束后不再启动新仿真、原生地图重放、1.5%阈值试验或复测，也不继续修改算法。权威限制为D:/STGPlanner/codex/GBP2_EXPERIMENT_LIMITS.json，离线备份见project-context同名文件；后续仅验收、恢复已测试配置、离线报告/交接和私有备份。新实验须有用户新的明确授权与有限次数。
+
+- 在当前运行机先读D:/STGPlanner/codex/STATUS.md、RUNBOOK.md和SIMULATION_LOCK.json；project-context内副本是最近提交的交接快照，长测中不能用其旧“空闲/暂停”推断实时状态。离线恢复副本再读project-context/STATUS.md、RUNBOOK.md。不要默认读取整段旧聊天或历史归档。
+- 项目暂停或恢复以用户最新明确授权及状态文件为准。Scene4四算法基线阶段已完成；用户于2026-10-28明确恢复GBP2面积提升与机制验证，由当前会话独占。运行前核对最新STATUS、仿真锁和实际进程，不因新会话自动启动测试。TARE保持已验证原版，FAEL成功结果保留，不自动重跑。
 - 本项目目录D:/STGPlanner不是Git根。实际Git仓库在D:/STGPlanner/catkin_ws/src/STGPlanner；不要在D盘项目根执行git init。
 - 私有仓库y-ii-ii/STGPlanner-reproduction；当前修复分支fix/fael-gbp2-progress。保留main及两个历史基线标签。
 - 部署工具D:/STGPlanner/benchmarks；WSL发行版STGPlanner-Ubuntu20。真正编译的FAEL/GBP2源码在WSL /opt/stgplanner/benchmarks/*_ws/src，修改D盘上游克隆不会自动改变二进制。

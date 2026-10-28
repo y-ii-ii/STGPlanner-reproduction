@@ -1,0 +1,9 @@
+{
+  "after_finish_only": true,
+  "changes_planning_or_motion": false,
+  "success": true,
+  "bytes": 996614,
+  "sha256": "27206a12bc9d7f897a71011026c88fe56b04d988f2ad075a0aba24af1cd5c0b3",
+  "vertices": 5354,
+  "edges": 50479
+}

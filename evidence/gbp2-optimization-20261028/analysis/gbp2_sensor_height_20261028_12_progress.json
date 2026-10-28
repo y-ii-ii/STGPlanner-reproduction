@@ -1,0 +1,69 @@
+{
+  "trial": "gbp2_sensor_height_20261028_12",
+  "last_metric": {
+    "sim_s": 2030.482,
+    "wall_s": 2041.0381697210032,
+    "area_m2": 2222.4,
+    "coverage_fraction": 0.28528883183568676,
+    "distance_m": 2123.126630219755,
+    "x": -22.934202320902852,
+    "y": 2.9275666909016254,
+    "nonempty_plans": 348,
+    "empty_plans": 1
+  },
+  "native_homing_events": [],
+  "reference09_same_budget": {
+    "sim_s": 2029.545,
+    "wall_s": 2040.6131395169998,
+    "area_m2": 4388.8,
+    "coverage_fraction": 0.5633889602053915,
+    "distance_m": 2049.0593598461537,
+    "x": 55.02121499614654,
+    "y": 43.21282422094474,
+    "nonempty_plans": 340,
+    "empty_plans": 4
+  },
+  "local_selected_paths": 339,
+  "incomplete_or_interleaved_selection_lines": 8,
+  "selected_without_valid_frontier": 0,
+  "telemetry_counts": {
+    "No frontier": 0,
+    "global planner": 0,
+    "Global planner": 0,
+    "Homing": 0,
+    "fully explored": 0,
+    "Global graph:": 346
+  },
+  "native_global_transitions": 0,
+  "native_global_targets": 0,
+  "tail_native_gain_ratios": {
+    "complete_selection_rows": 50,
+    "scope": "Native logged weighted gain counts at the tail, not measured new area; cluster gain can be copied from a representative.",
+    "root": {
+      "median": 0.006693672839506172,
+      "range": [
+        0.001427469135802469,
+        0.011149691358024693
+      ],
+      "at_or_above0015": 0
+    },
+    "leaf": {
+      "median": 0.008487654320987654,
+      "range": [
+        0.0010416666666666667,
+        0.013155864197530865
+      ],
+      "at_or_above0015": 0
+    }
+  },
+  "actual_frontier_threshold": 0.01,
+  "actual_robot_height": 0.5192,
+  "actual_speed_parameters": {
+    "/localPlanner/maxSpeed": 2.0,
+    "/pathFollower/maxSpeed": 2.0,
+    "/localPlanner/autonomySpeed": 3.0,
+    "/pathFollower/autonomySpeed": 3.0,
+    "/use_sim_time": true
+  },
+  "runtime_processes": 4
+}

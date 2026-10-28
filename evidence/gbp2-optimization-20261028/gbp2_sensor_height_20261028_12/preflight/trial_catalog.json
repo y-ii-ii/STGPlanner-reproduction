@@ -1,0 +1,10 @@
+[
+  {"trial":"gbp2_default_frontier_20261028_10","label":"10：前沿10%","threshold":0.1,"height":0.456},
+  {"trial":"gbp2_frontier03_20261028_11","label":"11：前沿3%","threshold":0.03,"height":0.456},
+  {"trial":"gbp2_frontier03_repeat_20261028_12","label":"12：前沿3%独立重复","threshold":0.03,"height":0.456},
+  {"trial":"gbp2_sensor_height_20261028_12","label":"12：距地高度校准","threshold":0.01,"height":0.5192},
+  {"trial":"gbp2_sensor_height_repeat_20261028_13","label":"13：高度校准独立重复","threshold":0.01,"height":0.5192},
+  {"trial":"gbp2_frontier015_height_20261028_13","label":"13：校准高度、前沿1.5%","threshold":0.015,"height":0.5192},
+  {"trial":"gbp2_sensor_height_repeat_20261028_14","label":"14：高度校准独立重复","threshold":0.01,"height":0.5192},
+  {"trial":"gbp2_frontier015_height_repeat_20261028_14","label":"14：校准高度、前沿1.5%独立重复","threshold":0.015,"height":0.5192}
+]

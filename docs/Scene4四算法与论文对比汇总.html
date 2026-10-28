@@ -40,10 +40,15 @@ header#title-block-header { display: none; }
 </header>
 <h1 id="scene4四种算法与论文数据汇总">Scene4四种算法与论文数据汇总</h1>
 <blockquote>
+<p><strong>2026-10-28 GBP2后续：</strong>
+本轮新增正式试验限额3次（10/11/12）已用完，三次均未达公共95%，也未提高历史修复09的56.338896%覆盖。按用户限制停止GBP2优化，不再测试或修改算法。当前配置下GBP2存在明显覆盖停滞，不作为Scene4达95%的成功基线。
+完整结果见<a href="GBP2优化测试报告.html">GBP2优化测试报告</a>。原四算法主表仍保留预选基线，全部新试验在下方补充，不挑最好一次替换历史GBP2行。</p>
+</blockquote>
+<blockquote>
 <p><strong>2026-10-28 TARE后续：</strong>
 新增原配置对照996.477s/1490.842m；感知对齐候选两次976.461s/1474.461m、1060.356s/1546.579m，均达到95%，但未证实稳定性能收益，已恢复原生原配置。完整结果见<a href="TARE优化测试报告.html">TARE优化测试报告</a>。下表保留2026-10-27预选单次基线，不按最新或最好一次替换历史TARE行。</p>
 </blockquote>
-<p><strong>Scene4基线测试已阶段性完成。当前结果：STGPlanner、TARE、修复后的FAEL达到本地公共95%阈值；最新GBP2完整限时运行未达95%。GBP2后续测试保持用户暂停，本汇总没有启动新测试。</strong></p>
+<p><strong>Scene4基线测试已阶段性完成。主表预选版本中，STGPlanner、TARE、修复后的FAEL达到本地公共95%，GBP2修复09完整限时未达95%。用户于2026-10-28恢复的GBP2后续另列；最新状态见上方及优化报告。</strong></p>
 <p>下表每个“论文 → 本地”单元格左侧来自<a href="https://arxiv.org/html/2412.13664v4">论文v4 Table
 I的Scene4</a>，右侧来自已保存的原始result.json。论文为每方法五次测试的统计；本地为表内所列版本的一次正式观测，不能作为同条件五次统计复现。</p>
 <table>
@@ -110,13 +115,72 @@ I的Scene4</a>，右侧来自已保存的原始result.json。论文为每方法�
 <ul>
 <li>本地成功定义为公共观察器的已知平面面积/7790m²达到95%（面积&gt;7400.5m²），并通过停车和传感器验收；不是算法自然结束或严格可达区域100%覆盖。论文未提供可直接对应的本地覆盖比例，故不填造论文覆盖率。</li>
 <li>GBP2的2400.007秒、2413.450米是限时观测窗口及其部分探索轨迹，不是完成时间/完整覆盖路径。论文的&gt;1600和&gt;1560同样不是准确完成值；Std横杠表示未提供，不能单独断言成功或崩溃，因此不计算GBP2相对论文的完成性能差。</li>
-<li>FAEL使用修复后的01运行，GBP2使用最新修复/校准后的09运行；两者含本地实现改动，不能与未经改动的上游/作者配置画等号。原FAEL1600秒41.2775%、原GBP2
+<li>主表FAEL使用修复后的01运行，GBP2保持该阶段预选修复09；后续参数试验另列。两者含本地实现改动，不能与未经改动的上游/作者配置画等号。原FAEL1600秒41.2775%、原GBP2
 1600秒41.1789%及全部中间失败/中止数据均保留，未用后续结果覆盖。</li>
 <li>规划耗时按各代码原生统计范围：STGPlanner/FAEL为IterationTime，TARE为/runtime分项和，GBP2为服务回调内部稳态时钟。统计边界、CPU和负载不同，不能据此宣称跨论文的计算效率排名。本地速度是里程/探索仿真时长，含转向、等待及停滞，不是2m/s速度上限。</li>
 <li>完成运行的单次数值对照：STGPlanner时间比论文均值低2.53%、路径低0.54%；FAEL时间低1.63%、路径低4.81%；TARE时间高25.40%、路径高9.23%。这些是描述性差值，不证明改进/退化或统计显著性。</li>
 </ul>
 <h2 id="原始结果选择">原始结果选择</h2>
 <p>STGPlanner：formal_stgp_01；TARE：formal_tare_01；FAEL：repair_formal_fael_01；GBP2：repair_formal_gbp2_09。均在D:/STGPlanner/benchmarks/results下，源文件SHA和精确数值另存同名JSON。</p>
-<p>详细部署/原始基线见<a href="Scene4基线算法对比报告.html">Scene4基线算法对比报告</a>，FAEL/GBP2修复及未解决问题见<a href="Scene4探索停滞修复报告.html">探索停滞修复报告</a>。本表是已保存数据的汇总，不是新增实验或重新验证。</p>
+<p>详细部署/原始基线见<a href="Scene4基线算法对比报告.html">Scene4基线算法对比报告</a>，FAEL/GBP2修复及未解决问题见<a href="Scene4探索停滞修复报告.html">探索停滞修复报告</a>。原主表保持预选结果；下方补充表只汇总已落盘的后续试验。</p>
+<h2 id="gbp2后续原生参数试验全部已完成运行">GBP2后续原生参数试验（全部已完成运行）</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>运行</th>
+<th style="text-align: right;">原生前沿阈值</th>
+<th style="text-align: right;">名义距地高度(m)</th>
+<th style="text-align: right;">完整观察(s)</th>
+<th style="text-align: right;">原生结束(s)</th>
+<th style="text-align: right;">覆盖</th>
+<th style="text-align: right;">路程(m)</th>
+<th>公共95%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gbp2_default_frontier_20261028_10</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.456</td>
+<td style="text-align: right;">2400.040</td>
+<td style="text-align: right;">707.079</td>
+<td style="text-align: right;">40.4724%</td>
+<td style="text-align: right;">794.006</td>
+<td>未达到</td>
+</tr>
+<tr class="even">
+<td>gbp2_frontier03_20261028_11</td>
+<td style="text-align: right;">0.03</td>
+<td style="text-align: right;">0.456</td>
+<td style="text-align: right;">2400.026</td>
+<td style="text-align: right;">769.861</td>
+<td style="text-align: right;">41.7068%</td>
+<td style="text-align: right;">905.129</td>
+<td>未达到</td>
+</tr>
+<tr class="odd">
+<td>gbp2_sensor_height_20261028_12</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.5192</td>
+<td style="text-align: right;">2400.036</td>
+<td style="text-align: right;">未结束</td>
+<td style="text-align: right;">28.5350%</td>
+<td style="text-align: right;">2482.385</td>
+<td>未达到</td>
+</tr>
+</tbody>
+</table>
+<p>本轮新增正式试验限额3次（10/11/12）已用完，三次均未达公共95%，也未提高历史修复09的56.338896%覆盖。按用户限制停止GBP2优化，不再测试或修改算法。当前配置下GBP2存在明显覆盖停滞，不作为Scene4达95%的成功基线。
+原生提前返航与公共95%分开报告；未完成试验的观察时长不是完成时间。新试验保留工程修复09的原生源码与两库，参数和统计边界见<a href="GBP2优化测试报告.html">完整GBP2报告</a>。</p>
 </body>
 </html>

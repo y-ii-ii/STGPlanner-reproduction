@@ -1,0 +1,23 @@
+{
+  "owner_thread": "01a17c85-9d73-7573-885c-a95dbbc4abbf",
+  "trial": "tare_sensor_model_20261028_02",
+  "method": "tare",
+  "state": "idle",
+  "phase": "tare_optimization_complete_gbp2_paused",
+  "runtime_active": false,
+  "gbp2_followup": "paused_by_user",
+  "stage_status": "Scene4_prior_baseline_complete_TARE_followup_complete",
+  "result_path": "/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02",
+  "supervisor_pid": 10672,
+  "updated_at": "2026-10-28T11:49:07.349908+08:00",
+  "benchmark_pid": 10691,
+  "observer_pid": 10731,
+  "returncode": 0,
+  "finish_reason": "coverage_threshold",
+  "native_build_active": false,
+  "tare_followup": "complete",
+  "native_tare_deployment": "original_stock",
+  "note": "TARE follow-up tests and cleanup complete; no simulation scheduled. GBP2 remains paused.",
+  "backup_content_commit": "79445155ee6bfaa7621ac99c880bc1a3984d4dd6",
+  "tare_backup_verified": true
+}

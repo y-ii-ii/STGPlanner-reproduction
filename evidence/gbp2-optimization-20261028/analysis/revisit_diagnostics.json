@@ -1,0 +1,112 @@
+{
+  "revisit_radius_m": 1.0,
+  "history_lag_s": 60.0,
+  "area_horizon_s": 100.0,
+  "records": {
+    "repair_formal_gbp2_09": {
+      "before_homing_command_s": 2400.0069999999996,
+      "native_selected_leaf": {
+        "queries": 353,
+        "near_old_trajectory": 119,
+        "near_old_fraction": 0.3371104815864023,
+        "complete100s_windows": 341,
+        "stagnant100s_windows": 193,
+        "revisit_and_stagnant100s": 107
+      },
+      "native_selected_leaf_after1000s": {
+        "queries": 208,
+        "near_old_trajectory": 117,
+        "near_old_fraction": 0.5625,
+        "complete100s_windows": 196,
+        "stagnant100s_windows": 192,
+        "revisit_and_stagnant100s": 107
+      },
+      "root_pose_time_alignment_median_m": 0.3894220951093645
+    },
+    "gbp2_default_frontier_20261028_10": {
+      "before_homing_command_s": 668.969000000001,
+      "native_selected_leaf": {
+        "queries": 71,
+        "near_old_trajectory": 0,
+        "near_old_fraction": 0.0,
+        "complete100s_windows": 65,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      },
+      "native_selected_leaf_after1000s": {
+        "queries": 0,
+        "near_old_trajectory": 0,
+        "near_old_fraction": null,
+        "complete100s_windows": 0,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      },
+      "root_pose_time_alignment_median_m": 0.3986809155485348,
+      "recorded_action_endpoints": {
+        "queries": 76,
+        "near_old_trajectory": 9,
+        "near_old_fraction": 0.11842105263157894,
+        "complete100s_windows": 69,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      }
+    },
+    "gbp2_frontier03_20261028_11": {
+      "before_homing_command_s": 718.0849999999991,
+      "native_selected_leaf": {
+        "queries": 83,
+        "near_old_trajectory": 0,
+        "near_old_fraction": 0.0,
+        "complete100s_windows": 75,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      },
+      "native_selected_leaf_after1000s": {
+        "queries": 0,
+        "near_old_trajectory": 0,
+        "near_old_fraction": null,
+        "complete100s_windows": 0,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      },
+      "root_pose_time_alignment_median_m": 0.3735094069304682,
+      "recorded_action_endpoints": {
+        "queries": 90,
+        "near_old_trajectory": 6,
+        "near_old_fraction": 0.06666666666666667,
+        "complete100s_windows": 80,
+        "stagnant100s_windows": 0,
+        "revisit_and_stagnant100s": 0
+      }
+    },
+    "gbp2_sensor_height_20261028_12": {
+      "before_homing_command_s": 2400.036,
+      "native_selected_leaf": {
+        "queries": 379,
+        "near_old_trajectory": 183,
+        "near_old_fraction": 0.48284960422163586,
+        "complete100s_windows": 366,
+        "stagnant100s_windows": 283,
+        "revisit_and_stagnant100s": 173
+      },
+      "native_selected_leaf_after1000s": {
+        "queries": 225,
+        "near_old_trajectory": 152,
+        "near_old_fraction": 0.6755555555555556,
+        "complete100s_windows": 212,
+        "stagnant100s_windows": 212,
+        "revisit_and_stagnant100s": 146
+      },
+      "root_pose_time_alignment_median_m": 0.3631050799146267,
+      "recorded_action_endpoints": {
+        "queries": 388,
+        "near_old_trajectory": 303,
+        "near_old_fraction": 0.7809278350515464,
+        "complete100s_windows": 374,
+        "stagnant100s_windows": 286,
+        "revisit_and_stagnant100s": 267
+      }
+    }
+  },
+  "scope": "Offline association only. Chosen native leaf is not necessarily the truncated executed action endpoint. Legitimate global backtracking can revisit old poses. A near-old pose does not prove previously complete sensor visibility. Homing return and post-native-end hold excluded; area growth never fed back into the planner. No historical native map/gain reconstruction."
+}

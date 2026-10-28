@@ -1,0 +1,26 @@
+{
+  "all_passed": true,
+  "results": [
+    {
+      "report": "GBP2优化测试报告",
+      "pageWidth": 1680,
+      "scrollWidth": 1680,
+      "brokenImages": 0,
+      "tableCount": 1
+    },
+    {
+      "report": "Scene4四算法与论文对比汇总",
+      "pageWidth": 1680,
+      "scrollWidth": 1680,
+      "brokenImages": 0,
+      "tableCount": 2
+    },
+    {
+      "report": "代码目录说明",
+      "pageWidth": 1680,
+      "scrollWidth": 1680,
+      "brokenImages": 0,
+      "tableCount": 2
+    }
+  ]
+}

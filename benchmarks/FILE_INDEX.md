@@ -109,3 +109,7 @@
 ## TARE后续优化（2026-10-28）
 
 新增[tare_optimization/README.md](tare_optimization/README.md)，列明运行监督、只读诊断、感知模型补丁、实际原生回归、重建/恢复、报告/归档与验证工具的作用。当前真实部署以project-context/TARE_DEPLOYMENT_STATE.json为准。
+
+## GBP2后续原生参数优化（2026-10-28）
+
+新增[gbp2_optimization_20261028/README.md](gbp2_optimization_20261028/README.md)，说明单参数部署、监督器、被动记录、冻结地图诊断、URDF几何校准、报告和私有备份工具。运行脚本不会证明探索成功；当前实际部署见project-context/GBP2_DEPLOYMENT_STATE.json。

@@ -1,0 +1,47 @@
+{
+  "runtime_processes": [],
+  "ports_free": {
+    "11311": true,
+    "11312": true,
+    "11345": true
+  },
+  "native_files": [
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/gbplanner/src/rrg.cpp",
+      "saved": "rrg.cpp",
+      "sha256": "9e54fcef4f03b7f6a293ac064909ee3a8d4eacabd8840f747139d023eb6c54c6"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/src/params.cpp",
+      "saved": "params.cpp",
+      "sha256": "b1cf8bbf44edda6afc201800d749d047c4f9f659be075987ba95958293641ad5"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/include/planner_common/params.h",
+      "saved": "params.h",
+      "sha256": "f077bc077632b2fa63758723972c3f4ae09b3eb536dabce0a5f4a85c9e0975bc"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/src/voxblox/voxblox_alt_impl.cpp",
+      "saved": "voxblox_alt_impl.cpp",
+      "sha256": "8c8a9be8a7a5b3b530f8ae055d5fca2e63705fcbf00173a24a6a110abf2f13ff"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/src/planner_common/include/planner_common/map_manager_voxblox_impl.h",
+      "saved": "map_manager_voxblox_impl.h",
+      "sha256": "f91a55b7d123d65a72ff32e88c37585892043cc2c185befe2ac4bed9bffe95d1"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libgbplanner.so",
+      "saved": "libgbplanner.so",
+      "sha256": "851d4a1cf591194f84fc738bd91883ef7dbaac0b56a8a788373e48fa982b2243"
+    },
+    {
+      "path": "/opt/stgplanner/benchmarks/gbp2_ws/devel/lib/libplanner_common.so",
+      "saved": "libplanner_common.so",
+      "sha256": "f20f7e2a862a26f0458a5733d3c4266741d336afce413f3d1f44913a9324b146"
+    }
+  ],
+  "rrg_matches_formal09": true,
+  "agents_files": []
+}

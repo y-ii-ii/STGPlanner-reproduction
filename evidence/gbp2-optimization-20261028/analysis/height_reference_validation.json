@@ -1,0 +1,32 @@
+{
+  "records": {
+    "gbp2_default_frontier_20261028_10": {
+      "root_samples": 90,
+      "projected_root_z_range_m": [
+        0.435958,
+        0.61605
+      ],
+      "projected_root_z_median_m": 0.6159969999999999,
+      "live_robot_height_m": 0.456,
+      "projection_height_m": 0.7,
+      "converted_root_sensor_z_m": 0.3719969999999999,
+      "live_sensor_z_at_flat_snapshot_m": 0.4560031280280576,
+      "absolute_reference_difference_m": 0.08400612802805768
+    },
+    "gbp2_sensor_height_20261028_12": {
+      "root_samples": 406,
+      "projected_root_z_range_m": [
+        0.435969,
+        0.616028
+      ],
+      "projected_root_z_median_m": 0.615973,
+      "live_robot_height_m": 0.5192,
+      "projection_height_m": 0.7,
+      "converted_root_sensor_z_m": 0.43517300000000003,
+      "live_sensor_z_at_flat_snapshot_m": 0.4559726206338021,
+      "absolute_reference_difference_m": 0.020799620633802085
+    }
+  },
+  "flat_reference_difference_reduced": true,
+  "scope": "Nominal conversion at median projected flat roots versus independent sensor-odometry snapshots on the same flat floor. Snapshots are not temporally paired with every selected root. Does not establish all sample/cluster gain origins or sensor angles are exact, and does not establish exploration performance improvement. Residual ground-projection/voxel quantization remains."
+}
