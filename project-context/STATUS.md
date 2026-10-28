@@ -133,3 +133,7 @@ tare_sensor_model_20261028_01：976.461s、1474.461m、95.0757381%，六项验�
 当前实际原生部署：已恢复并重建原生原配置，源码与程序SHA均匹配996.477秒新对照所用版本；精确源码/二进制SHA见codex/outputs/tare_optimization_20261028/deployment_state.json。全部新运行已清理所属进程，11311/11345核查空闲；没有活动长测，不安排自动续跑。GBP2继续暂停，FAEL结果未重跑。
 
 新增报告codex/outputs/TARE优化测试报告.md/.html；工具codex/work/tare_optimization；Git工具归档benchmarks/tare_optimization，原始数据/诊断evidence/tare-optimization-20261028。旧基线/失败/中止数据及本轮三组新原始数据均未覆盖。既有四算法基线阶段完成仍成立，本轮后续已完成。私有备份核验记录见TARE_OPTIMIZATION_BACKUP_VERIFIED.json；生成前不冒称本轮远端已验收。
+
+## TARE后续私有备份已验收
+
+内容提交`79445155ee6bfaa7621ac99c880bc1a3984d4dd6`已推送到私有分支fix/fael-gbp2-progress。远端独立克隆恢复通过261项新增归档的压缩前后SHA、此前622项清单、67项实验隔离/运行检查，历史原始证据未改动；main、历史基线分支和两个标签均保留。验收记录TARE_OPTIMIZATION_BACKUP_VERIFIED.json指向该内容提交，随后交接/报告互链元数据提交的最终HEAD以git log和远端核对为准。TARE当前恢复已验证原版，无活动测试；GBP2保持暂停。旧四算法表只增加后续入口，保留原预选TARE基线行，全部新对照/候选在TARE报告中单列。

@@ -1,0 +1,30 @@
+{
+  "verified_at": "2026-10-28T11:47:27.295696+08:00",
+  "repository": "y-ii-ii/STGPlanner-reproduction",
+  "private": true,
+  "branch": "fix/fael-gbp2-progress",
+  "remote_commit": "79445155ee6bfaa7621ac99c880bc1a3984d4dd6",
+  "protected_refs_unchanged": {
+    "heads/main": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "heads/benchmark/scene4-baselines": "9dec3c45184259a0d68e3dfe066040966d807aed",
+    "tags/repro-baseline-2026-10-26": "dfc712982891f29c266083d7efad72ad48e730a2",
+    "tags/scene4-baselines-2026-10-27": "9dec3c45184259a0d68e3dfe066040966d807aed"
+  },
+  "GBP2_followup": "paused_by_user",
+  "remote_head_matches_local": true,
+  "restored_checkout": "D:\\STGPlanner\\codex\\work\\restores\\tare-optimization-20261028",
+  "restored_checkout_clean": true,
+  "verification": {
+    "all_checks_passed": true,
+    "new_archive_files": 261,
+    "previous_manifest_files": 622,
+    "all_new_archive_and_decompressed_sha_passed": true,
+    "historical_raw_evidence_unchanged": true,
+    "native_experiment_checks": 67,
+    "TARE_followup_complete": true,
+    "GBP2_followup": "paused_by_user",
+    "decision": "reject",
+    "deployment": "已恢复并重建原生原配置，源码与程序SHA均匹配996.477秒新对照所用版本"
+  },
+  "TARE_followup": "complete"
+}

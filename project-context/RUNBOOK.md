@@ -70,3 +70,7 @@ AGENTS.md用于持久项目指导，官方说明：https://learn.chatgpt.com/doc
 ## TARE后续优化已结束
 
 先读STATUS最新TARE结论和TARE优化测试报告。实际原生部署见deployment_state.json，不以D盘上游克隆推断。工具及各自作用见benchmarks/tare_optimization/README.md；原始候选和新原配置对照分开保留。原生感知模型修正与性能收益分开评价，不能将新原配置的改善归到修改名下。当前无活动长测；GBP2继续暂停。后续新实验必须明确范围、先检查锁/进程，并采用新结果名。
+
+## TARE后续私有备份已验收
+
+内容提交`79445155ee6bfaa7621ac99c880bc1a3984d4dd6`已推送到私有分支fix/fael-gbp2-progress。远端独立克隆恢复通过261项新增归档的压缩前后SHA、此前622项清单、67项实验隔离/运行检查，历史原始证据未改动；main、历史基线分支和两个标签均保留。验收记录TARE_OPTIMIZATION_BACKUP_VERIFIED.json指向该内容提交，随后交接/报告互链元数据提交的最终HEAD以git log和远端核对为准。TARE当前恢复已验证原版，无活动测试；GBP2保持暂停。旧四算法表只增加后续入口，保留原预选TARE基线行，全部新对照/候选在TARE报告中单列。

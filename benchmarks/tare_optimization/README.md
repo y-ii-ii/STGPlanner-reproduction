@@ -23,6 +23,7 @@
 | verify_tare.py | 核对所有原始结果、健康/停车、冻结版本、实验隔离及原生射线用例 |
 | stage_delivery.py / verify_delivery.py | 原始新数据逐文件保留/压缩归档，验证压缩前后SHA和历史证据未变 |
 | backup_tare.py | 私有仓库、受保护引用和独立远端恢复核验，现有凭据仅在内存中使用 |
+| update_report_links.py | 给旧四算法表添加TARE后续入口，保留原预选基线行，不择优替换旧数据 |
 
 交付和预检在codex/outputs/tare_optimization_20261028；正式原始运行数据在benchmarks/results的各自新目录。不要重跑固定名称或覆盖此前输出。候选感知用例通过不等于探索成功或性能提高，完整结果与最终采用/恢复决定以报告和STATUS为准。
 

@@ -9,7 +9,7 @@
   "stage_status": "Scene4_prior_baseline_complete_TARE_followup_complete",
   "result_path": "/mnt/d/STGPlanner/benchmarks/results/tare_sensor_model_20261028_02",
   "supervisor_pid": 10672,
-  "updated_at": "2026-10-28T11:42:00.750787+08:00",
+  "updated_at": "2026-10-28T11:49:07.349908+08:00",
   "benchmark_pid": 10691,
   "observer_pid": 10731,
   "returncode": 0,
@@ -17,5 +17,7 @@
   "native_build_active": false,
   "tare_followup": "complete",
   "native_tare_deployment": "original_stock",
-  "note": "TARE follow-up tests and cleanup complete; no simulation scheduled. GBP2 remains paused."
+  "note": "TARE follow-up tests and cleanup complete; no simulation scheduled. GBP2 remains paused.",
+  "backup_content_commit": "79445155ee6bfaa7621ac99c880bc1a3984d4dd6",
+  "tare_backup_verified": true
 }
