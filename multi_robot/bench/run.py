@@ -84,6 +84,9 @@ def main(index):
         from observation import transform,peer_keep
         from contacts import ContactMonitor
         lock_state('running');launch('simulation');wait(rosgraph.is_master_online,55,'master unavailable')
+        # A master can answer before roslaunch has loaded /use_sim_time. Set it
+        # explicitly before init_node, as in the historical successful runner.
+        rospy.set_param('/use_sim_time',True)
         rospy.init_node('topology_trial_supervisor',anonymous=True,disable_signals=True)
         def physical(m):
             for r in robots:
@@ -236,6 +239,14 @@ def main(index):
         while owned() and time.monotonic()<until:time.sleep(.1)
         if owned():kill(signal.SIGTERM);time.sleep(.5)
         if owned():kill(signal.SIGKILL);time.sleep(.3)
+        # Reap the owned launchers, rather than counting exited zombies as live
+        # runtime or relying on /proc/environ (empty for a zombie) for cleanup.
+        for _,p in children:
+            try:p.wait(timeout=1.)
+            except subprocess.TimeoutExpired:errors.append('launcher_not_reaped')
+        if contact:
+            try:contact.proc.wait(timeout=1.)
+            except subprocess.TimeoutExpired:errors.append('contact_monitor_not_reaped')
         result['runtime_wall_s']=time.monotonic()-t0;result['post_cleanup_runtime']=runtime();result['remaining_owned_pids']=owned()
         result['checks']['within2400wall']=result['runtime_wall_s']<=2400
         result['checks']['runtime_idle']=not result['post_cleanup_runtime']['processes'] and not any(result['post_cleanup_runtime']['ports_in_use'].values())
