@@ -1,0 +1,5 @@
+{
+  "source": "Old dual02 traffic.py geometry before TrafficController",
+  "sha256": "74abd9a1933d2c43f47e4006c51f5b0aaf5a74528b689f4614a7da1b53cb7c71",
+  "adaptation": "keep footprint/swept/braking/free-reverse geometry; new reservation and nonce-bound yield barriers"
+}

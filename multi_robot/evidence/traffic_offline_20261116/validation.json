@@ -1,0 +1,12 @@
+{
+  "python_tests": 52,
+  "new_python_overlay_build": "success, no warnings",
+  "launch_xml_checks": 5,
+  "matched_wsl_hashes": 141,
+  "protected_files": 172,
+  "prior_history_files": 12823,
+  "stage2_sources": 101,
+  "stage2_binaries": 6,
+  "baseline_native_paths": 6,
+  "new_simulations": 0
+}

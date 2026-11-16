@@ -36,7 +36,7 @@ def main():
             except (ValueError, KeyError, TypeError) as exc:
                 rospy.logwarn_throttle(2., "Topology export refused: %s", exc)
 
-    rospy.Subscriber(rospy.get_param("~snapshot_topic"), String, receive, queue_size=1)
+    rospy.Subscriber(rospy.get_param("~snapshot_topic"), String, receive, queue_size=1,buff_size=8*1024*1024)
     rospy.spin()
 
 

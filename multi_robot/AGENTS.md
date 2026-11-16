@@ -1,6 +1,8 @@
 # 本目录协作范围（2026-11-16用户最新授权）
 
-- 最新增量授权：补齐原STG五状态任务约束、执行器停止ACK和超时；仍仅离线。新原生bundle为team_topology_native_task_20261116_ws，不能混用旧Action ABI。
+- 2026-11-16最新授权覆盖以下旧“仅离线”：补齐交通预约／让行，离线通过后最多4次新Scene4双机试验，每次总wall／sim≤2400秒，失败／中止计数；权威D:/STGPlanner/codex/TOPOLOGY_TRAFFIC_LIMITS_20261116.json。旧scope仍closed，新目录，不替换基线；本分支继续允许公开GitHub推送。
+
+- 旧增量授权：补齐原STG五状态任务约束、执行器停止ACK和超时；仍仅离线。新原生bundle为team_topology_native_task_20261116_ws，不能混用旧Action ABI。
 
 - 本阶段允许实施共同world、完美通信下的拓扑融合、连通任务和图距离分区，只做离线检查／隔离编译；禁止启动仿真、ROS节点或原生地图重放。
 - 用户明确允许推送到当前公开的 y-ii-ii/STGPlanner-reproduction。此前“私有仓库”记录不代表当前实际可见性；不得更改仓库可见性。

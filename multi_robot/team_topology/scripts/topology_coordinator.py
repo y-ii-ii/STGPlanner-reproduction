@@ -30,6 +30,9 @@ def main():
                                    String, queue_size=1) for r in robots}
     metrics = rospy.Publisher("~status", String, queue_size=1)
     traffic={"topology_received_bytes":0,"feedback_received_bytes":0,"commands_published_bytes":0}
+    armed=[not rospy.get_param('~require_mission_start',False)]
+    from std_msgs.msg import Bool
+    rospy.Subscriber('/team/mission_start',Bool,lambda m:armed.__setitem__(0,m.data),queue_size=1)
 
     def receive(msg):
         with lock:
@@ -69,7 +72,7 @@ def main():
                             and int(value.get("version",0))==active.get("version")
                             and int(value.get("dispatch_id",0))==active.get("dispatch_id")):
                             coordinator.ledger.acknowledge(active["task"],r,active["version"])
-                        if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE"):
+                        if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN"):
                             coordinator.defer(r,state["active"]["task"],time.monotonic())
                         supervisor.feedback(value,time.monotonic())
                     while supervisor.released:
@@ -82,7 +85,7 @@ def main():
     def tick(_):
         with lock:
             try:
-                desired = coordinator.plan(store, rospy.Time.now().to_sec(),time.monotonic())
+                desired = coordinator.plan(store, rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
                 plans = supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
             except (ValueError, KeyError) as exc:
                 rospy.logwarn_throttle(2., "Topology planning refused: %s", exc)
