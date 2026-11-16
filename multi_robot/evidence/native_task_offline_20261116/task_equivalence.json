@@ -1,0 +1,7 @@
+{
+  "random_grid_cases_exactly_equal": 12,
+  "full_canvas_first_delta_exactly_equal": true,
+  "canonical_wire_sha256": "ce7d94de680cfdda441cd178b18af26b786af35c3927c8d6bd72ffd50d1e0a43",
+  "new_simulations": 0,
+  "fixture": "synthetic, no native map replay"
+}

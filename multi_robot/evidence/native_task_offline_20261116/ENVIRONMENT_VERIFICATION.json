@@ -1,0 +1,31 @@
+{
+  "allocator_import": "/opt/stgplanner/team_topology_native_task_20261116_ws/src/team_topology/src/team_topology/allocator.py",
+  "resolved_new_nodes_without_ros_init": {
+    "planner/topo_planner_node": [
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/devel/.private/planner/lib/planner/topo_planner_node"
+    ],
+    "path_execution/path_execution_node": [
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/devel/.private/path_execution/lib/path_execution/path_execution_node"
+    ],
+    "exploration_manager/explorer_node": [
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/devel/.private/exploration_manager/lib/exploration_manager/explorer_node"
+    ],
+    "team_topology/topology_velocity_gate.py": [
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/devel/.private/team_topology/lib/team_topology/topology_velocity_gate.py",
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/src/team_topology/scripts/topology_velocity_gate.py"
+    ]
+  },
+  "new_action_slots_verified": true,
+  "linked_bundle_libraries": {
+    "path_execution": [
+      "libpath_execution.so => /opt/stgplanner/team_topology_native_task_20261116_ws/devel/lib/libpath_execution.so (0x00007cec293d2000)"
+    ],
+    "exploration_manager": [
+      "libcontrol_planner_interface.so => /opt/stgplanner/team_topology_native_task_20261116_ws/devel/lib/libcontrol_planner_interface.so (0x00007a3005863000)"
+    ],
+    "planner": [
+      "libtopo_planner.so => /opt/stgplanner/team_topology_native_task_20261116_ws/devel/lib/libtopo_planner.so (0x00007344ae800000)"
+    ]
+  },
+  "ros_nodes_started": 0
+}

@@ -1,0 +1,18 @@
+[build] Found 5 packages in 0.0 seconds.
+[build] Package table is up to date.
+Starting >>> control_planner_interface
+Finished <<< control_planner_interface                [ 1.0 seconds ]
+Starting >>> exploration_manager
+Finished <<< exploration_manager                      [ 0.6 seconds ]
+Starting >>> path_execution
+Finished <<< path_execution                           [ 0.9 seconds ]
+Starting >>> planner
+Finished <<< planner                                  [ 5 minutes and 39.5 seconds ]
+Starting >>> team_topology
+Finished <<< team_topology                            [ 0.2 seconds ]
+[build] Summary: All 5 packages succeeded!
+[build] Ignored: None.
+[build] Warnings: None.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 5 minutes and 42.4 seconds total.

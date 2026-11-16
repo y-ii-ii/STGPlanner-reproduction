@@ -1,0 +1,51 @@
+test_foreign_task_completes_without_rewriting_author_record (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_grown_support_reopens_only_after_stop_with_new_version (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_old_or_partial_or_stale_observation_cannot_finish (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_signature_ignores_alias_heartbeat_but_not_unknown_geometry (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_cached_follower_velocity_is_not_reused_on_new_dispatch (test_execution.ExecutionTests) ... ok
+test_delayed_pre_request_odom_does_not_count (test_execution.ExecutionTests) ... ok
+test_delayed_stop_is_safe_but_delayed_motion_is_rejected (test_execution.ExecutionTests) ... ok
+test_executor_exit_and_coordinator_exit_force_zero (test_execution.ExecutionTests) ... ok
+test_external_stop_nonce_is_bound_to_request_id (test_execution.ExecutionTests) ... ok
+test_goal_replacements_do_not_reset_stall_budget (test_execution.ExecutionTests) ... ok
+test_halted_ros_clock_cannot_make_stop_ack (test_execution.ExecutionTests) ... ok
+test_initial_stop_requires_new_stationary_odometry_and_zero_output (test_execution.ExecutionTests) ... ok
+test_property_tree_false_is_not_motion_permission (test_execution.ExecutionTests) ... ok
+test_repeated_or_missing_odometry_never_acks (test_execution.ExecutionTests) ... ok
+test_scope_distinguishes_same_tile_wall_and_neighbor_tile (test_execution.ExecutionTests) ... ok
+test_stationary_twist_does_not_hide_moving_pose (test_execution.ExecutionTests) ... ok
+test_task_change_waits_for_stop_and_old_goal_cannot_resume (test_execution.ExecutionTests) ... ok
+test_team_handover_waits_for_both_old_executors (test_execution.ExecutionTests) ... ok
+test_wrong_old_and_late_acks_cannot_unlock (test_execution.ExecutionTests) ... ok
+test_zero_not_published_is_not_stop_ack (test_execution.ExecutionTests) ... ok
+test_real_export_to_partition_to_fence_then_executor_loss (test_execution_e2e.EndToEndTests) ... ok
+test_stall_defers_only_execution_not_observation_completion (test_execution_e2e.EndToEndTests) ... ok
+test_every_observed_free_unknown_neighbor_pair_is_represented (test_frontier_completeness.CompletenessTests) ... ok
+test_published_packet_mutation_does_not_corrupt_cached_export (test_frontier_completeness.CompletenessTests) ... ok
+test_dispatched_task_cannot_be_stolen_before_ack (test_offline.OfflineTests) ... ok
+test_empty_candidates_not_mission_complete (test_offline.OfflineTests) ... ok
+test_equal_distance_deterministic_and_multiportal_unique (test_offline.OfflineTests) ... ok
+test_foreign_id_rejected_atomically (test_offline.OfflineTests) ... ok
+test_graph_distance_beats_euclidean_across_wall (test_offline.OfflineTests) ... ok
+test_handover_and_stale_ack (test_offline.OfflineTests) ... ok
+test_invalid_geometry_and_frame (test_offline.OfflineTests) ... ok
+test_no_corner_cut (test_offline.OfflineTests) ... ok
+test_own_export_does_not_transmit_occupancy (test_offline.OfflineTests) ... ok
+test_peer_route_and_no_parallel_wall_merge (test_offline.OfflineTests) ... ok
+test_same_sequence_conflict_and_session_restart (test_offline.OfflineTests) ... ok
+test_same_tile_split_and_missing_is_not_completed (test_offline.OfflineTests) ... ok
+test_single_cell_frontier_is_not_filtered_out (test_offline.OfflineTests) ... ok
+test_split_merge_and_reopen_lineage (test_offline.OfflineTests) ... ok
+test_task_identity_survives_portal_representative_change (test_offline.OfflineTests) ... ok
+test_tombstone_replay_gap_and_full_repair (test_offline.OfflineTests) ... ok
+test_two_branch_export_exchange_allocate_feedback (test_offline.OfflineTests) ... ok
+test_unchanged_map_sends_only_state_heartbeat (test_offline.OfflineTests) ... ok
+test_unknown_tile_uses_neighbor_tile_portal (test_offline.OfflineTests) ... ok
+test_unreachable_not_awarded_and_stale_state_stops (test_offline.OfflineTests) ... ok
+test_all_follower_outputs_are_fenced_and_old_log_paths_removed (test_wiring.WiringTests) ... ok
+test_bypass_or_mixed_mode_is_rejected (test_wiring.WiringTests) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.045s
+
+OK

@@ -1,0 +1,18 @@
+{
+  "before": {
+    "fixture": "720x640 synthetic canvas, not Scene4 replay",
+    "initial_export_s": 3.2925648000018555,
+    "unchanged_export_s": 3.2688119999947958,
+    "records": 49,
+    "second_delta_records": 0,
+    "new_simulations": 0
+  },
+  "after": {
+    "fixture": "720x640 synthetic canvas, not Scene4 replay",
+    "initial_export_s": 0.1470091000010143,
+    "unchanged_export_s": 0.05433840000478085,
+    "records": 49,
+    "second_delta_records": 0,
+    "new_simulations": 0
+  }
+}

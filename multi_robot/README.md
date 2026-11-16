@@ -13,3 +13,5 @@ MinPos、MDVRP、距离贪心为候选参考，不要求全部实现。
 本轮用户已明确允许推送至当前公开仓库，仅上传本轮源码、来源清单和离线证据，不上传历史原始数据或本机凭据。
 
 当前增量：原STG五状态任务视图、独立速度门控／停稳证明及新Action租约；使用build_native_task_offline.sh和test_native_task_offline.sh。首阶段文稿是历史快照，当前接口见docs/NATIVE_CONTRACT.md。
+
+本轮结果：[五状态任务约束与停止ACK离线报告](docs/NATIVE_TASK_EXECUTION_20261116.md)，以及[最终离线证据](evidence/native_task_offline_20261116/validation.json)。46项Python、51项C++检查及五包隔离编译通过；未启动仿真，尚无新95%／T95。
