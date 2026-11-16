@@ -26,6 +26,7 @@ def prepare(index):
         planner=g.find("node[@name='topo_planner_node']")
         set_remap(planner,'point_cloud',prefix+'/team/cloud');set_remap(planner,'sensor_odometry',prefix+'/team/odom')
         env=planner.find("env[@name='ROS_PACKAGE_PATH']");env.set('value',sandbox(out/r/'planner/private'))
+        planner.find("env[@name='LD_LIBRARY_PATH']").set('value',str(PLANNER/'devel/lib')+':'+str(NATIVE/'devel/lib')+':$(optenv LD_LIBRARY_PATH)')
         explorer=g.find("node[@name='explorer_node']");g.remove(explorer)
         ge=E.SubElement(exploration,'group',ns=r);ge.append(explorer)
         set_param(explorer,'run_mode','kReal')  # Simulation is already owned/unpaused.
@@ -45,12 +46,12 @@ def prepare(index):
             'same_physical_configs':all(sha(f/p)==sha(REF/'frozen'/p) for p in ('robot_1.urdf','robot_2.urdf','robot_1_controllers.yaml','robot_2_controllers.yaml')),
             'same_scoring_configs':all(sha(f/(r+'_planner.yaml'))==sha(REF/'frozen'/(r+'_planner.yaml')) for r in ('robot_1','robot_2'))}
     assert all(checks.values()),checks
-    executables={str(p):sha(p) for p in [NATIVE/'devel/lib/planner/topo_planner_node',NATIVE/'devel/lib/libtopo_planner.so',NATIVE/'devel/lib/path_execution/path_execution_node',NATIVE/'devel/lib/libpath_execution.so',NATIVE/'devel/lib/libcontrol_planner_interface.so',SCORE_CODE/'bin/team_score',Path('/opt/stgplanner/catkin_ws/devel/lib/libtopo_planner.so')]}
+    executables={str(p):sha(p) for p in [PLANNER/'devel/lib/planner/topo_planner_node',PLANNER/'devel/lib/libtopo_planner.so',NATIVE/'devel/lib/path_execution/path_execution_node',NATIVE/'devel/lib/libpath_execution.so',NATIVE/'devel/lib/libcontrol_planner_interface.so',SCORE_CODE/'bin/team_score',Path('/opt/stgplanner/catkin_ws/devel/lib/libtopo_planner.so')]}
     implementation={p.relative_to(CODE).as_posix():sha(p) for sub in ('bench','team_topology') for p in (CODE/sub).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     dump(out/'manifest.json',dict(index=index,robot_count=2,checks=checks,executables=executables,implementation_sha256=implementation,
          frozen_sha256={p.name:sha(p) for p in f.iterdir() if p.is_file()},speed_m_s=2.,score_resolution_m=.4,range_m=12.,denominator_m2=7790.,threshold_m2=7400.5,
          world_clock_origin_s=15228.482,initialization_targets={'robot_1':[3.5,0.],'robot_2':[1.2,0.]},initialization_speed_m_s=.6,max_wall_s=2400,max_sim_s=2400,
-         communication='perfect topology/task/path/traffic state; no peer cloud insertion',native_workspace=str(NATIVE),python_overlay=str(OVERLAY)))
+         communication='perfect topology/task/path/traffic state; no peer cloud insertion',native_workspace=str(NATIVE),planner_workspace=str(PLANNER),python_overlay=str(OVERLAY)))
     dump(out/'offline_preflight.json',dict(all_passed=True,checks=checks))
     print(out)
 

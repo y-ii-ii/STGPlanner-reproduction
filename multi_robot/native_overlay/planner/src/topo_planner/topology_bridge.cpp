@@ -1,6 +1,7 @@
 #include "topo_planner/topo_planner.h"
 #include "rapid_cover_planner/topology_route_gate.h"
 #include "rapid_cover_planner/topology_observation.h"
+#include "rapid_cover_planner/own_observation_union.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <iomanip>
@@ -250,6 +251,13 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
     }
   }
   auto grid=executionGrid();
+  const double yaw=tf::getYaw(elements_->current_pose_.orientation);
+  const int terrain_start=grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+  const auto own_free_fill=rapid_cover_planner::combineOwnObservations(grid,[&](double x,double y){
+    perception::Point2D p(x,y);auto state=gm.grid_map_.getStatusInMap2D(p);
+    // Use real observation state, not morphology (already a planning inflation).
+    return state==perception::Free?0:(state==perception::Occupied?1:2);
+  });
   double map_stamp;{std::lock_guard<std::mutex> guard(elements_->map_2d_manager_->map_2d_update_mutex_);
     map_stamp=elements_->map_2d_manager_->last_observation_stamp_.toSec();}
   double now=ros::Time::now().toSec();
@@ -277,6 +285,8 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   f.put("command_seq",topology_command_seq_);f.put("allocation_session",topology_session_);
   f.put("status",result.paths.empty()?"BLOCKED":"ACCEPTED");f.put("local_gate",prefix.status);
   f.put("source","planner");f.put("selection",selection);f.put("dispatch_id",topology_dispatch_);
+  f.put("terrain_start_footprint",terrain_start);f.put("own_free_fill_cells",own_free_fill);
+  f.put("combined_start_footprint",grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw));
   boost::property_tree::ptree trace;for(int state:planner_->native_task_trace_){boost::property_tree::ptree n;n.put("",state);trace.push_back({"",n});}
   f.add_child("native_states",trace);
   std::ostringstream out;boost::property_tree::write_json(out,f,false);

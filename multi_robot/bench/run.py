@@ -193,10 +193,12 @@ def main(index):
         runtime_info=[]
         for pid in owned():
             try:
-                p=Path('/proc')/str(pid);exe=(p/'exe').resolve();libs=sorted(set(x.split()[-1] for x in (p/'maps').read_text().splitlines() if 'libtopo_planner.so' in x or 'libpath_execution.so' in x));runtime_info.append(dict(pid=pid,exe=str(exe),libraries=libs))
+                p=Path('/proc')/str(pid);exe=(p/'exe').resolve();libs=sorted(set(x.split()[-1] for x in (p/'maps').read_text().splitlines() if 'libtopo_planner.so' in x or 'libpath_execution.so' in x));runtime_info.append(dict(pid=pid,exe=str(exe),sha256=sha(exe),libraries=libs))
             except OSError:pass
         dump(out/'runtime_fingerprints.json',runtime_info)
         assert sum(Path(x['exe']).name=='topo_planner_node' for x in runtime_info)==2
+        assert all(x['sha256']==manifest['executables'][str(PLANNER/'devel/lib/planner/topo_planner_node')] and any(str(PLANNER) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='topo_planner_node')
+        assert sum(Path(x['exe']).name=='team_score' for x in runtime_info)==2
         assert all(any('/catkin_ws/' in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='team_score')
         graph=rosgraph.Master(rospy.get_name()).getSystemState();publishers=dict(graph[0]);subscribers=dict(graph[1])
         for r in robots:
@@ -224,7 +226,11 @@ def main(index):
         result['exploration_wall_s']=time.monotonic()-start_wall if start_wall else None
         result['exploration_sim_s']=rospy.get_time()-start_sim if rospy and start_sim is not None else None
         try:
-            if mission:mission.publish(Bool(False))
+            if mission:
+                mission.publish(Bool(False))
+                # Stop creating idle PCI requests before issuing the final
+                # distinct nonce. The gates/coordinator remain alive to prove it.
+                rosnode.kill_nodes(['/'+r+'/explorer_node' for r in robots])
             for r in robots:
                 init_permissions[r]=False
                 if r in motions:motions[r].cancel_all_goals()

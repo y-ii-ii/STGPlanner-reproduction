@@ -25,8 +25,9 @@ inline TopologyPrefix topologyPrefix(const ExecutionGrid& grid,
   if (grid.resolution <= 0 || route.empty()) return out;
   for (const auto& p : route)
     if (!std::isfinite(p.first) || !std::isfinite(p.second)) return out;
-  if (std::hypot(route.front().first-x, route.front().second-y) > .8) return out;
-  if (grid.footprint(x,y,yaw) != 0) return out;
+  if (std::hypot(route.front().first-x, route.front().second-y) > .8) {out.status="ROUTE_START_GAP";return out;}
+  int start_state=grid.footprint(x,y,yaw);
+  if (start_state != 0) {out.status=start_state==1?"CURRENT_OCCUPIED":"CURRENT_UNKNOWN";return out;}
   out.points.push_back({x,y});
   double travelled = 0, heading = yaw;
   const double step = std::min(.05, grid.resolution/2.);
@@ -42,7 +43,7 @@ inline TopologyPrefix topologyPrefix(const ExecutionGrid& grid,
     double distance = std::hypot(goal.first-from.first, goal.second-from.second);
     if (distance < 1e-8) continue;
     double direction = std::atan2(goal.second-from.second,goal.first-from.first);
-    if (!turn_free(from.first,from.second,direction)) break;
+    if (!turn_free(from.first,from.second,direction)) {out.status="TURN_BLOCKED";break;}
     heading = direction;
     int n = std::max(1,int(std::ceil(distance/step)));
     bool stop = false;
