@@ -41,6 +41,12 @@ def main(index):
         if not done.wait(2370):
             errors.append('hard_wall_watchdog');stopping.set();kill(signal.SIGTERM)
             if not done.wait(5):kill(signal.SIGKILL)
+            if not done.wait(15):
+                # Even a ROS-time wait blocked by a frozen /clock cannot keep
+                # this counted attempt alive beyond the user's wall deadline.
+                dump(out/'watchdog_result.json',dict(trial=token,finish_reason='hard_wall_watchdog',runtime_wall_s=time.monotonic()-t0))
+                l=json.loads(LIMITS.read_text());l['attempts'][-1].update(state='watchdog_terminated',finish_reason='hard_wall_watchdog');dump(LIMITS,l)
+                lock_state('idle');os._exit(124)
     threading.Thread(target=hard_limit,daemon=True).start()
     signal.signal(signal.SIGINT,lambda *_:errors.append('user_interrupt'))
     signal.signal(signal.SIGUSR1,lambda *_:errors.append('diagnostic_abort'))
