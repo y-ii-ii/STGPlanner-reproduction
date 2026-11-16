@@ -20,9 +20,9 @@ class LocalExporter:
         root_cell = grid.cell(pose)
         if grid.state(root_cell) != 0:
             raise ValueError("robot is not in observed free space")
-        key=(grid.width,grid.height,grid.origin,grid.resolution,grid.data,root_cell,
+        snapshot_key=(grid.width,grid.height,grid.origin,grid.resolution,grid.data,root_cell,
              wire(snapshot.get("nodes",[])),wire(snapshot.get("edges",[])))
-        if key==self.last_snapshot_key:
+        if snapshot_key==self.last_snapshot_key:
             # Pose/time can advance without changing any navigation/task record.
             records={k:r["value"] for k,r in self.delta.previous.items() if not r["deleted"]}
             state={"root":self.delta.key("node","root"),"pose":pose,"stamp":float(snapshot["stamp"]),
@@ -67,13 +67,12 @@ class LocalExporter:
                 for cell in task["portal_cells"]:
                     key = node("portal_%d_%d" % cell, cell, "portal")
                     portal_keys.append(key)
-                    # Preserve native topology; connect the portal to a reachable anchor.
-                    for anchor in sorted([root] + list(native.values()),
-                                         key=lambda k: (sum(abs(a-b) for a,b in zip(anchors[k], cell)), k)):
-                        cells = grid.path(anchors[anchor], cell)
-                        if cells:
-                            edge(anchor, key, cells)
-                            break
+                    # A nearby native anchor may itself be disconnected from
+                    # the robot after observed-free edge validation. An actual
+                    # own-free root route is the admission evidence, not merely
+                    # reachability from an isolated nearest anchor.
+                    cells=grid.path(root_cell,cell)
+                    if cells:edge(root,key,cells)
             records[self.delta.key("task", local)] = {"kind": "task", "tile": task["tile"],
                 "signature": task["signature"], "unknown_count": len(task["cells"]),
                 "portals": portal_keys, "state": task["state"], "map_rev": task["map_rev"],
@@ -84,5 +83,5 @@ class LocalExporter:
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
                  "map_rev": self.tasks.map_rev, "resolution": grid.resolution}
         result=self.delta.build(records, state, full=full)
-        self.last_snapshot_key=key
+        self.last_snapshot_key=snapshot_key
         return result

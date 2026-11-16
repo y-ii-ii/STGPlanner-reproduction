@@ -34,6 +34,14 @@ def main():
     from std_msgs.msg import Bool
     rospy.Subscriber('/team/mission_start',Bool,lambda m:armed.__setitem__(0,m.data),queue_size=1)
 
+    def publish_plans_unlocked():
+        desired=coordinator.plan(store,rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
+        plans=supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
+        for r,plan in plans.items():
+            encoded=wire(plan);publishers[r].publish(String(data=encoded))
+            traffic['commands_published_bytes']+=len(encoded.encode())+4
+        return plans
+
     def receive(msg):
         with lock:
             traffic["topology_received_bytes"]+=len(msg.data.encode("utf-8"))+4
@@ -74,27 +82,26 @@ def main():
                             coordinator.ledger.acknowledge(active["task"],r,active["version"])
                         if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN"):
                             coordinator.defer(r,state["active"]["task"],time.monotonic())
-                        supervisor.feedback(value,time.monotonic())
+                        stopped=supervisor.feedback(value,time.monotonic()) and value.get('status')=='STOPPED'
                     while supervisor.released:
                         robot,old=supervisor.released.pop(0)
                         if old["task"] in coordinator.ledger.items:
                             coordinator.ledger.release(old["task"],robot,old["version"])
+                    if value.get('status')=='STOPPED' and supervisor.states[r]['phase']=='stopped':
+                        # Publish a ready assignment in the same verified-stop
+                        # event. Idle empty-path retries must not repeatedly win
+                        # the race against the 0.5s allocation timer.
+                        publish_plans_unlocked()
             except (ValueError, KeyError, TypeError) as exc:
                 rospy.logwarn_throttle(2., "Topology feedback refused: %s", exc)
 
     def tick(_):
         with lock:
             try:
-                desired = coordinator.plan(store, rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
-                plans = supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
+                plans = publish_plans_unlocked()
             except (ValueError, KeyError) as exc:
                 rospy.logwarn_throttle(2., "Topology planning refused: %s", exc)
                 return
-            for r, plan in plans.items():
-                plan["allocation_session"] = session
-                encoded=wire(plan)
-                publishers[r].publish(String(data=encoded))
-                traffic["commands_published_bytes"]+=len(encoded.encode("utf-8"))+4
             metrics.publish(String(data=wire({"graph_digest": store.digest(),
                 "nodes": len(store.live("node")), "edges": len(store.live("edge")),
                 "tasks": len(store.live("task")), "accepted_received_bytes": store.received_bytes,
