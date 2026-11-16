@@ -23,18 +23,39 @@ class TaskTracker:
             raise ValueError("task tracking requires a fixed world lattice")
         self.lattice = lattice
         observation = (grid.width, grid.height, grid.data)
-        if observation != self.last_observation:
-            self.map_rev += 1
-            self.last_observation = observation
+        if observation == self.last_observation:
+            return self.items
+        self.map_rev += 1
+        self.last_observation = observation
+        # A pending task must have an actually observed free/unknown boundary.
+        # Select those tiles first; do not flood-fill every untouched world tile.
+        frontier_tiles = set()
+        for index, value in enumerate(grid.data):
+            if value != 0:
+                continue
+            u = (index % grid.width, index // grid.width)
+            for v in grid.neighbors(u):
+                if grid.state(v) == -1:
+                    p = grid.xy(v)
+                    frontier_tiles.add((math.floor(p[0]/self.tile_size), math.floor(p[1]/self.tile_size)))
         tiles = {}
-        for y in range(grid.height):
-            for x in range(grid.width):
-                u = (x, y)
-                if grid.state(u) not in (-1, 0):
-                    continue
-                p = grid.xy(u)
-                tile = (math.floor(p[0] / self.tile_size), math.floor(p[1] / self.tile_size))
-                tiles.setdefault(tile, {-1: set(), 0: set()})[grid.state(u)].add(u)
+        for tile in frontier_tiles:
+            states = {-1:set(), 0:set()}
+            # A small conservative index halo avoids floating-point boundary
+            # errors; the exact original world-cell tile test decides membership.
+            ax=max(0,math.floor((tile[0]*self.tile_size-grid.origin[0])/grid.resolution)-1)
+            bx=min(grid.width,math.ceil(((tile[0]+1)*self.tile_size-grid.origin[0])/grid.resolution)+1)
+            ay=max(0,math.floor((tile[1]*self.tile_size-grid.origin[1])/grid.resolution)-1)
+            by=min(grid.height,math.ceil(((tile[1]+1)*self.tile_size-grid.origin[1])/grid.resolution)+1)
+            for y in range(ay,by):
+                for x in range(ax,bx):
+                    u=(x,y);value=grid.state(u)
+                    if value not in (-1,0):
+                        continue
+                    p=grid.xy(u)
+                    if (math.floor(p[0]/self.tile_size),math.floor(p[1]/self.tile_size))==tile:
+                        states[value].add(u)
+            tiles[tile]=states
         candidates = []
         for tile, states in sorted(tiles.items()):
             # A tile border is not a physical wall: an unknown component may

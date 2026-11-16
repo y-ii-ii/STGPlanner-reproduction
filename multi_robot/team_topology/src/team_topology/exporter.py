@@ -1,5 +1,5 @@
 """Convert one native STG snapshot into owned topology plus connected tasks."""
-from .graph import DeltaBuilder, point
+from .graph import DeltaBuilder, point, wire
 from .grid import Grid
 from .tasks import TaskTracker
 from .scope import task_scope
@@ -9,6 +9,7 @@ class LocalExporter:
     def __init__(self, robot, session):
         self.delta = DeltaBuilder(robot, session)
         self.tasks = TaskTracker()
+        self.last_snapshot_key = None
 
     def snapshot(self, snapshot, full=False):
         if snapshot["frame"] != "world":
@@ -19,6 +20,14 @@ class LocalExporter:
         root_cell = grid.cell(pose)
         if grid.state(root_cell) != 0:
             raise ValueError("robot is not in observed free space")
+        key=(grid.width,grid.height,grid.origin,grid.resolution,grid.data,root_cell,
+             wire(snapshot.get("nodes",[])),wire(snapshot.get("edges",[])))
+        if key==self.last_snapshot_key:
+            # Pose/time can advance without changing any navigation/task record.
+            records={k:r["value"] for k,r in self.delta.previous.items() if not r["deleted"]}
+            state={"root":self.delta.key("node","root"),"pose":pose,"stamp":float(snapshot["stamp"]),
+                   "map_rev":self.tasks.map_rev,"resolution":grid.resolution}
+            return self.delta.build(records,state,full=full)
         records, anchors = {}, {}
 
         def node(local, cell, role):
@@ -74,4 +83,6 @@ class LocalExporter:
         # The real pose-to-cell-center attachment cost is retained in bidding.
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
                  "map_rev": self.tasks.map_rev, "resolution": grid.resolution}
-        return self.delta.build(records, state, full=full)
+        result=self.delta.build(records, state, full=full)
+        self.last_snapshot_key=key
+        return result

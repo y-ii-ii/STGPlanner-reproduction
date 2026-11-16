@@ -61,7 +61,7 @@ class DeltaBuilder:
         self.previous = result
         return {"schema": 1, "frame": "world", "author": self.author,
                 "robot": self.robot, "seq": self.seq, "full": full or self.seq == 1,
-                "records": changed, "state": copy.deepcopy(state)}
+                "records": copy.deepcopy(changed), "state": copy.deepcopy(state)}
 
 
 class GraphStore:
