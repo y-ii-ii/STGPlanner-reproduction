@@ -150,6 +150,24 @@ class ExecutionTests(unittest.TestCase):
         self.assertEqual(f.tick(1.02)[0],(0.,0.))
         self.assertEqual(f.phase,'tripped')
 
+    def test_cached_follower_velocity_is_not_reused_on_new_dispatch(self):
+        s=ExecutionSupervisor([1],'s');f=VelocityFence(1)
+        f.receive_command(s.commands({1:wish()},0.,0.)[1],0.,0.)
+        s.feedback(next(x for x in prove(f) if x['status']=='STOPPED'),1.)
+        route=s.commands({1:wish()},1.,1.)[1];f.receive_command(route,1.,1.)
+        f.receive_raw(2.,0.,1.01)
+        f.receive_permit({'token':token(route),'issuer':'executor','permit_seq':1,'allow':True},1.02)
+        self.assertEqual(f.tick(1.03)[0],(0.,0.))
+        f.receive_raw(.3,0.,1.04)
+        self.assertEqual(f.tick(1.04)[0],(.3,0.))
+
+    def test_delayed_stop_is_safe_but_delayed_motion_is_rejected(self):
+        s,f,c,p=self.running()
+        stop=s.commands({1:dict(wish(),mode='WAIT')},1.1,1.1)[1]
+        self.assertTrue(f.receive_command(stop,5.,5.))
+        self.assertEqual(f.tick(5.)[0],(0.,0.))
+        self.assertFalse(f.receive_command(dict(c,command_seq=99),5.,5.))
+
     def test_team_handover_waits_for_both_old_executors(self):
         s=ExecutionSupervisor([1,2],'s')
         desired={1:wish(),2:wish(robot=2,task='second',version=2)}

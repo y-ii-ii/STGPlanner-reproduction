@@ -26,4 +26,3 @@ using MissedBranchMap = std::unordered_map<Node, PathWithDistance>;
 }
 
 #endif
-

@@ -9,4 +9,11 @@
     <param name="snapshot_topic" value="/robot_2/topo_planner_node/topology_snapshot"/>
   </node>
   <node pkg="team_topology" type="topology_coordinator.py" name="topology_coordinator" output="screen"/>
+  <!-- Follower outputs must be remapped to /robot_i/topology/raw_cmd_vel. -->
+  <node pkg="team_topology" type="topology_velocity_gate.py" name="topology_velocity_gate_1" output="screen">
+    <param name="robot_id" value="1"/>
+  </node>
+  <node pkg="team_topology" type="topology_velocity_gate.py" name="topology_velocity_gate_2" output="screen">
+    <param name="robot_id" value="2"/>
+  </node>
 </launch>

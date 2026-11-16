@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-    
+
     <arg name="topo_planner_params" default="topo_planner_Scene4.yaml"/>
     <arg name="rviz" default="true"/>
 
@@ -21,7 +21,7 @@
         <rosparam file="$(find planner)/resource/$(arg topo_planner_params)" command="load"/>
 
     </node>
-    
+
     <node if="$(arg rviz)" name="planner_rviz" pkg="rviz" type="rviz" args="-d $(find planner)/resource/topo_planner.rviz"/>
 
 </launch>

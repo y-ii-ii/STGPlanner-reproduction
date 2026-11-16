@@ -29,5 +29,15 @@ int main(){
  try{ScopedPending<Labels,History> view(labels,history,suppressed,valid,owned);throw std::runtime_error("abort");}
  catch(const std::runtime_error&){}
  assert(labels==Labels({1,2,3,4}));assert(!history.empty());
- std::cout<<"14 native task-scope/history invariants passed\n";
+ TaskPatch band;band.resolution=.2;band.portals={{0,5,5}};band.unknown={{0,6,7}};
+ fillTaskApproach(band,[](double x,double y){return y>0&&y<.2&&x>=.2&&x<1.2;});
+ NativeTaskScope bounded;bounded.active=true;bounded.patches={band};
+ assert(bounded.allows(.5,.1));assert(!bounded.allowsBoundary(.5,.1));
+ assert(!bounded.allows(.5,.3));assert(!bounded.allows(.1,.1));
+ assert(bounded.allowsBoundary(1.3,.1));
+ auto partial=taskObservationCounts(std::vector<TaskPatch>{band,band},[](double x,double){return x<1.4;});
+ assert(partial.first==1&&partial.second==2);
+ auto complete=taskObservationCounts(std::vector<TaskPatch>{band,band},[](double,double){return true;});
+ assert(complete.first==2&&complete.second==2);
+ std::cout<<"21 native task-scope/history/approach/observation invariants passed\n";
 }

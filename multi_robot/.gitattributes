@@ -1,7 +1,2 @@
-# Shell and ROS Python entry points must remain executable-text compatible in WSL.
-*.sh text eol=lf
-*.py text eol=lf
-*.cpp text eol=lf
-*.h text eol=lf
-*.xml text eol=lf
-*.launch text eol=lf
+# Linux build inputs and published source must have the same bytes on Windows.
+* text=auto eol=lf

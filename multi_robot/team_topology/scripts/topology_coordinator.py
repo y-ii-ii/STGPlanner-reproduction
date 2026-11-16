@@ -9,9 +9,11 @@ import json
 import threading
 import uuid
 import math
+import time
 
 from team_topology.graph import GraphStore, wire
 from team_topology.allocator import Coordinator
+from team_topology.execution import ExecutionSupervisor
 
 
 def main():
@@ -23,12 +25,15 @@ def main():
         raise ValueError("robot identities must be unique")
     store, coordinator, lock = GraphStore(), Coordinator(robots), threading.Lock()
     session = uuid.uuid4().hex
+    supervisor=ExecutionSupervisor(robots,session)
     publishers = {r: rospy.Publisher("/robot_%d/topo_planner_node/topology_command" % r,
                                    String, queue_size=1) for r in robots}
     metrics = rospy.Publisher("~status", String, queue_size=1)
+    traffic={"topology_received_bytes":0,"feedback_received_bytes":0,"commands_published_bytes":0}
 
     def receive(msg):
         with lock:
+            traffic["topology_received_bytes"]+=len(msg.data.encode("utf-8"))+4
             try:
                 store.apply(json.loads(msg.data))
             except (ValueError, KeyError, TypeError) as exc:
@@ -38,26 +43,60 @@ def main():
 
     def feedback(msg):
         with lock:
+            traffic["feedback_received_bytes"]+=len(msg.data.encode("utf-8"))+4
             try:
                 value = json.loads(msg.data)
                 if value.get("allocation_session") == session:
-                    coordinator.feedback(value)
+                    r=int(value["robot"])
+                    if value.get("source")=="planner":
+                        active=supervisor.states[r].get("active")
+                        matches=supervisor.states[r]["phase"]=="running" and active is not None and value.get("task")==active.get("task") and int(value.get("dispatch_id",0))==active.get("dispatch_id") and int(value.get("version",0))==active.get("version")
+                        if matches and value.get("status")=="ACCEPTED":
+                            # Planning acceptance is not execution acceptance.
+                            item=coordinator.ledger.items.get(active["task"])
+                            if item is not None:item["planner_accepted"]=True
+                        elif matches and value.get("status")=="BLOCKED":
+                            coordinator.defer(r,active["task"],time.monotonic(),2.)
+                            supervisor.request_stop(r,None,time.monotonic(),"planner_blocked")
+                        elif matches and value.get("status")=="OBSERVATION_COMPLETED":
+                            if coordinator.observe_completed(value,active,rospy.Time.now().to_sec()):
+                                supervisor.request_stop(r,None,time.monotonic(),"observation_completed")
+                    else:
+                        state=supervisor.states.get(r,{})
+                        active=state.get("active")
+                        if (value.get("source")=="executor" and value.get("status")=="EXECUTOR_ACCEPTED"
+                            and state.get("phase")=="running" and active is not None and value.get("task")==active.get("task")
+                            and int(value.get("version",0))==active.get("version")
+                            and int(value.get("dispatch_id",0))==active.get("dispatch_id")):
+                            coordinator.ledger.acknowledge(active["task"],r,active["version"])
+                        if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE"):
+                            coordinator.defer(r,state["active"]["task"],time.monotonic())
+                        supervisor.feedback(value,time.monotonic())
+                    while supervisor.released:
+                        robot,old=supervisor.released.pop(0)
+                        if old["task"] in coordinator.ledger.items:
+                            coordinator.ledger.release(old["task"],robot,old["version"])
             except (ValueError, KeyError, TypeError) as exc:
                 rospy.logwarn_throttle(2., "Topology feedback refused: %s", exc)
 
     def tick(_):
         with lock:
             try:
-                plans = coordinator.plan(store, rospy.Time.now().to_sec())
+                desired = coordinator.plan(store, rospy.Time.now().to_sec(),time.monotonic())
+                plans = supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
             except (ValueError, KeyError) as exc:
                 rospy.logwarn_throttle(2., "Topology planning refused: %s", exc)
                 return
             for r, plan in plans.items():
                 plan["allocation_session"] = session
-                publishers[r].publish(String(data=wire(plan)))
+                encoded=wire(plan)
+                publishers[r].publish(String(data=encoded))
+                traffic["commands_published_bytes"]+=len(encoded.encode("utf-8"))+4
             metrics.publish(String(data=wire({"graph_digest": store.digest(),
                 "nodes": len(store.live("node")), "edges": len(store.live("edge")),
                 "tasks": len(store.live("task")), "accepted_received_bytes": store.received_bytes,
+                "communication_one_delivery_application_bytes":dict(traffic),
+                "execution_phases":{str(r):s["phase"] for r,s in supervisor.states.items()},
                 "command_serialized_bytes": sum(len(wire(dict(p, allocation_session=session)).encode("utf-8"))+4 for p in plans.values()),
                 "robot_distance_m": math.dist(store.states[robots[0]]["pose"],store.states[robots[1]]["pose"])
                     if len(robots)==2 and all(r in store.states for r in robots) else None,
@@ -66,6 +105,7 @@ def main():
     rospy.Subscriber("/team/topology_delta", String, receive, queue_size=100)
     for r in robots:
         rospy.Subscriber("/robot_%d/topo_planner_node/topology_feedback" % r, String, feedback, queue_size=10)
+        rospy.Subscriber("/robot_%d/topology/execution_feedback" % r, String, feedback, queue_size=20)
     rospy.Timer(rospy.Duration(.5), tick)
     rospy.spin()
 

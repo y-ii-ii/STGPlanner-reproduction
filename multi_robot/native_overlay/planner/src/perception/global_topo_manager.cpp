@@ -747,7 +747,21 @@ void GlobalTopoManager::updateLocalFrontier(int current_explore_branch) {
   }
 }
 
+void GlobalTopoManager::filterTaskFrontiers() {
+  if(!task_scope_.active)return;
+  utils::NodeQueue accepted;
+  for(auto label:local_frontier_labels_){
+    if(label<0||boost::vertex_by_label(label,heriTopo_)>=boost::num_vertices(heriTopo_))continue;
+    if(heriTopo_[label].removed||heriTopo_[label].confirmed)continue;
+    auto p=index2Point(nodeLabel2Index(label));
+    if(task_scope_.allows(p.x(),p.y()))accepted.push_back(label);
+    else task_suppressed_frontiers_.push_back(label);
+  }
+  local_frontier_labels_=accepted;
+}
+
 bool GlobalTopoManager::frontierClassify(int current_explore_branch, std::vector<MissedBranchMap> &history_missed_branches, bool &exist_missed_branches) {
+  filterTaskFrontiers();
   if (local_frontier_labels_.empty()) {
     exist_missed_branches = false;
     return false;
@@ -852,6 +866,8 @@ void GlobalTopoManager::updateCurrentExploreBranch(int &current_explore_branch, 
   auto team_snapshot=team_policy_.capture();
   for (auto &item: missed_branches) {
     for (auto &frontier: item.second.frontiers) {
+      if(task_scope_.active){auto p=index2Point(nodeLabel2Index(frontier));
+        if(!task_scope_.allows(p.x(),p.y())||heriTopo_[frontier].confirmed)continue;}
       assert(!heriTopo_[frontier].confirmed);
       Node parent_branch_node = heriTopo_[frontier].parent_branch_label;
       missed_branches_copy[parent_branch_node].frontiers.insert(frontier);
@@ -866,13 +882,14 @@ void GlobalTopoManager::updateCurrentExploreBranch(int &current_explore_branch, 
         nearest_branch = parent_branch_node;
       }
     }
-    
+
   }
+  if(nearest_branch==-1&&task_scope_.active)return;
   assert(nearest_branch != -1);
 
 
   assert(local_frontier_labels_.empty());
-  
+
   local_frontier_labels_.insert(local_frontier_labels_.end(),
     missed_branches_copy[nearest_branch].frontiers.begin(),
     missed_branches_copy[nearest_branch].frontiers.end());
@@ -906,6 +923,8 @@ bool GlobalTopoManager::localFrontierRelocate(int &current_explore_branch, std::
     best_team_priority=3;
     for (auto &item: missed_branches) {
       for (auto &frontier: item.second.frontiers) {
+        if(task_scope_.active){auto p=index2Point(nodeLabel2Index(frontier));
+          if(!task_scope_.allows(p.x(),p.y())||heriTopo_[frontier].confirmed)continue;}
         assert(!heriTopo_[frontier].confirmed);
         Node parent_branch_node = heriTopo_[frontier].parent_branch_label;
         missed_branches_copy[parent_branch_node].frontiers.insert(frontier);
@@ -922,6 +941,11 @@ bool GlobalTopoManager::localFrontierRelocate(int &current_explore_branch, std::
       }
     }
 
+    if(nearest_branch==-1&&task_scope_.active){
+      history_missed_branches.pop_back();
+      if(history_missed_branches.empty())return false;
+      missed_branches=history_missed_branches.back();continue;
+    }
     assert(nearest_branch != -1);
     history_missed_branches.pop_back();
 
@@ -934,6 +958,7 @@ bool GlobalTopoManager::localFrontierRelocate(int &current_explore_branch, std::
     missed_branches_copy.erase(nearest_branch);
 
     updateTopo();
+    filterTaskFrontiers();
 
     if (local_frontier_labels_.empty()) {
       MissedBranchMap missed_branches_copy_copy = missed_branches_copy;
@@ -942,6 +967,7 @@ bool GlobalTopoManager::localFrontierRelocate(int &current_explore_branch, std::
           item.second.frontiers.begin(),
           item.second.frontiers.end());
         updateTopo();
+        filterTaskFrontiers();
         if (!local_frontier_labels_.empty()) {
           current_explore_branch = item.first;
           path.clear();
@@ -971,6 +997,8 @@ bool GlobalTopoManager::localFrontierRelocate(int &current_explore_branch, std::
       return true;
     }
   }
+  // An exhausted/finished relocation is never a successful branch selection.
+  return false;
 }
 
 
@@ -993,6 +1021,9 @@ Node GlobalTopoManager::extendUnconfirmedFrontier(Node current_explore_branch, N
     for (const auto& shift: neighbor8_cvPt)
     {
       cv::Point child_cvpt = parent_cvpt + shift;
+      if(child_cvpt.x<0||child_cvpt.y<0||child_cvpt.x>=unconfirmed_skeleton_mask_.cols||child_cvpt.y>=unconfirmed_skeleton_mask_.rows)continue;
+      auto task_point=index2Point(cvPoint2Index(child_cvpt));
+      if(!task_scope_.allows(task_point.x(),task_point.y()))continue;
       if (child_cvpt == last_parent_cvpt) continue;
       if (unconfirmed_skeleton_mask_.at<uint8_t>(child_cvpt) == 1)
       {

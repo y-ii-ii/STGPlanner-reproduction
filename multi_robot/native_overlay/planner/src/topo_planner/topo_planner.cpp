@@ -181,7 +181,7 @@ namespace topo_planner {
                                        (path[i + 1].x() - path[i].x()));
                 } else {
                     angle = std::atan2((path[i].y() - path[i - 1].y()),
-                                       (path[i].x() - path[i - 1].x())); 
+                                       (path[i].x() - path[i - 1].x()));
                 }
                 tf::Quaternion quaternion(axis, angle);
                 tf::Pose poseTF(quaternion, point);

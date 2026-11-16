@@ -39,7 +39,7 @@ LidarModel::expandNoRay(pcl::PointCloud<pcl::PointXYZ> &input_cloud) {
         }
     }
     for (const auto &point:input_cloud) {
-        
+
         double theta = atan2(point.y, point.x) * 180 / M_PI;
         if (theta < 0) {
             theta += 360.0;
@@ -51,7 +51,7 @@ LidarModel::expandNoRay(pcl::PointCloud<pcl::PointXYZ> &input_cloud) {
         } else if (j >= horizontal_point_num_) {
             j = horizontal_point_num_ - 1;
         }
-        
+
         int i = round((phi - vertical_angle_min_) / vertical_angle_theta_);
         if (i < 0)
             i = 0;

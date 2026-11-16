@@ -16,7 +16,7 @@ namespace graph {
     using namespace std;
 
     class PlanGraph {
-        
+
     public:
         typedef shared_ptr<PlanGraph> Ptr;
 
@@ -43,7 +43,7 @@ namespace graph {
         void updateKdtree();
 
         int getNearestVertexId(pcl::KdTreeFLANN<pcl::PointXYZ> &kd_tree,
-                               const utils::Point3D &point); 
+                               const utils::Point3D &point);
 
         std::vector<int> getNeighborVertexsIDs(pcl::KdTreeFLANN<pcl::PointXYZ> &kd_tree, const utils::Point3D &point,
                                                const double &range, std::vector<utils::Point3D> &neighbor_vertexs);

@@ -11,3 +11,5 @@ MinPos、MDVRP、距离贪心为候选参考，不要求全部实现。
 
 实现入口：[team_topology](team_topology/README.md)。原生接口与验收边界见 [NATIVE_CONTRACT.md](docs/NATIVE_CONTRACT.md)。
 本轮用户已明确允许推送至当前公开仓库，仅上传本轮源码、来源清单和离线证据，不上传历史原始数据或本机凭据。
+
+当前增量：原STG五状态任务视图、独立速度门控／停稳证明及新Action租约；使用build_native_task_offline.sh和test_native_task_offline.sh。首阶段文稿是历史快照，当前接口见docs/NATIVE_CONTRACT.md。

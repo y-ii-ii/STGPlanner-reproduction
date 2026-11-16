@@ -225,8 +225,9 @@ class OfflineTests(unittest.TestCase):
         self.assertEqual(c.ledger.items[command['task']]['state'],'dispatched')
         with self.assertRaises(ValueError):c.ledger.offer(command['task'],3-owner)
         self.assertFalse(c.feedback(dict(command,status='ACCEPTED',command_seq=0)))
-        self.assertTrue(c.feedback(dict(command,status='ACCEPTED')))
-        native_feedback={k:str(v) for k,v in dict(command,status='ACCEPTED').items()}
+        self.assertFalse(c.feedback(dict(command,status='ACCEPTED',source='planner')))
+        self.assertTrue(c.feedback(dict(command,status='EXECUTOR_ACCEPTED',source='executor')))
+        native_feedback={k:str(v) for k,v in dict(command,status='EXECUTOR_ACCEPTED',source='executor').items()}
         self.assertTrue(c.feedback(native_feedback))
 
     def test_single_cell_frontier_is_not_filtered_out(self):
@@ -252,4 +253,3 @@ class OfflineTests(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main(verbosity=2)
-

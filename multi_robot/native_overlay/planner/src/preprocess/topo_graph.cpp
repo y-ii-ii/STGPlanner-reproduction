@@ -77,8 +77,8 @@ namespace preprocess {
                     Point2D sample_2d(current_position_.x() + x, current_position_.y() + y);
                     if (map_2d_manager->inflate_map_.getStatusInMap2D(sample_2d) == Status2D::Free &&
                             !map_2d_manager->inflate_map_.isNearOccupy(sample_2d, 0.5)) {
-                        pcl::PointXYZI min;    
-                        pcl::PointXYZI max;    
+                        pcl::PointXYZI min;
+                        pcl::PointXYZI max;
                         pcl::getMinMax3D(map_2d_manager->inflate_map_.getGrid2D(
                                 map_2d_manager->inflate_map_.getIndexInMap2D(sample_2d)).points, min, max);
                         Point3D sample_point(sample_2d.x(), sample_2d.y(), min.z + 0.05);
@@ -123,7 +123,7 @@ namespace preprocess {
     }
 
     void TopoGraph::growingByMap2dAndSamplePoints(const GridMap2D &grid_map_2d, const Point3DSet &sample_points) {
-        
+
         Point3DQueue local_points;
 
         for (const auto &vertex: graph_.getAllVertices()) {

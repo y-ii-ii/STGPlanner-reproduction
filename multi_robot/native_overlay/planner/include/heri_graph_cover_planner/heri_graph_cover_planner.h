@@ -49,7 +49,7 @@ public:
   std::vector<std::vector<Path>> path_matrix_;
   utils::Point3DMap<utils::Point3DMap<Path>> pre_paths_;
 
-  int current_explore_branch_;
+  int current_explore_branch_=-1;
   utils::NodeQueue tour_topo_path_;
   utils::NodeQueue passed_junctions_;
   NodeQueue history_local_frontiers_;
@@ -60,6 +60,7 @@ public:
   bool is_frontier_robot_same_ = false;
   bool need_ufo_frontier_ = false;
   bool no_frontier_left_ = false;
+  std::vector<int> native_task_trace_;
   bool during_relocate_ = false;
   CodeUnorderSet local_frontier_cells_copy_;
 

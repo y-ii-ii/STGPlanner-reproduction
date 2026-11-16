@@ -3,24 +3,24 @@ robot_base_frame_id: base_link
 map_area: 7790
 
 UFOMap:
-  robot_height: 0.8 
+  robot_height: 0.8
   robot_bottom: 0.05
-  sensor_height: 0.45 
+  sensor_height: 0.45
 
   resolution: 0.4
   depth_levels: 16
-  max_range: 12.0 
+  max_range: 12.0
 
   frame_id: world
-  navigation_frame_id: world 
+  navigation_frame_id: world
   robot_base_frame_id: base_link
-  insert_discrete: true  
+  insert_discrete: true
   insert_depth: 0
   simple_ray_casting: false
   early_stopping: 0
   clear_robot_enabled: false
 
-  frontier_depth: 0   
+  frontier_depth: 0
   pub_rate: 1
   scan_voxel_size: 0.1
 
@@ -76,4 +76,3 @@ GlobalTopoManager:
   small_branch_len_lower_thresh: 4
 
   confluence_step: 2
-

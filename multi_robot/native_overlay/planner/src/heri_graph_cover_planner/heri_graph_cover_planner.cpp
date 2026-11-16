@@ -126,6 +126,7 @@ void HeriGraphCoverPlanner::Initialize(const Point3D &current_position) {
   ROS_INFO("start initializing ....");
   ros::WallTime start_time = ros::WallTime::now();
   initilize_num_++;
+  native_task_trace_.clear();native_task_trace_.push_back(1);
 
 
   if (initilize_num_ == 1) {
@@ -133,7 +134,7 @@ void HeriGraphCoverPlanner::Initialize(const Point3D &current_position) {
   }
 
 
-  if(applyExecutionRecovery(current_position))return;
+  if(applyExecutionRecovery(current_position)){native_task_trace_.push_back(4);return;}
   preferNativeBranch();
   native_guide_evidence_valid_=false;
   if (!during_relocate_) {
@@ -178,6 +179,7 @@ void HeriGraphCoverPlanner::Initialize(const Point3D &current_position) {
         else
         {
           ROS_INFO("Start ufomap frontier guiding");
+          native_task_trace_.push_back(4);
           getSuitableTourPoints(current_position);
           tour_points_gains_.clear();
           max_gain_ = 0.0;
@@ -187,9 +189,11 @@ void HeriGraphCoverPlanner::Initialize(const Point3D &current_position) {
 
     else if (exist_new_missed_branches) {
       ROS_INFO("current_explore_branch_ changing...");
+      native_task_trace_.push_back(2);
       global_topo_map_->updateCurrentExploreBranch(
           current_explore_branch_, history_missed_branches_, passed_junctions_);
       ROS_INFO("updateCurrentExploreBranch func finished");
+      if(global_topo_map_->local_frontier_labels_.empty()&&global_topo_map_->task_scope_.active)return;
       tour_topo_path_.push_back(
           global_topo_map_->local_frontier_labels_.front());
       during_relocate_ = false;
@@ -199,6 +203,7 @@ void HeriGraphCoverPlanner::Initialize(const Point3D &current_position) {
 
     else {
       ROS_INFO("Relocating... ");
+      native_task_trace_.push_back(3);
       assert(global_topo_map_->local_frontier_labels_.empty());
       bool find_reloacte_branch;
       find_reloacte_branch = global_topo_map_->localFrontierRelocate(
@@ -243,6 +248,7 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
   ufo::map::Point3 nearest_point;
   for (const auto &code : global_topo_map_->ufomap_->local_frontier_cells_) {
     ufo::map::Point3 point = global_topo_map_->ufomap_->map_.toCoord(code.toKey());
+    if(!global_topo_map_->task_scope_.allowsBoundary(point.x(),point.y()))continue;
     if(isExecutionDeferred(point.x(),point.y())||isExecutionDeferred((point.x()+current_position.x())*.5,(point.y()+current_position.y())*.5))continue;
     double distance = ((point.x()-current_position.x()) * (point.x()-current_position.x())) + ((point.y()-current_position.y()) * (point.y()-current_position.y()));
     int team_priority=team_snapshot.priority(point.x(),point.y());
@@ -256,8 +262,8 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
   if (min_distancd < 1000000.0) {
     native_guide_evidence_=Point3D(nearest_point.x(),nearest_point.y(),nearest_point.z());native_guide_evidence_valid_=true;
     local_viewpoints.insert(Point3D(
-      (nearest_point.x()+current_position.x())*0.5, 
-      (nearest_point.y()+current_position.y())*0.5, 
+      (nearest_point.x()+current_position.x())*0.5,
+      (nearest_point.y()+current_position.y())*0.5,
       nearest_point.z()));
   }
 
@@ -269,6 +275,7 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
     ufo::map::Point3 nearest_point;
     for (const auto &code : global_topo_map_->ufomap_->global_frontier_cells_) {
       ufo::map::Point3 point = global_topo_map_->ufomap_->map_.toCoord(code.toKey());
+      if(!global_topo_map_->task_scope_.allowsBoundary(point.x(),point.y()))continue;
     if(isExecutionDeferred(point.x(),point.y())||isExecutionDeferred((point.x()+current_position.x())*.5,(point.y()+current_position.y())*.5))continue;
         double distance = ((point.x()-current_position.x()) * (point.x()-current_position.x())) + ((point.y()-current_position.y()) * (point.y()-current_position.y()));
         int team_priority=team_snapshot.priority(point.x(),point.y());
@@ -282,8 +289,8 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
     if (min_distancd < 1000000.0) {
     native_guide_evidence_=Point3D(nearest_point.x(),nearest_point.y(),nearest_point.z());native_guide_evidence_valid_=true;
       global_viewpoints.insert(Point3D(
-        (nearest_point.x()+current_position.x())*0.5, 
-        (nearest_point.y()+current_position.y())*0.5, 
+        (nearest_point.x()+current_position.x())*0.5,
+        (nearest_point.y()+current_position.y())*0.5,
         nearest_point.z()));
     }
   }
@@ -320,6 +327,7 @@ void HeriGraphCoverPlanner::planning(const geometry_msgs::Pose &current_pose,
                                      bool &is_successed) {
   planner_mutex_.lock();
   solving_num_++;
+  native_task_trace_.push_back(5);
 
   auto start_time = std::chrono::high_resolution_clock::now();
   double start_time_second =
@@ -459,7 +467,7 @@ bool HeriGraphCoverPlanner::heri_topo_planning(
       int approx_path_length_from_current_to_i;
       path_matrix_from_current[i] = MYgetPathInGridMap2D(current_position,
         point3d_path[i], global_topo_map_->grid_map_, global_topo_map_, approx_path_length_from_current_to_i);
-      if (path_matrix[i].empty()) {
+      if (path_matrix_from_current[i].empty()) {
         ROS_ERROR("can not find the path when finding valid tour points"
                   "(%f，%f)",
                   point3d_path[i].x(), point3d_path[i].y());

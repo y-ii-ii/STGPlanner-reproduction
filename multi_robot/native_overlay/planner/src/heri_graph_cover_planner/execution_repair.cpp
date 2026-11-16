@@ -29,6 +29,7 @@ bool HeriGraphCoverPlanner::applyExecutionRecovery(const Point3D&current){
  int selected=-1,best_priority=3;double best=INFINITY;Point3D evidence;
  auto consider=[&](const ufo::map::Code&code){
   auto f=gm.ufomap_->map_.toCoord(code.toKey());if(isExecutionDeferred(f.x(),f.y()))return;
+  if(!gm.task_scope_.allowsBoundary(f.x(),f.y()))return;
   int priority=ownership.priority(f.x(),f.y());
   auto candidate=[&](Point2D p,double max_gap){
    if(!g.isInMapRange2D(p)||isExecutionDeferred(p.x(),p.y())||std::hypot(p.x()-current.x(),p.y()-current.y())<.8)return;

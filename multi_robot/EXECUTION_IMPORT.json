@@ -1,0 +1,46 @@
+{
+  "control_planner_interface": {
+    "source": "stgp_planner/control_planner_interface",
+    "files": {
+      "CMakeLists.txt": "fc6f3435d6ccb9cb506d096acd232a83410651d3383bc8778569f8e8a9435e75",
+      "package.xml": "d7f0534d4acbe662f580cbf7cbc58045aa871341b2e6e09451da8804552c3f85",
+      "action/ExplorerPlanner.action": "67669dde3f2ec08e8a1e776120bf6d0566b5eae221cddb697241dcab5564afa6",
+      "action/VehicleExecute.action": "b81db585cfa8f9b3bb000d9ae9fe00c92023410c61ab939857e8a63b4b6bc370",
+      "msg/Path.msg": "21daac6c1014f807856b8879a512ffa9f6755edfe63be0ebf8d5fb66bac20ca0",
+      "msg/PlannerMsgs.msg": "5830390fbd53b126acb0da800fae144b31f7c6fc05a8328b1b4dc5954f94a1f8",
+      "src/control_planner_interface.cpp": "b3f6ec0f7abadf409f8a8caaa1562d539bc92c7d898f9096f58d76d7e3b31673",
+      "src/pci_vehicle.cpp": "79d6cfe6b5be3ede85d410092389afc5c126092c286751d1a9ce88087ca554eb",
+      "include/control_planner_interface/control_planner_interface.h": "62c4d3fd608e1549218991993c9a606a6617ca3bf1d0af62199588d330686285",
+      "include/control_planner_interface/pci_manager.h": "2a998b075ecdcbeb0fffc229aa85e95c8e2079b542cb423537aaf988eac63446",
+      "include/control_planner_interface/pci_vehicle.h": "696d0b487c866e4a78dfdda248f890d7156dde053f4e8262735a0ea9146c40a8"
+    }
+  },
+  "path_execution": {
+    "source": "stgp_planner/robot_move/path_execution",
+    "files": {
+      "CMakeLists.txt": "7d2c62f48ee6e0fc95101fdd4cc63ae366772f55e579a0c43d56b8d62252ed31",
+      "package.xml": "78f6536b95b352253d715d2f5e107f10db1430538decb93268a119e15561880d",
+      "launch/path_execution.launch": "490b38e6ecf50771d8285a5c0cb982d14528cdc68881cd7c56ce300adf8b4c64",
+      "src/occupancy_map_2d.cpp": "77034c2f92bb8d07fd673dc474be7242626622c95b67859a3ae63cfdeef19c24",
+      "src/path_execution.cpp": "519167178f8d4a824dc0743e9ff77a8075dcce93c5ff85134d89b0ea4f7395c1",
+      "src/path_execution_node.cpp": "fd99aed8e327a331dd23b177f7f68f9df7e09520b7d9f62910bcfc2f697a0483",
+      "include/path_execution/occupancy_map_2d.h": "bfe4774328693505e8fd7e47b47f2bc9c3cada55a5d29c6f2a52464896eee902",
+      "include/path_execution/path_execution.h": "ecde1718ae459b55c3ca058f41b6104774fcd38917a2e8d18c65860922c24930"
+    }
+  },
+  "explorer": {
+    "source": "stgp_planner/exploration_manager",
+    "files": {
+      "CMakeLists.txt": "1038273945082f6896dd20d84c0dda5445771cf2345b8668cadcd1e11a7d1600",
+      "package.xml": "7f9222d9648e3cc55fe11a48e74c37d9cd98d83744aa38625f0069d4af4de9e8",
+      "launch/explorer.launch": "0da2e84149ba40218a8d0944a047b0a4c05333546bc7433cbd0fbfdf20a50bfe",
+      "launch/robot_move.launch": "dfcdb2049de19d59be5f69f9d4906df4baed9d28869768a1992ef1ea9dd5ec41",
+      "launch/sim_env.launch": "ac83379c18db9246b37409a868ae5dc48f1e6954f5a925b7a359c22151b40d44",
+      "resource/exploration.rviz": "464ee26cfb198c4af6ab42431ed70c5bc8af0ad0cbd706a2e9a9a805a5a2d12c",
+      "src/explorer.cpp": "90c9bacb5dbff32364b5274c1d6873e8cb4abb047bb7486a299bcb63b84ad643",
+      "src/explorer_node.cpp": "d8e136dbc729f124c67734a1aebbea7291442f8bbf3199583ada5aacb1bedf3a",
+      "worlds/Scene4.world": "a3459c256250f35ce7edd14c9178afe2b6f9f625ea2a00d21d9b67df6e99fdab",
+      "include/explorer/explorer.h": "3f5edf2f9e0016bb927118f5c6c246dc81596d48b6e2f39205ef39a7dc43d810"
+    }
+  }
+}

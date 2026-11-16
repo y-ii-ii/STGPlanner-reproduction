@@ -76,7 +76,7 @@ namespace perception {
         txt_frontier_name       = txt_path + "frontier_detected_time.txt";
         map_txt_name            = txt_path + "ufomap.txt";
         txt_insert_cloud_name   = txt_path + "insert_cloud.txt";
-   
+
         frame_id_ = "world";
         if (!ros::param::get(ns + "/frame_id", frame_id_)) {
             ROS_WARN("No frame_id specified. Looking for %s. Default is 'map'.",
@@ -219,7 +219,7 @@ namespace perception {
         ufo::map::PointCloud cloud;
         for (const auto &point: downsize_cloud) {
             if (key_set.insert(map_.toKey(point, 0)).second) {
-                cloud.push_back(map_.toCoord(map_.toKey(point, 0), 0));  
+                cloud.push_back(map_.toCoord(map_.toKey(point, 0), 0));
             }
         }
         if (insert_discrete_) {
@@ -250,7 +250,7 @@ namespace perception {
                 ufo::map::Point3 robot_bbx_max(current_robot_pose_.x() + sensor_height_,
                                                current_robot_pose_.y() + sensor_height_,
                                                current_robot_pose_.z() + robot_height_);
-                ufo::geometry::AABB aabb(robot_bbx_min, robot_bbx_max);  
+                ufo::geometry::AABB aabb(robot_bbx_min, robot_bbx_max);
                 map_.setValueVolume(aabb, map_.getClampingThresMin(), clearing_depth_);
             }
         }
@@ -388,7 +388,7 @@ namespace perception {
             ufomap_with_frontiers.changed_cell_codes.push_back(changed_cell_code);
         }
 
-        for (auto &item: known_cell_codes_) {  
+        for (auto &item: known_cell_codes_) {
             if (0 == item.getDepth()) {
                 ufomap_manager::CellCode known_cell_code;
                 known_cell_code.depth = item.getDepth();
@@ -432,7 +432,7 @@ namespace perception {
                 double sensor_dist_xy = iter_coord.distanceXY(current_sensor_pose_.translation());
                 double robot_dist_xy = iter_coord.distanceXY(current_robot_pose_.translation());
                 if (robot_dist_xy > 0.6 && fabs(iter_coord.z() - current_sensor_pose_.z()) / sensor_dist_xy <
-                                           tan(M_PI * 15 / 180)) {  
+                                           tan(M_PI * 15 / 180)) {
                     if (isFrontier(iter_cell)) {
                         local_frontier_cells_.insert(iter_cell);
                     }
@@ -450,9 +450,9 @@ namespace perception {
             for (const auto &cell_iter: global_frontier_cells_) {
                 ufo::map::Point3 cell_coord = map_.toCoord(cell_iter.toKey());
                 double sensor_dist_xy = cell_coord.distanceXY(current_sensor_pose_.translation());
-                if (sensor_dist_xy < max_range_ + 1.0) {  
+                if (sensor_dist_xy < max_range_ + 1.0) {
                     if (fabs(cell_coord.z() - current_sensor_pose_.z()) / sensor_dist_xy < tan(M_PI * 15 / 180)
-                        && isFrontier(cell_iter)) {  
+                        && isFrontier(cell_iter)) {
                         global_frontiers.insert(cell_iter);
                     }
                 } else {
@@ -462,7 +462,7 @@ namespace perception {
         }
         global_frontier_cells_ = global_frontiers;
 
-        for (const auto &iter_cell: local_frontier_cells_) {  
+        for (const auto &iter_cell: local_frontier_cells_) {
             global_frontier_cells_.insert(iter_cell);
         }
     }
@@ -481,7 +481,7 @@ namespace perception {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
-                    if (i != 1 && j != 1 && k != 1) {  
+                    if (i != 1 && j != 1 && k != 1) {
                         neighbors.insert(
                                 ufo::map::Code(map_.toKey(coord_x[i], coord_y[j], coord_z[k], depth)));
                     }
@@ -502,7 +502,7 @@ namespace perception {
                     odom_mutex_.lock();
                     ufo::math::Vector3 current = current_robot_pose_.translation();
                     odom_mutex_.unlock();
-                    if (point.distanceXY(current) > 0.6) {    
+                    if (point.distanceXY(current) > 0.6) {
                         if (isFrontier(changedCellCode)) {
                             local_frontier_cells_.insert(changedCellCode);
                         }
@@ -516,7 +516,7 @@ namespace perception {
     void Ufomap::updatePlaneGlobalFrontier() {
         CodeUnorderSet global_frontiers;
         if (!global_frontier_cells_.empty()) {
-            for (const auto &cell_iter: global_frontier_cells_) {  
+            for (const auto &cell_iter: global_frontier_cells_) {
                 ufo::map::Point3 point = map_.toCoord(cell_iter.toKey());
                 if (point.distanceXY(current_robot_pose_.translation()) < max_range_ + 1.0) {
                     if (isFrontier(cell_iter))
@@ -564,10 +564,10 @@ namespace perception {
     }
 
 
-    bool Ufomap::isFrontier(const ufo::map::Code &frontier) const {   
+    bool Ufomap::isFrontier(const ufo::map::Code &frontier) const {
 
         if (map_.isFree(frontier)) {
-            CodeUnorderSet xy_neighbor_cells = get_XY_NeighborCell(frontier, frontier.getDepth());  
+            CodeUnorderSet xy_neighbor_cells = get_XY_NeighborCell(frontier, frontier.getDepth());
             bool unknowFlag = false;
             bool occupiedFlag = false;
             for (const auto &iter: xy_neighbor_cells) {
@@ -717,7 +717,7 @@ namespace perception {
         ufomap_with_frontiers.header = header;
 
         ufomap_with_frontiers.known_plane_cell_num = known_plane_cell_num_;
-          
+
         ufomap_with_frontiers.max_range = max_range_;
         ufomap_with_frontiers.frame_id = frame_id_;
         ufomap_with_frontiers.robot_base_frame_id = robot_base_frame_id_;
@@ -746,7 +746,7 @@ namespace perception {
             ufomap_with_frontiers.changed_cell_codes.push_back(changed_cell_code);
         }
 
-        for (auto &item: known_cell_codes_) {  
+        for (auto &item: known_cell_codes_) {
             if (0 == item.getDepth()) {
                 ufomap_manager::CellCode known_cell_code;
                 known_cell_code.depth = item.getDepth();

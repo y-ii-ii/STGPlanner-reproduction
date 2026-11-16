@@ -28,7 +28,7 @@ namespace rapid_cover_planner {
         double viewpoint_ignore_thre_;
         double local_range_;
         double frontier_gain_;
-        double tourpoint_ignore_distance_; 
+        double tourpoint_ignore_distance_;
         double tourpoint_ignore_thre_;
 
         perception::Ufomap::Ptr frontier_map_;
@@ -42,7 +42,7 @@ namespace rapid_cover_planner {
         double max_gain_;
         std::vector<std::vector<Path>> path_matrix_;
         utils::Point3DMap<utils::Point3DMap<Path>> pre_paths_;
-        
+
         utils::Point3D goal_point_;
         Path path_to_go_;
         Path tsp_path_;

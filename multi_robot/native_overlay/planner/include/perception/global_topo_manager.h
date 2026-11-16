@@ -15,6 +15,7 @@
 #include "perception/ufomap.h"
 #include "perception/hierarchical_graph.h"
 #include "rapid_cover_planner/native_team_policy.h"
+#include "rapid_cover_planner/native_task_scope.h"
 
 namespace perception {
 
@@ -29,6 +30,9 @@ public:
   ros::NodeHandle nh_;
   ros::NodeHandle nh_private_;
   rapid_cover_planner::NativeTeamPolicy team_policy_;
+  rapid_cover_planner::NativeTaskScope task_scope_;
+  utils::NodeQueue task_suppressed_frontiers_;
+  void filterTaskFrontiers();
 
   int time_cout_ = 0;
   int confluence_cluster_count_ = 0;
@@ -383,6 +387,8 @@ public:
         return false;
       return true;
     }
+    // An endpoint outside this robot's map has no collision-free evidence.
+    return false;
   }
 
   visualization_msgs::MarkerArray

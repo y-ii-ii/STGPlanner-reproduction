@@ -1,0 +1,11 @@
+
+int32 iteration_id
+
+---
+Path[]  paths
+# Bound authorization carried intact to the executor.
+string execution_lease
+
+---
+
+bool is_get_path

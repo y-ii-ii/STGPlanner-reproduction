@@ -37,7 +37,7 @@ namespace perception{
         double grid_size;
         int grid_width_num;
         std::vector<unsigned int> status;
-        pcl::PointCloud<pcl::PointXYZI> bottom_points;  
+        pcl::PointCloud<pcl::PointXYZI> bottom_points;
 
         void clear(){
             status.clear();
@@ -80,7 +80,7 @@ namespace perception{
 
 
         GridMap2D inflate_map_;
-        GridMap2D map_;  
+        GridMap2D map_;
         geometry_msgs::Pose current_pose_;
         bool is_map_updated_;
         ros::Time last_observation_stamp_;
@@ -91,7 +91,7 @@ namespace perception{
         double grid_size_;
         double inflate_radius_;
         double inflate_empty_radius_;
-        double lower_z_;  
+        double lower_z_;
         double connectivity_thre_;
 
         std::mutex map_2d_update_mutex_;

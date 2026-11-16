@@ -123,19 +123,19 @@ namespace perception {
         ufo::map::OccupancyMap map_;
         std::string frame_id_;
 
-        ufo::math::Pose6 current_robot_pose_;  
-        ufo::math::Pose6 current_sensor_pose_;  
+        ufo::math::Pose6 current_robot_pose_;
+        ufo::math::Pose6 current_sensor_pose_;
 
         std::string sensor_frame_id_;
-        pcl::VoxelGrid<pcl::PointXYZ> voxel_filter_;  
-        float scan_voxel_size_;  
+        pcl::VoxelGrid<pcl::PointXYZ> voxel_filter_;
+        float scan_voxel_size_;
 
         LidarModel lidar_;
 
         double max_range_;
         bool insert_discrete_;
         int insert_depth_;
-        bool simple_ray_casting_;   
+        bool simple_ray_casting_;
         int early_stopping_;
 
         bool clear_robot_enabled_;

@@ -3,6 +3,8 @@
 #include <cmath>
 #include <functional>
 #include <set>
+#include <map>
+#include <queue>
 #include <stdexcept>
 #include <vector>
 
@@ -10,8 +12,8 @@ namespace rapid_cover_planner {
 struct TaskRun {int y, first, last;};
 struct TaskPatch {
   double x0=0,y0=0,resolution=0;
-  std::vector<TaskRun> unknown,portals;
-  bool contains(double x,double y) const {
+  std::vector<TaskRun> unknown,portals,approach;
+  bool contains(double x,double y,bool include_approach=true) const {
     if(!std::isfinite(x)||!std::isfinite(y)||resolution<=0)return false;
     double gx=std::floor((x-x0)/resolution),gy=std::floor((y-y0)/resolution);
     if(std::abs(gx)>1e7||std::abs(gy)>1e7)return false;
@@ -19,12 +21,48 @@ struct TaskPatch {
       for(const auto&r:rows)if(r.y==int(gy)&&r.first<=gx&&gx<=r.last)return true;
       return false;
     };
-    return in(unknown)||in(portals);
+    return in(unknown)||in(portals)||(include_approach&&in(approach));
   }
 };
+// STG's dilated unknown mask can place a frontier a few FREE cells before the
+// actual portal. Build that approach band through this receiver's known-free
+// cells only; geometrical dilation through a wall would admit the wrong branch.
+template<class KnownFree>
+void fillTaskApproach(TaskPatch& patch,KnownFree known_free){
+  using Cell=std::pair<int,int>;std::map<Cell,int> visited;std::queue<Cell> queue;
+  auto free=[&](Cell c){return known_free(patch.x0+(c.first+.5)*patch.resolution,patch.y0+(c.second+.5)*patch.resolution);};
+  for(const auto&r:patch.portals)for(int x=r.first;x<=r.last&&visited.size()<10000;++x)
+    if(free({x,r.y})&&visited.emplace(Cell{x,r.y},0).second)queue.push({x,r.y});
+  int steps=std::min(8,int(std::ceil(1./patch.resolution)));
+  while(!queue.empty()&&visited.size()<10000){
+    Cell c=queue.front();queue.pop();if(visited[c]>=steps)continue;
+    for(auto d:std::vector<Cell>{{1,0},{-1,0},{0,1},{0,-1}}){
+      Cell n{c.first+d.first,c.second+d.second};
+      if(!visited.count(n)&&free(n)){visited[n]=visited[c]+1;queue.push(n);}
+    }
+  }
+  patch.approach.clear();for(const auto&v:visited)patch.approach.push_back({v.first.second,v.first.first,v.first.first});
+}
+template<class Observed>
+std::pair<size_t,size_t> taskObservationCounts(const std::vector<TaskPatch>& patches,Observed observed){
+  // Deduplicate aliases from two authors in common-world micrometre coordinates.
+  std::set<std::pair<long long,long long>> seen;size_t covered=0;
+  for(const auto&p:patches)for(const auto&r:p.unknown)for(int x=r.first;x<=r.last;++x){
+    double wx=p.x0+(x+.5)*p.resolution,wy=p.y0+(r.y+.5)*p.resolution;
+    auto key=std::make_pair(std::llround(wx*1e6),std::llround(wy*1e6));
+    if(seen.insert(key).second&&observed(wx,wy))++covered;
+    if(seen.size()>100000)throw std::runtime_error("task observation support too large");
+  }
+  return {covered,seen.size()};
+}
 struct NativeTaskScope {
   bool active=false;
   std::vector<TaskPatch> patches;
+  bool allowsBoundary(double x,double y)const{
+    if(!active)return true;
+    for(const auto&p:patches)if(p.contains(x,y,false))return true;
+    return false;
+  }
   bool allows(double x,double y) const {
     if(!active)return true;
     for(const auto& patch:patches)if(patch.contains(x,y))return true;

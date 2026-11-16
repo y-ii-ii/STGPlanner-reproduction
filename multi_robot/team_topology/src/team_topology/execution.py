@@ -125,7 +125,8 @@ class VelocityFence:
             return False
         seq, session = int(command["command_seq"]), command["allocation_session"]
         stamp = float(command["stamp"])
-        if (not session or not math.isfinite(stamp) or not 0 <= ros_now-stamp <= 2.
+        if (not session or not math.isfinite(stamp) or ros_now<stamp
+            or command.get("mode")=="ROUTE" and ros_now-stamp>2.
             or seq <= self.seq or self.session not in (None, session)):
             return False
         if command["mode"] not in ("ROUTE", "STOP"):
@@ -174,6 +175,7 @@ class VelocityFence:
         if not allowed:
             self._trip("EXECUTOR_STOP")
             return True
+        if self.phase=="armed":self.raw_at=-math.inf  # No cached pre-goal follower command.
         self.permit_at, self.phase = now, "running"
         return True
 

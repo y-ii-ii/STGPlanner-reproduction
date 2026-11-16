@@ -7,6 +7,7 @@ contains topology and task summaries only; no fused occupancy or ground truth.
 import hashlib
 import math
 from .graph import Navigation, point, wire
+from .scope import unknown_support, completion_signature
 
 
 class TaskLedger:
@@ -14,7 +15,7 @@ class TaskLedger:
         self.items, self.version = {}, 0
 
     def assign(self, key, owner):
-        if key not in self.items:
+        if key not in self.items or self.items[key]["state"] == "completed":
             self.version += 1
             self.items[key] = {"owner": owner, "version": self.version, "state": "assigned"}
         return self.items[key]
@@ -45,7 +46,7 @@ class TaskLedger:
             return True
         if item["owner"] != robot or item["version"] != version:
             return False
-        item["state"] = "assigned"
+        item["state"] = "completed" if item.get("observed_completed") else "assigned"
         return True
 
 
@@ -53,11 +54,19 @@ class Coordinator:
     def __init__(self, robots=(1, 2), max_age=3.0):
         self.robots, self.max_age = tuple(sorted(robots)), max_age
         self.ledger, self.command_seq, self.commands = TaskLedger(), 0, {}
+        self.deferred = {}
+        self.completed_support = {}  # Authority overlay; never rewrite peer-owned maps/tasks.
+
+    def defer(self, robot, task, wall_now, seconds=8.):
+        self.deferred[robot,task] = max(self.deferred.get((robot,task),0.),wall_now+seconds)
 
     def groups(self, store, nav):
         groups = []
         for key, task in sorted(store.live("task").items()):
             if task["state"] != "pending":
+                continue
+            support = unknown_support([task["scope"]]) if "scope" in task else frozenset()
+            if support and support <= self.completed_support.get(key, frozenset()):
                 continue
             portals = [p for p in task["portals"] if p in nav.nodes]
             positions = {point(nav.nodes[p]["p"]) for p in portals}
@@ -76,7 +85,8 @@ class Coordinator:
                     positions=positions, tile=task["tile"], signature=task["signature"]))
         return groups
 
-    def plan(self, store, now):
+    def plan(self, store, now, wall_now=None):
+        wall_now = now if wall_now is None else wall_now
         self.command_seq += 1
         waits = {r: {"schema": 1, "frame": "world", "robot": r, "mode": "WAIT",
                     "stamp": now, "command_seq": self.command_seq, "path": []}
@@ -98,6 +108,8 @@ class Coordinator:
                 options = [(searches[r].get(point(nav.nodes[p]["p"]), math.inf) + attachment, p)
                            for p in group["portals"]]
                 costs[r, gid], portal_for[r, gid] = min(options)
+                if self.deferred.get((r,gid),-math.inf)>wall_now:
+                    costs[r,gid]=math.inf  # Execution feedback, not task completion.
             reachable = [r for r in self.robots if math.isfinite(costs[r, gid])]
             if reachable:
                 best = min(reachable, key=lambda r: (costs[r, gid], r))
@@ -114,6 +126,8 @@ class Coordinator:
             item = self.ledger.items.get(gid)
             if not item:
                 continue
+            if item.get("observed_completed"):
+                continue  # New/grown scope waits for the old generation's stop proof.
             r = item.get("receiver", item["owner"])
             if math.isfinite(costs.get((r, gid), math.inf)):
                 candidates[r].append(gid)
@@ -159,8 +173,40 @@ class Coordinator:
                 # Reserve before publishing; delayed ACK must not make already
                 # dispatched work look available for another idle robot.
                 item["state"] = "dispatched"
+            waits[r]["scope_digest"], waits[r]["scope_cells"] = completion_signature(waits[r]["scopes"])
         self.commands = waits
         return waits
+
+    def observe_completed(self, feedback, active, ros_now):
+        """Accept only current assignee observation evidence, then wait for STOP.
+
+        A task discovered by A can be observed by B without fusing B's occupancy
+        into A's map. Empty candidate lists, failures and timeouts are not evidence.
+        """
+        if (active.get("mode") != "ROUTE" or feedback.get("source") != "planner"
+                or feedback.get("status") != "OBSERVATION_COMPLETED"
+                or any(str(feedback.get(k)) != str(active.get(k)) for k in
+                       ("robot", "task", "version", "dispatch_id", "allocation_session"))):
+            return False
+        digest, count = completion_signature(active.get("scopes", []))
+        stamp = float(feedback.get("map_stamp", -math.inf))
+        if (not count or feedback.get("scope_digest") != digest
+                or int(feedback.get("required_cells", 0)) != count
+                or int(feedback.get("observed_cells", 0)) != count
+                or not math.isfinite(stamp) or not 0 <= ros_now-stamp <= 1.):
+            return False
+        item = self.ledger.items.get(active["task"])
+        if (item is None or item.get("receiver", item["owner"]) != int(active["robot"])
+                or item["version"] != int(active["version"])):
+            return False
+        support = unknown_support(active["scopes"])
+        for key in active["task_members"]:
+            self.completed_support[key] = self.completed_support.get(key, frozenset()) | support
+        if item["state"] == "offered":
+            item.update(owner=int(active["robot"]), state="dispatched")
+            item.pop("receiver", None)
+        item["observed_completed"] = True
+        return True
 
     def feedback(self, feedback):
         r = int(feedback["robot"])
@@ -173,7 +219,7 @@ class Coordinator:
             or feedback.get("task") != command["task"] or version != command["version"]):
             return False
         key, version = command["task"], command["version"]
-        if feedback["status"] == "ACCEPTED":
+        if feedback["status"] == "EXECUTOR_ACCEPTED" and feedback.get("source")=="executor":
             return self.ledger.acknowledge(key, r, version)
         # A planner failure or an unverified "STOPPED" string cannot release
         # dispatched work. The execution supervisor alone applies a nonce-bound
@@ -191,4 +237,3 @@ class Coordinator:
             cost, robot = min(values)
             result[p] = robot if math.isfinite(cost) else None
         return result
-

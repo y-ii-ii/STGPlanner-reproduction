@@ -21,7 +21,7 @@ namespace rapid_cover_planner {
 
         std::string pkg_path = ros::package::getPath("planner");
         std::string txt_path = pkg_path + "/../../files/exploration_data/";
-      
+
         max_tour_point_num_ = 10;
         if (!ros::param::get(ns + "/max_tour_point_num", max_tour_point_num_)) {
             ROS_WARN("No max_tour_point_num specified. Looking for %s. Default is 10",
@@ -73,7 +73,7 @@ namespace rapid_cover_planner {
 
         each_tourpoints_initilize_txt_name_ = txt_path + "each_tourpoints_initilize_time.txt";
         each_solving_txt_name_            = txt_path + "each_solving_time.txt";
-        
+
         std::ofstream fout;
 
         sum_initilize_time_ = 0;
@@ -177,10 +177,10 @@ namespace rapid_cover_planner {
         utils::Point3DSet local_viewpoints;
         utils::Point3DSet global_viewpoints;
         for (const auto &item: viewpoint_manager_->viewpoints_attached_frontiers_) {
-            if (item.first.distanceXY(current_position) > 1.0  
+            if (item.first.distanceXY(current_position) > 1.0
                 &&
                 item.second.size() *frontier_map_->map_.getResolution() * frontier_map_->map_.getResolution()
-                    > viewpoint_ignore_thre_ 
+                    > viewpoint_ignore_thre_
                     ) {
 
                 if (item.first.distanceXY(viewpoint_manager_->current_position_) < local_range_ / 2) {
@@ -191,9 +191,9 @@ namespace rapid_cover_planner {
             }
         }
 
-        if (local_viewpoints.size() > max_tour_point_num_) 
+        if (local_viewpoints.size() > max_tour_point_num_)
         {
-          
+
             std::map<double, Point3DQueue> distances_viewpoints;
             std::vector<double> distances;
             for (const auto &item: local_viewpoints) {
@@ -216,8 +216,8 @@ namespace rapid_cover_planner {
                 if (i >= max_tour_point_num_)
                     break;
             }
-        } 
-        else 
+        }
+        else
         {
             if (!local_viewpoints.empty()) {
                 is_local_planning_ = true;
@@ -227,7 +227,7 @@ namespace rapid_cover_planner {
                 auto graph = plan_graph_;
                 int current_point_id = addCurrentPositionToGraph(current_position, graph);
                 int max_num = max_tour_point_num_;
-                if (global_viewpoints.size() > max_num) 
+                if (global_viewpoints.size() > max_num)
                 {
                     std::map<double, Point3DQueue> distances_viewpoints;
                     std::vector<double> distances;
@@ -261,9 +261,9 @@ namespace rapid_cover_planner {
                     }
                     std::sort(distances.begin(), distances.end());
                     int i = 0;
-                    for (const auto &item: distances_viewpoints) 
+                    for (const auto &item: distances_viewpoints)
                     {
-                        for (const auto &viewpoint: item.second) 
+                        for (const auto &viewpoint: item.second)
                         {
                             tour_points_.insert(viewpoint);
                             ++i;
@@ -273,8 +273,8 @@ namespace rapid_cover_planner {
                         if (i >= max_num)
                             break;
                     }
-                } 
-                else 
+                }
+                else
                 {
                     tour_points_ = global_viewpoints;
                 }
@@ -478,7 +478,7 @@ namespace rapid_cover_planner {
                     }
                 }
             }
-           
+
             for (int y = 1; y < tour_points_num; y++) {
                 if (path_matrix[0][y].size() < 2) {
                     cost_matrix[0][y] = 100000000;
@@ -505,7 +505,7 @@ namespace rapid_cover_planner {
 
             ROS_INFO("cost matrix got, start planning..");
             std::vector<std::vector<int>> nodes_indexs;
-            std::vector<int> ids; 
+            std::vector<int> ids;
             for (int i = 0; i < tour_points_num; ++i) {
                 ids.push_back(i);
             }
@@ -517,7 +517,7 @@ namespace rapid_cover_planner {
             for (int i = 1; i < tour_points_num; ++i) {
                 gains.push_back(tour_points_gains_[tour_points_term[i]]);
             }
-         
+
             double lambda = 3.0;
             std::vector<int> init_route = ids;
             Two_Opt two_opt_solve(init_route, gains, cost_matrix, lambda);
@@ -565,7 +565,7 @@ namespace rapid_cover_planner {
 
 
     int RapidCoverPlanner::addCurrentPositionToGraph(const Point3D &current_position, graph::PlanGraph &graph) {
- 
+
         ROS_INFO("add current position to the plan map");
         int current_point_id = graph.addVertex(current_position);
 

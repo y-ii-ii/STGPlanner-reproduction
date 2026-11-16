@@ -366,7 +366,7 @@ namespace perception {
         inline size_t minElementIndex(const Point2D &pos) const {
             return pos[0] <= pos[1] ? 0 : 1;
         }
-        
+
     };
 }
 

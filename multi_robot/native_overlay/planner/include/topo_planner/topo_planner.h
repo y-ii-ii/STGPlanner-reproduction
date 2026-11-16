@@ -52,6 +52,13 @@ namespace topo_planner{
         ros::Subscriber topology_command_sub_;
         std::mutex topology_mutex_;
         std::string topology_session_,topology_task_,topology_mode_="WAIT";
+        unsigned long topology_dispatch_=0;
+        rapid_cover_planner::NativeTaskScope topology_scope_;
+        std::string topology_local_task_key_;
+        std::string topology_scope_digest_;
+        std::string topology_recovery_stop_id_;
+        bool topology_evidence_valid_=false;
+        double topology_evidence_x_=0,topology_evidence_y_=0;
         unsigned long topology_command_seq_=0,topology_version_=0;
         double topology_command_stamp_=0,last_topology_snapshot_=-1e9;
         std::vector<rapid_cover_planner::TopologyPoint> topology_route_;

@@ -62,8 +62,8 @@ namespace preprocess {
         if (map_2d_manager_->is_map_updated_) {
             auto start_time = ros::WallTime::now();
 
-            frontierAttachInUfomap(); 
-            
+            frontierAttachInUfomap();
+
             auto end_time = ros::WallTime::now();
 
             sum_attach_time_ = sum_attach_time_ + (end_time - start_time).toSec();
@@ -82,7 +82,7 @@ namespace preprocess {
         Point3DQueue sample_points = samplePointsInGridMap2D();
 
         ROS_INFO("start attach frontiers to candidate points..");
-    
+
         representative_points_.clear();
         for (const auto &point: sample_points) {
             bool is_suitable = true;
@@ -102,13 +102,13 @@ namespace preprocess {
 
         FrontierMap<Viewpoint> frontiers_viewpoints_term;
         for (const auto &frontier: frontier_map_->getFrontiers()) {
-            
+
             if (frontier.distanceXY(current_position_) >
-                frontier_map_->max_range_ * 1.5 
+                frontier_map_->max_range_ * 1.5
                 && !frontiers_viewpoints_.empty() &&
                 frontiers_viewpoints_.count(frontier) != 0) {
                 frontiers_viewpoints_term[frontier] = frontiers_viewpoints_[frontier];
-            
+
             } else if (map_2d_manager_->inflate_map_.isNearFree(Point2D(frontier.x(), frontier.y()), frontier_dist_)) {
                 double min_distance = 100000;
                 ufo::map::Point3 frontier_coord(frontier.x(), frontier.y(), frontier.z());
@@ -183,7 +183,7 @@ namespace preprocess {
         for (double x = -map_2d_manager_->inflate_map_.x_length_ / 2;
              x <= map_2d_manager_->inflate_map_.x_length_ / 2; x += sample_dist) {
             for (double y = -map_2d_manager_->inflate_map_.y_length_ / 2;
-                 y <= map_2d_manager_->inflate_map_.y_length_ / 2; y += sample_dist) 
+                 y <= map_2d_manager_->inflate_map_.y_length_ / 2; y += sample_dist)
             {
                 Point2D sample_2d(current_position_.x() + x, current_position_.y() + y);
                 if (frontier_map_->isInExplorationArea(sample_2d.x(), sample_2d.y())
@@ -197,8 +197,8 @@ namespace preprocess {
                     && map_2d_manager_->inflate_map_.isCollisionFreeStraight(
                         Point2D(current_position_.x(), current_position_.y()), sample_2d)
                         ) {
-                    pcl::PointXYZI min; 
-                    pcl::PointXYZI max;   
+                    pcl::PointXYZI min;
+                    pcl::PointXYZI max;
                     pcl::getMinMax3D(map_2d_manager_->inflate_map_.getGrid2D(
                             map_2d_manager_->inflate_map_.getIndexInMap2D(sample_2d)).points, min, max);
                     Point3D sample_point(sample_2d.x(), sample_2d.y(),
@@ -357,4 +357,3 @@ namespace preprocess {
         frontiers_viewpoints_pub_.publish(generateViewPointsWithFrontiersMarkers(viewpoints_attached_frontiers_));
     }
 }
-
