@@ -21,4 +21,6 @@
 - [GVP-MREP](https://arxiv.org/abs/2408.05808)：借鉴动态拓扑增量交换、图距离分区及跨区协助思想；本实现不照搬三维 EROI、UAV参数或MINCO。
 - [MGGPlanner](https://github.com/MISTLab/MGGPlanner)：借鉴跨机器人全局图共享方向。当前精确共同坐标关联不叫SLAM回环。
 
-新增核心代码为独立实现，没有复制上述仓库代码。原STG源码的许可保留在仓库原位置。
+新增核心代码为独立实现，没有复制上述仓库代码。本包LICENSE只适用于新增team_topology代码；导入的原planner保留其上游许可声明（package.xml当前为TODO），不把本包许可套用到原源码。
+
+原生消息、启用参数和未完成的在线验收边界见 [NATIVE_CONTRACT.md](../docs/NATIVE_CONTRACT.md)。

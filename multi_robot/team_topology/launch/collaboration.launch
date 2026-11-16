@@ -1,0 +1,12 @@
+<launch>
+  <!-- Adapters only: no simulator, no robot, no planner is started here. -->
+  <node pkg="team_topology" type="topology_agent.py" name="topology_agent_1" output="screen">
+    <param name="robot_id" value="1"/>
+    <param name="snapshot_topic" value="/robot_1/topo_planner_node/topology_snapshot"/>
+  </node>
+  <node pkg="team_topology" type="topology_agent.py" name="topology_agent_2" output="screen">
+    <param name="robot_id" value="2"/>
+    <param name="snapshot_topic" value="/robot_2/topo_planner_node/topology_snapshot"/>
+  </node>
+  <node pkg="team_topology" type="topology_coordinator.py" name="topology_coordinator" output="screen"/>
+</launch>

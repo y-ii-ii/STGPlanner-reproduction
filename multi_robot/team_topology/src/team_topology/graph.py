@@ -132,6 +132,11 @@ class GraphStore:
             raise ValueError("non-finite source timestamp")
         if delta["state"]["root"] not in live:
             raise ValueError("missing robot attachment")
+        root = live[delta["state"]["root"]]
+        resolution = float(delta["state"].get("resolution", 1.0))
+        if (root["kind"] != "node" or not math.isfinite(resolution) or resolution <= 0
+            or math.dist(point(root["p"]), point(delta["state"]["pose"])) > resolution/math.sqrt(2)+1e-6):
+            raise ValueError("robot root is not its own observed lattice cell")
         self.records = candidate
         self.sequences[author] = seq
         self.states[robot] = dict(delta["state"], author=author, seq=seq)

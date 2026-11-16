@@ -157,6 +157,7 @@ add_library(topo_planner
         src/preprocess/viewpoint_manager.cpp
         src/preprocess/topo_graph.cpp
         src/topo_planner/topo_planner.cpp
+        src/topo_planner/topology_bridge.cpp
         src/rapid_cover_planner/rapid_cover_planner.cpp
         src/perception/global_topo_manager.cpp
         src/heri_graph_cover_planner/heri_graph_cover_planner.cpp

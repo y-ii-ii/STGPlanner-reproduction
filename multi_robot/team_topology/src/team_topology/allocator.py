@@ -30,7 +30,7 @@ class TaskLedger:
     def acknowledge(self, key, robot, version):
         item = self.items[key]
         expected = item.get("receiver", item["owner"])
-        if version != item["version"] or robot != expected or item["state"] not in ("assigned", "offered", "active"):
+        if version != item["version"] or robot != expected or item["state"] not in ("assigned", "offered", "dispatched", "active"):
             return False
         item.update(owner=robot, state="active")
         item.pop("receiver", None)
@@ -38,6 +38,11 @@ class TaskLedger:
 
     def release(self, key, robot, version):
         item = self.items[key]
+        if (item["state"] == "offered" and item.get("receiver") == robot
+                and item["version"] == version):
+            item.pop("receiver")
+            item["state"] = "assigned"
+            return True
         if item["owner"] != robot or item["version"] != version:
             return False
         item["state"] = "assigned"
@@ -94,7 +99,12 @@ class Coordinator:
                 costs[r, gid], portal_for[r, gid] = min(options)
             reachable = [r for r in self.robots if math.isfinite(costs[r, gid])]
             if reachable:
-                self.ledger.assign(gid, min(reachable, key=lambda r: (costs[r, gid], r)))
+                best = min(reachable, key=lambda r: (costs[r, gid], r))
+                item = self.ledger.assign(gid, best)
+                if item["state"] == "assigned" and item["owner"] not in reachable:
+                    # Only never-executing work can be offered automatically.
+                    # Active/dispatched work waits for explicit release feedback.
+                    self.ledger.offer(gid, best)
         # An observation-completed/disappeared task stops being dispatched, but is
         # not relabelled completed just because this filtered group list is empty.
         valid = {g["id"] for g in groups}
@@ -125,7 +135,7 @@ class Coordinator:
             if not available:
                 continue
             # Keep an already active task; otherwise choose closest within responsibility.
-            gid = min(available, key=lambda k: (self.ledger.items[k]["state"] != "active",
+            gid = min(available, key=lambda k: (self.ledger.items[k]["state"] not in ("active", "dispatched"),
                                                 costs[r, k], k))
             item = self.ledger.items[gid]
             route = nav.route(store.states[r]["root"], portal_for[r, gid])
@@ -141,14 +151,22 @@ class Coordinator:
                 "cost_m": costs[r, gid], "edge_ids": route["edges"],
                 "peer_edges": sorted({e for e in route["edges"] if not e.startswith(store.states[r]["author"] + "/")}),
                 "graph_digest": store.digest()}
+            if item["state"] == "assigned":
+                # Reserve before publishing; delayed ACK must not make already
+                # dispatched work look available for another idle robot.
+                item["state"] = "dispatched"
         self.commands = waits
         return waits
 
     def feedback(self, feedback):
         r = int(feedback["robot"])
         command = self.commands.get(r, {})
-        if (command.get("mode") != "ROUTE" or feedback.get("command_seq") != command["command_seq"]
-            or feedback.get("task") != command["task"] or feedback.get("version") != command["version"]):
+        # Boost property_tree's JSON writer emits scalars as strings. Normalize
+        # the native wire values, while still checking the exact dispatch/version.
+        sequence = int(feedback.get("command_seq", -1))
+        version = int(feedback.get("version", -1))
+        if (command.get("mode") != "ROUTE" or sequence != command["command_seq"]
+            or feedback.get("task") != command["task"] or version != command["version"]):
             return False
         key, version = command["task"], command["version"]
         if feedback["status"] == "ACCEPTED":

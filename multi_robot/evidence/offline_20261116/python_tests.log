@@ -1,0 +1,25 @@
+test_dispatched_task_cannot_be_stolen_before_ack (test_offline.OfflineTests) ... ok
+test_empty_candidates_not_mission_complete (test_offline.OfflineTests) ... ok
+test_equal_distance_deterministic_and_multiportal_unique (test_offline.OfflineTests) ... ok
+test_foreign_id_rejected_atomically (test_offline.OfflineTests) ... ok
+test_graph_distance_beats_euclidean_across_wall (test_offline.OfflineTests) ... ok
+test_handover_and_stale_ack (test_offline.OfflineTests) ... ok
+test_invalid_geometry_and_frame (test_offline.OfflineTests) ... ok
+test_no_corner_cut (test_offline.OfflineTests) ... ok
+test_own_export_does_not_transmit_occupancy (test_offline.OfflineTests) ... ok
+test_peer_route_and_no_parallel_wall_merge (test_offline.OfflineTests) ... ok
+test_same_sequence_conflict_and_session_restart (test_offline.OfflineTests) ... ok
+test_same_tile_split_and_missing_is_not_completed (test_offline.OfflineTests) ... ok
+test_single_cell_frontier_is_not_filtered_out (test_offline.OfflineTests) ... ok
+test_split_merge_and_reopen_lineage (test_offline.OfflineTests) ... ok
+test_task_identity_survives_portal_representative_change (test_offline.OfflineTests) ... ok
+test_tombstone_replay_gap_and_full_repair (test_offline.OfflineTests) ... ok
+test_two_branch_export_exchange_allocate_feedback (test_offline.OfflineTests) ... ok
+test_unchanged_map_sends_only_state_heartbeat (test_offline.OfflineTests) ... ok
+test_unknown_tile_uses_neighbor_tile_portal (test_offline.OfflineTests) ... ok
+test_unreachable_not_awarded_and_stale_state_stops (test_offline.OfflineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.031s
+
+OK

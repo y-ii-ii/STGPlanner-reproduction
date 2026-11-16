@@ -71,5 +71,5 @@ class LocalExporter:
                 "parents": [self.delta.key("task", x) for x in task["parents"]]}
         # The real pose-to-cell-center attachment cost is retained in bidding.
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
-                 "map_rev": self.tasks.map_rev}
+                 "map_rev": self.tasks.map_rev, "resolution": grid.resolution}
         return self.delta.build(records, state, full=full)

@@ -2,12 +2,16 @@
 #include "rapid_cover_planner/remote_observation.h"
 #include <sstream>
 #include <iomanip>
+#include <stdexcept>
 
 namespace perception {
 void Ufomap::initializeNativeMapExchange(){
  bool enabled=false,shared=false;int count=1,id=1;
  nh_private_.param("team/enabled",enabled,false);nh_private_.param("team/shared_sensor_mapping",shared,false);
  nh_private_.param("team/robot_count",count,1);nh_private_.param("team/robot_id",id,1);
+ bool topology=false;nh_private_.param("team/topology_enabled",topology,false);
+ // Topology collaboration never opens the historical remote cloud subscriber.
+ if(topology){if(shared)throw std::runtime_error("topology mode forbids remote cloud mapping");return;}
  // Inactive single behavior, including its original own input callback, is
  // unchanged. The extra source only exists for the explicit two-robot mode.
  if(!enabled||!shared||count!=2)return;

@@ -25,6 +25,7 @@ namespace topo_planner {
         native_catalog_pub_=nh_private_.advertise<std_msgs::String>("native_catalog",1,true);
         native_status_pub_=nh_private_.advertise<std_msgs::String>("native_status",1,true);
         initializeExecutionRepair();
+        initializeTopology();
         planner_action_server_.start();
 
         std::string pkg_path = ros::package::getPath("planner");
@@ -75,6 +76,17 @@ namespace topo_planner {
 
         ros::WallTime ufomap_start_time = ros::WallTime::now();
         elements_->global_topo_map_->updateTopo();
+        if (topology_enabled_) {
+            // G_nav provides global routing; own sensing validates each prefix.
+            // Avoid the old no-frontier early finish and optimistic grid fallback
+            // when remote point-cloud insertion has deliberately been disabled.
+            publishTopologySnapshot();
+            control_planner_interface::ExplorerPlannerResult topology_result;
+            topologyPlanning(topology_result);
+            planner_action_server_.setSucceeded(topology_result);
+            elements_->global_topo_map_->global_topo_update_mutex_.unlock();
+            return;
+        }
         ros::WallTime topo_start_time = ros::WallTime::now();
         ros::WallTime update_end_time = ros::WallTime::now();
         publishExecutionGrid();
@@ -183,6 +195,7 @@ namespace topo_planner {
     }
 
     bool TopoPlanner::isExplorationFinish() {
+        if (topology_enabled_) return false; // Empty/deferred tasks are not mission completion.
         if (planner_->tour_points_.empty()) {
             return true;
         } else {

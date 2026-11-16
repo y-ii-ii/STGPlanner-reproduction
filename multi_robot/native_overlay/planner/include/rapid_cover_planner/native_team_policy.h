@@ -26,6 +26,8 @@ public:
  Snapshot capture()const{std::lock_guard<std::mutex>g(mutex_);Snapshot s;s.map=map_;s.active=active();s.id=id_;s.fresh=!map_.data.empty()&&(ros::WallTime::now()-received_).toSec()<=3.;return s;}
  void init(ros::NodeHandle&nh,ros::NodeHandle&priv){
   priv.param("team/enabled",enabled_,false);priv.param("team/robot_id",id_,1);priv.param("team/robot_count",count_,1);
+  bool topology=false;priv.param("team/topology_enabled",topology,false);
+  if(topology)enabled_=false; // Do not mix the historical 4m ownership channel into G_task.
   if(active())sub_=nh.subscribe("/team/native_ownership",1,&NativeTeamPolicy::receive,this);
  }
  bool active()const{return enabled_&&count_>1;}

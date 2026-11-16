@@ -13,6 +13,7 @@
 #include <std_msgs/String.h>
 #include <std_msgs/Float64MultiArray.h>
 #include "rapid_cover_planner/execution_grid.h"
+#include "rapid_cover_planner/topology_route_gate.h"
 
 #include <message_filters/subscriber.h>
 #include <message_filters/sync_policies/approximate_time.h>
@@ -44,6 +45,20 @@ namespace topo_planner{
         ros::Publisher iteration_time_pub_;
         ros::Publisher native_catalog_pub_,native_status_pub_;
         double last_native_catalog_=-1e9;
+        // Opt-in isolated topology mode; historical launches default to false.
+        bool topology_enabled_=false;
+        int topology_robot_=1;
+        ros::Publisher topology_snapshot_pub_,topology_feedback_pub_;
+        ros::Subscriber topology_command_sub_;
+        std::mutex topology_mutex_;
+        std::string topology_session_,topology_task_,topology_mode_="WAIT";
+        unsigned long topology_command_seq_=0,topology_version_=0;
+        double topology_command_stamp_=0,last_topology_snapshot_=-1e9;
+        std::vector<rapid_cover_planner::TopologyPoint> topology_route_;
+        void initializeTopology();
+        void publishTopologySnapshot();
+        void topologyCommand(const std_msgs::String::ConstPtr&);
+        void topologyPlanning(control_planner_interface::ExplorerPlannerResult&);
         bool execution_repair_enabled_=true;
         ros::Publisher execution_grid_pub_;ros::Subscriber execution_feedback_sub_;
         double last_execution_grid_=-1e9,raw_execution_x_=0,raw_execution_y_=0;

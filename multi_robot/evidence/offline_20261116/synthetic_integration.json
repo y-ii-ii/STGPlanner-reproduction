@@ -1,0 +1,97 @@
+{
+  "fixture": "synthetic_two_branches_not_Scene4",
+  "initial_commands": {
+    "1": {
+      "schema": 1,
+      "frame": "world",
+      "robot": 1,
+      "mode": "ROUTE",
+      "stamp": 1.0,
+      "command_seq": 1,
+      "task": "1/demo/task/1",
+      "version": 1,
+      "path": [
+        [
+          1.5,
+          4.5
+        ],
+        [
+          2.5,
+          4.5
+        ],
+        [
+          3.5,
+          4.5
+        ],
+        [
+          3.5,
+          3.5
+        ],
+        [
+          3.5,
+          2.5
+        ]
+      ],
+      "cost_m": 4.0,
+      "edge_ids": [
+        "1/demo/edge/stg_0~stg_1",
+        "1/demo/edge/stg_1~stg_2",
+        "1/demo/edge/portal_3_2~stg_2",
+        "1/demo/edge/portal_3_2~stg_2"
+      ],
+      "peer_edges": [],
+      "graph_digest": "d7fac0a29b6537edf49f57ec95eb5761c6add1e4e05ee08768124d9bf7fcfef5"
+    },
+    "2": {
+      "schema": 1,
+      "frame": "world",
+      "robot": 2,
+      "mode": "ROUTE",
+      "stamp": 1.0,
+      "command_seq": 1,
+      "task": "2/demo/task/1",
+      "version": 2,
+      "path": [
+        [
+          11.5,
+          4.5
+        ],
+        [
+          10.5,
+          4.5
+        ],
+        [
+          9.5,
+          4.5
+        ],
+        [
+          9.5,
+          3.5
+        ],
+        [
+          9.5,
+          2.5
+        ]
+      ],
+      "cost_m": 4.0,
+      "edge_ids": [
+        "2/demo/edge/stg_5~stg_6",
+        "2/demo/edge/stg_4~stg_5",
+        "2/demo/edge/portal_9_2~stg_4",
+        "2/demo/edge/portal_9_2~stg_4"
+      ],
+      "peer_edges": [],
+      "graph_digest": "d7fac0a29b6537edf49f57ec95eb5761c6add1e4e05ee08768124d9bf7fcfef5"
+    }
+  },
+  "interrobot_route_cost_m": 10.0,
+  "interrobot_route_contains_peer_edge": true,
+  "initial_serialized_bytes_two_publications": 5477,
+  "unchanged_heartbeat_bytes_two_publications": 377,
+  "completed_observation_tasks": [
+    "1/demo/task/1"
+  ],
+  "raw_map_transferred": false,
+  "new_simulations": 0,
+  "new_T95": null
+}

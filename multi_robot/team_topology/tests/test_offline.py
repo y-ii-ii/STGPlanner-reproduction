@@ -137,6 +137,10 @@ class OfflineTests(unittest.TestCase):
         with self.assertRaises(ValueError):ledger.offer("task",1)
         self.assertFalse(ledger.release("task",1,offer["version"]))
         self.assertTrue(ledger.release("task",2,offer["version"]))
+        retry=ledger.offer('task',1)
+        self.assertTrue(ledger.release('task',1,retry['version']))
+        self.assertNotIn('receiver',ledger.items['task'])
+        self.assertEqual(ledger.items['task']['owner'],2)
 
     def test_equal_distance_deterministic_and_multiportal_unique(self):
         a,ar,ast=graph(1,{"r":[0,0],"t":[1,0]},
@@ -176,6 +180,74 @@ class OfflineTests(unittest.TestCase):
         key=other.key('node','r')
         new=other.build({key:{'kind':'node','p':[0,0]}},{'pose':[0,0],'root':key,'stamp':1.})
         with self.assertRaisesRegex(ValueError,'session replacement'):store.apply(new)
+
+    def test_unchanged_map_sends_only_state_heartbeat(self):
+        snapshot={'frame':'world','pose':[.5,.5],'stamp':1.,
+            'grid':{'width':4,'height':2,'resolution':1,'origin':[0,0],
+                    'data':[0,0,-1,-1,0,0,-1,-1]},'nodes':[],'edges':[]}
+        exporter=LocalExporter(1,'heartbeat')
+        first=exporter.snapshot(snapshot)
+        snapshot['stamp']=2.
+        second=exporter.snapshot(snapshot)
+        self.assertEqual(second['records'],{})
+        self.assertLess(len(wire(second)),len(wire(first)))
+        store=GraphStore()
+        store.apply(json.loads(wire(first)));store.apply(json.loads(wire(second)))
+
+    def test_split_merge_and_reopen_lineage(self):
+        tracker=TaskTracker(min_unknown=1)
+        original=tracker.update(Grid(4,2,1,(0,0),[0,0,0,0,-1,-1,-1,-1]))
+        parent=next(iter(original))
+        split=tracker.update(Grid(4,2,1,(0,0),[0,0,0,0,-1,100,100,-1]))
+        pending=[(k,v) for k,v in split.items() if v['state']=='pending']
+        self.assertEqual(len(pending),2)
+        child=next(v for k,v in pending if k!=parent)
+        self.assertIn(parent,child['parents'])
+        merged=tracker.update(Grid(4,2,1,(0,0),[0,0,0,0,-1,-1,-1,-1]))
+        live=[v for v in merged.values() if v['state']=='pending']
+        self.assertEqual(len(live),1)
+        self.assertTrue(live[0]['parents'])
+        tracker.update(Grid(4,2,1,(0,0),[0]*8))
+        reopened=tracker.update(Grid(4,2,1,(0,0),[0,0,0,0,-1,100,100,-1]))
+        new=[v for v in reopened.values() if v['state']=='pending']
+        self.assertEqual(len(new),2)
+        self.assertTrue(all(v['parents'] for v in new))
+
+    def test_dispatched_task_cannot_be_stolen_before_ack(self):
+        a,ar,ast=graph(1,{'r':[0,0],'t':[1,0]},
+            {'a':('r','t',[[0,0],[1,0]])},{'one':['t']})
+        b,br,bst=graph(2,{'r':[2,0],'t':[1,0]},
+            {'b':('r','t',[[2,0],[1,0]])})
+        store=GraphStore();store.apply(a.build(ar,ast));store.apply(b.build(br,bst))
+        c=Coordinator();plans=c.plan(store,1.)
+        owner=next(r for r,p in plans.items() if p['mode']=='ROUTE')
+        command=plans[owner]
+        self.assertEqual(c.ledger.items[command['task']]['state'],'dispatched')
+        with self.assertRaises(ValueError):c.ledger.offer(command['task'],3-owner)
+        self.assertFalse(c.feedback(dict(command,status='ACCEPTED',command_seq=0)))
+        self.assertTrue(c.feedback(dict(command,status='ACCEPTED')))
+        native_feedback={k:str(v) for k,v in dict(command,status='ACCEPTED').items()}
+        self.assertTrue(c.feedback(native_feedback))
+
+    def test_single_cell_frontier_is_not_filtered_out(self):
+        tracker=TaskTracker()
+        result=tracker.update(Grid(2,1,1,(0,0),[0,-1]))
+        self.assertEqual(len(result),1)
+
+    def test_unknown_tile_uses_neighbor_tile_portal(self):
+        tracker=TaskTracker()
+        tasks=tracker.update(Grid(6,1,1,(0,0),[100,100,100,0,-1,-1]))
+        pending=[v for v in tasks.values() if v['state']=='pending']
+        self.assertEqual(len(pending),1)
+        self.assertEqual(pending[0]['tile'],(1,0))
+        self.assertEqual(pending[0]['portal_cells'],[(3,0)])
+
+    def test_two_branch_export_exchange_allocate_feedback(self):
+        from team_topology.offline_demo import run
+        result=run()
+        self.assertTrue(result['interrobot_route_contains_peer_edge'])
+        self.assertLess(result['unchanged_heartbeat_bytes_two_publications'],
+                        result['initial_serialized_bytes_two_publications'])
 
 
 if __name__=="__main__":

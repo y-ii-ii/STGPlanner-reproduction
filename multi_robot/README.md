@@ -8,3 +8,6 @@ BASELINE_IMPORT.json 固定导入前各文件 SHA256，后续改动由 Git diff 
 
 参考：C²-Explorer 的连通任务思想；GVP-MREP 的图距离分区及增量拓扑交换。
 MinPos、MDVRP、距离贪心为候选参考，不要求全部实现。
+
+实现入口：[team_topology](team_topology/README.md)。原生接口与验收边界见 [NATIVE_CONTRACT.md](docs/NATIVE_CONTRACT.md)。
+本轮用户已明确允许推送至当前公开仓库，仅上传本轮源码、来源清单和离线证据，不上传历史原始数据或本机凭据。

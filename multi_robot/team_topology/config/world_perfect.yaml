@@ -1,0 +1,7 @@
+# Load only for the NEW isolated planner, never into the old success launch.
+team:
+  topology_enabled: true
+  enabled: true
+  shared_sensor_mapping: false
+  robot_count: 2
+  # robot_id is set separately for each planner namespace.
