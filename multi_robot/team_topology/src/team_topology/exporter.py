@@ -2,6 +2,7 @@
 from .graph import DeltaBuilder, point
 from .grid import Grid
 from .tasks import TaskTracker
+from .scope import task_scope
 
 
 class LocalExporter:
@@ -69,6 +70,7 @@ class LocalExporter:
                 "portals": portal_keys, "state": task["state"], "map_rev": task["map_rev"],
                 "observation": task["observation"],
                 "parents": [self.delta.key("task", x) for x in task["parents"]]}
+            records[self.delta.key("task", local)]["scope"] = task_scope(grid, task)
         # The real pose-to-cell-center attachment cost is retained in bidding.
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
                  "map_rev": self.tasks.map_rev, "resolution": grid.resolution}

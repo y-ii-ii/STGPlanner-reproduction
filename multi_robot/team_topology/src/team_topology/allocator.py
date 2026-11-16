@@ -87,6 +87,7 @@ class Coordinator:
             return waits
         nav = Navigation(store)
         groups = self.groups(store, nav)
+        group_by_id = {g["id"]: g for g in groups}
         searches = {r: nav.search(store.states[r]["root"])[0] for r in self.robots}
         costs, portal_for = {}, {}
         for group in groups:
@@ -148,6 +149,9 @@ class Coordinator:
             waits[r] = {"schema": 1, "frame": "world", "robot": r, "mode": "ROUTE",
                 "stamp": now, "command_seq": self.command_seq,
                 "task": gid, "version": item["version"], "path": path,
+                "task_members": group_by_id[gid]["members"],
+                "scopes": [store.live("task")[k]["scope"] for k in group_by_id[gid]["members"]
+                           if "scope" in store.live("task")[k]],
                 "cost_m": costs[r, gid], "edge_ids": route["edges"],
                 "peer_edges": sorted({e for e in route["edges"] if not e.startswith(store.states[r]["author"] + "/")}),
                 "graph_digest": store.digest()}
@@ -171,9 +175,9 @@ class Coordinator:
         key, version = command["task"], command["version"]
         if feedback["status"] == "ACCEPTED":
             return self.ledger.acknowledge(key, r, version)
-        if feedback["status"] in ("BLOCKED", "STOPPED"):
-            # Failures release responsibility for retry, never mark observed.
-            return self.ledger.release(key, r, version)
+        # A planner failure or an unverified "STOPPED" string cannot release
+        # dispatched work. The execution supervisor alone applies a nonce-bound
+        # final velocity-gate stop proof, then calls ledger.release explicitly.
         return False
 
     def partition(self, store):
