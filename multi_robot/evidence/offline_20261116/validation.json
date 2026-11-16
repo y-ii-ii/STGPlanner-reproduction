@@ -101,7 +101,7 @@
     "team_topology/src/team_topology/exporter.py": "96b43c4eb9185ed105818232e9f622af5d1afa642087f4b7cc29e8a4660a0e32",
     "team_topology/src/team_topology/graph.py": "2518d81cd86f98f2f693275d44f7d01b1ec5e2f4f13780f469641513c82f7f40",
     "team_topology/src/team_topology/grid.py": "d270d878b24a1413f7821c2cfcc900b0f7bf0a0a20bbfde7bea73dae9ce332ce",
-    "team_topology/src/team_topology/offline_demo.py": "3bda813ab7ec91959aa5021f47e7c3ae77ff1d3cfa8c2adc3ec83621d811e2ae",
+    "team_topology/src/team_topology/offline_demo.py": "8b13ed3934a715fdf983e53f0a6c76fbd5128fc33a17fccea004b52fcb914e91",
     "team_topology/src/team_topology/tasks.py": "04e70e88d4d3ce326b2ab28a0669bf78302d2705c69be3aa94a4a0c3cbcf3248",
     "team_topology/src/team_topology/__init__.py": "e81ad553d5079b4af3da27c10e8c28593006ed57ed63b21225876b36e7b697af",
     "team_topology/tests/test_offline.py": "4b91dde85754772226a7aff622f7feb55d76207ae032989e135effbbdf9977f0"
