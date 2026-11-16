@@ -1,0 +1,131 @@
+{
+  "status_counts": {
+    "TRAFFIC_STOPPED": 12,
+    "STOPPED": 665,
+    "STOP_REQUEST": 662,
+    "ACCEPTED": 259,
+    "EXECUTOR_ACCEPTED": 7,
+    "BLOCKED": 539,
+    "STOP_REQUIRED": 6
+  },
+  "yield_proofs": {
+    "1": [
+      {
+        "robot": 2,
+        "token": null,
+        "received": 63.87401389200386
+      },
+      {
+        "robot": 1,
+        "token": null,
+        "received": 63.89638630400441
+      }
+    ],
+    "2": [
+      {
+        "robot": 2,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/2/5/5",
+        "received": 68.37015896700177
+      },
+      {
+        "robot": 1,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/1/2/6",
+        "received": 68.3867245290021
+      },
+      {
+        "robot": 1,
+        "token": null,
+        "received": 69.60626517700439
+      },
+      {
+        "robot": 1,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/1/4/8",
+        "received": 70.271808341
+      }
+    ],
+    "3": [
+      {
+        "robot": 1,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/1/4/8",
+        "received": 76.88769251900521
+      },
+      {
+        "robot": 2,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/2/5/5",
+        "received": 76.98586269100633
+      }
+    ],
+    "4": [
+      {
+        "robot": 2,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/2/6/11",
+        "received": 84.13539986099931
+      },
+      {
+        "robot": 1,
+        "token": null,
+        "received": 84.72207068900025
+      },
+      {
+        "robot": 1,
+        "token": null,
+        "received": 85.96446896900306
+      },
+      {
+        "robot": 1,
+        "token": "57764fae0baf416ab78bdfd0797bedbe/1/14/15",
+        "received": 86.65862890400604
+      }
+    ]
+  },
+  "final_nonce_proofs": {
+    "robot_2": {
+      "allocation_session": "57764fae0baf416ab78bdfd0797bedbe",
+      "fresh_samples": 4,
+      "request_ids": [
+        "topology_traffic_scene4_20261116_04_dual/final/robot_2"
+      ],
+      "robot": 2,
+      "schema": 2,
+      "source": "velocity_gate",
+      "stamp": 15601.933,
+      "stationary_s": 0.5112283550042775,
+      "status": "STOPPED",
+      "stop_id": "57764fae0baf416ab78bdfd0797bedbe/stop/2/1211",
+      "zero_s": 0.596996781998314,
+      "robot_source": "robot_2",
+      "received": 512.2756076500009
+    },
+    "robot_1": {
+      "allocation_session": "57764fae0baf416ab78bdfd0797bedbe",
+      "fresh_samples": 4,
+      "request_ids": [
+        "pci/1794840135238721739/465",
+        "topology_traffic_scene4_20261116_04_dual/final/robot_1"
+      ],
+      "robot": 1,
+      "schema": 2,
+      "source": "velocity_gate",
+      "stamp": 15601.947,
+      "stationary_s": 0.505117289001646,
+      "status": "STOPPED",
+      "stop_id": "57764fae0baf416ab78bdfd0797bedbe/stop/1/1210",
+      "zero_s": 0.6162213010029518,
+      "robot_source": "robot_1",
+      "received": 512.294516521004
+    }
+  },
+  "max_union_area_m2": 97.12,
+  "stored_contact_records": 100,
+  "unique_contact_pairs": [
+    [
+      "robot_1::robot_1/front_left_wheel_link::robot_1/front_left_wheel_link_collision",
+      "grey_wall_short_clone_1::link::collision"
+    ]
+  ],
+  "traffic_status_samples": {
+    "BRAKE": 127,
+    "PASS": 192,
+    "FREE": 8536
+  }
+}

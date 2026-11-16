@@ -1,0 +1,13 @@
+[build] Found 1 packages in 0.0 seconds.
+[build] Updating package table.
+Starting >>> catkin_tools_prebuild
+Finished <<< catkin_tools_prebuild                [ 9.2 seconds ]
+Starting >>> planner
+Finished <<< planner                              [ 7 minutes and 19.5 seconds ]
+[build] Summary: All 2 packages succeeded!
+[build] Ignored: None.
+[build] Warnings: 1 packages succeeded with warnings.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 7 minutes and 28.8 seconds total.
+[build] Note: Workspace packages have changed, please re-source setup files to use them.

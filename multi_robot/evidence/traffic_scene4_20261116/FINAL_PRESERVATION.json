@@ -1,0 +1,17 @@
+{
+  "matched_wsl_hashes": 269,
+  "active_processes": [],
+  "ports_in_use": {
+    "11311": false,
+    "11312": false,
+    "11345": false
+  },
+  "original_protected_files": 172,
+  "original_history_files": 12823,
+  "new_raw_files_hashed": 990,
+  "archived_executable_files": 28,
+  "old_main_worktree_clean": true,
+  "scope_closed": true,
+  "used_attempts": 4,
+  "max_attempts": 4
+}

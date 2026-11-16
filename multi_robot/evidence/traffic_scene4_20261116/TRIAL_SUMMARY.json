@@ -1,0 +1,157 @@
+[
+  {
+    "trial": "topology_traffic_scene4_20261116_01_dual",
+    "finish_reason": "sim_limit_including_startup",
+    "runtime_wall_s": 20.660969158001535,
+    "exploration_wall_s": null,
+    "exploration_sim_s": null,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 0.0,
+    "coverage_fraction": 0.0,
+    "total_distance_m": 0.0,
+    "stop_ack": {},
+    "parking_drift_m": {},
+    "checks": {
+      "source_csv_match": {
+        "robot_1": false,
+        "robot_2": false
+      },
+      "within2400wall": true,
+      "runtime_idle": false
+    },
+    "min_footprint_clearance_m": null,
+    "initial_poses": null,
+    "contact_count_stored": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_traffic_scene4_20261116_02_dual",
+    "finish_reason": "diagnostic_abort",
+    "runtime_wall_s": 199.95309739499498,
+    "exploration_wall_s": 121.73745573400083,
+    "exploration_sim_s": 87.65300000000025,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 78.4,
+    "coverage_fraction": 0.01006418485237484,
+    "total_distance_m": 0.1931874254045325,
+    "stop_ack": {
+      "robot_1": false,
+      "robot_2": false
+    },
+    "parking_drift_m": {
+      "robot_1": 0.007640458581023817,
+      "robot_2": 8.426491395897197e-05
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 1.042402636397291,
+    "initial_poses": {
+      "robot_1": [
+        3.15552010608349,
+        4.669015193610831e-05
+      ],
+      "robot_2": [
+        0.854426760044239,
+        0.017446679788983767
+      ]
+    },
+    "contact_count_stored": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_traffic_scene4_20261116_03_dual",
+    "finish_reason": "diagnostic_abort",
+    "runtime_wall_s": 219.30594991000544,
+    "exploration_wall_s": 142.2043858859979,
+    "exploration_sim_s": 102.40999999999985,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 76.96000000000001,
+    "coverage_fraction": 0.009879332477535302,
+    "total_distance_m": 0.04283297767705005,
+    "stop_ack": {
+      "robot_1": false,
+      "robot_2": false
+    },
+    "parking_drift_m": {
+      "robot_1": 0.00037510823355355304,
+      "robot_2": 0.00024097241072988218
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 1.0582879159300476,
+    "initial_poses": {
+      "robot_1": [
+        3.155010086873346,
+        -0.0013426488246600877
+      ],
+      "robot_2": [
+        0.8599545755055711,
+        0.049004627815718065
+      ]
+    },
+    "contact_count_stored": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_traffic_scene4_20261116_04_dual",
+    "finish_reason": "non_ground_contact",
+    "runtime_wall_s": 522.2655541880013,
+    "exploration_wall_s": 444.1442642809998,
+    "exploration_sim_s": 342.08799999999974,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 97.12,
+    "coverage_fraction": 0.012467265725288832,
+    "total_distance_m": 17.315026345629477,
+    "stop_ack": {
+      "robot_1": true,
+      "robot_2": true
+    },
+    "parking_drift_m": {
+      "robot_1": 1.63165390966102e-07,
+      "robot_2": 8.175873394849576e-05
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 0.48412570734969634,
+    "initial_poses": {
+      "robot_1": [
+        3.1563308600240787,
+        0.0003024295581038931
+      ],
+      "robot_2": [
+        1.0069045884688805,
+        0.052614366644420575
+      ]
+    },
+    "contact_count_stored": 100,
+    "first_contact": [
+      "robot_1::robot_1/front_left_wheel_link::robot_1/front_left_wheel_link_collision",
+      "grey_wall_short_clone_1::link::collision"
+    ]
+  }
+]

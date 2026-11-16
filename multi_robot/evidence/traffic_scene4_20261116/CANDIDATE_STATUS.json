@@ -1,0 +1,16 @@
+{
+  "code_commit": "b505e98",
+  "scope": "topology_traffic_20261116",
+  "used": 4,
+  "max_attempts": 4,
+  "closed": true,
+  "union95_reached": false,
+  "T95_wall_s": null,
+  "T95_sim_s": null,
+  "final_coverage_percent": 1.2467265725288832,
+  "final_total_distance_m": 17.315026345629477,
+  "final_finish_reason": "non_ground_contact",
+  "baseline_promotion": false,
+  "old_baselines": "single04 and Old dual02 remain selected",
+  "new_attempts_blocked": true
+}
