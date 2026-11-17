@@ -14,3 +14,5 @@
 - 距离贪心、MinPos、MDVRP仅为参考，不要求全部实现。当前选择图距离分区＋任务承诺，效果尚待在线验证。
 - 每个完成的逻辑修改需注释、记录修改／原因／方法参考与验证后提交并推送feat/multi-robot-topology；不自动合并main。
 - 运行中的脚本必须冻结；不得边执行边修改。WSL源码与Git提交源码必须核对一致；实验仍须新的有限授权。
+
+2026-11-17 dispatch scope 4/4 complete/closed. TOPOLOGY_DISPATCH_LIMITS_20261117.json is authoritative. No fifth simulation, automatic rerun, native replay or further algorithm change in this finite scope. Only evidence, reports, preservation and restore of tested configurations; new online work requires new explicit finite user authorization. Final algorithm 687e867; no new union95/T95; original successful single04 and Old dual02 remain selected. Trial03 SIGSEGV/final stop ACK failure is preserved.

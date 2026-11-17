@@ -1,0 +1,115 @@
+{
+  "topology_dispatch_scene4_20261117_01_dual": {
+    "metrics_samples": 466,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 461,
+      "stale_source_state": 4
+    },
+    "fault_phase_sample_counts": {
+      "1": 111,
+      "2": 85
+    },
+    "stale_source_state_samples": 4,
+    "max_stale_source_age_s": {
+      "1": 4.537000000000262,
+      "2": 5.420000000000073
+    },
+    "max_topology_pending_packets": 0,
+    "max_total_inbox_depth": 0,
+    "max_stop_retry_counts": {},
+    "service_maxima": {},
+    "last_ack_audit": {}
+  },
+  "topology_dispatch_scene4_20261117_02_dual": {
+    "metrics_samples": 613,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 597,
+      "stale_source_state": 15
+    },
+    "fault_phase_sample_counts": {
+      "2": 233,
+      "1": 210
+    },
+    "stale_source_state_samples": 15,
+    "max_stale_source_age_s": {
+      "1": 3.2950000000000728,
+      "2": 3.4329999999990832
+    },
+    "max_topology_pending_packets": 0,
+    "max_total_inbox_depth": 0,
+    "max_stop_retry_counts": {
+      "1": 1,
+      "2": 1
+    },
+    "service_maxima": {},
+    "last_ack_audit": {}
+  },
+  "topology_dispatch_scene4_20261117_03_dual": {
+    "metrics_samples": 141,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 140
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 4,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "max_feedback_queue_wait_s": 0.03821727400645614,
+      "max_plan_wall_s": 0.03225771700090263
+    },
+    "last_ack_audit": {
+      "accepted": 8,
+      "last_rejection": {
+        "deadline_remaining_s": -65.58266970500699,
+        "expected_stop_id": "32a9752231e749b79462044b0a508c4c/stop/1/5",
+        "phase": "stopped",
+        "received_stop_id": "32a9752231e749b79462044b0a508c4c/stop/1/5",
+        "robot": 1
+      },
+      "rejected": 97
+    }
+  },
+  "topology_dispatch_scene4_20261117_04_dual": {
+    "metrics_samples": 851,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 623,
+      "stale_source_state": 227
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 227,
+    "max_stale_source_age_s": {
+      "1": 3.4390000000003056,
+      "2": 3.4169999999994616
+    },
+    "max_topology_pending_packets": 10,
+    "max_total_inbox_depth": 15,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "max_feedback_queue_wait_s": 0.4722810180101078,
+      "max_plan_wall_s": 0.39913462700496893
+    },
+    "last_ack_audit": {
+      "accepted": 617,
+      "last_rejection": {
+        "deadline_remaining_s": 3.44430397299584,
+        "expected_stop_id": "220bc53889814c62b4657f15e92374a6/stop/1/1227",
+        "phase": "running",
+        "received_stop_id": "220bc53889814c62b4657f15e92374a6/stop/1/1227",
+        "robot": 1
+      },
+      "rejected": 471
+    }
+  }
+}

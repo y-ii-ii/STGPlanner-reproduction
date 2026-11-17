@@ -1,0 +1,155 @@
+{
+  "topology_dispatch_scene4_20261117_01_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": true,
+        "nonce": "32f834a0d082474a8cec65676486b15d/stop/1/140",
+        "nonce_first_received_s": 430.7340873630019,
+        "fault_first_received_s": 437.4187366059923,
+        "proof_messages": 1,
+        "proofs_before_first_fault": 1,
+        "first_proof_after_nonce_s": 0.6378827070002444,
+        "first_proof": {
+          "allocation_session": "32f834a0d082474a8cec65676486b15d",
+          "fresh_samples": 4,
+          "request_ids": [],
+          "robot": 1,
+          "schema": 2,
+          "source": "velocity_gate",
+          "stamp": 15509.269,
+          "stationary_s": 0.5376077980035916,
+          "status": "STOPPED",
+          "stop_id": "32f834a0d082474a8cec65676486b15d/stop/1/140",
+          "zero_s": 0.6223127030098112,
+          "robot_source": "robot_1",
+          "received": 431.37197007000213
+        }
+      },
+      "robot_2": {
+        "fault_observed": true,
+        "nonce": "32f834a0d082474a8cec65676486b15d/stop/2/144",
+        "nonce_first_received_s": 456.8906903850002,
+        "fault_first_received_s": 463.75193205800315,
+        "proof_messages": 1,
+        "proofs_before_first_fault": 1,
+        "first_proof_after_nonce_s": 0.7620863490010379,
+        "first_proof": {
+          "allocation_session": "32f834a0d082474a8cec65676486b15d",
+          "fresh_samples": 4,
+          "request_ids": [],
+          "robot": 2,
+          "schema": 2,
+          "source": "velocity_gate",
+          "stamp": 15527.186,
+          "stationary_s": 0.5243331550009316,
+          "status": "STOPPED",
+          "stop_id": "32f834a0d082474a8cec65676486b15d/stop/2/144",
+          "zero_s": 0.7372321160073625,
+          "robot_source": "robot_2",
+          "received": 457.65277673400124
+        }
+      }
+    },
+    "rejected_goal_messages": 0,
+    "small_future_goal_time_examples": []
+  },
+  "topology_dispatch_scene4_20261117_02_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": true,
+        "nonce": "ab3bb4f45633477090392615711b322c/stop/1/230",
+        "nonce_first_received_s": 476.5477282179927,
+        "fault_first_received_s": 483.10289715199906,
+        "proof_messages": 284,
+        "proofs_before_first_fault": 8,
+        "first_proof_after_nonce_s": 0.6062180980079575,
+        "first_proof": {
+          "allocation_session": "ab3bb4f45633477090392615711b322c",
+          "fresh_samples": 4,
+          "request_ids": [],
+          "robot": 1,
+          "schema": 2,
+          "source": "velocity_gate",
+          "stamp": 15551.752,
+          "stationary_s": 0.5291005960025359,
+          "status": "STOPPED",
+          "stop_id": "ab3bb4f45633477090392615711b322c/stop/1/230",
+          "zero_s": 0.5831136909982888,
+          "robot_source": "robot_1",
+          "received": 477.15394631600066
+        }
+      },
+      "robot_2": {
+        "fault_observed": true,
+        "nonce": "ab3bb4f45633477090392615711b322c/stop/2/223",
+        "nonce_first_received_s": 452.17353930800164,
+        "fault_first_received_s": 458.82513564599503,
+        "proof_messages": 313,
+        "proofs_before_first_fault": 8,
+        "first_proof_after_nonce_s": 0.6268890529900091,
+        "first_proof": {
+          "allocation_session": "ab3bb4f45633477090392615711b322c",
+          "fresh_samples": 4,
+          "request_ids": [],
+          "robot": 2,
+          "schema": 2,
+          "source": "velocity_gate",
+          "stamp": 15534.847,
+          "stationary_s": 0.5379930620110827,
+          "status": "STOPPED",
+          "stop_id": "ab3bb4f45633477090392615711b322c/stop/2/223",
+          "zero_s": 0.5747241050121374,
+          "robot_source": "robot_2",
+          "received": 452.80042836099165
+        }
+      }
+    },
+    "rejected_goal_messages": 60,
+    "small_future_goal_time_examples": [
+      {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "2",
+        "task": "1/f8ee0f9957cf42e18c9edee154f3dc2e/task/28",
+        "version": "48",
+        "dispatch_id": "42",
+        "allocation_session": "ab3bb4f45633477090392615711b322c",
+        "goal_command_seq": "160",
+        "current_command_seq": "160",
+        "goal_token": "ab3bb4f45633477090392615711b322c/2/48/42",
+        "current_token": "ab3bb4f45633477090392615711b322c/2/48/42",
+        "mode": "ROUTE",
+        "stop_pending": "false",
+        "goal_stamp": "15304.723",
+        "lease_stamp": "15304.231",
+        "stamp": "15304.722",
+        "robot_source": "robot_2",
+        "received": 131.57144482599688
+      }
+    ]
+  },
+  "topology_dispatch_scene4_20261117_03_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 3,
+    "small_future_goal_time_examples": []
+  },
+  "topology_dispatch_scene4_20261117_04_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 215,
+    "small_future_goal_time_examples": []
+  }
+}

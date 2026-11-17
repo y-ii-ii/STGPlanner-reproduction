@@ -1,0 +1,15 @@
+{
+  "no_ros_or_gazebo": true,
+  "source": "saved trial04 own grid",
+  "method": "RECENTER_STRAIGHT",
+  "planned_arc_m": 2,
+  "virtual_duration_s": 11.5,
+  "samples": 231,
+  "final_pose": [
+    4.703279404710153,
+    0.9492394183575854,
+    0.06746594577692011
+  ],
+  "final_normal_margin_free": true,
+  "all_swept_body_checks_passed": true
+}

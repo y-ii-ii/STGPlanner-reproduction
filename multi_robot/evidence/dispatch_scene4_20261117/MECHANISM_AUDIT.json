@@ -1,0 +1,1480 @@
+{
+  "topology_dispatch_scene4_20261117_01_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 29
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 1110
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 57
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 93
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 11
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 33
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 49
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "COORDINATOR_TIMEOUT",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 11
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 35
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 21
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 1120
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 149
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 32
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 7
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 24
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 26
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 36
+      }
+    ],
+    "native_state_visits": {
+      "1": 2581,
+      "3": 2060,
+      "4": 2530,
+      "5": 1866,
+      "2": 3
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 37
+      },
+      {
+        "robot": "robot_1",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 19
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 5802
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 8
+      },
+      {
+        "robot": "robot_1",
+        "reason": "RECENTER_TRACK",
+        "samples": 346
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 31
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 5468
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 7
+      },
+      {
+        "robot": "robot_2",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 13
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 5392
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 102
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 6164
+      }
+    ],
+    "recenter_certificate_tokens": 8,
+    "recenter_trace_samples": 502,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_1",
+        "wall_received": 180.98036460699223,
+        "distance_m": 0.10646113080226434,
+        "from_token": "32f834a0d082474a8cec65676486b15d/1/100/60",
+        "to_token": "32f834a0d082474a8cec65676486b15d/1/100/60"
+      },
+      {
+        "robot": "robot_1",
+        "wall_received": 391.3522968229954,
+        "distance_m": 0.2574816967642693,
+        "from_token": "32f834a0d082474a8cec65676486b15d/1/467/118",
+        "to_token": "32f834a0d082474a8cec65676486b15d/1/467/120"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 0.9350174727173189,
+    "max_measured_v_m_s": 2.004842891071027,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 93442635,
+      "allocation_diagnostics": {
+        "candidates": {
+          "1": 5,
+          "2": 28
+        },
+        "completed_support_keys": 15,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "groups": 33,
+        "pending_tasks": 33,
+        "reachable_groups": {
+          "1": 33,
+          "2": 33
+        },
+        "reason": "allocated"
+      },
+      "command_serialized_bytes": 543,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 2443109,
+        "feedback_received_bytes": 2558069,
+        "topology_received_bytes": 93442635
+      },
+      "edges": 3216,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "fault",
+        "2": "fault"
+      },
+      "graph_digest": "5c3393db7e34c401fdf8db7e0a012e34a013a18ebaa2019baea9a227f3d0dbf0",
+      "nodes": 2382,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 13.2130784363887,
+      "tasks": 487
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 557.92,
+        "robot_2": 651.52
+      },
+      "csv_union_area_m2": 701.76,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_dispatch_scene4_20261117_02_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 38
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 32
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 1111
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 156
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 12
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 24
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 56
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 436
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "GOAL_NOT_STARTED",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 53
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 28
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 994
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 52
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 357
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 25
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "reason": "",
+        "count": 23
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 25
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 454
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "COORDINATOR_TIMEOUT",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 6
+      }
+    ],
+    "native_state_visits": {
+      "1": 2761,
+      "3": 1869,
+      "4": 3120,
+      "5": 1939,
+      "2": 4
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 9
+      },
+      {
+        "robot": "robot_1",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 10
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 9453
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 15
+      },
+      {
+        "robot": "robot_1",
+        "reason": "RECENTER_TRACK",
+        "samples": 50
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 5825
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 167
+      },
+      {
+        "robot": "robot_2",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 64
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 9603
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 42
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 918
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 4592
+      }
+    ],
+    "recenter_certificate_tokens": 19,
+    "recenter_trace_samples": 1024,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_2",
+        "wall_received": 117.89852430399333,
+        "distance_m": 0.12390105129118963,
+        "from_token": "ab3bb4f45633477090392615711b322c/2/7/8",
+        "to_token": "ab3bb4f45633477090392615711b322c/2/41/35"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 163.3647634999943,
+        "distance_m": 0.1148357232906436,
+        "from_token": "ab3bb4f45633477090392615711b322c/2/88/67",
+        "to_token": "ab3bb4f45633477090392615711b322c/2/97/72"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 220.2701822349918,
+        "distance_m": 0.624775151803127,
+        "from_token": "ab3bb4f45633477090392615711b322c/2/136/96",
+        "to_token": "ab3bb4f45633477090392615711b322c/2/169/108"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 407.18488329299726,
+        "distance_m": 0.5440551910902663,
+        "from_token": "ab3bb4f45633477090392615711b322c/2/478/194",
+        "to_token": "ab3bb4f45633477090392615711b322c/2/502/203"
+      },
+      {
+        "robot": "robot_1",
+        "wall_received": 444.5968906659982,
+        "distance_m": 0.1866821319605083,
+        "from_token": "ab3bb4f45633477090392615711b322c/1/454/219",
+        "to_token": "ab3bb4f45633477090392615711b322c/1/454/219"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 1.0471975511965976,
+    "max_measured_v_m_s": 2.0007431492566803,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 147184550,
+      "allocation_diagnostics": {
+        "candidates": {
+          "1": 10,
+          "2": 19
+        },
+        "completed_support_keys": 15,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "groups": 29,
+        "pending_tasks": 35,
+        "reachable_groups": {
+          "1": 29,
+          "2": 29
+        },
+        "reason": "allocated"
+      },
+      "command_serialized_bytes": 553,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 4230838,
+        "feedback_received_bytes": 2846586,
+        "topology_received_bytes": 147184550
+      },
+      "edges": 3564,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "fault",
+        "2": "fault"
+      },
+      "graph_digest": "7900eee788b95497c772c466efd7f6d6fe647dddfee93e0405033fd243bb4626",
+      "nodes": 2624,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 20.751380629990862,
+      "stop_retry_counts": {
+        "1": 1,
+        "2": 1
+      },
+      "tasks": 519
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 658.72,
+        "robot_2": 669.6
+      },
+      "csv_union_area_m2": 834.08,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_dispatch_scene4_20261117_03_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 315
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 11
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 97
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "ODOMETRY_TIMEOUT",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 25
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 689
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 103
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 8
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_DEADLINE",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "ODOMETRY_TIMEOUT",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 25
+      }
+    ],
+    "native_state_visits": {
+      "1": 1119,
+      "3": 959,
+      "4": 1003,
+      "5": 786,
+      "2": 2
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 1
+      },
+      {
+        "robot": "robot_1",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 4
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 2158
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 9
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 1618
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 40
+      },
+      {
+        "robot": "robot_2",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 21
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 438
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 12
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 234
+      },
+      {
+        "robot": "robot_2",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 1
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 3018
+      }
+    ],
+    "recenter_certificate_tokens": 2,
+    "recenter_trace_samples": 236,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_2",
+        "wall_received": 106.08153549999406,
+        "distance_m": 0.35248370005190577,
+        "from_token": "32a9752231e749b79462044b0a508c4c/2/5/4",
+        "to_token": "32a9752231e749b79462044b0a508c4c/2/5/4"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 0.8502509137497881,
+    "max_measured_v_m_s": 2.003613124657832,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 2014646,
+      "allocation_diagnostics": {
+        "candidates": {
+          "1": 6,
+          "2": 1
+        },
+        "completed_support_keys": 1,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "groups": 7,
+        "pending_tasks": 8,
+        "reachable_groups": {
+          "1": 7,
+          "2": 7
+        },
+        "reason": "allocated"
+      },
+      "authority_inbox": {
+        "critical_pending": 0,
+        "feedback_received_bytes": 1026110,
+        "max_depth": 4,
+        "normal_pending": 0,
+        "topology_pending": 0,
+        "topology_received_bytes": 2014646
+      },
+      "authority_service": {
+        "max_feedback_queue_wait_s": 0.03821727400645614,
+        "max_plan_wall_s": 0.03225771700090263
+      },
+      "command_serialized_bytes": 2000,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 2246083,
+        "feedback_received_bytes": 1026110,
+        "topology_received_bytes": 2014646
+      },
+      "edges": 224,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "running",
+        "2": "stopping"
+      },
+      "feedback_ack_audit": {
+        "accepted": 8,
+        "last_rejection": {
+          "deadline_remaining_s": -65.58266970500699,
+          "expected_stop_id": "32a9752231e749b79462044b0a508c4c/stop/1/5",
+          "phase": "stopped",
+          "received_stop_id": "32a9752231e749b79462044b0a508c4c/stop/1/5",
+          "robot": 1
+        },
+        "rejected": 97
+      },
+      "graph_digest": "e6dc700c7c303047e6c4f352c2ea9a4e14485c795c07afbb98a760ed2bfb62ce",
+      "nodes": 249,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 6.471174667479854,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "tasks": 31
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 149.6,
+        "robot_2": 83.84
+      },
+      "csv_union_area_m2": 149.6,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_dispatch_scene4_20261117_04_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 23
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 807
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 23
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 8
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 15
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "reason": "",
+        "count": 733
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 53
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 596
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "COORDINATOR_TIMEOUT",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 174
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 211
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 1777
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 93
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 214
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 71
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 9
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 30
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 502
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 79
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 3
+      }
+    ],
+    "native_state_visits": {
+      "1": 3752,
+      "2": 3,
+      "5": 2479,
+      "3": 2169,
+      "4": 4250
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 23
+      },
+      {
+        "robot": "robot_1",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 26
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 17749
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 15
+      },
+      {
+        "robot": "robot_1",
+        "reason": "RECENTER_TRACK",
+        "samples": 36
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 3947
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 76
+      },
+      {
+        "robot": "robot_2",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 69
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 14010
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 25
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 705
+      },
+      {
+        "robot": "robot_2",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 2
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 6885
+      }
+    ],
+    "recenter_certificate_tokens": 19,
+    "recenter_trace_samples": 781,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_2",
+        "wall_received": 87.65054082599818,
+        "distance_m": 0.16735448360851318,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/11/10",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/11/10"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 90.14547772599326,
+        "distance_m": 0.1226315659467044,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/11/10",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/11/10"
+      },
+      {
+        "robot": "robot_1",
+        "wall_received": 254.1716838919965,
+        "distance_m": 0.17429213150687928,
+        "from_token": "220bc53889814c62b4657f15e92374a6/1/251/127",
+        "to_token": "220bc53889814c62b4657f15e92374a6/1/251/127"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 324.99884386999474,
+        "distance_m": 0.10046292071612324,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/318/270",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/318/270"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 326.3202674919885,
+        "distance_m": 0.16860797109965478,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/318/270",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/318/270"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 330.58885607199045,
+        "distance_m": 0.5708348349715581,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/318/270",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/318/270"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 337.45914772499236,
+        "distance_m": 0.40866539739495283,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/336/293",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/336/293"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 339.322429627995,
+        "distance_m": 0.22426856888651325,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/336/293",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/336/293"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 343.9019183519995,
+        "distance_m": 0.3483569327451046,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/336/293",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/336/293"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 381.1210135739966,
+        "distance_m": 0.20275038316960908,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/330/300",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/345/380"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 474.86627749899344,
+        "distance_m": 0.4708173890896683,
+        "from_token": "220bc53889814c62b4657f15e92374a6/2/524/510",
+        "to_token": "220bc53889814c62b4657f15e92374a6/2/524/510"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 0.9144545254280173,
+    "max_measured_v_m_s": 2.014934605305993,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 190565834,
+      "allocation_diagnostics": {
+        "candidates": {
+          "1": 2,
+          "2": 21
+        },
+        "completed_support_keys": 33,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "groups": 24,
+        "pending_tasks": 30,
+        "reachable_groups": {
+          "1": 18,
+          "2": 21
+        },
+        "reason": "allocated"
+      },
+      "authority_inbox": {
+        "critical_pending": 1,
+        "feedback_received_bytes": 4633913,
+        "max_depth": 15,
+        "normal_pending": 0,
+        "topology_pending": 9,
+        "topology_received_bytes": 191851046
+      },
+      "authority_service": {
+        "max_feedback_queue_wait_s": 0.4722810180101078,
+        "max_plan_wall_s": 0.39913462700496893
+      },
+      "command_serialized_bytes": 5489,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 9247497,
+        "feedback_received_bytes": 4633913,
+        "topology_received_bytes": 191851046
+      },
+      "edges": 3353,
+      "execution_blocked_by": {
+        "1": [],
+        "2": [
+          1
+        ]
+      },
+      "execution_phases": {
+        "1": "running",
+        "2": "stopped"
+      },
+      "feedback_ack_audit": {
+        "accepted": 617,
+        "last_rejection": {
+          "deadline_remaining_s": 3.44430397299584,
+          "expected_stop_id": "220bc53889814c62b4657f15e92374a6/stop/1/1227",
+          "phase": "running",
+          "received_stop_id": "220bc53889814c62b4657f15e92374a6/stop/1/1227",
+          "robot": 1
+        },
+        "rejected": 471
+      },
+      "graph_digest": "6636eef7302a54acdcf85d54b902af299b5f22f418066590d794efb7e67b124d",
+      "nodes": 2550,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 15.923028119864924,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "tasks": 527
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 625.76,
+        "robot_2": 703.52
+      },
+      "csv_union_area_m2": 732.96,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  }
+}
