@@ -22,11 +22,19 @@ def stop_proof(message):
             and float(message.get("zero_s", 0)) >= .5)
 
 
+def no_dispatch_progress(state,position):
+    """A fresh rolling route must not reset the dispatch's measured origin."""
+    origin=state.get('dispatch_origin')
+    return bool(origin is not None and position is not None
+                and math.dist(origin[:2],position[:2])<.1)
+
+
 class ExecutionSupervisor:
     """One authority issues stable STOP nonces and new dispatch generations."""
-    def __init__(self, robots, session, stop_timeout=6.0):
+    def __init__(self, robots, session, stop_timeout=6.0, stop_retries=0):
         self.robots, self.session, self.stop_timeout = tuple(robots), session, stop_timeout
         self.counter, self.sequence = 0, 0
+        self.stop_retries=max(0,int(stop_retries))
         self.states = {r: {"phase": "initial", "active": None, "requests": []} for r in robots}
         self.released = []
 
@@ -106,9 +114,17 @@ class ExecutionSupervisor:
             if state["phase"] in ("initial", "request"):
                 self.counter += 1
                 state.update(phase="stopping", stop_id="%s/stop/%d/%d" % (self.session, robot, self.counter),
-                             deadline=now+self.stop_timeout)
+                             deadline=now+self.stop_timeout,stop_retry_count=0)
             if state["phase"] == "stopping" and now > state["deadline"]:
-                state["phase"] = "fault"  # Late ACK cannot silently clear a timeout.
+                # A lost one-shot ACK must not wedge the team forever. Retry a
+                # bounded number of times with a NEW nonce and new stationary
+                # interval. A late proof for the expired nonce remains invalid.
+                if state['stop_retry_count']<self.stop_retries:
+                    self.counter+=1
+                    state.update(stop_retry_count=state['stop_retry_count']+1,
+                        stop_id='%s/stop/%d/%d'%(self.session,robot,self.counter),
+                        deadline=now+self.stop_timeout)
+                else:state['phase']='fault'
             if state["phase"] == "stopped" and wish["mode"] == "ROUTE":
                 # Inspect every still-active owner, including a failed/stopping
                 # one. New starts are included immediately, so two recipients
@@ -117,7 +133,8 @@ class ExecutionSupervisor:
                 state['blocked_by']=blockers
                 if not blockers:
                     self.counter += 1
-                    state.update(phase="running", active=copy.deepcopy(wish), dispatch_id=self.counter)
+                    state.update(phase="running", active=copy.deepcopy(wish), dispatch_id=self.counter,
+                                 dispatch_origin=wish.get('path',[None])[0] if wish.get('path') else None)
             if state["phase"] == "running":
                 command = dict(wish, schema=2, allocation_session=self.session,
                                dispatch_id=state["dispatch_id"])
@@ -175,6 +192,7 @@ class VelocityFence:
             if identifier != self.stop_id:
                 self.phase, self.stop_id = "stopping", identifier
                 self.stop_started, self.proof_sent = now, False
+                self.proof_at=-math.inf
                 self.stop_ros = ros_now
                 self.zero_since, self.zero_last, self.stationary_since = None, -math.inf, None
                 self.samples, self.active_token, self.issuer = 0, None, None
@@ -226,7 +244,7 @@ class VelocityFence:
             dt = stamp-previous["stamp"]
             delta_yaw = math.atan2(math.sin(pose[2]-previous["pose"][2]), math.cos(pose[2]-previous["pose"][2]))
             stationary = stationary and math.dist(pose[:2], previous["pose"][:2])/dt <= .05 and abs(delta_yaw)/dt <= .09
-        if self.phase == "stopping" and now >= self.stop_started and stamp > self.stop_ros:
+        if self.phase in ("stopping","stopped") and now >= self.stop_started and stamp > self.stop_ros:
             if previous is None or now-previous["at"] > self.sensor_s or not stationary:
                 self.stationary_since, self.samples = None, 0
             else:
@@ -261,7 +279,9 @@ class VelocityFence:
                 self._trip("FOLLOWER_TIMEOUT")
         if self.phase == "armed" and now-self.armed_at > self.lease_s:
             self._trip("GOAL_NOT_STARTED")
-        if (self.phase == "stopping" and not self.proof_sent and self.odom is not None
+        if (self.phase in ("stopping","stopped") and self.command.get('mode')=='STOP'
+            and now-self.command_at<=self.lease_s
+            and (not self.proof_sent or now-self.proof_at>=.75) and self.odom is not None
             and now-self.odom["at"] <= self.sensor_s and self.stationary_since is not None
             and now-self.stationary_since >= .5 and self.samples >= 3
             and self.zero_since is not None and now-self.zero_since >= .5
@@ -272,6 +292,7 @@ class VelocityFence:
                 "fresh_samples": self.samples, "stationary_s": now-self.stationary_since,
                 "zero_s": now-self.zero_since})
             self.phase, self.proof_sent = "stopped", True
+            self.proof_at=now
         velocity = self.raw if self.phase == "running" and now-self.raw_at <= .3 else (0., 0.)
         events, self.events = self.events, []
         return velocity, events

@@ -85,6 +85,24 @@ bool PathExecution::topologyKeepRunning(){
   std::lock_guard<std::mutex> guard(topology_mutex_);
   return topologyKeepRunningLocked(interface::executionMonotonicNow());
 }
+void PathExecution::topologyRejected(const control_planner_interface::VehicleExecuteGoal&goal){
+  // Preserve the rejected request's identity. A stale planner result must not
+  // defer/cancel unrelated current work; coordinator checks the exact generation.
+  try{
+    auto lease=interface::readExecutionLease(goal.execution_lease);
+    std::lock_guard<std::mutex> guard(topology_mutex_);
+    boost::property_tree::ptree p;p.put("source","executor");p.put("status","EXECUTOR_REJECTED");
+    p.put("robot",topology_robot_);p.put("task",lease.task);p.put("version",lease.version);
+    p.put("dispatch_id",lease.dispatch);p.put("allocation_session",lease.session);
+    p.put("goal_command_seq",lease.sequence);p.put("current_command_seq",topology_current_.sequence);
+    p.put("goal_token",lease.token());p.put("current_token",topology_current_.token());
+    p.put("mode",topology_mode_text_);p.put("stop_pending",topology_stop_pending_);
+    p.put("goal_stamp",goal.header.stamp.toSec());p.put("lease_stamp",lease.stamp);
+    p.put("stamp",ros::Time::now().toSec());
+    std::ostringstream out;boost::property_tree::write_json(out,p,false);
+    std_msgs::String msg;msg.data=out.str();topology_feedback_pub_.publish(msg);
+  }catch(const std::exception&){}
+}
 bool PathExecution::topologyKeepRunningLocked(double now)const{
   return topology_goal_active_&&!topology_stop_pending_&&topology_mode_text_=="ROUTE"
     &&topology_goal_.token()==topology_current_.token()

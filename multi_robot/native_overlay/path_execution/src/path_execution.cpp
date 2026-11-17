@@ -257,6 +257,7 @@ namespace path_execution {
     void PathExecution::executeCallback(const control_planner_interface::VehicleExecuteGoalConstPtr &executed_path) {
         ROS_WARN("get a path, executing .... ");
         if(topology_mode_&&!topologyAuthorize(*executed_path)){
+            topologyRejected(*executed_path);
             topologyFinish();
             execute_server_.setAborted(control_planner_interface::VehicleExecuteResult(),"Execution lease rejected");return;
         }

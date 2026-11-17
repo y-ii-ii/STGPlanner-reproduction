@@ -141,6 +141,7 @@ namespace path_execution {
         void topologyFeedback(const std_msgs::String::ConstPtr&);
         void topologyWatchdog(const ros::WallTimerEvent&);
         bool topologyAuthorize(const control_planner_interface::VehicleExecuteGoal&);
+        void topologyRejected(const control_planner_interface::VehicleExecuteGoal&);
         bool topologyKeepRunning();
         bool topologyKeepRunningLocked(double now) const;
         void topologyFinish();

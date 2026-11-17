@@ -13,7 +13,7 @@ import time
 
 from team_topology.graph import GraphStore, wire
 from team_topology.allocator import Coordinator
-from team_topology.execution import ExecutionSupervisor
+from team_topology.execution import ExecutionSupervisor,no_dispatch_progress
 
 
 def main():
@@ -25,7 +25,9 @@ def main():
         raise ValueError("robot identities must be unique")
     store, coordinator, lock = GraphStore(), Coordinator(robots), threading.Lock()
     session = uuid.uuid4().hex
-    supervisor=ExecutionSupervisor(robots,session)
+    # One transport recovery only: use a fresh nonce, never accept a late proof
+    # from the expired round or retry forever when the gate/odometry is dead.
+    supervisor=ExecutionSupervisor(robots,session,stop_retries=1)
     publishers = {r: rospy.Publisher("/robot_%d/topo_planner_node/topology_command" % r,
                                    String, queue_size=1) for r in robots}
     metrics = rospy.Publisher("~status", String, queue_size=1)
@@ -78,6 +80,13 @@ def main():
                     else:
                         state=supervisor.states.get(r,{})
                         active=state.get("active")
+                        executor_matches=(value.get('source')=='executor' and active is not None
+                            and value.get('task')==active.get('task')
+                            and int(value.get('version',0))==active.get('version')
+                            and int(value.get('dispatch_id',0))==active.get('dispatch_id'))
+                        if executor_matches and value.get('status')=='EXECUTOR_REJECTED':
+                            coordinator.defer(r,active['task'],time.monotonic(),15.)
+                            supervisor.request_stop(r,None,time.monotonic(),'executor_rejected')
                         if (value.get("source")=="executor" and value.get("status")=="EXECUTOR_ACCEPTED"
                             and state.get("phase")=="running" and active is not None and value.get("task")==active.get("task")
                             and int(value.get("version",0))==active.get("version")
@@ -85,6 +94,13 @@ def main():
                             coordinator.ledger.acknowledge(active["task"],r,active["version"])
                         if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN"):
                             coordinator.defer(r,state["active"]["task"],time.monotonic())
+                        if (value.get('status')=='STOP_REQUIRED' and value.get('token')==state.get('token')
+                                and active is not None and value.get('reason')=='EXECUTOR_STOP'
+                                and r in store.states and no_dispatch_progress(state,store.states[r]['pose'])):
+                            # A completed/rejected short goal before 10cm motion
+                            # must not earn a new dispatch and another fresh 8s
+                            # stall budget indefinitely. Defer work, not complete it.
+                            coordinator.defer(r,active['task'],time.monotonic(),15.)
                         stopped=supervisor.feedback(value,time.monotonic()) and value.get('status')=='STOPPED'
                     while supervisor.released:
                         robot,old=supervisor.released.pop(0)
@@ -111,6 +127,7 @@ def main():
                 "communication_one_delivery_application_bytes":dict(traffic),
                 "execution_phases":{str(r):s["phase"] for r,s in supervisor.states.items()},
                 "execution_blocked_by":{str(r):s.get('blocked_by',[]) for r,s in supervisor.states.items()},
+                "stop_retry_counts":{str(r):s.get('stop_retry_count',0) for r,s in supervisor.states.items()},
                 "allocation_diagnostics":coordinator.diagnostics,
                 "command_serialized_bytes": sum(len(wire(dict(p, allocation_session=session)).encode("utf-8"))+4 for p in plans.values()),
                 "robot_distance_m": math.dist(store.states[robots[0]]["pose"],store.states[robots[1]]["pose"])
