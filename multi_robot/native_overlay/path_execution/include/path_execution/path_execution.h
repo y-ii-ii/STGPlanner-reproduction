@@ -131,7 +131,7 @@ namespace path_execution {
         double topology_received_=0,topology_goal_began_=0;
         unsigned long topology_command_seq_=0,topology_permit_seq_=0,last_topology_goal_seq_=0;
         std::map<std::string,std::string> topology_stop_proofs_;
-        ros::Publisher topology_permit_pub_,topology_feedback_pub_;
+        ros::Publisher topology_permit_pub_,topology_feedback_pub_,topology_certified_pub_;
         ros::Subscriber topology_command_sub_,topology_feedback_sub_;
         ros::WallTimer topology_watchdog_;
         void initializeTopologyExecution();
@@ -143,6 +143,7 @@ namespace path_execution {
         bool topologyKeepRunningLocked(double now) const;
         void topologyFinish();
         void topologyPathPublished();
+        void topologyPublishPath(const Path&);
         void topologyStop(const control_planner_interface::VehicleExecuteGoal&);
         geometry_msgs::Pose poseSnapshot();
         ros::Subscriber cloud_sub_;

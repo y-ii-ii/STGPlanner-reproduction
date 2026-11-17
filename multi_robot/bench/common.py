@@ -3,11 +3,12 @@ from pathlib import Path
 import json,hashlib,os
 ROOT=Path('/mnt/d/STGPlanner')
 CODE=Path(__file__).resolve().parents[1]
-LIMITS=ROOT/'codex/TOPOLOGY_TRAFFIC_LIMITS_20261116.json'
+LIMITS=ROOT/'codex/TOPOLOGY_WALL_LIMITS_20261117.json'
 LOCK=ROOT/'codex/SIMULATION_LOCK.json'
-NATIVE=Path('/opt/stgplanner/team_topology_native_task_20261116_ws')
-PLANNER=Path('/opt/stgplanner/team_topology_traffic_native_20261116_ws')
-OVERLAY=Path('/opt/stgplanner/team_topology_traffic_final_20261116_ws')
+UNDERLAY=Path('/opt/stgplanner/team_topology_native_task_20261116_ws')
+NATIVE=Path('/opt/stgplanner/team_topology_wall_native_20261117_ws')
+PLANNER=NATIVE
+OVERLAY=Path('/opt/stgplanner/team_topology_wall_20261117_ws')
 REF=ROOT/'benchmarks/results/dual_validate_scene4_20261102_02_dual'
 SCORE_CODE=ROOT/'codex/worktrees/dual-jackal-s1/benchmarks/dual_robot_scene4_validation'
 OWNER='01a18661-03d1-7722-b65f-e6257e8ab382'
@@ -17,7 +18,7 @@ def dump(path,value):
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 def result_path(index):
     assert 1<=index<=4
-    return ROOT/'benchmarks/results'/('topology_traffic_scene4_20261116_%02d_dual'%index)
+    return ROOT/'benchmarks/results'/('topology_wall_scene4_20261117_%02d_dual'%index)
 def runtime():
     names={'rosmaster','roslaunch','roscore','rosout','gzserver','gzclient','topo_planner_no','path_execution_','pathFollower','localPlanner','explorer_node','terrainAnalysis'}
     processes=[]

@@ -1,0 +1,68 @@
+import math
+import unittest
+from team_topology.body_tracking import BodyGrid,BodyTracker,shield_output
+
+
+class BodyTrackingTests(unittest.TestCase):
+    def grid(self,wall=None):
+        data=[0]*16000
+        if wall is not None:
+            for y in range(100):
+                for x in range(160):
+                    if -8+(x+.5)*.1>=wall:data[y*160+x]=100
+        return BodyGrid(160,100,.1,(-8,-5),data)
+
+    def test_free_body_and_map_border(self):
+        g=self.grid();self.assertTrue(g.free(0,0,.7));self.assertFalse(g.free(7.9,0,0))
+
+    def test_unknown_does_not_become_free(self):
+        self.assertFalse(BodyGrid(20,20,.1,(-1,-1),[-1]*400).free(0,0,0))
+
+    def test_braking_distance_exceeds_point_check(self):
+        g=self.grid(1.5);self.assertTrue(g.free(0,0,0))
+        self.assertFalse(g.braking_safe((0,0,0),(2.,0.),(2.,0.)))
+        self.assertTrue(g.braking_safe((0,0,0),(0.,0.),(.2,0.)))
+
+    def test_rotating_body_hits_wall(self):
+        g=self.grid(.5);self.assertTrue(g.free(0,0,0))
+        self.assertFalse(g.braking_safe((0,0,0),(0.,1.5),(0.,1.5)))
+
+    def test_reverse_checked_too(self):
+        g=self.grid();g.bad[:,:74]=True
+        g.integral=__import__('numpy').pad(g.bad.astype('int32'),((1,0),(1,0))).cumsum(0).cumsum(1)
+        self.assertFalse(g.braking_safe((0,0,0),(-1.,0.),(-1.,0.)))
+
+    def test_tracker_preserves_turn_before_translation(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,math.pi/2),(0,1,math.pi/2)],'a')
+        v,status=t.propose((0,0,0),(0,0),self.grid());self.assertEqual(v[0],0);self.assertGreater(v[1],0)
+        self.assertEqual(t.cursor,1)
+
+    def test_same_path_does_not_reset_cursor(self):
+        t=BodyTracker();p=[(0,0,0),(1,0,0)];t.receive(p,'a');t.propose((0,0,0),(0,0),self.grid())
+        t.receive(p,'a');self.assertEqual(t.cursor,1)
+        t.receive(p,'b');self.assertEqual(t.cursor,0)
+
+    def test_reverse_not_pi_rotation(self):
+        t=BodyTracker();t.receive([(0,0,0),(-1,0,0)],'a')
+        v,_=t.propose((0,0,0),(0,0),self.grid());self.assertLess(v[0],0);self.assertAlmostEqual(v[1],0)
+
+    def test_no_path_and_invalid_values(self):
+        t=BodyTracker();self.assertEqual(t.propose((0,0,0),(0,0),self.grid())[0],(0.,0.))
+        self.assertFalse(t.receive([(float('nan'),0,0)],'a'))
+        self.assertFalse(self.grid().braking_safe((0,0,0),(0,0),(3.,0)))
+
+    def test_traffic_old_approved_command_checked_again(self):
+        g=self.grid(1.)
+        self.assertTrue(g.braking_safe((0,0,0),(0,0),(.2,0)))
+        self.assertEqual(shield_output(g,True,(0,0,0),(0,0),(2.,0.)),((0.,0.),True))
+
+    def test_stale_geometry_and_stop_cannot_grant_motion(self):
+        self.assertEqual(shield_output(None,False,None,(0,0),(.2,0)),((0.,0.),True))
+        self.assertEqual(shield_output(None,False,None,(0,0),(0.,0.)),((0.,0.),False))
+
+    def test_straight_primitives_can_use_original_speed_cap(self):
+        t=BodyTracker();t.receive([(0,0,0),(.45,0,0),(.9,0,0),(2.7,0,0)],'a')
+        v,_=t.propose((0,0,0),(0,0),self.grid());self.assertEqual(v[0],2.)
+
+
+if __name__=='__main__':unittest.main()

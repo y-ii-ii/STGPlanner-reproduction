@@ -46,7 +46,7 @@ def prepare(index):
             'same_physical_configs':all(sha(f/p)==sha(REF/'frozen'/p) for p in ('robot_1.urdf','robot_2.urdf','robot_1_controllers.yaml','robot_2_controllers.yaml')),
             'same_scoring_configs':all(sha(f/(r+'_planner.yaml'))==sha(REF/'frozen'/(r+'_planner.yaml')) for r in ('robot_1','robot_2'))}
     assert all(checks.values()),checks
-    executables={str(p):sha(p) for p in [PLANNER/'devel/lib/planner/topo_planner_node',PLANNER/'devel/lib/libtopo_planner.so',NATIVE/'devel/lib/path_execution/path_execution_node',NATIVE/'devel/lib/libpath_execution.so',NATIVE/'devel/lib/libcontrol_planner_interface.so',SCORE_CODE/'bin/team_score',Path('/opt/stgplanner/catkin_ws/devel/lib/libtopo_planner.so')]}
+    executables={str(p):sha(p) for p in [PLANNER/'devel/lib/planner/topo_planner_node',PLANNER/'devel/lib/libtopo_planner.so',NATIVE/'devel/lib/path_execution/path_execution_node',NATIVE/'devel/lib/libpath_execution.so',UNDERLAY/'devel/lib/libcontrol_planner_interface.so',SCORE_CODE/'bin/team_score',Path('/opt/stgplanner/catkin_ws/devel/lib/libtopo_planner.so')]}
     implementation={p.relative_to(CODE).as_posix():sha(p) for sub in ('bench','team_topology') for p in (CODE/sub).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     dump(out/'manifest.json',dict(index=index,robot_count=2,checks=checks,executables=executables,implementation_sha256=implementation,
          frozen_sha256={p.name:sha(p) for p in f.iterdir() if p.is_file()},speed_m_s=2.,score_resolution_m=.4,range_m=12.,denominator_m2=7790.,threshold_m2=7400.5,

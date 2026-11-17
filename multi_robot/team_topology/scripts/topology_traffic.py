@@ -57,7 +57,7 @@ def main():
                 if v.get('status')=='TRAFFIC_CAPABILITY':states[i].update(reverse=v.get('reverse_ok') is True,cap_at=time.monotonic())
         except (ValueError,KeyError,TypeError):pass
     for i in range(2):
-        for topic,typ,fn in [('topo_planner_node/topology_command',String,command),('base_link/odometry',Odometry,odom),('topology/raw_cmd_vel',Twist,raw),('path_execution_node/local_path',Path,path),('topology/execution_feedback',String,feedback)]:
+        for topic,typ,fn in [('topo_planner_node/topology_command',String,command),('base_link/odometry',Odometry,odom),('topology/request_cmd_vel',Twist,raw),('path_execution_node/local_path',Path,path),('topology/execution_feedback',String,feedback)]:
             rospy.Subscriber('/robot_%d/'%(i+1)+topic,typ,lambda m,i=i,fn=fn:fn(m,i),queue_size=5)
     wait=threading.Event()
     while not rospy.is_shutdown():

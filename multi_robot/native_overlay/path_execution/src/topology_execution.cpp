@@ -10,6 +10,7 @@ void PathExecution::initializeTopologyExecution(){
   topology_issuer_="executor/"+std::to_string(ros::WallTime::now().toNSec());
   topology_permit_pub_=nh_.advertise<std_msgs::String>(root+"/topology/execution_permit",5);
   topology_feedback_pub_=nh_.advertise<std_msgs::String>(root+"/topology/execution_feedback",10);
+  topology_certified_pub_=nh_.advertise<std_msgs::String>(root+"/topology/certified_path",1);
   topology_command_sub_=nh_.subscribe<std_msgs::String>(root+"/topo_planner_node/topology_command",5,&PathExecution::topologyControl,this);
   topology_feedback_sub_=nh_.subscribe<std_msgs::String>(root+"/topology/execution_feedback",20,&PathExecution::topologyFeedback,this);
   topology_watchdog_=nh_.createWallTimer(ros::WallDuration(.05),&PathExecution::topologyWatchdog,this);
@@ -110,6 +111,19 @@ void PathExecution::topologyPathPublished(){
     std::ostringstream out;boost::property_tree::write_json(out,p,false);
     std_msgs::String msg;msg.data=out.str();topology_feedback_pub_.publish(msg);
   }
+}
+void PathExecution::topologyPublishPath(const Path& path){
+  std::lock_guard<std::mutex> guard(topology_mutex_);
+  if(!topologyKeepRunningLocked(interface::executionMonotonicNow()))return;
+  boost::property_tree::ptree p,points;p.put("token",topology_goal_.token());
+  p.put("stamp",ros::Time::now().toSec());p.put("goal_seq",last_topology_goal_seq_);
+  for(const auto& pose:path){boost::property_tree::ptree row;
+    for(double value:{pose.position.x,pose.position.y,tf::getYaw(pose.orientation)}){
+      boost::property_tree::ptree n;n.put("",value);row.push_back({"",n});
+    }points.push_back({"",row});
+  }
+  p.add_child("path",points);std::ostringstream out;boost::property_tree::write_json(out,p,false);
+  std_msgs::String msg;msg.data=out.str();topology_certified_pub_.publish(msg);
 }
 void PathExecution::topologyFinish(){
   std::lock_guard<std::mutex> guard(topology_mutex_);

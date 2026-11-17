@@ -11,14 +11,14 @@ def main(index):
     for rel,h in manifest['frozen_sha256'].items():assert sha(out/'frozen'/rel)==h,rel
     for p,h in manifest['executables'].items():assert sha(p)==h,p
     for rel,h in manifest['implementation_sha256'].items():assert sha(CODE/rel)==h,rel
-    with (ROOT/'codex/TOPOLOGY_TRAFFIC_ATTEMPT_MUTEX').open('w') as f:
+    with (ROOT/'codex/TOPOLOGY_WALL_ATTEMPT_MUTEX_20261117').open('w') as f:
         fcntl.flock(f,fcntl.LOCK_EX);limits=json.loads(LIMITS.read_text())
         assert limits['offline_preflight_passed'] and not limits['new_attempts_blocked']
         assert len(limits['attempts'])+1==index and index<=4
         limits['attempts'].append(dict(index=index,trial=out.name,state='reserved',unix=time.time()));dump(LIMITS,limits)
     t0=time.monotonic();token=out.name;os.environ['STGPLANNER_TOPOLOGY_TRIAL_TOKEN']=token;os.environ['ROS_LOG_DIR']=str(out/'ros')
     shutil.copytree(CODE,out/'implementation',ignore=shutil.ignore_patterns('__pycache__','.git','evidence'))
-    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w')
+    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w')
     robots=['robot_1','robot_2'];children=[];handles=[];subs=[];syncs=[];errors=[];done=threading.Event();stopping=threading.Event()
     state={r:dict(pose=None,physical=None,odom_at=0.,raw=(0.,0.),raw_at=0.,current=(0.,0.),cmd=(0.,0.),last=None) for r in robots}
     sources={r:set() for r in robots};distance={r:0. for r in robots};frames={r:0 for r in robots};result=dict(trial=out.name,index=index,T95_wall_s=None,T95_sim_s=None,finish_reason=None,checks={},errors=errors)
@@ -52,8 +52,8 @@ def main(index):
     signal.signal(signal.SIGUSR1,lambda *_:errors.append('diagnostic_abort'))
     def lock_state(value):
         l=json.loads(LOCK.read_text());assert l['owner_thread']==OWNER
-        l.update(state=value,runtime_active=value!='idle',phase='topology_traffic_20261116',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
-        l['limits_by_scope']['topology_traffic_20261116'].update(used=index,blocked=index>=4);dump(LOCK,l)
+        l.update(state=value,runtime_active=value!='idle',phase='topology_wall_20261117',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
+        l['limits_by_scope']['topology_wall_20261117'].update(used=index,blocked=index>=4);dump(LOCK,l)
     def launch(name):
         h=(out/(name+'.log')).open('w');handles.append(h)
         p=subprocess.Popen(['roslaunch',str(out/'frozen'/(name+'.launch'))],stdout=h,stderr=subprocess.STDOUT,start_new_session=True);children.append((name,p));event('launch',name=name,pid=p.pid)
@@ -119,6 +119,8 @@ def main(index):
             v=json.loads(m.data);mode=v.get('phase','?');traffic_modes[mode]=traffic_modes.get(mode,0)+1
         def coord(m):coordinator_status.update(json.loads(m.data))
         def delta(m):deltas.write(m.data+'\n');deltas.flush()
+        def body(m,r):body_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');body_log.flush()
+        def certified(m,r):path_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');path_log.flush()
         def snapshot(m,r):
             p=out/('first_snapshot_'+r+'.json')
             if not p.exists():p.write_text(m.data)
@@ -143,6 +145,8 @@ def main(index):
             for topic,typ,fn in [('base_link/odometry',Odometry,odom),('topology/raw_cmd_vel',Twist,raw),('cmd_vel',Twist,command),('team_score/plane_cells',Int32MultiArray,cell),('topology/execution_feedback',String,feedback),('topo_planner_node/topology_feedback',String,feedback)]:
                 subs.append(rospy.Subscriber('/'+r+'/'+topic,typ,lambda m,r=r,fn=fn:fn(m,r),queue_size=10,buff_size=8*1024*1024))
             subs.append(rospy.Subscriber('/'+r+'/topo_planner_node/topology_snapshot',String,lambda m,r=r:snapshot(m,r),queue_size=1,buff_size=8*1024*1024))
+            subs.append(rospy.Subscriber('/'+r+'/topology/body_trace',String,lambda m,r=r:body(m,r),queue_size=10))
+            subs.append(rospy.Subscriber('/'+r+'/topology/certified_path',String,lambda m,r=r:certified(m,r),queue_size=10))
             c=message_filters.Subscriber('/'+r+'/velodyne/velodyne_points',PointCloud2,queue_size=3,buff_size=4*1024*1024);o=message_filters.Subscriber('/'+r+'/sensor_to_world/odometry',Odometry,queue_size=30)
             s=message_filters.ApproximateTimeSynchronizer([c,o],30,.03);s.registerCallback(lambda c,o,r=r:cloud(c,o,r));syncs.append(s);subs.extend((c,o))
         mission=rospy.Publisher('/team/mission_start',Bool,queue_size=1,latch=True);mission.publish(Bool(False))
@@ -269,7 +273,7 @@ def main(index):
         result['checks']['within2400wall']=result['runtime_wall_s']<=2400
         result['checks']['runtime_idle']=not result['post_cleanup_runtime']['processes'] and not any(result['post_cleanup_runtime']['ports_in_use'].values())
         dump(out/'result.json',result);l=json.loads(LIMITS.read_text());l['attempts'][-1].update(state='complete',finish_reason=result['finish_reason'],runtime_wall_s=result['runtime_wall_s'],T95_wall_s=result['T95_wall_s'],area_m2=result['area_m2']);l['new_attempts_blocked']=len(l['attempts'])>=4;dump(LIMITS,l);lock_state('idle');done.set()
-        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close()
+        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close();body_log.close();path_log.close()
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--index',type=int,required=True);main(p.parse_args().index)

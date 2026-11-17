@@ -67,7 +67,10 @@ def main():
                             item=coordinator.ledger.items.get(active["task"])
                             if item is not None:item["planner_accepted"]=True
                         elif matches and value.get("status")=="BLOCKED":
-                            coordinator.defer(r,active["task"],time.monotonic(),2.)
+                            # A geometric planning failure needs a useful cooling
+                            # interval; a 2s retry previously reset the execution
+                            # stall timer without ever moving the robot.
+                            coordinator.defer(r,active["task"],time.monotonic(),15.)
                             supervisor.request_stop(r,None,time.monotonic(),"planner_blocked")
                         elif matches and value.get("status")=="OBSERVATION_COMPLETED":
                             if coordinator.observe_completed(value,active,rospy.Time.now().to_sec()):

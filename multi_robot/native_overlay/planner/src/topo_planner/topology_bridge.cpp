@@ -2,6 +2,7 @@
 #include "rapid_cover_planner/topology_route_gate.h"
 #include "rapid_cover_planner/topology_observation.h"
 #include "rapid_cover_planner/own_observation_union.h"
+#include "rapid_cover_planner/body_route.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <iomanip>
@@ -153,8 +154,22 @@ void TopoPlanner::topologyCommand(const std_msgs::String::ConstPtr& msg) {
 void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerResult& result) {
   std::lock_guard<std::mutex> guard(topology_mutex_);
   result.paths.clear();
-  if(topology_mode_!="ROUTE")return;
   auto& gm=*elements_->global_topo_map_;
+  // Keep the final velocity shield's own fine map alive during STOP/WAIT too.
+  auto grid=executionGrid();
+  const int terrain_start=grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),tf::getYaw(elements_->current_pose_.orientation));
+  const auto own_free_fill=rapid_cover_planner::combineOwnObservations(grid,[&](double x,double y){
+    auto state=gm.grid_map_.getStatusInMap2D(perception::Point2D(x,y));
+    return state==perception::Free?0:(state==perception::Occupied?1:2);
+  });
+  double map_stamp;{std::lock_guard<std::mutex> guard(elements_->map_2d_manager_->map_2d_update_mutex_);map_stamp=elements_->map_2d_manager_->last_observation_stamp_.toSec();}
+  if(!grid.data.empty()){
+    nav_msgs::OccupancyGrid m;m.header.frame_id="world";m.header.stamp.fromSec(map_stamp);
+    m.info.resolution=grid.resolution;m.info.width=grid.width;m.info.height=grid.height;
+    m.info.origin.position.x=grid.x0;m.info.origin.position.y=grid.y0;m.info.origin.orientation.w=1;
+    m.data.assign(grid.data.begin(),grid.data.end());execution_grid_pub_.publish(m);
+  }
+  if(topology_mode_!="ROUTE")return;
   gm.task_scope_=topology_scope_;
   struct Reset {perception::GlobalTopoManager& gm;~Reset(){gm.task_scope_.active=false;}} reset{gm};
   double observation_stamp;{std::lock_guard<std::mutex> guard(elements_->map_2d_manager_->map_2d_update_mutex_);
@@ -250,25 +265,13 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
       route.clear();selection="DEFERRED_TASK";
     }
   }
-  auto grid=executionGrid();
   const double yaw=tf::getYaw(elements_->current_pose_.orientation);
-  const int terrain_start=grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw);
-  const auto own_free_fill=rapid_cover_planner::combineOwnObservations(grid,[&](double x,double y){
-    perception::Point2D p(x,y);auto state=gm.grid_map_.getStatusInMap2D(p);
-    // Use real observation state, not morphology (already a planning inflation).
-    return state==perception::Free?0:(state==perception::Occupied?1:2);
-  });
-  double map_stamp;{std::lock_guard<std::mutex> guard(elements_->map_2d_manager_->map_2d_update_mutex_);
-    map_stamp=elements_->map_2d_manager_->last_observation_stamp_.toSec();}
   double now=ros::Time::now().toSec();
-  auto prefix=rapid_cover_planner::topologyPrefix(grid,route,
-    elements_->current_position_.x(),elements_->current_position_.y(),
-    tf::getYaw(elements_->current_pose_.orientation),now,topology_command_stamp_);
-  if(now<map_stamp||now-map_stamp>1.){prefix.points.clear();prefix.status="STALE_MAP";}
-  if(!prefix.points.empty()){
-    rapid_cover_planner::Path path;
-    for(const auto& p:prefix.points)path.emplace_back(p.first,p.second,elements_->current_position_.z());
-    control_planner_interface::Path segment;segment.path=wayPoseGeneration(path);
+  auto prefix=rapid_cover_planner::bodyRoute(grid,route,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+  if(now<map_stamp||now-map_stamp>1.||now-topology_command_stamp_>2.){prefix.poses.clear();prefix.status="STALE_MAP";}
+  if(!prefix.poses.empty()){
+    control_planner_interface::Path segment;
+    for(const auto& p:prefix.poses){geometry_msgs::Pose v;v.position.x=p.x;v.position.y=p.y;v.position.z=elements_->current_position_.z();v.orientation=tf::createQuaternionMsgFromYaw(p.yaw);segment.path.push_back(v);}
     result.paths.push_back(segment);
     boost::property_tree::ptree lease;
     lease.put("schema",2);lease.put("allocation_session",topology_session_);
@@ -287,6 +290,8 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   f.put("source","planner");f.put("selection",selection);f.put("dispatch_id",topology_dispatch_);
   f.put("terrain_start_footprint",terrain_start);f.put("own_free_fill_cells",own_free_fill);
   f.put("combined_start_footprint",grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw));
+  f.put("body_search_expanded",prefix.expanded);f.put("approach_offset_m",prefix.goal_offset);
+  if(result.paths.empty()&&!route.empty())planner_->deferExecutionFrontier(route.back().first,route.back().second,1.0,15.);
   boost::property_tree::ptree trace;for(int state:planner_->native_task_trace_){boost::property_tree::ptree n;n.put("",state);trace.push_back({"",n});}
   f.add_child("native_states",trace);
   std::ostringstream out;boost::property_tree::write_json(out,f,false);

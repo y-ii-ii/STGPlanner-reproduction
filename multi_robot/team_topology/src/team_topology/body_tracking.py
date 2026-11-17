@@ -1,0 +1,135 @@
+"""Own-map body tracking and a final braking shield, independent of ROS.
+
+STG still selects the assigned exploration branch. This adapter executes its
+locally certified SE(2) prefix without FALCO's one-metre corner cut. No peer map,
+Gazebo geometry or pose-based free-space clearing is used. Occupied and unknown
+cells both block motion. Traffic admission is followed by a second shield check.
+"""
+import math
+import numpy as np
+
+
+def wrap(a):
+    return math.atan2(math.sin(a), math.cos(a))
+
+
+def shield_output(grid, fresh, pose, current, approved):
+    """Last operation after peer admission; can only retain or stop a command."""
+    if tuple(approved)==(0.,0.):return (0.,0.),False
+    if not fresh or not grid.braking_safe(pose,current,approved):return (0.,0.),True
+    return tuple(approved),False
+
+
+class BodyGrid:
+    def __init__(self, width, height, resolution, origin, data):
+        if width<=0 or height<=0 or not math.isfinite(resolution) or resolution<=0:
+            raise ValueError('invalid grid')
+        self.width,self.height,self.res,self.x0,self.y0=width,height,resolution,*origin
+        self.bad=np.asarray(data,dtype=np.int16).reshape(height,width)!=0
+        self.integral=np.pad(self.bad.astype(np.int32),((1,0),(1,0))).cumsum(0).cumsum(1)
+
+    def free(self, x,y,yaw,margin=.10):
+        if not all(math.isfinite(v) for v in (x,y,yaw)):return False
+        c,s=math.cos(yaw),math.sin(yaw);ac,ass=abs(c),abs(s)
+        hx,hy=.35+margin,.30+margin;r=self.res/2
+        ex,ey=hx*ac+hy*ass,hx*ass+hy*ac
+        ax,bx=math.floor((x-ex-self.x0)/self.res),math.floor((x+ex-self.x0)/self.res)
+        ay,by=math.floor((y-ey-self.y0)/self.res),math.floor((y+ey-self.y0)/self.res)
+        if ax<0 or ay<0 or bx>=self.width or by>=self.height:return False
+        a=self.integral
+        if a[by+1,bx+1]-a[ay,bx+1]-a[by+1,ax]+a[ay,ax]==0:return True
+        yy,xx=np.nonzero(self.bad[ay:by+1,ax:bx+1])
+        dx=self.x0+(xx+ax+.5)*self.res-x;dy=self.y0+(yy+ay+.5)*self.res-y
+        overlap=(abs(dx)<=ex+r)&(abs(dy)<=ey+r)&(abs(dx*c+dy*s)<=hx+r*(ac+ass))&(abs(-dx*s+dy*c)<=hy+r*(ac+ass))
+        return not bool(overlap.any())
+
+    def braking_safe(self, pose, current, command):
+        """Latency + requested hold + full braking, with measured signed twist.
+
+        2m/s² braking matches the existing traffic policy; .15s latency and .25s
+        hold reserve communication/controller lag. Check intermediate rectangles,
+        including rotation, rather than just the endpoint or a circular robot.
+        """
+        if not all(math.isfinite(v) for v in (*pose,*current,*command)):return False
+        if abs(command[0])>2. or abs(command[1])>1.5:return False
+        x,y,yaw=pose;v,w=current;dt=.04;t=0.
+        horizon=.40+max(abs(v),abs(command[0]),abs(w),abs(command[1]))/2.+.08
+        def approach(a,b,amount):
+            # Acceleration can be faster than the braking assumption. Treat
+            # increasing same-direction speed as instantaneous, never assume a
+            # sluggish motor to certify a fast command near an obstacle.
+            if a*b>=0 and abs(b)>abs(a):return b
+            return a+max(-amount,min(amount,b-a))
+        if not self.free(x,y,yaw):return False
+        while t<horizon:
+            # Keep measured inertia during the latency interval, then approach
+            # the actual approved command, then brake both axes to zero.
+            target=current if t<.15 else command if t<.40 else (0.,0.)
+            v=approach(v,target[0],2.*dt);w=approach(w,target[1],2.*dt)
+            x+=v*math.cos(yaw+w*dt/2)*dt;y+=v*math.sin(yaw+w*dt/2)*dt;yaw+=w*dt
+            if not self.free(x,y,yaw):return False
+            t+=dt
+        return True
+
+
+class BodyTracker:
+    def __init__(self):
+        self.path=[];self.cursor=0;self.key=None
+
+    def receive(self, path, key):
+        if not path or any(not all(math.isfinite(v) for v in p) for p in path):return False
+        # Repeated publication of the same full path must not reset progress.
+        digest=(key,tuple(tuple(p) for p in path))
+        if digest!=self.key:self.path=[tuple(p) for p in path];self.cursor=0;self.key=digest
+        return True
+
+    def clear(self):
+        self.path=[];self.cursor=0;self.key=None
+
+    def propose(self, pose, current, grid):
+        if not self.path:return (0.,0.),'NO_PATH'
+        # Consume in order, including zero-length turn waypoints. Never select a
+        # spatially nearest later segment across a corner/crossing.
+        while self.cursor<len(self.path):
+            p=self.path[self.cursor];d=math.dist(p[:2],pose[:2]);a=wrap(p[2]-pose[2])
+            passed=False
+            if self.cursor and abs(a)<.12:
+                prev=self.path[self.cursor-1];ex,ey=p[0]-prev[0],p[1]-prev[1];length=math.hypot(ex,ey)
+                if length>.05:
+                    along=((pose[0]-p[0])*ex+(pose[1]-p[1])*ey)/length
+                    cross=abs((pose[0]-p[0])*ey-(pose[1]-p[1])*ex)/length
+                    passed=along>=0 and cross<.14
+            if (d<.14 or passed) and abs(a)<.12:self.cursor+=1
+            else:break
+        if self.cursor==len(self.path):return (0.,0.),'PATH_END'
+        p=self.path[self.cursor];dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
+        if d>=.14:
+            # Join only collinear primitives with the SAME direction and yaw.
+            # This allows the common 2m/s cap on long straights while never
+            # looking through a certified turn or forward/reverse transition.
+            base=p
+            for q in self.path[self.cursor+1:]:
+                ex,ey=q[0]-p[0],q[1]-p[1]
+                if math.hypot(ex,ey)<.01:break
+                if abs(wrap(q[2]-base[2]))>.03 or ex*dx+ey*dy<=0:break
+                if abs(ex*dy-ey*dx)>max(.01,.03*math.hypot(ex,ey)*d):break
+                p=q
+            dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
+        if d<.14:
+            desired=(0.,max(-.7,min(.7,2.*wrap(p[2]-pose[2]))))
+        else:
+            # A certified reverse edge retains the chassis yaw, opposite its
+            # displacement. Tracking is slow in reverse, not a surprise pi turn.
+            bearing=math.atan2(dy,dx);reverse=abs(wrap(bearing-p[2]))>math.pi/2
+            error=wrap(bearing+(math.pi if reverse else 0.)-pose[2])
+            w=max(-1.,min(1.,2.2*error));v=min(2.,max(.10,1.2*d))
+            if abs(error)>.24:v=0.
+            if reverse:v=-min(.35,v)
+            # Stop at each short primitive instead of overshooting into the
+            # next turn. The shield independently checks the resulting motion.
+            v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-.10)))),v)
+            desired=(v,w)
+        for scale in (1.,.65,.35,.15):
+            cmd=tuple(scale*v for v in desired)
+            if grid.braking_safe(pose,current,cmd):return cmd,'TRACK'
+        return (0.,0.),'BODY_BRAKE'

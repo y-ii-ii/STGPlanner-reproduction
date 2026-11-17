@@ -508,6 +508,16 @@ namespace path_execution {
                 const auto& end = path.back().position;
                 double remaining = std::hypot(end.x-current.position.x,
                                               end.y-current.position.y);
+                if(topology_mode_){
+                    // Publish the certified SE(2) path unchanged. The topology
+                    // tracker consumes each turn/reverse in order; a 1m nearest
+                    // point lookahead would discard these safety constraints.
+                    if(remaining<.18)break;
+                    publishPath(path,local_path_pub_);
+                    topologyPublishPath(path);
+                    topologyPathPublished();
+                    ros::spinOnce();rate.sleep();continue;
+                }
                 if (cursor+1 >= path.size() && remaining < reach_dist_thres_) break;
 
                 // Advance along this path instead of resetting to waypoint 1.
