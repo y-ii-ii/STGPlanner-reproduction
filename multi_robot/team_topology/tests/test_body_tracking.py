@@ -115,5 +115,17 @@ class BodyTrackingTests(unittest.TestCase):
         t=BodyTracker();t.receive([(0,0,.8),(0,0,.5),(0,0,.1)],'recover-turn',.05)
         v,status=t.propose((0,0,.8),(0,0),self.grid());self.assertLess(v[1],0);self.assertNotEqual(status,'PATH_END')
 
+    def test_in_place_turn_waits_for_measured_translation_to_stop(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,.32),(.45,.15,.32)],'turn')
+        v,status=t.propose((0,0,0),(.47,.02),self.grid())
+        self.assertEqual(v,(0.,0.));self.assertEqual(status,'BRAKE_BEFORE_TURN')
+        self.assertGreater(t.propose((0,0,0),(0.,0.),self.grid())[0][1],0)
+
+    def test_translation_waits_for_residual_rotation_to_settle(self):
+        t=BodyTracker();t.receive([(0,0,0),(1,0,0)],'straight')
+        v,status=t.propose((0,0,0),(0.,.44),self.grid())
+        self.assertEqual(v,(0.,0.));self.assertEqual(status,'SETTLE_BEFORE_TRANSLATION')
+        self.assertGreater(t.propose((0,0,0),(0.,.05),self.grid())[0][0],0)
+
 
 if __name__=='__main__':unittest.main()

@@ -138,6 +138,14 @@ class ExecutionSupervisor:
             if state["phase"] == "running":
                 command = dict(wish, schema=2, allocation_session=self.session,
                                dispatch_id=state["dispatch_id"])
+                # A dispatch is a contract for a FIXED observation support.
+                # Map updates may refresh its approach path, but cannot expand
+                # 8 unknown cells into 52 under the same version/generation and
+                # make completion chase a moving frontier forever. New support
+                # is allocated after completion/physical STOP in a new dispatch.
+                for key in ('scopes','scope_digest','scope_cells','task_members'):
+                    if key in state['active']:command[key]=copy.deepcopy(state['active'][key])
+                    else:command.pop(key,None)
                 state["active"] = copy.deepcopy(command)
                 state["token"] = token(command)
             else:
