@@ -18,7 +18,7 @@ def main(index):
         limits['attempts'].append(dict(index=index,trial=out.name,state='reserved',unix=time.time()));dump(LIMITS,limits)
     t0=time.monotonic();token=out.name;os.environ['STGPLANNER_TOPOLOGY_TRIAL_TOKEN']=token;os.environ['ROS_LOG_DIR']=str(out/'ros')
     shutil.copytree(CODE,out/'implementation',ignore=shutil.ignore_patterns('__pycache__','.git','evidence'))
-    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w')
+    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w');traffic_log=(out/'traffic.jsonl').open('w')
     robots=['robot_1','robot_2'];children=[];handles=[];subs=[];syncs=[];errors=[];done=threading.Event();stopping=threading.Event()
     state={r:dict(pose=None,physical=None,odom_at=0.,raw=(0.,0.),raw_at=0.,current=(0.,0.),cmd=(0.,0.),last=None) for r in robots}
     sources={r:set() for r in robots};distance={r:0. for r in robots};frames={r:0 for r in robots};result=dict(trial=out.name,index=index,T95_wall_s=None,T95_sim_s=None,finish_reason=None,checks={},errors=errors)
@@ -117,6 +117,7 @@ def main(index):
             if v.get('status')!='TRAFFIC_CAPABILITY':plans.write(json.dumps(dict(v,robot_source=r,received=time.monotonic()-t0))+'\n');plans.flush()
         def traffic(m):
             v=json.loads(m.data);mode=v.get('phase','?');traffic_modes[mode]=traffic_modes.get(mode,0)+1
+            traffic_log.write(json.dumps(dict(v,received=time.monotonic()-t0))+'\n');traffic_log.flush()
         def coord(m):coordinator_status.update(json.loads(m.data))
         def delta(m):deltas.write(m.data+'\n');deltas.flush()
         def body(m,r):body_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');body_log.flush()
@@ -203,6 +204,8 @@ def main(index):
         assert sum(Path(x['exe']).name=='topo_planner_node' for x in runtime_info)==2
         assert all(x['sha256']==manifest['executables'][str(PLANNER/'devel/lib/planner/topo_planner_node')] and any(str(PLANNER) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='topo_planner_node')
         assert sum(Path(x['exe']).name=='team_score' for x in runtime_info)==2
+        assert sum(Path(x['exe']).name=='path_execution_node' for x in runtime_info)==2
+        assert all(x['sha256']==manifest['executables'][str(NATIVE/'devel/lib/path_execution/path_execution_node')] and any(str(NATIVE) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='path_execution_node')
         assert all(any('/catkin_ws/' in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='team_score')
         graph=rosgraph.Master(rospy.get_name()).getSystemState();publishers=dict(graph[0]);subscribers=dict(graph[1])
         for r in robots:
@@ -273,7 +276,7 @@ def main(index):
         result['checks']['within2400wall']=result['runtime_wall_s']<=2400
         result['checks']['runtime_idle']=not result['post_cleanup_runtime']['processes'] and not any(result['post_cleanup_runtime']['ports_in_use'].values())
         dump(out/'result.json',result);l=json.loads(LIMITS.read_text());l['attempts'][-1].update(state='complete',finish_reason=result['finish_reason'],runtime_wall_s=result['runtime_wall_s'],T95_wall_s=result['T95_wall_s'],area_m2=result['area_m2']);l['new_attempts_blocked']=len(l['attempts'])>=4;dump(LIMITS,l);lock_state('idle');done.set()
-        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close();body_log.close();path_log.close()
+        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close();body_log.close();path_log.close();traffic_log.close()
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--index',type=int,required=True);main(p.parse_args().index)

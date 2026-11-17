@@ -24,7 +24,7 @@ class BodyTrackingTests(unittest.TestCase):
         self.assertTrue(g.braking_safe((0,0,0),(0.,0.),(.2,0.)))
 
     def test_rotating_body_hits_wall(self):
-        g=self.grid(.5);self.assertTrue(g.free(0,0,0))
+        g=self.grid(.6);self.assertTrue(g.free(0,0,0))
         self.assertFalse(g.braking_safe((0,0,0),(0.,1.5),(0.,1.5)))
 
     def test_reverse_checked_too(self):
@@ -63,6 +63,14 @@ class BodyTrackingTests(unittest.TestCase):
     def test_straight_primitives_can_use_original_speed_cap(self):
         t=BodyTracker();t.receive([(0,0,0),(.45,0,0),(.9,0,0),(2.7,0,0)],'a')
         v,_=t.propose((0,0,0),(0,0),self.grid());self.assertEqual(v[0],2.)
+
+    def test_rolling_path_anchor_does_not_request_spurious_reverse(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,0),(.45,0,0),(.9,0,0),(2.7,0,0)],'next')
+        v,_=t.propose((.65,0,0),(1.5,0),self.grid());self.assertGreater(v[0],0);self.assertGreaterEqual(t.cursor,3)
+
+    def test_moving_anchor_cannot_skip_unexecuted_turn(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,math.pi/2),(0,.45,math.pi/2)],'next')
+        v,_=t.propose((0,.05,0),(0,0),self.grid());self.assertEqual(v[0],0);self.assertEqual(t.cursor,1)
 
 
 if __name__=='__main__':unittest.main()

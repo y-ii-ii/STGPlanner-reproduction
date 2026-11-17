@@ -28,7 +28,7 @@ class BodyGrid:
         self.bad=np.asarray(data,dtype=np.int16).reshape(height,width)!=0
         self.integral=np.pad(self.bad.astype(np.int32),((1,0),(1,0))).cumsum(0).cumsum(1)
 
-    def free(self, x,y,yaw,margin=.10):
+    def free(self, x,y,yaw,margin=.15):
         if not all(math.isfinite(v) for v in (x,y,yaw)):return False
         c,s=math.cos(yaw),math.sin(yaw);ac,ass=abs(c),abs(s)
         hx,hy=.35+margin,.30+margin;r=self.res/2
@@ -88,6 +88,18 @@ class BodyTracker:
 
     def propose(self, pose, current, grid):
         if not self.path:return (0.,0.),'NO_PATH'
+        if self.cursor==0 and len(self.path)>1:
+            # Rolling replacements are generated while the chassis is moving.
+            # Skip an old anchor only if pose and yaw are already on the first
+            # directed primitive; do not drive back to a stale planning start.
+            a=self.path[0]
+            for k,b in enumerate(self.path[1:],1):
+                ex,ey=b[0]-a[0],b[1]-a[1];length=math.hypot(ex,ey)
+                if length<.01:continue
+                along=((pose[0]-a[0])*ex+(pose[1]-a[1])*ey)/length
+                cross=abs((pose[0]-a[0])*ey-(pose[1]-a[1])*ex)/length
+                if along>=0 and cross<.14 and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
+                break
         # Consume in order, including zero-length turn waypoints. Never select a
         # spatially nearest later segment across a corner/crossing.
         while self.cursor<len(self.path):
