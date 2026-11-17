@@ -13,10 +13,11 @@ def wrap(a):
     return math.atan2(math.sin(a), math.cos(a))
 
 
-def shield_output(grid, fresh, pose, current, approved):
+def shield_output(grid, fresh, pose, current, approved,margin=.15):
     """Last operation after peer admission; can only retain or stop a command."""
     if tuple(approved)==(0.,0.):return (0.,0.),False
-    if not fresh or not grid.braking_safe(pose,current,approved):return (0.,0.),True
+    if margin<.15 and (abs(approved[0])>.2 or abs(approved[1])>.3):return (0.,0.),True
+    if not fresh or not grid.braking_safe(pose,current,approved,margin):return (0.,0.),True
     return tuple(approved),False
 
 
@@ -43,7 +44,7 @@ class BodyGrid:
         overlap=(abs(dx)<=ex+r)&(abs(dy)<=ey+r)&(abs(dx*c+dy*s)<=hx+r*(ac+ass))&(abs(-dx*s+dy*c)<=hy+r*(ac+ass))
         return not bool(overlap.any())
 
-    def braking_safe(self, pose, current, command):
+    def braking_safe(self, pose, current, command,margin=.15):
         """Latency + requested hold + full braking, with measured signed twist.
 
         2m/s² braking matches the existing traffic policy; .15s latency and .25s
@@ -60,34 +61,36 @@ class BodyGrid:
             # sluggish motor to certify a fast command near an obstacle.
             if a*b>=0 and abs(b)>abs(a):return b
             return a+max(-amount,min(amount,b-a))
-        if not self.free(x,y,yaw):return False
+        if not self.free(x,y,yaw,margin):return False
         while t<horizon:
             # Keep measured inertia during the latency interval, then approach
             # the actual approved command, then brake both axes to zero.
             target=current if t<.15 else command if t<.40 else (0.,0.)
             v=approach(v,target[0],2.*dt);w=approach(w,target[1],2.*dt)
             x+=v*math.cos(yaw+w*dt/2)*dt;y+=v*math.sin(yaw+w*dt/2)*dt;yaw+=w*dt
-            if not self.free(x,y,yaw):return False
+            if not self.free(x,y,yaw,margin):return False
             t+=dt
         return True
 
 
 class BodyTracker:
     def __init__(self):
-        self.path=[];self.cursor=0;self.key=None
+        self.path=[];self.cursor=0;self.key=None;self.margin=.15
 
-    def receive(self, path, key):
+    def receive(self, path, key,margin=.15):
         if not path or any(not all(math.isfinite(v) for v in p) for p in path):return False
+        if margin not in (.05,.15):return False
         # Repeated publication of the same full path must not reset progress.
-        digest=(key,tuple(tuple(p) for p in path))
+        digest=(key,margin,tuple(tuple(p) for p in path));self.margin=margin
         if digest!=self.key:self.path=[tuple(p) for p in path];self.cursor=0;self.key=digest
         return True
 
     def clear(self):
-        self.path=[];self.cursor=0;self.key=None
+        self.path=[];self.cursor=0;self.key=None;self.margin=.15
 
     def propose(self, pose, current, grid):
         if not self.path:return (0.,0.),'NO_PATH'
+        tolerance=.035 if self.margin<.15 else .14
         if self.cursor==0 and len(self.path)>1:
             # Rolling replacements are generated while the chassis is moving.
             # Skip an old anchor only if pose and yaw are already on the first
@@ -98,7 +101,7 @@ class BodyTracker:
                 if length<.01:continue
                 along=((pose[0]-a[0])*ex+(pose[1]-a[1])*ey)/length
                 cross=abs((pose[0]-a[0])*ey-(pose[1]-a[1])*ex)/length
-                if along>=0 and cross<.14 and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
+                if along>=0 and cross<tolerance and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
                 break
         # Consume in order, including zero-length turn waypoints. Never select a
         # spatially nearest later segment across a corner/crossing.
@@ -110,12 +113,12 @@ class BodyTracker:
                 if length>.05:
                     along=((pose[0]-p[0])*ex+(pose[1]-p[1])*ey)/length
                     cross=abs((pose[0]-p[0])*ey-(pose[1]-p[1])*ex)/length
-                    passed=along>=0 and cross<.14
-            if (d<.14 or passed) and abs(a)<.12:self.cursor+=1
+                    passed=along>=0 and cross<tolerance
+            if (d<tolerance or passed) and abs(a)<.12:self.cursor+=1
             else:break
         if self.cursor==len(self.path):return (0.,0.),'PATH_END'
         p=self.path[self.cursor];dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
-        if d>=.14:
+        if d>=tolerance:
             # Join only collinear primitives with the SAME direction and yaw.
             # This allows the common 2m/s cap on long straights while never
             # looking through a certified turn or forward/reverse transition.
@@ -127,7 +130,7 @@ class BodyTracker:
                 if abs(ex*dy-ey*dx)>max(.01,.03*math.hypot(ex,ey)*d):break
                 p=q
             dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
-        if d<.14:
+        if d<tolerance:
             desired=(0.,max(-.7,min(.7,2.*wrap(p[2]-pose[2]))))
         else:
             # A certified reverse edge retains the chassis yaw, opposite its
@@ -139,9 +142,10 @@ class BodyTracker:
             if reverse:v=-min(.35,v)
             # Stop at each short primitive instead of overshooting into the
             # next turn. The shield independently checks the resulting motion.
-            v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-.10)))),v)
+            v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-(.02 if self.margin<.15 else .10))))),v)
             desired=(v,w)
+        if self.margin<.15:desired=(max(-.2,min(.2,desired[0])),max(-.3,min(.3,desired[1])))
         for scale in (1.,.65,.35,.15):
             cmd=tuple(scale*v for v in desired)
-            if grid.braking_safe(pose,current,cmd):return cmd,'TRACK'
+            if grid.braking_safe(pose,current,cmd,self.margin):return cmd,'RECENTER_TRACK' if self.margin<.15 else 'TRACK'
         return (0.,0.),'BODY_BRAKE'

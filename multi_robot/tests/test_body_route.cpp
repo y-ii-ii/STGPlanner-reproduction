@@ -18,5 +18,12 @@ int main(){
  // A turn in a narrow corridor is not replaceable by a point-wise A* corner.
  for(int y=0;y<100;++y)for(int x=0;x<100;++x)if(std::abs(g.y0+(y+.5)*.15)>.6)g.data[y*100+x]=100;
  auto corridor=bodyRoute(g,{{0,0},{0,3}},0,0,0);assert(corridor.poses.empty());
- std::cout<<"8 body-route cases passed (all emitted poses footprint-checked, <=4m)\n";
+ g.data.assign(10000,0);
+ for(int y=0;y<100;++y)for(int x=53;x<100;++x)g.data[y*100+x]=100;
+ assert(g.footprint(0,0,0,.05)==0&&g.footprint(0,0,0,.15)!=0);
+ auto recenter=bodyRoute(g,{{0,0},{3,0}},0,0,0);
+ assert(recenter.status=="BODY_RECENTER"&&recenter.margin==.05&&!recenter.poses.empty());
+ auto end=recenter.poses.back();assert(g.footprint(end.x,end.y,end.yaw,.15)==0);
+ for(auto p:recenter.poses)assert(g.footprint(p.x,p.y,p.yaw,.05)==0);
+ std::cout<<"9 body-route cases passed (including bounded, observed-free recenter escape)\n";
 }

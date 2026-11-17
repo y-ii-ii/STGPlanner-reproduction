@@ -129,6 +129,7 @@ namespace path_execution {
         std::string topology_session_,topology_mode_text_="STOP",topology_issuer_;
         interface::ExecutionLease topology_current_,topology_goal_;
         double topology_received_=0,topology_goal_began_=0;
+        double topology_body_margin_=.15;
         unsigned long topology_command_seq_=0,topology_permit_seq_=0,last_topology_goal_seq_=0;
         std::map<std::string,std::string> topology_stop_proofs_;
         ros::Publisher topology_permit_pub_,topology_feedback_pub_,topology_certified_pub_;

@@ -47,7 +47,7 @@ def main():
             v=json.loads(msg.data);stamp=float(v['stamp'])
             with lock:
                 if v['token']!=fence.active_token or not 0<=rospy.Time.now().to_sec()-stamp<=.3:return
-                if tracker.receive([tuple(map(float,p)) for p in v['path']],(v['token'],int(v['goal_seq']))):own['path_at']=time.monotonic()
+                if tracker.receive([tuple(map(float,p)) for p in v['path']],(v['token'],int(v['goal_seq'])),float(v.get('body_margin_m',.15))):own['path_at']=time.monotonic()
         except (ValueError,KeyError,TypeError):pass
 
     def fine_map(msg):
@@ -124,7 +124,7 @@ def main():
                     velocity,extra=traffic.filter(fence,velocity,now,ros_now);events+=extra
                 # Recheck the ACTUAL traffic-approved output, which can differ
                 # from this tick's proposal (including an authorized retreat).
-                velocity,rejected=shield_output(g,fresh,fence.odom['pose'] if fence.odom else None,own['twist'],velocity)
+                velocity,rejected=shield_output(g,fresh and now-own['path_at']<=.3,fence.odom['pose'] if fence.odom else None,own['twist'],velocity,tracker.margin)
                 if rejected:reason='FINAL_BODY_BRAKE'
                 msg=Twist();msg.linear.x,msg.angular.z=velocity
                 output.publish(msg)
@@ -132,7 +132,7 @@ def main():
                 traffic.published(velocity,now)
                 trace.publish(String(data=wire(dict(stamp=ros_now,token=fence.active_token,phase=fence.phase,
                     pose=fence.odom['pose'] if fence.odom else None,twist=own['twist'],proposal=proposal,output=velocity,
-                    reason=reason,cursor=tracker.cursor,path_size=len(tracker.path),map_stamp=own['grid_stamp']))))
+                    reason=reason,cursor=tracker.cursor,path_size=len(tracker.path),body_margin_m=tracker.margin,map_stamp=own['grid_stamp']))))
                 if traffic_required and now-last_capability>.1:
                     last_capability=now
                     events.append(dict(source='velocity_gate',status='TRAFFIC_CAPABILITY',robot=robot,token=fence.active_token,reverse_ok=traffic.reverse_ok(now,rospy.Time.now().to_sec())))

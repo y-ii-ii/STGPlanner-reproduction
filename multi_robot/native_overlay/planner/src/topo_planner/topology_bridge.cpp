@@ -278,6 +278,7 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
     lease.put("robot",topology_robot_);lease.put("task",topology_task_);
     lease.put("version",topology_version_);lease.put("dispatch_id",topology_dispatch_);
     lease.put("command_seq",topology_command_seq_);lease.put("stamp",topology_command_stamp_);
+    lease.put("body_margin_m",prefix.margin);
     std::ostringstream encoded;boost::property_tree::write_json(encoded,lease,false);
     result.execution_lease=encoded.str();
   }
@@ -291,6 +292,7 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   f.put("terrain_start_footprint",terrain_start);f.put("own_free_fill_cells",own_free_fill);
   f.put("combined_start_footprint",grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw));
   f.put("body_search_expanded",prefix.expanded);f.put("approach_offset_m",prefix.goal_offset);
+  f.put("body_margin_m",prefix.margin);
   if(result.paths.empty()&&!route.empty())planner_->deferExecutionFrontier(route.back().first,route.back().second,1.0,15.);
   boost::property_tree::ptree trace;for(int state:planner_->native_task_trace_){boost::property_tree::ptree n;n.put("",state);trace.push_back({"",n});}
   f.add_child("native_states",trace);

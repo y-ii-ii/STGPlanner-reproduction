@@ -3,6 +3,7 @@ from .graph import DeltaBuilder, point, wire
 from .grid import Grid
 from .tasks import TaskTracker
 from .scope import task_scope
+from .navigation_history import NavigationHistory
 
 
 class LocalExporter:
@@ -10,6 +11,7 @@ class LocalExporter:
         self.delta = DeltaBuilder(robot, session)
         self.tasks = TaskTracker()
         self.last_snapshot_key = None
+        self.history=NavigationHistory()
 
     def snapshot(self, snapshot, full=False):
         if snapshot["frame"] != "world":
@@ -82,6 +84,7 @@ class LocalExporter:
         # The real pose-to-cell-center attachment cost is retained in bidding.
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
                  "map_rev": self.tasks.map_rev, "resolution": grid.resolution}
+        self.history.update(grid,records,self.delta)
         result=self.delta.build(records, state, full=full)
         self.last_snapshot_key=snapshot_key
         return result

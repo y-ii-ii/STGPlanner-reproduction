@@ -123,6 +123,7 @@ def main(index):
         def body(m,r):body_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');body_log.flush()
         def certified(m,r):path_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');path_log.flush()
         def snapshot(m,r):
+            state[r]['last_snapshot']=m.data
             p=out/('first_snapshot_'+r+'.json')
             if not p.exists():p.write_text(m.data)
         def cloud(c,o,r):
@@ -252,6 +253,8 @@ def main(index):
             result['parking_drift_m']={r:math.dist(p[:2],state[r]['physical'][:2]) for r,p in park.items()}
         except Exception as e:errors.append('cleanup_stop:'+str(e))
         result.update(score());result.update(distance_m=distance,total_distance_m=sum(distance.values()),plan_counts=plan_count,feedback_counts=feedback_count,traffic_modes=traffic_modes,source_frames=frames,contacts=contact.result() if contact else None)
+        for r in robots:
+            if state[r].get('last_snapshot'):(out/('final_snapshot_'+r+'.json')).write_text(state[r]['last_snapshot'])
         with (out/'union_plane_cells.csv').open('w') as f:
             f.write('ix,iy\n');f.writelines('%d,%d\n'%k for k in sorted(set().union(*sources.values())))
         result['checks']['source_csv_match']={r:(out/r/'score/known_plane_cells.csv').exists() and {(int(x['ix']),int(x['iy'])) for x in csv.DictReader((out/r/'score/known_plane_cells.csv').open())}==sources[r] for r in robots}

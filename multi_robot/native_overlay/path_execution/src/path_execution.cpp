@@ -512,7 +512,7 @@ namespace path_execution {
                     // Publish the certified SE(2) path unchanged. The topology
                     // tracker consumes each turn/reverse in order; a 1m nearest
                     // point lookahead would discard these safety constraints.
-                    if(remaining<.18)break;
+                    if(remaining<(topology_body_margin_<.15?.04:.18))break;
                     publishPath(path,local_path_pub_);
                     topologyPublishPath(path);
                     topologyPathPublished();

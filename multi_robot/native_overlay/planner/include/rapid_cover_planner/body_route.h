@@ -6,7 +6,7 @@
 #include <functional>
 namespace rapid_cover_planner {
 struct BodyPose {double x,y,yaw;};
-struct BodyRoute {std::vector<BodyPose> poses;std::string status="BODY_NO_PATH";int expanded=0;double goal_offset=0;};
+struct BodyRoute {std::vector<BodyPose> poses;std::string status="BODY_NO_PATH";int expanded=0;double goal_offset=0,margin=.15;};
 // Local SE(2) repair of ONE assigned/native guide. Every translation, reverse
 // and in-place turn is checked as a swept body, rather than point A* followed
 // by an unplanned corner cut. Goal is an observation approach region, not a
@@ -15,14 +15,18 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
                           double x,double y,double yaw){
  BodyRoute out;if(reference.empty()||grid.resolution<=0||!std::isfinite(grid.resolution)||!std::isfinite(x)||!std::isfinite(y)||!std::isfinite(yaw))return out;
  for(auto p:reference)if(!std::isfinite(p.first)||!std::isfinite(p.second))return out;
- const double margin=.15,step=std::max(.15,std::min(.25,grid.resolution));
+ const bool recenter=grid.footprint(x,y,yaw,.15)!=0;
+ const double margin=recenter?.05:.15,step=std::max(.15,std::min(.25,grid.resolution));out.margin=margin;
+ // A newly observed obstacle can invalidate the normal reserve while the
+ // physical body remains clear. Only a <=1m low-speed escape to full clearance
+ // is allowed; no obstacle/unknown cell or physical-body collision is waived.
  if(grid.footprint(x,y,yaw,margin)!=0){out.status="BODY_START_BLOCKED";return out;}
  TopologyPoint guide=reference.back();double length=0;TopologyPoint previous{x,y};
  for(auto p:reference){double d=std::hypot(p.first-previous.first,p.second-previous.second);
   if(length+d>=3.){double t=(3.-length)/std::max(d,1e-8);guide={previous.first+t*(p.first-previous.first),previous.second+t*(p.second-previous.second)};break;}
   length+=d;previous=p;
  }
- if(std::hypot(guide.first-x,guide.second-y)<.65){out.status="BODY_NO_PROGRESS";return out;}
+ if(!recenter&&std::hypot(guide.first-x,guide.second-y)<.65){out.status="BODY_NO_PROGRESS";return out;}
  const std::array<int,16> dx{{3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1,0,1,2,3}};
  const std::array<int,16> dy{{0,1,2,3,3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1}};
  std::array<double,16> angle;int initial=0;double nearest=100;
@@ -39,16 +43,17 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
  std::vector<double> cost(total,std::numeric_limits<double>::infinity());std::vector<int> parent(total,-1);
  using Q=std::pair<double,int>;std::priority_queue<Q,std::vector<Q>,std::greater<Q>> queue;
  int start=index(0,0,initial),found=-1;cost[start]=0;queue.push({0,start});
- auto heuristic=[&](BodyPose p){return std::max(0.,std::hypot(p.x-guide.first,p.y-guide.second)-.8);};
+ auto heuristic=[&](BodyPose p){return recenter?0.:std::max(0.,std::hypot(p.x-guide.first,p.y-guide.second)-.8);};
  while(!queue.empty()&&out.expanded<4000){int id=queue.top().second;double f=queue.top().first;queue.pop();auto a=pose(id);
   if(f>cost[id]+heuristic(a)+1e-6)continue;++out.expanded;
-  if(std::hypot(a.x-guide.first,a.y-guide.second)<=.8&&std::hypot(a.x-x,a.y-y)>=.6){found=id;break;}
+  if(recenter?(std::hypot(a.x-x,a.y-y)>=.15&&grid.footprint(a.x,a.y,a.yaw,.15)==0):
+      (std::hypot(a.x-guide.first,a.y-guide.second)<=.8&&std::hypot(a.x-x,a.y-y)>=.6)){found=id;break;}
   int h=id%16,cell=id/16,ix=cell%side-radius,iy=cell/side-radius;
   for(int action=0;action<4;++action){int nh=h,nx=ix,ny=iy;double edge;
    if(action<2){nh=(h+(action==0?1:15))%16;edge=.12;}
    else {int sign=action==2?1:-1;nx+=sign*dx[h];ny+=sign*dy[h];edge=std::hypot(dx[h],dy[h])*step*(sign>0?1.:1.5);}
    if(std::abs(nx)>radius||std::abs(ny)>radius)continue;int next=index(nx,ny,nh);
-   if(cost[id]+edge>=cost[next])continue;auto b=pose(next);if(!sweep(a,b))continue;
+   if(cost[id]+edge>=cost[next]||(recenter&&cost[id]+edge>1.))continue;auto b=pose(next);if(!sweep(a,b))continue;
    cost[next]=cost[id]+edge;parent[next]=id;queue.push({cost[next]+heuristic(b),next});
   }
  }
@@ -58,6 +63,6 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
  // Retain the established <=4m execution-prefix contract even for a detour.
  double arc=0;size_t keep=1;
  for(;keep<out.poses.size();++keep){auto a=out.poses[keep-1],b=out.poses[keep];double d=std::hypot(b.x-a.x,b.y-a.y);if(arc+d>4.)break;arc+=d;}
- out.poses.resize(keep);out.status="BODY_APPROACH";return out;
+ out.poses.resize(keep);out.status=recenter?"BODY_RECENTER":"BODY_APPROACH";return out;
 }
 }

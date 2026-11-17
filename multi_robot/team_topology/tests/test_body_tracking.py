@@ -72,5 +72,12 @@ class BodyTrackingTests(unittest.TestCase):
         t=BodyTracker();t.receive([(0,0,0),(0,0,math.pi/2),(0,.45,math.pi/2)],'next')
         v,_=t.propose((0,.05,0),(0,0),self.grid());self.assertEqual(v[0],0);self.assertEqual(t.cursor,1)
 
+    def test_recenter_certificate_caps_speed_and_margin(self):
+        t=BodyTracker();self.assertTrue(t.receive([(0,0,0),(-.45,0,0)],'recover',.05))
+        v,status=t.propose((0,0,0),(0,0),self.grid());self.assertEqual(status,'RECENTER_TRACK')
+        self.assertLessEqual(abs(v[0]),.2);self.assertLessEqual(abs(v[1]),.3)
+        self.assertEqual(shield_output(self.grid(),True,(0,0,0),(0,0),(.3,0),.05),((0.,0.),True))
+        self.assertFalse(t.receive([(0,0,0),(-.45,0,0)],'bad',.01))
+
 
 if __name__=='__main__':unittest.main()

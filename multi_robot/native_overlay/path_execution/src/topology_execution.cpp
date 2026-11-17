@@ -56,6 +56,8 @@ void PathExecution::topologyFeedback(const std_msgs::String::ConstPtr&msg){
 bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleExecuteGoal&goal){
   try{
     auto lease=interface::readExecutionLease(goal.execution_lease);
+    double body_margin=interface::jsonTree(goal.execution_lease).get<double>("body_margin_m",.15);
+    if(body_margin!=.05&&body_margin!=.15)return false;
     double now=ros::Time::now().toSec();
     if(goal.header.frame_id!="world"||goal.paths.empty()||now<goal.header.stamp.toSec()||now-goal.header.stamp.toSec()>2.||goal.header.stamp.toSec()<lease.stamp)return false;
     bool points=false;
@@ -70,7 +72,7 @@ bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleEx
        interface::executionMonotonicNow()-topology_received_>1.5)return false;
     if(topology_goal_.token()==lease.token()&&goal.header.seq<=last_topology_goal_seq_)return false;
     if(topology_goal_.token()!=lease.token())topology_path_published_=false;
-    topology_goal_=lease;last_topology_goal_seq_=goal.header.seq;
+    topology_goal_=lease;last_topology_goal_seq_=goal.header.seq;topology_body_margin_=body_margin;
     topology_goal_active_=true;topology_goal_began_=interface::executionMonotonicNow();
     return true;
   }catch(const std::exception&){return false;}
@@ -117,6 +119,7 @@ void PathExecution::topologyPublishPath(const Path& path){
   if(!topologyKeepRunningLocked(interface::executionMonotonicNow()))return;
   boost::property_tree::ptree p,points;p.put("token",topology_goal_.token());
   p.put("stamp",ros::Time::now().toSec());p.put("goal_seq",last_topology_goal_seq_);
+  p.put("body_margin_m",topology_body_margin_);
   for(const auto& pose:path){boost::property_tree::ptree row;
     for(double value:{pose.position.x,pose.position.y,tf::getYaw(pose.orientation)}){
       boost::property_tree::ptree n;n.put("",value);row.push_back({"",n});
