@@ -1,0 +1,47 @@
+{
+  "matched_native_hashes": 367,
+  "runtime": {
+    "processes": [],
+    "ports_in_use": {
+      "11311": false,
+      "11312": false,
+      "11345": false
+    }
+  },
+  "resolved_nodes": {
+    "planner": [
+      "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/.private/planner/lib/planner/topo_planner_node"
+    ],
+    "path_execution": [
+      "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/.private/path_execution/lib/path_execution/path_execution_node"
+    ],
+    "exploration_manager": [
+      "/opt/stgplanner/team_topology_native_task_20261116_ws/devel/.private/exploration_manager/lib/exploration_manager/explorer_node"
+    ],
+    "team_topology": [
+      "/opt/stgplanner/team_topology_wall_20261117_ws/devel/.private/team_topology/lib/team_topology/topology_velocity_gate.py",
+      "/opt/stgplanner/team_topology_wall_20261117_ws/src/team_topology/scripts/topology_velocity_gate.py"
+    ]
+  },
+  "new_binaries_sha256": {
+    "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/lib/planner/topo_planner_node": "de27c4c8b89375e0daf2a6511ecf5326b7b3e8b116ef14769d084b675f54fa32",
+    "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/lib/libtopo_planner.so": "e99d7cadce55155beba0a2abdefba488fa33aad3878525c737dbe0e0acb0c47b",
+    "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/lib/path_execution/path_execution_node": "b8227eb2d6cec0c0052f2849d33b3123384f6c3284750c0c86ba01f8282014be",
+    "/opt/stgplanner/team_topology_wall_native_20261117_ws/devel/lib/libpath_execution.so": "bb2340951326259ec8dc9f9b1b5760a27b6ea5a036172450cc0f0a85e35b5145"
+  },
+  "original_protected_files": 173,
+  "original_history_stat_files": 12823,
+  "previous_raw_files_sha256": 990,
+  "new_raw_files_sha256": 1157,
+  "old_archived_binary_files": 28,
+  "new_archived_binary_files": 28,
+  "old_scope_limits_unchanged": true,
+  "main_worktree_clean": true,
+  "used_attempts": 4,
+  "max_attempts": 4,
+  "scope_closed": true,
+  "algorithm_commit": "80f08051f8b1bc2e8519788637c64f81caa93ae4",
+  "all_four_no_contact": true,
+  "all_four_final_stop_ack": true,
+  "all_four_no95": true
+}

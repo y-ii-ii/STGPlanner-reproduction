@@ -1,0 +1,178 @@
+[
+  {
+    "trial": "topology_wall_scene4_20261117_01_dual",
+    "finish_reason": "diagnostic_abort",
+    "runtime_wall_s": 307.2413484610006,
+    "exploration_wall_s": 227.49890251801116,
+    "exploration_sim_s": 166.89400000000023,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 467.04,
+    "coverage_fraction": 0.05995378690629012,
+    "total_distance_m": 51.458734190575804,
+    "distance_at_T95_m": null,
+    "stop_ack": {
+      "robot_1": true,
+      "robot_2": true
+    },
+    "parking_drift_m": {
+      "robot_1": 6.92620684322005e-05,
+      "robot_2": 0.0002081691603119943
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 0.25768172269651246,
+    "initial_poses": {
+      "robot_1": [
+        3.164335483993435,
+        -0.0005741717686813337
+      ],
+      "robot_2": [
+        0.8584053791857982,
+        0.0368912432244383
+      ]
+    },
+    "code_commit": "5d2cced432a2a25feba0c89cca5fb9a2fbd1cbd4",
+    "stored_non_ground_contacts": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_wall_scene4_20261117_02_dual",
+    "finish_reason": "diagnostic_abort",
+    "runtime_wall_s": 679.3350990540057,
+    "exploration_wall_s": 597.7684443140024,
+    "exploration_sim_s": 405.3680000000004,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 955.36,
+    "coverage_fraction": 0.1226392811296534,
+    "total_distance_m": 104.14459052617772,
+    "distance_at_T95_m": null,
+    "stop_ack": {
+      "robot_1": true,
+      "robot_2": true
+    },
+    "parking_drift_m": {
+      "robot_1": 0.000641740330866754,
+      "robot_2": 0.00010444506239948213
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 0.4535734023045808,
+    "initial_poses": {
+      "robot_1": [
+        3.1557612378818223,
+        -0.0007277481193650415
+      ],
+      "robot_2": [
+        0.8527894169715413,
+        -0.011933114008117732
+      ]
+    },
+    "code_commit": "aeac84c33131e3f5daa9d277e241cb9ff5fb69ea",
+    "stored_non_ground_contacts": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_wall_scene4_20261117_03_dual",
+    "finish_reason": "diagnostic_abort",
+    "runtime_wall_s": 559.2455841030023,
+    "exploration_wall_s": 477.73474139600876,
+    "exploration_sim_s": 344.637999999999,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 376.8,
+    "coverage_fraction": 0.048369704749679075,
+    "total_distance_m": 79.0577580638948,
+    "distance_at_T95_m": null,
+    "stop_ack": {
+      "robot_1": true,
+      "robot_2": true
+    },
+    "parking_drift_m": {
+      "robot_1": 0.013273265759893767,
+      "robot_2": 4.6059330219364176e-05
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 0.3509208008775326,
+    "initial_poses": {
+      "robot_1": [
+        3.1571550847628447,
+        -0.0011171817010509784
+      ],
+      "robot_2": [
+        0.8567695450964872,
+        -0.03003163849616026
+      ]
+    },
+    "code_commit": "7b28d6e8f3a647a8d267033387f80a94ecebbe71",
+    "stored_non_ground_contacts": 0,
+    "first_contact": null
+  },
+  {
+    "trial": "topology_wall_scene4_20261117_04_dual",
+    "finish_reason": "coverage_stagnation_240wall",
+    "runtime_wall_s": 484.158967513009,
+    "exploration_wall_s": 403.2755111849983,
+    "exploration_sim_s": 293.34699999999975,
+    "T95_wall_s": null,
+    "T95_sim_s": null,
+    "area_m2": 459.2,
+    "coverage_fraction": 0.05894736842105263,
+    "total_distance_m": 49.661821037883,
+    "distance_at_T95_m": null,
+    "stop_ack": {
+      "robot_1": true,
+      "robot_2": true
+    },
+    "parking_drift_m": {
+      "robot_1": 8.092870131109865e-05,
+      "robot_2": 0.0006471740617411834
+    },
+    "checks": {
+      "startup_binary_graph_source_assertions": true,
+      "source_csv_match": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "within2400wall": true,
+      "runtime_idle": true
+    },
+    "min_footprint_clearance_m": 0.5664840827958538,
+    "initial_poses": {
+      "robot_1": [
+        3.1562469565676765,
+        -0.00024350678257811626
+      ],
+      "robot_2": [
+        0.8540890848117272,
+        0.014685326675306051
+      ]
+    },
+    "code_commit": "80f08051f8b1bc2e8519788637c64f81caa93ae4",
+    "stored_non_ground_contacts": 0,
+    "first_contact": null
+  }
+]

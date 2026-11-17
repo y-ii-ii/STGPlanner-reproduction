@@ -1,0 +1,305 @@
+{
+  "no_ros_or_simulation": true,
+  "cycles": 6,
+  "ready_unrelated_robot1_route_commands": 0,
+  "interpretation": "Legal message ordering can starve a ready task through global stop transition plus repeated idle STOP; not exact online replay.",
+  "trace": [
+    {
+      "t": 0,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 0.7,
+      "modes": {
+        "1": "ROUTE",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "running",
+        "2": "running"
+      }
+    },
+    {
+      "t": 1.0,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 1.6,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 1.61,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 1.7000000000000002,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 1.7100000000000002,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 2.9000000000000004,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 2.91,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 3.0000000000000004,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 3.0100000000000002,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 4.2,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 4.21,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 4.3,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 4.3100000000000005,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 5.5,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 5.51,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 5.6,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 5.61,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 6.800000000000001,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 6.8100000000000005,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 6.9,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 6.910000000000001,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 8.1,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopped",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 8.11,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    },
+    {
+      "t": 8.2,
+      "modes": {
+        "1": "STOP",
+        "2": "ROUTE"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "running"
+      }
+    },
+    {
+      "t": 8.209999999999999,
+      "modes": {
+        "1": "STOP",
+        "2": "STOP"
+      },
+      "phases": {
+        "1": "stopping",
+        "2": "stopping"
+      }
+    }
+  ]
+}

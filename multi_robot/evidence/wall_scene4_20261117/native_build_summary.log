@@ -1,0 +1,14 @@
+Final isolated incremental build (build_05):
+Workspace configuration appears valid.
+--------------------------------------------------------------------------------
+[build] Found 1 packages in 0.0 seconds.                                       
+[build] Package table is up to date.                                           
+Starting >>> team_topology               
+Finished <<< team_topology                [ 4.4 seconds ]
+[build] Summary: All 1 packages succeeded!
+[build] Ignored: None.
+[build] Warnings: None.
+[build] Abandoned: No packages were abandoned.
+[build] Failed: No packages failed.
+[build] Runtime: 4.7 seconds total.
+First full build_01 also succeeded with existing upstream UFO overload warnings.
