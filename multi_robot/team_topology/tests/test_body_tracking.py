@@ -79,5 +79,31 @@ class BodyTrackingTests(unittest.TestCase):
         self.assertEqual(shield_output(self.grid(),True,(0,0,0),(0,0),(.3,0),.05),((0.,0.),True))
         self.assertFalse(t.receive([(0,0,0),(-.45,0,0)],'bad',.01))
 
+    def test_measurement_anchor_cannot_turn_back_to_old_yaw(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,0),(.45*math.cos(.32),.45*math.sin(.32),.32)],'a')
+        v,_=t.propose((0,0,.20),(0,.2),self.grid());self.assertGreater(v[1],0)
+
+    def test_diverged_old_anchor_waits_for_replan(self):
+        t=BodyTracker();t.receive([(0,0,0),(1,0,0)],'a')
+        v,status=t.propose((.5,.3,.3),(1,0),self.grid());self.assertEqual(v,(0.,0.));self.assertEqual(status,'PATH_START_DIVERGED')
+
+    def test_inertial_tracking_through_l_corner_keeps_body_free(self):
+        data=[]
+        for y in range(60):
+            for x in range(60):
+                wx,wy=-1.5+(x+.5)*.1,-1.5+(y+.5)*.1
+                free=(-.8<=wx<=2.8 and -.8<=wy<=.8) or (1.2<=wx<=2.8 and -.8<=wy<=2.8)
+                data.append(0 if free else 100)
+        g=BodyGrid(60,60,.1,(-1.5,-1.5),data);t=BodyTracker()
+        t.receive([(0,0,0),(2,0,0),(2,0,math.pi/2),(2,2,math.pi/2)],'corner')
+        pose=(0.,0.,0.);current=(0.,0.);finished=False
+        for _ in range(700):
+            command,status=t.propose(pose,current,g)
+            current=tuple(a+max(-.10,min(.10,b-a)) for a,b in zip(current,command))
+            x,y,yaw=pose;v,w=current;pose=(x+v*math.cos(yaw+w*.025)*.05,y+v*math.sin(yaw+w*.025)*.05,yaw+w*.05)
+            self.assertTrue(g.free(*pose),pose)
+            if status=='PATH_END':finished=True;break
+        self.assertTrue(finished);self.assertLess(math.dist(pose[:2],(2,2)),.2)
+
 
 if __name__=='__main__':unittest.main()

@@ -25,5 +25,11 @@ int main(){
  assert(recenter.status=="BODY_RECENTER"&&recenter.margin==.05&&!recenter.poses.empty());
  auto end=recenter.poses.back();assert(g.footprint(end.x,end.y,end.yaw,.15)==0);
  for(auto p:recenter.poses)assert(g.footprint(p.x,p.y,p.yaw,.05)==0);
- std::cout<<"9 body-route cases passed (including bounded, observed-free recenter escape)\n";
+ g.data.assign(10000,0);
+ for(int y=0;y<100;++y)for(int x=62;x<100;++x)g.data[y*100+x]=-1;
+ auto partial=bodyRoute(g,{{0,0},{4,0}},0,0,0);assert(partial.status=="BODY_PREFIX");check(partial);
+ g.data.assign(10000,0);
+ auto heading=bodyRoute(g,{{0,0},{3*std::cos(.19),3*std::sin(.19)}},0,0,.19);check(heading);
+ assert(std::abs(heading.poses[1].yaw-.19)<1e-9);
+ std::cout<<"11 body-route cases passed (recenter, rotated start, observed-free partial prefix)\n";
 }

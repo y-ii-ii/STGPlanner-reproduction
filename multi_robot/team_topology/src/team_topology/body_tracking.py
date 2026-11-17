@@ -96,6 +96,12 @@ class BodyTracker:
             # Skip an old anchor only if pose and yaw are already on the first
             # directed primitive; do not drive back to a stale planning start.
             a=self.path[0]
+            if math.dist(a[:2],pose[:2])<tolerance:
+                # Pose zero is a measured planning anchor, not a requested turn
+                # back to its already stale heading. True following in-place
+                # turn waypoints remain checked by the ordinary sequence.
+                self.cursor=1
+                while self.cursor<len(self.path) and math.dist(a[:2],self.path[self.cursor][:2])<1e-7 and abs(wrap(a[2]-self.path[self.cursor][2]))<1e-7:self.cursor+=1
             for k,b in enumerate(self.path[1:],1):
                 ex,ey=b[0]-a[0],b[1]-a[1];length=math.hypot(ex,ey)
                 if length<.01:continue
@@ -103,6 +109,10 @@ class BodyTracker:
                 cross=abs((pose[0]-a[0])*ey-(pose[1]-a[1])*ex)/length
                 if along>=0 and cross<tolerance and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
                 break
+            if self.cursor==0 and math.dist(a[:2],pose[:2])>=tolerance:
+                # Replan from a fresh pose rather than inventing a reverse
+                # connector to an old root across an unexecuted corner.
+                return (0.,0.),'PATH_START_DIVERGED'
         # Consume in order, including zero-length turn waypoints. Never select a
         # spatially nearest later segment across a corner/crossing.
         while self.cursor<len(self.path):

@@ -56,6 +56,7 @@ class Coordinator:
         self.ledger, self.command_seq, self.commands = TaskLedger(), 0, {}
         self.deferred = {}
         self.completed_support = {}  # Authority overlay; never rewrite peer-owned maps/tasks.
+        self.diagnostics={}
 
     def defer(self, robot, task, wall_now, seconds=8.):
         self.deferred[robot,task] = max(self.deferred.get((robot,task),0.),wall_now+seconds)
@@ -93,6 +94,7 @@ class Coordinator:
                  for r in self.robots}
         if any(r not in store.states or not 0 <= now-store.states[r]["stamp"] <= self.max_age
                for r in self.robots):
+            self.diagnostics={'reason':'stale_source_state','state_age_s':{str(r):now-store.states[r]['stamp'] if r in store.states else None for r in self.robots}}
             self.commands = waits
             return waits
         nav = Navigation(store)
@@ -175,6 +177,9 @@ class Coordinator:
                 item["state"] = "dispatched"
             waits[r]["scope_digest"], waits[r]["scope_cells"] = completion_signature(waits[r]["scopes"])
         self.commands = waits
+        self.diagnostics={'reason':'allocated','groups':len(groups),'pending_tasks':sum(t['state']=='pending' for t in store.live('task').values()),
+            'completed_support_keys':len(self.completed_support),'reachable_groups':{str(r):sum(math.isfinite(costs.get((r,g['id']),math.inf)) for g in groups) for r in self.robots},
+            'candidates':{str(r):len(v) for r,v in candidates.items()},'desired':{str(r):c['mode'] for r,c in waits.items()}}
         return waits
 
     def observe_completed(self, feedback, active, ros_now):

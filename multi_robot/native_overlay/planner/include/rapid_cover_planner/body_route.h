@@ -29,23 +29,27 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
  if(!recenter&&std::hypot(guide.first-x,guide.second-y)<.65){out.status="BODY_NO_PROGRESS";return out;}
  const std::array<int,16> dx{{3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1,0,1,2,3}};
  const std::array<int,16> dy{{0,1,2,3,3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1}};
- std::array<double,16> angle;int initial=0;double nearest=100;
- for(int h=0;h<16;++h){angle[h]=std::atan2(dy[h],dx[h]);double d=std::abs(std::atan2(std::sin(angle[h]-yaw),std::cos(angle[h]-yaw)));if(d<nearest){nearest=d;initial=h;}}
+ // Rotate the lattice with the measured chassis heading. A world-aligned
+ // lattice forced an unnecessary initial snap turn, even when a straight
+ // back-off was safe. Positions AND headings use the same rotated basis.
+ std::array<double,16> angle;const int initial=0;const double cy=std::cos(yaw),sy=std::sin(yaw);
+ for(int h=0;h<16;++h)angle[h]=yaw+std::atan2(dy[h],dx[h]);
  auto sweep=[&](BodyPose a,BodyPose b){double turn=std::atan2(std::sin(b.yaw-a.yaw),std::cos(b.yaw-a.yaw));
   int n=std::max(1,int(std::ceil(std::max(std::hypot(b.x-a.x,b.y-a.y)/.05,std::abs(turn)/.06))));
   for(int k=1;k<=n;++k)if(grid.footprint(a.x+(b.x-a.x)*k/n,a.y+(b.y-a.y)*k/n,a.yaw+turn*k/n,margin)!=0)return false;
   return true;
  };
- if(!sweep({x,y,yaw},{x,y,angle[initial]})){out.status="BODY_INITIAL_TURN";return out;}
  const int radius=int(std::ceil(5./step)),side=2*radius+1,total=side*side*16;
  auto index=[&](int ix,int iy,int h){return ((iy+radius)*side+ix+radius)*16+h;};
- auto pose=[&](int id){int h=id%16,cell=id/16;return BodyPose{x+(cell%side-radius)*step,y+(cell/side-radius)*step,angle[h]};};
+ auto pose=[&](int id){int h=id%16,cell=id/16;double px=(cell%side-radius)*step,py=(cell/side-radius)*step;return BodyPose{x+cy*px-sy*py,y+sy*px+cy*py,angle[h]};};
  std::vector<double> cost(total,std::numeric_limits<double>::infinity());std::vector<int> parent(total,-1);
  using Q=std::pair<double,int>;std::priority_queue<Q,std::vector<Q>,std::greater<Q>> queue;
- int start=index(0,0,initial),found=-1;cost[start]=0;queue.push({0,start});
+ int start=index(0,0,initial),found=-1,best_prefix=-1;double best_remaining=std::hypot(x-guide.first,y-guide.second)-.5;cost[start]=0;queue.push({0,start});
  auto heuristic=[&](BodyPose p){return recenter?0.:std::max(0.,std::hypot(p.x-guide.first,p.y-guide.second)-.8);};
- while(!queue.empty()&&out.expanded<4000){int id=queue.top().second;double f=queue.top().first;queue.pop();auto a=pose(id);
+ while(!queue.empty()&&out.expanded<1600){int id=queue.top().second;double f=queue.top().first;queue.pop();auto a=pose(id);
   if(f>cost[id]+heuristic(a)+1e-6)continue;++out.expanded;
+  double remaining=std::hypot(a.x-guide.first,a.y-guide.second);
+  if(!recenter&&cost[id]<=4.&&std::hypot(a.x-x,a.y-y)>=.6&&remaining<best_remaining){best_remaining=remaining;best_prefix=id;}
   if(recenter?(std::hypot(a.x-x,a.y-y)>=.15&&grid.footprint(a.x,a.y,a.yaw,.15)==0):
       (std::hypot(a.x-guide.first,a.y-guide.second)<=.8&&std::hypot(a.x-x,a.y-y)>=.6)){found=id;break;}
   int h=id%16,cell=id/16,ix=cell%side-radius,iy=cell/side-radius;
@@ -57,12 +61,13 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
    cost[next]=cost[id]+edge;parent[next]=id;queue.push({cost[next]+heuristic(b),next});
   }
  }
+ bool partial=found<0&&best_prefix>=0;if(partial)found=best_prefix;
  if(found<0)return out;out.goal_offset=std::hypot(pose(found).x-guide.first,pose(found).y-guide.second);
  for(int id=found;id>=0;id=parent[id])out.poses.push_back(pose(id));std::reverse(out.poses.begin(),out.poses.end());
  out.poses.insert(out.poses.begin(),{x,y,yaw});
  // Retain the established <=4m execution-prefix contract even for a detour.
  double arc=0;size_t keep=1;
  for(;keep<out.poses.size();++keep){auto a=out.poses[keep-1],b=out.poses[keep];double d=std::hypot(b.x-a.x,b.y-a.y);if(arc+d>4.)break;arc+=d;}
- out.poses.resize(keep);out.status=recenter?"BODY_RECENTER":"BODY_APPROACH";return out;
+ out.poses.resize(keep);out.status=recenter?"BODY_RECENTER":(partial?"BODY_PREFIX":"BODY_APPROACH");return out;
 }
 }
