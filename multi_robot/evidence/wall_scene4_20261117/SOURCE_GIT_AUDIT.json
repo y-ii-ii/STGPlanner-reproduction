@@ -1,0 +1,41 @@
+{
+  "policy": "Actual compiled/archive/Git raw bytes all matched; CRLF normalization fallback was checked but no file needed it.",
+  "trials": [
+    {
+      "trial": "topology_wall_scene4_20261117_01_dual",
+      "git_commit": "5d2cced432a2a25feba0c89cca5fb9a2fbd1cbd4",
+      "compiled_source_files": 96,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [],
+      "git_source_raw_bytes_all_matched": true
+    },
+    {
+      "trial": "topology_wall_scene4_20261117_02_dual",
+      "git_commit": "aeac84c33131e3f5daa9d277e241cb9ff5fb69ea",
+      "compiled_source_files": 96,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [],
+      "git_source_raw_bytes_all_matched": true
+    },
+    {
+      "trial": "topology_wall_scene4_20261117_03_dual",
+      "git_commit": "7b28d6e8f3a647a8d267033387f80a94ecebbe71",
+      "compiled_source_files": 98,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [],
+      "git_source_raw_bytes_all_matched": true
+    },
+    {
+      "trial": "topology_wall_scene4_20261117_04_dual",
+      "git_commit": "80f08051f8b1bc2e8519788637c64f81caa93ae4",
+      "compiled_source_files": 98,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [],
+      "git_source_raw_bytes_all_matched": true
+    }
+  ]
+}

@@ -9,3 +9,5 @@
 - `FINAL_PRESERVATION.json`：历史与原生保全、运行空闲和额度关闭。
 
 完整说明：[结果报告](../../docs/WALL_SCENE4_RESULTS_20261117.md)。
+
+`SOURCE_GIT_AUDIT.json`逐次核对实际构建源码/配置、归档与指定Git提交；四次均原始字节一致，无换行差异。
