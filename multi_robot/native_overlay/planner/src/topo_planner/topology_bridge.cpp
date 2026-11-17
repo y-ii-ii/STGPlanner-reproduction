@@ -268,6 +268,14 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   const double yaw=tf::getYaw(elements_->current_pose_.orientation);
   double now=ros::Time::now().toSec();
   auto prefix=rapid_cover_planner::bodyRoute(grid,route,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+  if(prefix.poses.empty()&&selection=="NATIVE_TASK_STATES"&&!topology_route_.empty()){
+    // Native point-space choice can be unreachable by the full chassis even
+    // though this SAME task's graph approach is usable. Try the assigned
+    // transit with exactly the same own-map/body sweep and lease constraints.
+    // Explicit DEFERRED_TASK and blocked/unknown start are never bypassed.
+    auto transit=rapid_cover_planner::bodyRoute(grid,topology_route_,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+    if(!transit.poses.empty()){prefix=std::move(transit);selection="FUSED_TRANSIT_NATIVE_INFEASIBLE";}
+  }
   if(now<map_stamp||now-map_stamp>1.||now-topology_command_stamp_>2.){prefix.poses.clear();prefix.status="STALE_MAP";}
   if(!prefix.poses.empty()){
     control_planner_interface::Path segment;

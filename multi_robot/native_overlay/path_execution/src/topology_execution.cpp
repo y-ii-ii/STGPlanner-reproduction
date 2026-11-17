@@ -1,4 +1,5 @@
 #include "path_execution/path_execution.h"
+#include "path_execution/command_wait.h"
 #include <cmath>
 
 namespace path_execution {
@@ -69,6 +70,15 @@ bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleEx
       points=true;
     }
     if(!points)return false;
+    // The planner may receive command N before this process while its action
+    // reaches us first. Immediate rejection poisoned the current generation.
+    // A newer STOP already received is never waited away or overridden.
+    if(!waitWhileCommandPending([&](){
+      std::lock_guard<std::mutex> guard(topology_mutex_);
+      return (topology_session_.empty()||lease.session==topology_session_)&&lease.sequence>topology_command_seq_;
+    }))return false;
+    now=ros::Time::now().toSec();
+    if(!executionGoalTimeValid(goal.header.stamp.toSec(),now))return false;
     std::lock_guard<std::mutex> guard(topology_mutex_);
     if(topology_stop_pending_||topology_mode_text_!="ROUTE"||
        !interface::executionLeaseMatches(lease,topology_current_,now)||
@@ -95,6 +105,7 @@ void PathExecution::topologyRejected(const control_planner_interface::VehicleExe
     p.put("robot",topology_robot_);p.put("task",lease.task);p.put("version",lease.version);
     p.put("dispatch_id",lease.dispatch);p.put("allocation_session",lease.session);
     p.put("goal_command_seq",lease.sequence);p.put("current_command_seq",topology_current_.sequence);
+    p.put("last_received_command_seq",topology_command_seq_);
     p.put("goal_token",lease.token());p.put("current_token",topology_current_.token());
     p.put("mode",topology_mode_text_);p.put("stop_pending",topology_stop_pending_);
     p.put("goal_stamp",goal.header.stamp.toSec());p.put("lease_stamp",lease.stamp);
