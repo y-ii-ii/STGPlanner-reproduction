@@ -3,6 +3,7 @@
 #define TOPO_PLANNER_WS_PATH_EXECUTION_H
 
 #include <Eigen/Eigen>
+#include "path_execution/execution_clock.h"
 #include <iostream>
 #include <set>
 #include <map>

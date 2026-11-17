@@ -62,7 +62,7 @@ bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleEx
     double body_margin=interface::jsonTree(goal.execution_lease).get<double>("body_margin_m",.15);
     if(body_margin!=.05&&body_margin!=.15)return false;
     double now=ros::Time::now().toSec();
-    if(goal.header.frame_id!="world"||goal.paths.empty()||now<goal.header.stamp.toSec()||now-goal.header.stamp.toSec()>2.||goal.header.stamp.toSec()<lease.stamp)return false;
+    if(goal.header.frame_id!="world"||goal.paths.empty()||!executionGoalTimeValid(goal.header.stamp.toSec(),now)||goal.header.stamp.toSec()<lease.stamp)return false;
     bool points=false;
     for(const auto&s:goal.paths)for(const auto&p:s.path){
       if(!std::isfinite(p.position.x)||!std::isfinite(p.position.y)||!std::isfinite(p.position.z))return false;

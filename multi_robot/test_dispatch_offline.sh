@@ -5,7 +5,7 @@ out="$1"
 test -n "$out"
 mkdir -p "$out"
 PYTHONPATH="$base/team_topology/src" python3 -m unittest discover -s "$base/team_topology/tests" -v 2>&1 | tee "$out/python_tests.log"
-for name in topology_gate own_observation_union body_route execution_endpoint stop_proof_cache; do
+for name in topology_gate own_observation_union body_route execution_endpoint stop_proof_cache execution_clock; do
   g++ -std=c++17 -O1 -g -no-pie -fsanitize=address,undefined -fno-omit-frame-pointer \
     -I"$base/native_overlay/planner/include" -I"$base/native_overlay/path_execution/include" \
     "$base/tests/test_$name.cpp" -o "$out/test_$name"
