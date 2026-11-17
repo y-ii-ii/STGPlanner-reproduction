@@ -5,6 +5,7 @@ from common import *
 from initialization_traffic import TrafficController
 from team_topology.traffic_geometry import rectangle,clearance
 from team_topology.execution import stop_proof
+from runtime_health import incarnation,ended
 
 def main(index):
     idle();out=result_path(index);manifest=json.loads((out/'manifest.json').read_text())
@@ -20,7 +21,7 @@ def main(index):
     t0=time.monotonic();token=out.name;os.environ['STGPLANNER_TOPOLOGY_TRIAL_TOKEN']=token;os.environ['ROS_LOG_DIR']=str(out/'ros')
     shutil.copytree(CODE,out/'implementation',ignore=shutil.ignore_patterns('__pycache__','.git','evidence'))
     events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w');traffic_log=(out/'traffic.jsonl').open('w');allocation_log=(out/'allocation_commands.jsonl').open('w')
-    robots=['robot_1','robot_2'];children=[];handles=[];subs=[];syncs=[];errors=[];done=threading.Event();stopping=threading.Event()
+    robots=['robot_1','robot_2'];children=[];handles=[];subs=[];syncs=[];errors=[];done=threading.Event();stopping=threading.Event();critical_pids={}
     state={r:dict(pose=None,physical=None,odom_at=0.,raw=(0.,0.),raw_at=0.,current=(0.,0.),cmd=(0.,0.),cmd_at=0.,last=None) for r in robots}
     sources={r:set() for r in robots};distance={r:0. for r in robots};frames={r:0 for r in robots};result=dict(trial=out.name,index=index,T95_wall_s=None,T95_sim_s=None,finish_reason=None,checks={},errors=errors)
     active=False;start_sim=None;start_wall=None;rospy=None;contact=None;init_pubs={};init_permissions={r:False for r in robots};gate_thread=None;init_done=threading.Event();plan_count={r:0 for r in robots};feedback_count={};traffic_modes={};coordinator_status={};gate_proofs={};pubs={};stops={};motions={};finish={};inits={};mission=None;mutex=threading.RLock()
@@ -65,6 +66,7 @@ def main(index):
         if rospy and rospy.core.is_initialized() and rospy.get_time()>0 and rospy.get_time()-manifest['world_clock_origin_s']>2320:raise TimeoutError('sim_limit_including_startup')
         dead=[(n,p.poll()) for n,p in children if p.poll() is not None]
         if dead:raise RuntimeError('launch_exit:'+str(dead))
+        if critical_pids and ended(critical_pids):raise RuntimeError('native_process_exit:'+str(ended(critical_pids)))
         if all(state[r]['physical'] is not None for r in robots):
             gap=clearance(*(rectangle(state[r]['physical']) for r in robots))
             result['min_footprint_clearance_m']=min(result.get('min_footprint_clearance_m',1e9),gap)
@@ -217,6 +219,7 @@ def main(index):
                 p=Path('/proc')/str(pid);exe=(p/'exe').resolve();libs=sorted(set(x.split()[-1] for x in (p/'maps').read_text().splitlines() if any(name in x for name in ('libtopo_planner.so','libpath_execution.so','libexplorer.so','libcontrol_planner_interface.so'))));runtime_info.append(dict(pid=pid,exe=str(exe),sha256=sha(exe),libraries=libs))
             except OSError:pass
         dump(out/'runtime_fingerprints.json',runtime_info)
+        critical_pids.update({x['pid']:incarnation(x['pid']) for x in runtime_info if Path(x['exe']).name in ('topo_planner_node','path_execution_node','explorer_node')})
         assert sum(Path(x['exe']).name=='topo_planner_node' for x in runtime_info)==2
         assert all(x['sha256']==manifest['executables'][str(PLANNER/'devel/lib/planner/topo_planner_node')] and any(str(PLANNER) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='topo_planner_node')
         assert sum(Path(x['exe']).name=='team_score' for x in runtime_info)==2

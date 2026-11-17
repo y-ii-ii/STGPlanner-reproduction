@@ -25,6 +25,9 @@ def prepare(index):
     for g in root.findall('group'):
         r=g.get('ns');prefix='/'+r
         planner=g.find("node[@name='topo_planner_node']")
+        # Preserve live odometry after a planner exit for nonce-bound STOP proof;
+        # supervisor PID health still aborts the trial immediately on node exit.
+        planner.set('required','false')
         set_remap(planner,'point_cloud',prefix+'/team/cloud');set_remap(planner,'sensor_odometry',prefix+'/team/odom')
         env=planner.find("env[@name='ROS_PACKAGE_PATH']");env.set('value',sandbox(out/r/'planner/private'))
         planner.find("env[@name='LD_LIBRARY_PATH']").set('value',str(PLANNER/'devel/lib')+':'+str(NATIVE/'devel/lib')+':$(optenv LD_LIBRARY_PATH)')
@@ -48,6 +51,8 @@ def prepare(index):
             'same_scoring_configs':all(sha(f/(r+'_planner.yaml'))==sha(REF/'frozen'/(r+'_planner.yaml')) for r in ('robot_1','robot_2'))}
     follower_limits=[{p.get('name'):float(p.get('value')) for p in n.findall('param') if p.get('name') in ('maxSpeed','maxYawRate')} for n in E.parse(REF/'frozen/stack.launch').findall(".//node[@name='pathFollower']")]
     checks['same_normal_linear_and_yaw_caps']=all(v['maxSpeed']==2. and abs(v['maxYawRate']*3.141592653589793/180.-NORMAL_YAW_RATE)<1e-12 for v in follower_limits) and len(follower_limits)==2
+    health_nodes=root.findall(".//node[@name='topo_planner_node']")
+    checks['planner_failure_preserves_odometry_for_stop']=len(health_nodes)==2 and all(n.get('required')=='false' for n in health_nodes)
     assert all(checks.values()),checks
     executables={str(p):sha(p) for p in [PLANNER/'devel/lib/planner/topo_planner_node',PLANNER/'devel/lib/libtopo_planner.so',NATIVE/'devel/lib/path_execution/path_execution_node',NATIVE/'devel/lib/libpath_execution.so',NATIVE/'devel/lib/libcontrol_planner_interface.so',NATIVE/'devel/lib/exploration_manager/explorer_node',NATIVE/'devel/lib/libexplorer.so',SCORE_CODE/'bin/team_score',Path('/opt/stgplanner/catkin_ws/devel/lib/libtopo_planner.so')]}
     implementation={p.relative_to(CODE).as_posix():sha(p) for sub in ('bench','team_topology') for p in (CODE/sub).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
