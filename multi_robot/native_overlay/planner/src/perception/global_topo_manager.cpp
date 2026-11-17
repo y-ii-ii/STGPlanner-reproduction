@@ -264,6 +264,7 @@ void GlobalTopoManager::updateSkeleton() {
 }
 
 void GlobalTopoManager::updateTopo() {
+  if(skeleton_mask_roi_.empty())return;
   cv::filter2D(skeleton_mask_roi_, connection_num_roi_, CV_8U, conn_kernal_);
   cv::waitKey(1);
   connection_num_roi_.convertTo(connection_num_roi_, CV_8S);
@@ -280,8 +281,8 @@ void GlobalTopoManager::updateTopo() {
     heriTopo_[home_node_label_].parent_junction_label = home_node_label_;
     heriTopo_[home_node_label_].dis_to_parent = 0;
     int min_distance = 10000;
-    int nearest_label;
-    Index2D nearest_index;
+    int nearest_label=-1;
+    Index2D nearest_index(-1,-1);
     if (skeleton_mask_.at<uint8_t>(index2CvPoint(home_index2D_))) {
       nearest_index = home_index2D_;
       min_distance = 0;
@@ -301,6 +302,8 @@ void GlobalTopoManager::updateTopo() {
             }
         }
       }
+      // Empty connected skeleton is retryable, not an initialized coordinate.
+      if(nearest_index.x()<0||nearest_index.y()<0)return;
       nearest_label = index2NodeLabel(nearest_index);
       double dis_to_parent = sqrt(min_distance);
       if (unknown_mask_.at<uchar>(index2CvPoint(nearest_index)) > 0)
@@ -347,6 +350,7 @@ void GlobalTopoManager::updateTopo() {
   auto local_frontier_labels_copy = local_frontier_labels_;
   local_frontier_labels_.clear();
   for (auto &c_labbel: local_frontier_labels_copy) {
+    if(c_labbel<0||boost::vertex_by_label(c_labbel,heriTopo_)>=boost::num_vertices(heriTopo_))continue;
     const Index2D c_id = nodeLabel2Index(c_labbel);
     const cv::Point c_pt = index2CvPoint(c_id);
     if (!isInRoi(c_pt)) {
@@ -366,8 +370,10 @@ void GlobalTopoManager::updateTopo() {
 }
 
 void GlobalTopoManager::updateNodesRecursion(const int &center_label,
-                                            const cv::Point& center_cvPoint,
+                                            cv::Point center_cvPoint,
                                             int distance) {
+  // add_vertex below can invalidate any reference into vecS property storage.
+  if(!isInRoi(center_cvPoint)||center_label<0||boost::vertex_by_label(center_label,heriTopo_)>=boost::num_vertices(heriTopo_))return;
   const bool adj_to_unknown = unknown_mask_.at<uchar>(center_cvPoint) > 0;
   const int c_conn_num = connection_num_roi_.at<int8_t>(center_cvPoint - roi_pt_);
   if (c_conn_num <= 0) {
@@ -498,7 +504,7 @@ void GlobalTopoManager::updateNodesRecursion(const int &center_label,
       crop_termination_labels_.push_back(center_label);
     }
   }
-  heriTopo_[center_label].conn_num != c_conn_num;
+  heriTopo_[center_label].conn_num = c_conn_num;
   heriTopo_[center_label].children_labels.insert(
     heriTopo_[center_label].children_labels.end(),
     new_children_labels.begin(), new_children_labels.end());
@@ -529,13 +535,17 @@ void GlobalTopoManager::updateHistoryChildren(const int &center_label) {
 }
 
 void GlobalTopoManager::updateHistoryChildrenRec(int center_label, int parent_label, int parent_branch_label, int parent_junction_label, int distance) {
+  // Invalid/cyclic history must not recurse indefinitely or index children[0].
+  std::unordered_set<int> seen;
+  while(center_label>=0&&boost::vertex_by_label(center_label,heriTopo_)<boost::num_vertices(heriTopo_)&&seen.insert(center_label).second){
   heriTopo_[center_label].parent_label = parent_label;
   heriTopo_[center_label].parent_branch_label = parent_branch_label;
   heriTopo_[center_label].parent_junction_label = parent_junction_label;
   heriTopo_[center_label].dis_to_parent = distance;
   if (heriTopo_[center_label].type == Connection) {
-    assert(heriTopo_[center_label].children_labels.size() == 1);
-    updateHistoryChildrenRec(heriTopo_[center_label].children_labels[0], center_label, parent_branch_label, parent_junction_label, distance+1);
+    if(heriTopo_[center_label].children_labels.size()!=1)return;
+    parent_label=center_label;center_label=heriTopo_[center_label].children_labels[0];++distance;
+  }else return;
   }
 }
 

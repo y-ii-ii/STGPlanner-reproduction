@@ -1,3 +1,7 @@
+# 最新增量授权：2026-11-17 liveness
+
+- 最新用户明确授权：先离线修复跨任务重派、图积压与原生SIGSEGV，再最多4次新Scene4双机；每次含启动收尾wall/sim≤2400s，失败、中止、崩溃计数。权威D:/STGPlanner/codex/TOPOLOGY_LIVENESS_LIMITS_20261117.json。新独立liveness_native/liveness Python空间；旧scope保持closed、全部基线和历史只读。继续允许公开GitHub推送，每个逻辑修改注释、解释原因并验证后推送。
+
 # 本目录协作范围（2026-11-17最新授权）
 
 - 当前新授权：先离线修复STOP/ACK派发环与近墙恢复，再最多4次新Scene4双机，每次含启动收尾wall/sim≤2400s，失败/中止计数；新权威D:/STGPlanner/codex/TOPOLOGY_DISPATCH_LIMITS_20261117.json。旧wall等scope不重置，旧结果/原生空间只读；新dispatch_native与dispatch Python空间。代码注释、验证后继续推送当前公开仓库，全部基线保留。

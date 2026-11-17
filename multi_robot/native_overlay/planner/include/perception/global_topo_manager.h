@@ -209,7 +209,7 @@ public:
       int shift = pow(2, depth-1);
       for (int i = centerId_x - shift; i <= centerId_x + shift - 1; ++i) {
         for (int j = centerId_y - shift; j <= centerId_y + shift - 1; ++j) {
-          if (i >= 0 && i <= grid_num_x_ && j >= 0 && j <=grid_num_y_)
+          if (i >= 0 && i < grid_num_x_ && j >= 0 && j < grid_num_y_)
           indices.push_back({i, j});
         }
       }
@@ -270,7 +270,8 @@ public:
 
   bool localFrontierRelocate(int &current_explore_branch, std::vector<MissedBranchMap> &history_missed_branches, NodeQueue &path);
 
-  void updateNodesRecursion(const int &center_label, const cv::Point& center_cvPoint, int distance);
+  // vecS growth relocates vertex properties: own the coordinate value.
+  void updateNodesRecursion(const int &center_label, cv::Point center_cvPoint, int distance);
 
   void updateHistoryChildren(const int &center_label);
 

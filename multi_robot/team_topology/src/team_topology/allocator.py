@@ -8,6 +8,7 @@ import hashlib
 import math
 from .graph import Navigation, point, wire
 from .scope import unknown_support, completion_signature
+from .retry_memory import RetryMemory
 
 
 class TaskLedger:
@@ -56,7 +57,28 @@ class Coordinator:
         self.ledger, self.command_seq, self.commands = TaskLedger(), 0, {}
         self.deferred = {}
         self.completed_support = {}  # Authority overlay; never rewrite peer-owned maps/tasks.
+        # Static common-world phase only: validated observation evidence follows
+        # geometry across renamed/source-alias tasks, not transient task IDs.
+        # This is a completion mask, never free-space/navigation evidence.
+        self.observed_support = set()
         self.diagnostics={}
+        self.retry_memory=RetryMemory()
+
+    def commit_dispatches(self,plans):
+        """Reserve delivered ROUTEs, not intentions still blocked by STOP/ACK.
+
+        Ledger ownership is exclusive even while assigned; only a real ROUTE
+        enters dispatched state and requires a physical release barrier.
+        """
+        for r,p in plans.items():
+            if p.get('mode')!='ROUTE':continue
+            item=self.ledger.items.get(p['task'])
+            if item and item['version']==p['version'] and item.get('receiver',item['owner'])==r and item['state'] in ('assigned','offered'):
+                item.update(owner=r,state='dispatched');item.pop('receiver',None)
+
+    def fail_execution(self,robot,active,now,unsafe_start=False):
+        self.defer(robot,active['task'],now,15.)
+        self.retry_memory.fail(robot,active,now,unsafe_start)
 
     def defer(self, robot, task, wall_now, seconds=8.):
         self.deferred[robot,task] = max(self.deferred.get((robot,task),0.),wall_now+seconds)
@@ -67,7 +89,7 @@ class Coordinator:
             if task["state"] != "pending":
                 continue
             support = unknown_support([task["scope"]]) if "scope" in task else frozenset()
-            if support and support <= self.completed_support.get(key, frozenset()):
+            if support and (support <= self.observed_support or support <= self.completed_support.get(key, frozenset())):
                 continue
             portals = [p for p in task["portals"] if p in nav.nodes]
             positions = {point(nav.nodes[p]["p"]) for p in portals}
@@ -98,9 +120,14 @@ class Coordinator:
             self.commands = waits
             return waits
         nav = Navigation(store)
+        # An offer never emitted as a ROUTE carries no physical ownership. Rebid
+        # it freely; actual dispatched/active work remains protected until ACK.
+        for item in self.ledger.items.values():
+            if item['state']=='offered':item.pop('receiver',None);item['state']='assigned'
         groups = self.groups(store, nav)
         group_by_id = {g["id"]: g for g in groups}
-        searches = {r: nav.search(store.states[r]["root"])[0] for r in self.robots}
+        trees = {r: nav.search(store.states[r]["root"]) for r in self.robots}
+        searches = {r:tree[0] for r,tree in trees.items()}
         costs, portal_for = {}, {}
         for group in groups:
             gid = group["id"]
@@ -112,11 +139,15 @@ class Coordinator:
                 costs[r, gid], portal_for[r, gid] = min(options)
                 if self.deferred.get((r,gid),-math.inf)>wall_now:
                     costs[r,gid]=math.inf  # Execution feedback, not task completion.
+                if math.isfinite(costs[r,gid]):
+                    trial=nav.route(store.states[r]['root'],portal_for[r,gid],trees[r])
+                    path=[point(store.states[r]['pose'])]+trial['path'] if trial else []
+                    if self.retry_memory.blocked(r,path,wall_now):costs[r,gid]=math.inf
             reachable = [r for r in self.robots if math.isfinite(costs[r, gid])]
             if reachable:
                 best = min(reachable, key=lambda r: (costs[r, gid], r))
                 item = self.ledger.assign(gid, best)
-                if item["state"] == "assigned" and item["owner"] not in reachable:
+                if item["state"] == "assigned" and item["owner"] != best:
                     # Only never-executing work can be offered automatically.
                     # Active/dispatched work waits for explicit release feedback.
                     self.ledger.offer(gid, best)
@@ -155,7 +186,7 @@ class Coordinator:
             gid = min(available, key=lambda k: (self.ledger.items[k]["state"] not in ("active", "dispatched"),
                                                 costs[r, k], k))
             item = self.ledger.items[gid]
-            route = nav.route(store.states[r]["root"], portal_for[r, gid])
+            route = nav.route(store.states[r]["root"], portal_for[r, gid],trees[r])
             if route is None:
                 continue
             path = route["path"]
@@ -171,10 +202,8 @@ class Coordinator:
                 "cost_m": costs[r, gid], "edge_ids": route["edges"],
                 "peer_edges": sorted({e for e in route["edges"] if not e.startswith(store.states[r]["author"] + "/")}),
                 "graph_digest": store.digest()}
-            if item["state"] == "assigned":
-                # Reserve before publishing; delayed ACK must not make already
-                # dispatched work look available for another idle robot.
-                item["state"] = "dispatched"
+            # The supervisor may still withhold this intention behind a STOP
+            # barrier. commit_dispatches() runs on the actual published ROUTEs.
             waits[r]["scope_digest"], waits[r]["scope_cells"] = completion_signature(waits[r]["scopes"])
         self.commands = waits
         self.diagnostics={'reason':'allocated','groups':len(groups),'pending_tasks':sum(t['state']=='pending' for t in store.live('task').values()),
@@ -205,6 +234,7 @@ class Coordinator:
                 or item["version"] != int(active["version"])):
             return False
         support = unknown_support(active["scopes"])
+        self.observed_support.update(support)
         for key in active["task_members"]:
             self.completed_support[key] = self.completed_support.get(key, frozenset()) | support
         if item["state"] == "offered":

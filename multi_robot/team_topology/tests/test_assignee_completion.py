@@ -58,3 +58,18 @@ class AssigneeCompletionTests(unittest.TestCase):
         self.assertEqual(completion_signature([scope]),completion_signature([scope,alias]))
         alias["unknown_runs"]=[[1,2,4]]
         self.assertNotEqual(completion_signature([scope]),completion_signature([alias]))
+
+    def test_renamed_task_cannot_reassign_already_observed_world_support(self):
+        c,store,a,records,state,key,route,proof=self.fixture()
+        self.assertTrue(c.observe_completed(proof,route,1.1))
+        alias=a.key('task','renamed');records[alias]=records.pop(key);state['stamp']=1.2
+        store.apply(a.build(records,state))
+        self.assertTrue(all(v['mode']=='WAIT' for v in c.plan(store,1.2).values()))
+        self.assertEqual(store.live('task')[alias]['state'],'pending')
+        self.assertNotEqual(c.ledger.items[key]['state'],'completed') # Still needs physical STOP.
+
+    def test_renamed_task_with_novel_cells_is_not_falsely_completed(self):
+        c,store,a,records,state,key,route,proof=self.fixture()
+        c.observe_completed(proof,route,1.1);c.ledger.release(key,2,route['version'])
+        alias=a.key('task','renamed');records[alias]=records.pop(key);records[alias]['scope']['unknown_runs']=[[1,2,4]];state['stamp']=1.2
+        store.apply(a.build(records,state));self.assertTrue(any(v['mode']=='ROUTE' for v in c.plan(store,1.2).values()))

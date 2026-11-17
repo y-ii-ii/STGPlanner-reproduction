@@ -26,6 +26,7 @@ class EndToEndTests(unittest.TestCase):
                 v,events=f.tick(wall);f.output_published(v,wall)
                 for e in events:self.assertTrue(s.feedback(e,wall))
         routes=s.commands(c.plan(store,1.95),.95,1.95)
+        c.commit_dispatches(routes)
         self.assertNotEqual(routes[1]['task'],routes[2]['task'])
         for r,f in fences.items():
             route=routes[r];self.assertTrue(f.receive_command(route,.95,1.95))
@@ -61,9 +62,10 @@ class EndToEndTests(unittest.TestCase):
         for r in (1,2):store.apply(LocalExporter(r,'deferral').snapshot(snapshot(r)))
         c=Coordinator();plan=c.plan(store,1.)
         task=plan[1]['task'];c.defer(1,task,10.,8.)
-        self.assertEqual(c.plan(store,1.1,wall_now=10.1)[1]['mode'],'WAIT')
+        next_plan=c.plan(store,1.1,wall_now=10.1)[1]
+        self.assertTrue(next_plan['mode']=='WAIT' or next_plan['task']!=task)
         self.assertEqual(store.live('task')[task]['state'],'pending')
-        self.assertEqual(c.ledger.items[task]['state'],'dispatched')
+        self.assertIn(c.ledger.items[task]['state'],('assigned','offered')) # Never delivered.
 
 
 if __name__=='__main__':unittest.main()

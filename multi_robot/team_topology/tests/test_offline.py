@@ -222,6 +222,7 @@ class OfflineTests(unittest.TestCase):
         c=Coordinator();plans=c.plan(store,1.)
         owner=next(r for r,p in plans.items() if p['mode']=='ROUTE')
         command=plans[owner]
+        c.commit_dispatches(plans) # Model actual publication, not just bidding.
         self.assertEqual(c.ledger.items[command['task']]['state'],'dispatched')
         with self.assertRaises(ValueError):c.ledger.offer(command['task'],3-owner)
         self.assertFalse(c.feedback(dict(command,status='ACCEPTED',command_seq=0)))

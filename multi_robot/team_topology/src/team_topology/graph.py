@@ -75,6 +75,10 @@ class GraphStore:
         self.records, self.sequences, self.states, self.robot_authors = {}, {}, {}, {}
         self.received_bytes = 0
         self.last_packets = {}
+        self._live = {k:{} for k in ('node','edge','task')}
+        self._incident = {}
+        self._authored = {}
+        self._digest = None
 
     def apply(self, delta):
         if delta.get("schema") != 1 or delta.get("frame") != "world":
@@ -93,9 +97,12 @@ class GraphStore:
             return False
         if seq != last + 1 and not delta.get("full"):
             raise ValueError("delta sequence gap: request full repair")
-        if delta.get("full") and any(k.startswith(author + "/") and k not in delta["records"] for k in self.records):
+        if delta.get("full") and not self._authored.get(author,set()) <= delta['records'].keys():
             raise ValueError("full repair omitted an existing record/tombstone")
-        candidate = copy.deepcopy(self.records)
+        # Copy-on-write transaction: historical records are immutable here.
+        # A state-only heartbeat must not deepcopy/revalidate all old paths.
+        candidate = self.records.copy()
+        changed=set()
         for key, record in delta["records"].items():
             if not key.startswith(author + "/") or record["rev"] > seq or record["rev"] < 1:
                 raise ValueError("foreign ID or invalid revision")
@@ -104,9 +111,18 @@ class GraphStore:
                 raise ValueError("same-revision conflict")
             if old is None or old["rev"] < record["rev"]:
                 candidate[key] = copy.deepcopy(record)
+                changed.add(key)
         # Geometry is checked before publishing any part of the transaction.
-        live = {k: r["value"] for k, r in candidate.items() if not r["deleted"]}
-        for key, obj in live.items():
+        def live_record(key):
+            r=candidate.get(key)
+            return r['value'] if r and not r['deleted'] else None
+        validate=set(changed)
+        # Moving/reintroducing a node also rechecks unchanged incident edges;
+        # validating only incoming edges would accept stale endpoint geometry.
+        for key in changed:validate.update(self._incident.get(key,()))
+        for key in validate:
+            obj=live_record(key)
+            if obj is None:continue
             if obj["kind"] == "node":
                 point(obj["p"])
             elif obj["kind"] == "edge":
@@ -117,8 +133,9 @@ class GraphStore:
                     raise ValueError("empty edge")
                 if not obj["a"].startswith(key.split("/edge/")[0] + "/") or not obj["b"].startswith(key.split("/edge/")[0] + "/"):
                     raise ValueError("edge endpoints must retain author provenance")
-                if obj["a"] in live and obj["b"] in live:
-                    if point(live[obj["a"]]["p"]) != path[0] or point(live[obj["b"]]["p"]) != path[-1]:
+                a,b=live_record(obj['a']),live_record(obj['b'])
+                if a is not None and b is not None:
+                    if point(a["p"]) != path[0] or point(b["p"]) != path[-1]:
                         raise ValueError("edge endpoint mismatch")
                 resolution = float(obj["resolution"])
                 if not math.isfinite(resolution) or resolution <= 0:
@@ -130,13 +147,27 @@ class GraphStore:
         point(delta["state"]["pose"])
         if not math.isfinite(float(delta["state"]["stamp"])):
             raise ValueError("non-finite source timestamp")
-        if delta["state"]["root"] not in live:
+        root = live_record(delta['state']['root'])
+        if root is None:
             raise ValueError("missing robot attachment")
-        root = live[delta["state"]["root"]]
         resolution = float(delta["state"].get("resolution", 1.0))
         if (root["kind"] != "node" or not math.isfinite(resolution) or resolution <= 0
             or math.dist(point(root["p"]), point(delta["state"]["pose"])) > resolution/math.sqrt(2)+1e-6):
             raise ValueError("robot root is not its own observed lattice cell")
+        # All validation precedes cache/index mutation; rejection is atomic.
+        for key in changed:
+            old=self.records.get(key)
+            if old and not old['deleted']:
+                obj=old['value'];self._live[obj['kind']].pop(key,None)
+                if obj['kind']=='edge':
+                    for endpoint in (obj['a'],obj['b']):self._incident[endpoint].discard(key)
+            obj=live_record(key)
+            if obj is not None:
+                self._live[obj['kind']][key]=candidate[key]['value']
+                if obj['kind']=='edge':
+                    for endpoint in (obj['a'],obj['b']):self._incident.setdefault(endpoint,set()).add(key)
+        self._authored.setdefault(author,set()).update(changed)
+        if changed:self._digest=None
         self.records = candidate
         self.sequences[author] = seq
         self.states[robot] = dict(delta["state"], author=author, seq=seq)
@@ -146,11 +177,11 @@ class GraphStore:
         return True
 
     def live(self, kind):
-        return {k: r["value"] for k, r in self.records.items()
-                if not r["deleted"] and r["value"]["kind"] == kind}
+        return dict(self._live.get(kind,{}))
 
     def digest(self):
-        return hashlib.sha256(wire(self.records).encode()).hexdigest()
+        if self._digest is None:self._digest=hashlib.sha256(wire(self.records).encode()).hexdigest()
+        return self._digest
 
 
 class Navigation:
@@ -194,8 +225,8 @@ class Navigation:
                     heapq.heappush(queue, (value, nxt))
         return dist, previous
 
-    def route(self, start_key, end_key):
-        dist, prev = self.search(start_key)
+    def route(self, start_key, end_key, search=None):
+        dist, prev = self.search(start_key) if search is None else search
         end, start = point(self.nodes[end_key]["p"]), point(self.nodes[start_key]["p"])
         if end not in dist:
             return None

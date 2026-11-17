@@ -26,7 +26,7 @@ def main():
         raise ValueError("robot identities must be unique")
     store, coordinator, inbox = GraphStore(), Coordinator(robots), AuthorityInbox()
     ack_audit={"accepted":0,"rejected":0,"last_rejection":None}
-    service={"max_feedback_queue_wait_s":0.,"max_plan_wall_s":0.}
+    service={"max_feedback_queue_wait_s":0.,"max_plan_wall_s":0.,"max_graph_apply_wall_s":0.,"graph_packets_applied":0}
     session = uuid.uuid4().hex
     # One transport recovery only: use a fresh nonce, never accept a late proof
     # from the expired round or retry forever when the gate/odometry is dead.
@@ -42,13 +42,17 @@ def main():
     def publish_plans_unlocked():
         desired=coordinator.plan(store,rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
         plans=supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
+        coordinator.commit_dispatches(plans)
         for r,plan in plans.items():
             encoded=wire(plan);publishers[r].publish(String(data=encoded))
             traffic['commands_published_bytes']+=len(encoded.encode())+4
         return plans
 
     def apply_packet(value):
-        try:store.apply(value)
+        try:
+            began=time.monotonic();applied=store.apply(value)
+            service['max_graph_apply_wall_s']=max(service['max_graph_apply_wall_s'],time.monotonic()-began)
+            service['graph_packets_applied']+=int(applied)
         except (ValueError,KeyError,TypeError) as exc:
             rospy.logwarn_throttle(2.,"Topology receive refused: %s",exc)
 
@@ -67,7 +71,7 @@ def main():
                         # A geometric planning failure needs a useful cooling
                         # interval; a 2s retry previously reset the execution
                         # stall timer without ever moving the robot.
-                        coordinator.defer(r,active["task"],time.monotonic(),15.)
+                        coordinator.fail_execution(r,active,time.monotonic(),value.get('local_gate')=='BODY_START_BLOCKED')
                         supervisor.request_stop(r,None,time.monotonic(),"planner_blocked")
                     elif matches and value.get("status")=="OBSERVATION_COMPLETED":
                         if coordinator.observe_completed(value,active,rospy.Time.now().to_sec()):
@@ -79,8 +83,8 @@ def main():
                         and value.get('task')==active.get('task')
                         and int(value.get('version',0))==active.get('version')
                         and int(value.get('dispatch_id',0))==active.get('dispatch_id'))
-                    if executor_matches and value.get('status')=='EXECUTOR_REJECTED':
-                        coordinator.defer(r,active['task'],time.monotonic(),15.)
+                    if executor_matches and state.get('phase')=='running' and value.get('status')=='EXECUTOR_REJECTED':
+                        coordinator.fail_execution(r,active,time.monotonic())
                         supervisor.request_stop(r,None,time.monotonic(),'executor_rejected')
                     if (value.get("source")=="executor" and value.get("status")=="EXECUTOR_ACCEPTED"
                         and state.get("phase")=="running" and active is not None and value.get("task")==active.get("task")
@@ -88,14 +92,14 @@ def main():
                         and int(value.get("dispatch_id",0))==active.get("dispatch_id")):
                         coordinator.ledger.acknowledge(active["task"],r,active["version"])
                     if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN"):
-                        coordinator.defer(r,state["active"]["task"],time.monotonic())
+                        coordinator.fail_execution(r,active,time.monotonic())
                     if (value.get('status')=='STOP_REQUIRED' and value.get('token')==state.get('token')
                             and active is not None and value.get('reason')=='EXECUTOR_STOP'
                             and r in store.states and no_dispatch_progress(state,store.states[r]['pose'])):
                         # A completed/rejected short goal before 10cm motion
                         # must not earn a new dispatch and another fresh 8s
                         # stall budget indefinitely. Defer work, not complete it.
-                        coordinator.defer(r,active['task'],time.monotonic(),15.)
+                        coordinator.fail_execution(r,active,time.monotonic())
                     accepted=supervisor.feedback(value,time.monotonic())
                     if value.get('status')=='STOPPED':
                         ack_audit['accepted' if accepted else 'rejected']+=1
@@ -124,6 +128,9 @@ def main():
             "execution_blocked_by":{str(r):s.get('blocked_by',[]) for r,s in supervisor.states.items()},
             "stop_retry_counts":{str(r):s.get('stop_retry_count',0) for r,s in supervisor.states.items()},
             "allocation_diagnostics":coordinator.diagnostics,
+            "execution_retry_memory":coordinator.retry_memory.entries,
+            "observed_completion_cells":len(coordinator.observed_support),
+            "ledger_state_counts":{k:sum(i['state']==k for i in coordinator.ledger.items.values()) for k in ('assigned','offered','dispatched','active','completed')},
             "feedback_ack_audit":dict(ack_audit),"authority_service":dict(service),"authority_inbox":counts,
             "command_serialized_bytes": sum(len(wire(dict(p, allocation_session=session)).encode("utf-8"))+4 for p in plans.values()),
             "robot_distance_m": math.dist(store.states[robots[0]]["pose"],store.states[robots[1]]["pose"])
