@@ -1,5 +1,7 @@
 # 本目录协作范围（2026-11-17最新授权）
 
+- 当前新授权：先离线修复STOP/ACK派发环与近墙恢复，再最多4次新Scene4双机，每次含启动收尾wall/sim≤2400s，失败/中止计数；新权威D:/STGPlanner/codex/TOPOLOGY_DISPATCH_LIMITS_20261117.json。旧wall等scope不重置，旧结果/原生空间只读；新dispatch_native与dispatch Python空间。代码注释、验证后继续推送当前公开仓库，全部基线保留。
+
 - 最新授权覆盖旧scope停止条款：离线近墙目标／转向／跟踪修复后最多4次新双机Scene4，每次总wall／sim≤2400s，失败和中止计数；权威D:/STGPlanner/codex/TOPOLOGY_WALL_LIMITS_20261117.json。旧scope不重置，全部旧基线／结果／原生空间只读保留，新wall_native与wall Python空间；继续允许公开GitHub推送。
 
 - 2026-11-16最新授权覆盖以下旧“仅离线”：补齐交通预约／让行，离线通过后最多4次新Scene4双机试验，每次总wall／sim≤2400秒，失败／中止计数；权威D:/STGPlanner/codex/TOPOLOGY_TRAFFIC_LIMITS_20261116.json。旧scope仍closed，新目录，不替换基线；本分支继续允许公开GitHub推送。

@@ -31,5 +31,16 @@ int main(){
  g.data.assign(10000,0);
  auto heading=bodyRoute(g,{{0,0},{3*std::cos(.19),3*std::sin(.19)}},0,0,.19);check(heading);
  assert(std::abs(heading.poses[1].yaw-.19)<1e-9);
- std::cout<<"11 body-route cases passed (recenter, rotated start, observed-free partial prefix)\n";
+ ExecutionGrid near;near.width=near.height=100;near.resolution=.1;near.x0=near.y0=-5;near.data.assign(10000,0);
+ for(int y=54;y<100;++y)for(int x=0;x<100;++x)near.data[y*100+x]=100;
+ assert(near.footprint(0,0,.07,.05)==0&&near.footprint(0,0,.07,.15)!=0);
+ auto parallel=bodyRoute(near,{{0,0},{3,0}},0,0,.07);
+ assert(parallel.status=="BODY_RECENTER"&&parallel.arc>.67&&parallel.arc<=3.);
+ auto recover=parallel.poses.back();assert(near.footprint(recover.x,recover.y,recover.yaw,.15)==0);
+ auto no_guide=bodyRoute(near,{},0,0,.07);assert(no_guide.status=="BODY_RECENTER");
+ near.data.assign(10000,0);for(int y=0;y<100;++y)for(int x=56;x<100;++x)near.data[y*100+x]=100;
+ auto rotation=bodyRoute(near,{},0,0,M_PI/4);
+ assert(rotation.status=="BODY_RECENTER"&&rotation.arc<1e-6);
+ assert(std::abs(rotation.poses.back().yaw-M_PI/4)>.15);
+ std::cout<<"14 body-route cases passed (parallel-wall >0.67m, empty-guide recovery and rotation-only recovery)\n";
 }

@@ -103,8 +103,12 @@ namespace interface {
                 if (state == actionlib::SimpleClientGoalState::SUCCEEDED && result) {
                     path_segments = result->paths;
                     if(!result->execution_lease.empty())pci_manager_->setExecutionLease(result->execution_lease);
-                    bool topology=false;nh_private_.param("team/topology_enabled",topology,false);
-                    if(topology&&path_segments.empty()){pci_manager_->cancelCurrentGoal();pci_manager_->stopMove();}
+                    // Empty in topology mode means WAIT/BLOCKED/completed. The
+                    // allocation authority already fences that generation and
+                    // gathers its stop proof. Sending an idle PCI STOP here
+                    // used to cancel the freshly dispatched next generation,
+                    // producing an endless STOP/ACK/retry loop. Explicit finish,
+                    // planner failure/timeout and operator stop retain the RPC.
                     ROS_INFO("the path get.");
                     return true;
                 }

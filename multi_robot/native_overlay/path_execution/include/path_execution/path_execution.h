@@ -17,6 +17,7 @@
 #include <std_msgs/String.h>
 #include <mutex>
 #include "control_planner_interface/execution_lease.h"
+#include "path_execution/stop_proof_cache.h"
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -131,7 +132,7 @@ namespace path_execution {
         double topology_received_=0,topology_goal_began_=0;
         double topology_body_margin_=.15;
         unsigned long topology_command_seq_=0,topology_permit_seq_=0,last_topology_goal_seq_=0;
-        std::map<std::string,std::string> topology_stop_proofs_;
+        StopProofCache topology_stop_proofs_;
         ros::Publisher topology_permit_pub_,topology_feedback_pub_,topology_certified_pub_;
         ros::Subscriber topology_command_sub_,topology_feedback_sub_;
         ros::WallTimer topology_watchdog_;

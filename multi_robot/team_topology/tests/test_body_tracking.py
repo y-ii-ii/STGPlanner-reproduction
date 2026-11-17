@@ -1,6 +1,6 @@
 import math
 import unittest
-from team_topology.body_tracking import BodyGrid,BodyTracker,shield_output
+from team_topology.body_tracking import BodyGrid,BodyTracker,shield_output,NORMAL_YAW_RATE
 
 
 class BodyTrackingTests(unittest.TestCase):
@@ -104,6 +104,16 @@ class BodyTrackingTests(unittest.TestCase):
             self.assertTrue(g.free(*pose),pose)
             if status=='PATH_END':finished=True;break
         self.assertTrue(finished);self.assertLess(math.dist(pose[:2],(2,2)),.2)
+
+    def test_normal_yaw_cap_matches_reference_and_rejects_larger_approval(self):
+        t=BodyTracker();t.receive([(0,0,0),(0,0,1.5),(0,1,1.5)],'turn')
+        v,_=t.propose((0,0,0),(0,0),self.grid());self.assertAlmostEqual(v[1],math.pi/3.)
+        self.assertEqual(NORMAL_YAW_RATE,math.pi/3.)
+        self.assertEqual(shield_output(self.grid(),True,(0,0,0),(0,0),(0,1.1)),((0.,0.),True))
+
+    def test_zero_displacement_recovery_still_executes_its_turn(self):
+        t=BodyTracker();t.receive([(0,0,.8),(0,0,.5),(0,0,.1)],'recover-turn',.05)
+        v,status=t.propose((0,0,.8),(0,0),self.grid());self.assertLess(v[1],0);self.assertNotEqual(status,'PATH_END')
 
 
 if __name__=='__main__':unittest.main()

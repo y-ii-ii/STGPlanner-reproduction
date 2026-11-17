@@ -110,6 +110,7 @@ def main():
                 "tasks": len(store.live("task")), "accepted_received_bytes": store.received_bytes,
                 "communication_one_delivery_application_bytes":dict(traffic),
                 "execution_phases":{str(r):s["phase"] for r,s in supervisor.states.items()},
+                "execution_blocked_by":{str(r):s.get('blocked_by',[]) for r,s in supervisor.states.items()},
                 "allocation_diagnostics":coordinator.diagnostics,
                 "command_serialized_bytes": sum(len(wire(dict(p, allocation_session=session)).encode("utf-8"))+4 for p in plans.values()),
                 "robot_distance_m": math.dist(store.states[robots[0]]["pose"],store.states[robots[1]]["pose"])

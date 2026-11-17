@@ -31,10 +31,14 @@ void PathExecution::topologyControl(const std_msgs::String::ConstPtr&msg){
     if((!topology_session_.empty()&&topology_session_!=session)||seq<=topology_command_seq_)return;
     topology_session_=session;topology_command_seq_=seq;topology_mode_text_=mode;topology_received_=interface::executionMonotonicNow();
     if(mode=="STOP"){
+      topology_stop_proofs_.beginStop(p.get<std::string>("stop_id",""));
       topology_stop_pending_=true;topology_goal_active_=false;
       std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);
     }else{
-      if(lease.token()!=topology_current_.token())topology_stop_pending_=false;
+      if(lease.token()!=topology_current_.token()){
+        topology_stop_pending_=false;
+        topology_stop_proofs_.beginMotion();
+      }
       topology_current_=lease;
     }
   }catch(const std::exception& e){ROS_WARN_THROTTLE(2.,"Executor command rejected: %s",e.what());}
@@ -48,9 +52,8 @@ void PathExecution::topologyFeedback(const std_msgs::String::ConstPtr&msg){
     for(const auto&id:p.get_child("request_ids")){
       auto request=id.second.get_value<std::string>();
       if(interface::stoppedProofMatches(msg->data,request,topology_robot_,topology_session_))
-        topology_stop_proofs_[request]=msg->data;
+        topology_stop_proofs_.record(request,p.get<std::string>("stop_id"),msg->data,p.get<double>("stamp"));
     }
-    while(topology_stop_proofs_.size()>128)topology_stop_proofs_.erase(topology_stop_proofs_.begin());
   }catch(const std::exception&){}
 }
 bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleExecuteGoal&goal){
@@ -72,6 +75,7 @@ bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleEx
        interface::executionMonotonicNow()-topology_received_>1.5)return false;
     if(topology_goal_.token()==lease.token()&&goal.header.seq<=last_topology_goal_seq_)return false;
     if(topology_goal_.token()!=lease.token())topology_path_published_=false;
+    topology_stop_proofs_.beginMotion();
     topology_goal_=lease;last_topology_goal_seq_=goal.header.seq;topology_body_margin_=body_margin;
     topology_goal_active_=true;topology_goal_began_=interface::executionMonotonicNow();
     return true;
@@ -136,13 +140,24 @@ void PathExecution::topologyFinish(){
 }
 void PathExecution::topologyStop(const control_planner_interface::VehicleExecuteGoal&goal){
   std::string request,session;
+  const double requested_stamp=ros::Time::now().toSec();
+  try{request=interface::jsonTree(goal.execution_lease).get<std::string>("request_id");}catch(const std::exception&){}
+  std::string cached;
   {
     std::lock_guard<std::mutex> guard(topology_mutex_);
+    cached=topology_stop_proofs_.retryProof(request,topology_stop_pending_&&!topology_goal_active_);
     topology_goal_active_=false;topology_stop_pending_=true;
   }
   std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);
-  try{request=interface::jsonTree(goal.execution_lease).get<std::string>("request_id");}catch(const std::exception&){}
   if(request.empty()){stop_move_server_.setAborted();return;}
+  if(!cached.empty()){
+    // Same request ID, same uninterrupted stopped epoch: an RPC retransmission
+    // may receive its original proof. New IDs always take the fresh-proof path;
+    // any ROUTE/new execution invalidates retry eligibility, while preserving
+    // delivery to an older in-flight RPC that already earned its proof.
+    control_planner_interface::VehicleExecuteResult result;result.finish=true;result.stop_proof=cached;
+    stop_move_server_.setSucceeded(result);return;
+  }
   {
     std::lock_guard<std::mutex> guard(topology_mutex_);
     topology_goal_active_=false;topology_stop_pending_=true;
@@ -155,8 +170,8 @@ void PathExecution::topologyStop(const control_planner_interface::VehicleExecute
   double began=interface::executionMonotonicNow();
   while(ros::ok()&&interface::executionMonotonicNow()-began<7.){
     std::string proof;
-    {std::lock_guard<std::mutex> guard(topology_mutex_);auto it=topology_stop_proofs_.find(request);
-      if(it!=topology_stop_proofs_.end())proof=it->second;}
+    {std::lock_guard<std::mutex> guard(topology_mutex_);
+      proof=topology_stop_proofs_.waitingProof(request,requested_stamp);}
     if(!proof.empty()){
       control_planner_interface::VehicleExecuteResult result;result.finish=true;result.stop_proof=proof;
       stop_move_server_.setSucceeded(result);return;

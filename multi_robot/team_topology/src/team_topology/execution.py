@@ -6,6 +6,7 @@ own successful zero publications. Clock, publisher and sensor faults fail closed
 """
 import copy
 import math
+from .scope import unknown_support
 
 
 def token(command):
@@ -31,6 +32,14 @@ class ExecutionSupervisor:
 
     def request_stop(self, robot, request_id, now, reason="external"):
         state = self.states[robot]
+        # A transport retry is the same operation. Do not turn a completed idle
+        # STOP into another nonce/deadline. A NEW request ID still needs a fresh
+        # post-request proof; a retry after intervening motion is stopped again.
+        if (request_id and state['phase']=='stopped' and state['active'] is None
+                and request_id in state.get('ack_requests',[])):
+            return
+        if not request_id and state['phase'] in ('stopped','stopping','fault'):
+            return
         if request_id and request_id not in state["requests"]:
             state["requests"].append(request_id)
             # A new request needs a new post-request proof, not a cached ACK.
@@ -38,6 +47,20 @@ class ExecutionSupervisor:
         elif state["phase"] not in ("stopping", "fault"):
             state["phase"] = "request"
         state["reason"] = reason
+
+    @staticmethod
+    def work_conflict(a,b):
+        """Only related work waits for an old owner's physical stop barrier.
+
+        Preserve exact task/member identity and overlapping common-world task
+        support. Traffic reservations separately protect physical path crossings.
+        A robot stopping unrelated work must not starve a ready recipient.
+        """
+        names=lambda p:set(p.get('task_members',[]))|({p['task']} if p.get('task') else set())
+        if names(a)&names(b):return True
+        if a.get('scopes') and b.get('scopes'):
+            return bool(unknown_support(a['scopes'])&unknown_support(b['scopes']))
+        return False
 
     def feedback(self, value, now):
         robot = int(value["robot"])
@@ -72,9 +95,9 @@ class ExecutionSupervisor:
                     (wish.get("task"),wish.get("version"))!=(state["active"].get("task"),state["active"].get("version"))):
                 state["phase"]="request"
                 state["reason"]="assignment_changed"
-        transition=any(s["active"] is not None and s["phase"] in ("request","stopping","fault") for s in self.states.values())
         for robot in self.robots:
             state, wish = self.states[robot], desired[robot]
+            state['blocked_by']=[]
             identity = (wish.get("task"), wish.get("version"))
             active_identity = (state["active"].get("task"), state["active"].get("version")) if state["active"] else None
             if state["phase"] == "running" and (wish["mode"] != "ROUTE" or identity != active_identity):
@@ -86,9 +109,15 @@ class ExecutionSupervisor:
                              deadline=now+self.stop_timeout)
             if state["phase"] == "stopping" and now > state["deadline"]:
                 state["phase"] = "fault"  # Late ACK cannot silently clear a timeout.
-            if state["phase"] == "stopped" and wish["mode"] == "ROUTE" and not transition:
-                self.counter += 1
-                state.update(phase="running", active=copy.deepcopy(wish), dispatch_id=self.counter)
+            if state["phase"] == "stopped" and wish["mode"] == "ROUTE":
+                # Inspect every still-active owner, including a failed/stopping
+                # one. New starts are included immediately, so two recipients
+                # cannot simultaneously acquire the same aliased task.
+                blockers=[r for r,s in self.states.items() if r!=robot and s['active'] is not None and self.work_conflict(wish,s['active'])]
+                state['blocked_by']=blockers
+                if not blockers:
+                    self.counter += 1
+                    state.update(phase="running", active=copy.deepcopy(wish), dispatch_id=self.counter)
             if state["phase"] == "running":
                 command = dict(wish, schema=2, allocation_session=self.session,
                                dispatch_id=state["dispatch_id"])

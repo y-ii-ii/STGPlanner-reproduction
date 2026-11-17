@@ -1,5 +1,6 @@
 
 #include "path_execution/path_execution.h"
+#include "path_execution/execution_endpoint.h"
 #include <limits>
 
 namespace path_execution {
@@ -512,7 +513,10 @@ namespace path_execution {
                     // Publish the certified SE(2) path unchanged. The topology
                     // tracker consumes each turn/reverse in order; a 1m nearest
                     // point lookahead would discard these safety constraints.
-                    if(remaining<(topology_body_margin_<.15?.04:.18))break;
+                    // A clearance-restoring turn can have zero displacement.
+                    // Position alone must not acknowledge that unexecuted turn.
+                    double dyaw=tf::getYaw(path.back().orientation)-tf::getYaw(current.orientation);
+                    if(topologyEndpointReached(remaining,dyaw,topology_body_margin_<.15))break;
                     publishPath(path,local_path_pub_);
                     topologyPublishPath(path);
                     topologyPathPublished();

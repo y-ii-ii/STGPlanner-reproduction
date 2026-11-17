@@ -57,8 +57,10 @@ namespace explorer {
         iteration_goal_is_scaned_ = false;
         need_to_next_iteration_ = true;
 
+        // Stack identity is immutable during a frozen trial. Do not issue a
+        // parameter-server RPC on every idle poll after removing idle STOP RPCs.
+        bool topology=false;nh_private_.param("team/topology_enabled",topology,false);
         while (ros::ok()) {
-            bool topology=false;nh_private_.param("team/topology_enabled",topology,false);
             // Keep the original 0.1s replanning trigger without a spin-only core.
             if(topology)ros::WallDuration(.02).sleep();
             if (exploration_finished_) {
@@ -89,6 +91,10 @@ namespace explorer {
                     if (path_segments.empty()) {
                         ROS_WARN("this iteration get an empty path ,need next planning iteration");
                         need_to_next_iteration_ = true;
+                        // WAIT is an allocation state, not another parking
+                        // operation. Poll at a bounded wall rate without
+                        // starving mapping/traffic/clock callbacks or Gazebo.
+                        if(topology)ros::WallDuration(.15).sleep();
                     } else {
                         ROS_INFO("following the path...");
                         if(!followThePath(path_segments)){

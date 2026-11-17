@@ -4,6 +4,7 @@ import argparse,copy,csv,fcntl,json,math,os,signal,subprocess,threading,time,tra
 from common import *
 from initialization_traffic import TrafficController
 from team_topology.traffic_geometry import rectangle,clearance
+from team_topology.execution import stop_proof
 
 def main(index):
     idle();out=result_path(index);manifest=json.loads((out/'manifest.json').read_text())
@@ -11,16 +12,16 @@ def main(index):
     for rel,h in manifest['frozen_sha256'].items():assert sha(out/'frozen'/rel)==h,rel
     for p,h in manifest['executables'].items():assert sha(p)==h,p
     for rel,h in manifest['implementation_sha256'].items():assert sha(CODE/rel)==h,rel
-    with (ROOT/'codex/TOPOLOGY_WALL_ATTEMPT_MUTEX_20261117').open('w') as f:
+    with (ROOT/'codex/TOPOLOGY_DISPATCH_ATTEMPT_MUTEX_20261117').open('w') as f:
         fcntl.flock(f,fcntl.LOCK_EX);limits=json.loads(LIMITS.read_text())
         assert limits['offline_preflight_passed'] and not limits['new_attempts_blocked']
         assert len(limits['attempts'])+1==index and index<=4
-        limits['attempts'].append(dict(index=index,trial=out.name,state='reserved',unix=time.time()));dump(LIMITS,limits)
+        limits['attempts'].append(dict(index=index,trial=out.name,state='reserved',unix=time.time()));limits['new_attempts_blocked']=len(limits['attempts'])>=4;dump(LIMITS,limits)
     t0=time.monotonic();token=out.name;os.environ['STGPLANNER_TOPOLOGY_TRIAL_TOKEN']=token;os.environ['ROS_LOG_DIR']=str(out/'ros')
     shutil.copytree(CODE,out/'implementation',ignore=shutil.ignore_patterns('__pycache__','.git','evidence'))
-    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w');traffic_log=(out/'traffic.jsonl').open('w')
+    events=(out/'events.jsonl').open('w');metrics=(out/'metrics.jsonl').open('w');plans=(out/'plans.jsonl').open('w');deltas=(out/'topology_deltas.jsonl').open('w');body_log=(out/'body_trace.jsonl').open('w');path_log=(out/'certified_paths.jsonl').open('w');traffic_log=(out/'traffic.jsonl').open('w');allocation_log=(out/'allocation_commands.jsonl').open('w')
     robots=['robot_1','robot_2'];children=[];handles=[];subs=[];syncs=[];errors=[];done=threading.Event();stopping=threading.Event()
-    state={r:dict(pose=None,physical=None,odom_at=0.,raw=(0.,0.),raw_at=0.,current=(0.,0.),cmd=(0.,0.),last=None) for r in robots}
+    state={r:dict(pose=None,physical=None,odom_at=0.,raw=(0.,0.),raw_at=0.,current=(0.,0.),cmd=(0.,0.),cmd_at=0.,last=None) for r in robots}
     sources={r:set() for r in robots};distance={r:0. for r in robots};frames={r:0 for r in robots};result=dict(trial=out.name,index=index,T95_wall_s=None,T95_sim_s=None,finish_reason=None,checks={},errors=errors)
     active=False;start_sim=None;start_wall=None;rospy=None;contact=None;init_pubs={};init_permissions={r:False for r in robots};gate_thread=None;init_done=threading.Event();plan_count={r:0 for r in robots};feedback_count={};traffic_modes={};coordinator_status={};gate_proofs={};pubs={};stops={};motions={};finish={};inits={};mission=None;mutex=threading.RLock()
     def event(kind,**kw):
@@ -52,8 +53,8 @@ def main(index):
     signal.signal(signal.SIGUSR1,lambda *_:errors.append('diagnostic_abort'))
     def lock_state(value):
         l=json.loads(LOCK.read_text());assert l['owner_thread']==OWNER
-        l.update(state=value,runtime_active=value!='idle',phase='topology_wall_20261117',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
-        l['limits_by_scope']['topology_wall_20261117'].update(used=index,blocked=index>=4);dump(LOCK,l)
+        l.update(state=value,runtime_active=value!='idle',phase='topology_dispatch_20261117',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
+        l['limits_by_scope']['topology_dispatch_20261117'].update(used=index,blocked=index>=4);dump(LOCK,l)
     def launch(name):
         h=(out/(name+'.log')).open('w');handles.append(h)
         p=subprocess.Popen(['roslaunch',str(out/'frozen'/(name+'.launch'))],stdout=h,stderr=subprocess.STDOUT,start_new_session=True);children.append((name,p));event('launch',name=name,pid=p.pid)
@@ -107,7 +108,7 @@ def main(index):
             if active and state[r]['last'] is not None:distance[r]+=math.dist(xy,state[r]['last'])
             state[r].update(last=xy,pose=copy.deepcopy(p),odom_at=time.monotonic(),current=(m.twist.twist.linear.x,m.twist.twist.angular.z),yaw=math.atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z)))
         def raw(m,r):state[r].update(raw=(m.linear.x,m.angular.z),raw_at=time.monotonic())
-        def command(m,r):state[r]['cmd']=(m.linear.x,m.angular.z)
+        def command(m,r):state[r].update(cmd=(m.linear.x,m.angular.z),cmd_at=time.monotonic())
         def cell(m,r):
             with mutex:sources[r]=set(zip(m.data[::2],m.data[1::2]))
         def feedback(m,r):
@@ -122,6 +123,9 @@ def main(index):
         def delta(m):deltas.write(m.data+'\n');deltas.flush()
         def body(m,r):body_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');body_log.flush()
         def certified(m,r):path_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=json.loads(m.data)))+'\n');path_log.flush()
+        def allocated(m,r):
+            v=json.loads(m.data);state[r]['allocation']=v
+            allocation_log.write(json.dumps(dict(robot=r,received=time.monotonic()-t0,data=v))+'\n');allocation_log.flush()
         def snapshot(m,r):
             state[r]['last_snapshot']=m.data
             p=out/('first_snapshot_'+r+'.json')
@@ -149,6 +153,7 @@ def main(index):
             subs.append(rospy.Subscriber('/'+r+'/topo_planner_node/topology_snapshot',String,lambda m,r=r:snapshot(m,r),queue_size=1,buff_size=8*1024*1024))
             subs.append(rospy.Subscriber('/'+r+'/topology/body_trace',String,lambda m,r=r:body(m,r),queue_size=10))
             subs.append(rospy.Subscriber('/'+r+'/topology/certified_path',String,lambda m,r=r:certified(m,r),queue_size=10))
+            subs.append(rospy.Subscriber('/'+r+'/topo_planner_node/topology_command',String,lambda m,r=r:allocated(m,r),queue_size=20))
             c=message_filters.Subscriber('/'+r+'/velodyne/velodyne_points',PointCloud2,queue_size=3,buff_size=4*1024*1024);o=message_filters.Subscriber('/'+r+'/sensor_to_world/odometry',Odometry,queue_size=30)
             s=message_filters.ApproximateTimeSynchronizer([c,o],30,.03);s.registerCallback(lambda c,o,r=r:cloud(c,o,r));syncs.append(s);subs.extend((c,o))
         mission=rospy.Publisher('/team/mission_start',Bool,queue_size=1,latch=True);mission.publish(Bool(False))
@@ -193,13 +198,23 @@ def main(index):
         for r in robots:init_pubs[r].publish(Twist());init_pubs[r].unregister();inits[r].publish(Float64(time.time()))
         rosnode.kill_nodes(['/'+r+'/path_execution_node' for r in robots]);time.sleep(.5)
         launch('execution');launch('exploration')
-        wait(lambda:all(r in gate_proofs and time.monotonic()-gate_proofs[r]['received']<3 for r in robots) and bool(coordinator_status),50,'new stop barriers unavailable')
+        def bootstrap_ready():
+            # A STOP proof is issued once for its nonce. Do not require two
+            # robots to emit it in an arbitrary three-second window: require
+            # the current STOP/session and fresh zero output/odometry instead.
+            now=time.monotonic()
+            for r in robots:
+                p=gate_proofs.get(r,{});c=state[r].get('allocation',{})
+                if not stop_proof(p) or c.get('mode')!='STOP' or p.get('stop_id')!=c.get('stop_id') or p.get('allocation_session')!=c.get('allocation_session'):return False
+                if now-state[r]['odom_at']>.3 or now-state[r]['cmd_at']>.3 or max(map(abs,state[r]['cmd']))>1e-6 or abs(state[r]['current'][0])>.05 or abs(state[r]['current'][1])>.09:return False
+            return bool(coordinator_status)
+        wait(bootstrap_ready,50,'new stop barriers unavailable')
         # Verify real binaries, final publisher ownership, source isolation and
         # original scorer ABI before defining the exploration time origin.
         runtime_info=[]
         for pid in owned():
             try:
-                p=Path('/proc')/str(pid);exe=(p/'exe').resolve();libs=sorted(set(x.split()[-1] for x in (p/'maps').read_text().splitlines() if 'libtopo_planner.so' in x or 'libpath_execution.so' in x));runtime_info.append(dict(pid=pid,exe=str(exe),sha256=sha(exe),libraries=libs))
+                p=Path('/proc')/str(pid);exe=(p/'exe').resolve();libs=sorted(set(x.split()[-1] for x in (p/'maps').read_text().splitlines() if any(name in x for name in ('libtopo_planner.so','libpath_execution.so','libexplorer.so','libcontrol_planner_interface.so'))));runtime_info.append(dict(pid=pid,exe=str(exe),sha256=sha(exe),libraries=libs))
             except OSError:pass
         dump(out/'runtime_fingerprints.json',runtime_info)
         assert sum(Path(x['exe']).name=='topo_planner_node' for x in runtime_info)==2
@@ -207,7 +222,13 @@ def main(index):
         assert sum(Path(x['exe']).name=='team_score' for x in runtime_info)==2
         assert sum(Path(x['exe']).name=='path_execution_node' for x in runtime_info)==2
         assert all(x['sha256']==manifest['executables'][str(NATIVE/'devel/lib/path_execution/path_execution_node')] and any(str(NATIVE) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='path_execution_node')
-        assert all(any('/catkin_ws/' in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='team_score')
+        assert sum(Path(x['exe']).name=='explorer_node' for x in runtime_info)==2
+        assert all(x['sha256']==manifest['executables'][str(NATIVE/'devel/lib/exploration_manager/explorer_node')] and any(str(NATIVE) in p for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='explorer_node')
+        assert all(any('/catkin_ws/' in p and p.endswith('libtopo_planner.so') for p in x['libraries']) for x in runtime_info if Path(x['exe']).name=='team_score')
+        for entry in runtime_info:
+            if Path(entry['exe']).name not in ('topo_planner_node','path_execution_node','explorer_node'):continue
+            for path in entry['libraries']:
+                if Path(path).name=='libcontrol_planner_interface.so':assert str(NATIVE) in path and sha(path)==manifest['executables'][str(NATIVE/'devel/lib/libcontrol_planner_interface.so')],path
         graph=rosgraph.Master(rospy.get_name()).getSystemState();publishers=dict(graph[0]);subscribers=dict(graph[1])
         for r in robots:
             assert len(publishers.get('/'+r+'/cmd_vel',[]))==1,(r,publishers.get('/'+r+'/cmd_vel'))
@@ -239,20 +260,27 @@ def main(index):
                 # Stop creating idle PCI requests before issuing the final
                 # distinct nonce. The gates/coordinator remain alive to prove it.
                 rosnode.kill_nodes(['/'+r+'/explorer_node' for r in robots])
+            result['final_stop_requested_ros_s']={}
             for r in robots:
                 init_permissions[r]=False
                 if r in motions:motions[r].cancel_all_goals()
                 if r in stops:
                     from control_planner_interface.msg import VehicleExecuteGoal
+                    result['final_stop_requested_ros_s'][r]=rospy.get_time()
                     g=VehicleExecuteGoal();g.execution_lease=json.dumps(dict(request_id=token+'/final/'+r));stops[r].send_goal(g)
                 if r in finish:finish[r].publish(Bool(True))
             until=min(t0+2345,time.monotonic()+12.)
             while time.monotonic()<until and any(c.get_state() in (0,1,6,7) for c in stops.values()):time.sleep(.05)
-            result['stop_ack']={r:c.get_state()==3 for r,c in stops.items()}
+            # A service success bit alone is insufficient: retain and inspect
+            # the final, unique request's actual velocity-gate proof.
+            result['final_stop_proofs']={r:json.loads(c.get_result().stop_proof) for r,c in stops.items() if c.get_state()==3 and c.get_result() and c.get_result().stop_proof}
+            result['stop_ack']={r:c.get_state()==3 and c.get_result().finish and r in result['final_stop_proofs'] and stop_proof(result['final_stop_proofs'][r]) and int(result['final_stop_proofs'][r].get('robot',0))==int(r[-1]) and token+'/final/'+r in result['final_stop_proofs'][r].get('request_ids',[]) and result['final_stop_proofs'][r].get('allocation_session')==state[r].get('allocation',{}).get('allocation_session') and float(result['final_stop_proofs'][r].get('stamp',-1))>=result['final_stop_requested_ros_s'][r] for r,c in stops.items()}
             park={r:state[r]['physical'] for r in robots if state[r]['physical']};time.sleep(2.)
             result['parking_drift_m']={r:math.dist(p[:2],state[r]['physical'][:2]) for r,p in park.items()}
         except Exception as e:errors.append('cleanup_stop:'+str(e))
         result.update(score());result.update(distance_m=distance,total_distance_m=sum(distance.values()),plan_counts=plan_count,feedback_counts=feedback_count,traffic_modes=traffic_modes,source_frames=frames,contacts=contact.result() if contact else None)
+        result['recorded_total_sim_s']=rospy.get_time()-manifest['world_clock_origin_s'] if rospy and rospy.core.is_initialized() else None
+        result['checks']['recorded_within2400sim']=result['recorded_total_sim_s'] is None or 0<=result['recorded_total_sim_s']<=2400
         for r in robots:
             if state[r].get('last_snapshot'):(out/('final_snapshot_'+r+'.json')).write_text(state[r]['last_snapshot'])
         with (out/'union_plane_cells.csv').open('w') as f:
@@ -279,7 +307,7 @@ def main(index):
         result['checks']['within2400wall']=result['runtime_wall_s']<=2400
         result['checks']['runtime_idle']=not result['post_cleanup_runtime']['processes'] and not any(result['post_cleanup_runtime']['ports_in_use'].values())
         dump(out/'result.json',result);l=json.loads(LIMITS.read_text());l['attempts'][-1].update(state='complete',finish_reason=result['finish_reason'],runtime_wall_s=result['runtime_wall_s'],T95_wall_s=result['T95_wall_s'],area_m2=result['area_m2']);l['new_attempts_blocked']=len(l['attempts'])>=4;dump(LIMITS,l);lock_state('idle');done.set()
-        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close();body_log.close();path_log.close();traffic_log.close()
+        event('complete',reason=result['finish_reason'],wall_s=result['runtime_wall_s'],area_m2=result['area_m2']);events.close();metrics.close();plans.close();deltas.close();body_log.close();path_log.close();traffic_log.close();allocation_log.close()
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--index',type=int,required=True);main(p.parse_args().index)

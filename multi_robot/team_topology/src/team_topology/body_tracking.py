@@ -8,6 +8,11 @@ cells both block motion. Traffic admission is followed by a second shield check.
 import math
 import numpy as np
 
+# Match the successful Scene4 follower's 2m/s and 60deg/s normal limits.
+# Recovery remains a separately bounded low-speed motion certificate.
+NORMAL_YAW_RATE=math.radians(60.)
+ANGULAR_BRAKE=math.radians(60.)
+
 
 def wrap(a):
     return math.atan2(math.sin(a), math.cos(a))
@@ -52,9 +57,9 @@ class BodyGrid:
         including rotation, rather than just the endpoint or a circular robot.
         """
         if not all(math.isfinite(v) for v in (*pose,*current,*command)):return False
-        if abs(command[0])>2. or abs(command[1])>1.5:return False
+        if abs(command[0])>2. or abs(command[1])>NORMAL_YAW_RATE+1e-9:return False
         x,y,yaw=pose;v,w=current;dt=.04;t=0.
-        horizon=.40+max(abs(v),abs(command[0]),abs(w),abs(command[1]))/2.+.08
+        horizon=.40+max(max(abs(v),abs(command[0]))/2.,max(abs(w),abs(command[1]))/ANGULAR_BRAKE)+.08
         def approach(a,b,amount):
             # Acceleration can be faster than the braking assumption. Treat
             # increasing same-direction speed as instantaneous, never assume a
@@ -66,7 +71,7 @@ class BodyGrid:
             # Keep measured inertia during the latency interval, then approach
             # the actual approved command, then brake both axes to zero.
             target=current if t<.15 else command if t<.40 else (0.,0.)
-            v=approach(v,target[0],2.*dt);w=approach(w,target[1],2.*dt)
+            v=approach(v,target[0],2.*dt);w=approach(w,target[1],ANGULAR_BRAKE*dt)
             x+=v*math.cos(yaw+w*dt/2)*dt;y+=v*math.sin(yaw+w*dt/2)*dt;yaw+=w*dt
             if not self.free(x,y,yaw,margin):return False
             t+=dt
@@ -91,12 +96,14 @@ class BodyTracker:
     def propose(self, pose, current, grid):
         if not self.path:return (0.,0.),'NO_PATH'
         tolerance=.035 if self.margin<.15 else .14
+        yaw_tolerance=.04 if self.margin<.15 else .12
+        anchor_tolerance=.05 if self.margin<.15 else tolerance
         if self.cursor==0 and len(self.path)>1:
             # Rolling replacements are generated while the chassis is moving.
             # Skip an old anchor only if pose and yaw are already on the first
             # directed primitive; do not drive back to a stale planning start.
             a=self.path[0]
-            if math.dist(a[:2],pose[:2])<tolerance:
+            if math.dist(a[:2],pose[:2])<anchor_tolerance:
                 # Pose zero is a measured planning anchor, not a requested turn
                 # back to its already stale heading. True following in-place
                 # turn waypoints remain checked by the ordinary sequence.
@@ -107,9 +114,9 @@ class BodyTracker:
                 if length<.01:continue
                 along=((pose[0]-a[0])*ex+(pose[1]-a[1])*ey)/length
                 cross=abs((pose[0]-a[0])*ey-(pose[1]-a[1])*ex)/length
-                if along>=0 and cross<tolerance and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
+                if along>=0 and cross<anchor_tolerance and abs(wrap(b[2]-pose[2]))<.12:self.cursor=k
                 break
-            if self.cursor==0 and math.dist(a[:2],pose[:2])>=tolerance:
+            if self.cursor==0 and math.dist(a[:2],pose[:2])>=anchor_tolerance:
                 # Replan from a fresh pose rather than inventing a reverse
                 # connector to an old root across an unexecuted corner.
                 return (0.,0.),'PATH_START_DIVERGED'
@@ -117,6 +124,8 @@ class BodyTracker:
         # spatially nearest later segment across a corner/crossing.
         while self.cursor<len(self.path):
             p=self.path[self.cursor];d=math.dist(p[:2],pose[:2]);a=wrap(p[2]-pose[2])
+            position_tolerance=.006 if self.margin<.15 and self.cursor==len(self.path)-1 else tolerance
+            angle_tolerance=.012 if self.margin<.15 and self.cursor==len(self.path)-1 else yaw_tolerance
             passed=False
             if self.cursor and abs(a)<.12:
                 prev=self.path[self.cursor-1];ex,ey=p[0]-prev[0],p[1]-prev[1];length=math.hypot(ex,ey)
@@ -124,11 +133,13 @@ class BodyTracker:
                     along=((pose[0]-p[0])*ex+(pose[1]-p[1])*ey)/length
                     cross=abs((pose[0]-p[0])*ey-(pose[1]-p[1])*ex)/length
                     passed=along>=0 and cross<tolerance
-            if (d<tolerance or passed) and abs(a)<.12:self.cursor+=1
+            if self.margin<.15 and self.cursor==len(self.path)-1:passed=False
+            if (d<position_tolerance or passed) and abs(a)<angle_tolerance:self.cursor+=1
             else:break
         if self.cursor==len(self.path):return (0.,0.),'PATH_END'
         p=self.path[self.cursor];dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
-        if d>=tolerance:
+        target_tolerance=.006 if self.margin<.15 and self.cursor==len(self.path)-1 else tolerance
+        if d>=target_tolerance:
             # Join only collinear primitives with the SAME direction and yaw.
             # This allows the common 2m/s cap on long straights while never
             # looking through a certified turn or forward/reverse transition.
@@ -140,19 +151,20 @@ class BodyTracker:
                 if abs(ex*dy-ey*dx)>max(.01,.03*math.hypot(ex,ey)*d):break
                 p=q
             dx,dy=p[0]-pose[0],p[1]-pose[1];d=math.hypot(dx,dy)
-        if d<tolerance:
-            desired=(0.,max(-.7,min(.7,2.*wrap(p[2]-pose[2]))))
+        if d<target_tolerance:
+            desired=(0.,max(-NORMAL_YAW_RATE,min(NORMAL_YAW_RATE,2.*wrap(p[2]-pose[2]))))
         else:
             # A certified reverse edge retains the chassis yaw, opposite its
             # displacement. Tracking is slow in reverse, not a surprise pi turn.
             bearing=math.atan2(dy,dx);reverse=abs(wrap(bearing-p[2]))>math.pi/2
             error=wrap(bearing+(math.pi if reverse else 0.)-pose[2])
-            w=max(-1.,min(1.,2.2*error));v=min(2.,max(.10,1.2*d))
+            w=max(-NORMAL_YAW_RATE,min(NORMAL_YAW_RATE,2.2*error));v=min(2.,max(.10,1.2*d))
             if abs(error)>.24:v=0.
+            if self.margin<.15:v=min(v,max(.025,1.2*d))
             if reverse:v=-min(.35,v)
             # Stop at each short primitive instead of overshooting into the
             # next turn. The shield independently checks the resulting motion.
-            v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-(.02 if self.margin<.15 else .10))))),v)
+            v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-(.002 if self.margin<.15 else .10))))),v)
             desired=(v,w)
         if self.margin<.15:desired=(max(-.2,min(.2,desired[0])),max(-.3,min(.3,desired[1])))
         for scale in (1.,.65,.35,.15):

@@ -293,6 +293,8 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   f.put("combined_start_footprint",grid.footprint(elements_->current_position_.x(),elements_->current_position_.y(),yaw));
   f.put("body_search_expanded",prefix.expanded);f.put("approach_offset_m",prefix.goal_offset);
   f.put("body_margin_m",prefix.margin);
+  f.put("planned_arc_m",prefix.arc);
+  f.put("body_route_method",prefix.method);
   if(result.paths.empty()&&!route.empty())planner_->deferExecutionFrontier(route.back().first,route.back().second,1.0,15.);
   boost::property_tree::ptree trace;for(int state:planner_->native_task_trace_){boost::property_tree::ptree n;n.put("",state);trace.push_back({"",n});}
   f.add_child("native_states",trace);
