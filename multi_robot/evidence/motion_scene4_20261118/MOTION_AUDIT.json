@@ -1,0 +1,339 @@
+{
+  "topology_motion_scene4_20261118_01_dual": {
+    "covered_wall_s": {
+      "robot_1": 213.58161624000059,
+      "robot_2": 213.5714556700259
+    },
+    "moving_wall_s": {
+      "robot_1": 120.00750852795318,
+      "robot_2": 118.71860835081316
+    },
+    "max_abs_odom_v_m_s": {
+      "robot_1": 2.003595872307287,
+      "robot_2": 1.922846957731571
+    },
+    "moving_wall_fraction": {
+      "robot_1": 0.5618812641304359,
+      "robot_2": 0.5558730120481871
+    },
+    "per_robot_distance_m": {
+      "robot_1": 36.26276383688305,
+      "robot_2": 31.729597871449766
+    },
+    "body_trace_reason_count": {
+      "NOT_RUNNING": 973,
+      "TRACK": 7822,
+      "BRAKE_BEFORE_TURN": 1240,
+      "BODY_BRAKE": 3,
+      "SETTLE_BEFORE_TRANSLATION": 245,
+      "RECENTER_TRACK": 13,
+      "PATH_START_DIVERGED": 6,
+      "FINAL_BODY_BRAKE": 1
+    },
+    "nonrunning_nonzero_samples": 0,
+    "zero_proposal_nonzero_output_by_reason": {
+      "BRAKE_BEFORE_TURN": 107
+    },
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 22,
+      "team_observation_completed": 4,
+      "planner_blocked": 1,
+      "execution": 1,
+      "EXECUTOR_STOP": 1
+    },
+    "team_observation_certificates": {
+      "accepted_certificates": 43,
+      "novel_author_cells": 468,
+      "rejected_certificates": 0,
+      "world_observed_cells": 536
+    },
+    "command_lease_publisher": {
+      "application_bytes": 16789788,
+      "commands": 5736,
+      "max_publish_gap_s": 0.1419059119943995,
+      "suppressed_motion_renewals": 0
+    },
+    "authority_service": {
+      "graph_packets_applied": 528,
+      "max_feedback_queue_wait_s": 0.06196046099648811,
+      "max_graph_apply_wall_s": 0.015724055003374815,
+      "max_plan_wall_s": 0.07415540798683651
+    },
+    "stale_source_samples": 0,
+    "coordinator_samples_by_number_running": {
+      "0": 2,
+      "2": 175,
+      "1": 27
+    },
+    "traffic_status_samples_by_mode": {
+      "robot_1": {
+        "PASS": 2867,
+        "HOLD": 1090,
+        "RETREAT": 195
+      },
+      "robot_2": {
+        "PASS": 2801,
+        "HOLD": 1001,
+        "RETREAT": 350
+      }
+    },
+    "contacts": {
+      "transport_alive": true,
+      "non_ground": []
+    }
+  },
+  "topology_motion_scene4_20261118_02_dual": {
+    "covered_wall_s": {
+      "robot_1": 938.873849333002,
+      "robot_2": 938.8616337050044
+    },
+    "moving_wall_s": {
+      "robot_1": 421.91193961707177,
+      "robot_2": 182.1855727501097
+    },
+    "max_abs_odom_v_m_s": {
+      "robot_1": 2.00649006850026,
+      "robot_2": 1.9783667450716855
+    },
+    "moving_wall_fraction": {
+      "robot_1": 0.4493808618876837,
+      "robot_2": 0.194049438393979
+    },
+    "per_robot_distance_m": {
+      "robot_1": 117.97637438502241,
+      "robot_2": 62.3680647582901
+    },
+    "body_trace_reason_count": {
+      "NOT_RUNNING": 21474,
+      "TRACK": 18709,
+      "SETTLE_BEFORE_TRANSLATION": 928,
+      "PATH_START_DIVERGED": 44,
+      "BRAKE_BEFORE_TURN": 4127,
+      "STALE_GEOMETRY_OR_PATH": 3,
+      "BODY_BRAKE": 24,
+      "RECENTER_TRACK": 106
+    },
+    "nonrunning_nonzero_samples": 0,
+    "zero_proposal_nonzero_output_by_reason": {
+      "BRAKE_BEFORE_TURN": 128
+    },
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 40,
+      "team_observation_completed": 3,
+      "EXECUTION_DEADLINE": 5,
+      "EXECUTION_STALL": 2,
+      "planner_blocked": 19,
+      "EXECUTOR_STOP": 2
+    },
+    "team_observation_certificates": {
+      "accepted_certificates": 131,
+      "novel_author_cells": 1632,
+      "rejected_certificates": 0,
+      "world_observed_cells": 1720
+    },
+    "command_lease_publisher": {
+      "application_bytes": 37019294,
+      "commands": 23913,
+      "max_publish_gap_s": 0.2126314449997153,
+      "suppressed_motion_renewals": 1
+    },
+    "authority_service": {
+      "graph_packets_applied": 2187,
+      "max_feedback_queue_wait_s": 0.2007697850058321,
+      "max_graph_apply_wall_s": 0.08242121498915367,
+      "max_plan_wall_s": 0.1919100100058131
+    },
+    "stale_source_samples": 83,
+    "coordinator_samples_by_number_running": {
+      "0": 131,
+      "2": 199,
+      "1": 565
+    },
+    "traffic_status_samples_by_mode": {
+      "robot_1": {
+        "PASS": 15553,
+        "HOLD": 2246,
+        "RETREAT": 502
+      },
+      "robot_2": {
+        "PASS": 15987,
+        "HOLD": 1883,
+        "RETREAT": 431
+      }
+    },
+    "contacts": {
+      "transport_alive": true,
+      "non_ground": []
+    }
+  },
+  "topology_motion_scene4_20261118_03_dual": {
+    "covered_wall_s": {
+      "robot_2": 245.20739343299647,
+      "robot_1": 245.22905010401155
+    },
+    "moving_wall_s": {
+      "robot_2": 66.88703418901423,
+      "robot_1": 74.95125557298888
+    },
+    "max_abs_odom_v_m_s": {
+      "robot_2": 1.8942626876284665,
+      "robot_1": 1.9489029661927009
+    },
+    "moving_wall_fraction": {
+      "robot_2": 0.2727773957080592,
+      "robot_1": 0.30563775189439846
+    },
+    "per_robot_distance_m": {
+      "robot_1": 24.88327228140785,
+      "robot_2": 11.825822971004694
+    },
+    "body_trace_reason_count": {
+      "NOT_RUNNING": 3685,
+      "TRACK": 7678,
+      "BRAKE_BEFORE_TURN": 399,
+      "PATH_START_DIVERGED": 21,
+      "SETTLE_BEFORE_TRANSLATION": 80,
+      "STALE_GEOMETRY_OR_PATH": 1
+    },
+    "nonrunning_nonzero_samples": 0,
+    "zero_proposal_nonzero_output_by_reason": {
+      "BRAKE_BEFORE_TURN": 161
+    },
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 3,
+      "TRAFFIC_WAIT_REPLAN": 1,
+      "EXECUTION_DEADLINE": 2,
+      "execution": 2
+    },
+    "team_observation_certificates": {
+      "accepted_certificates": 0,
+      "novel_author_cells": 0,
+      "rejected_certificates": 0,
+      "world_observed_cells": 0
+    },
+    "command_lease_publisher": {
+      "application_bytes": 15432021,
+      "commands": 6712,
+      "max_publish_gap_s": 0.11102805199334398,
+      "suppressed_motion_renewals": 0
+    },
+    "authority_service": {
+      "graph_packets_applied": 587,
+      "max_feedback_queue_wait_s": 0.028720667003653944,
+      "max_graph_apply_wall_s": 0.004257280001183972,
+      "max_plan_wall_s": 0.026080773008288816
+    },
+    "stale_source_samples": 0,
+    "coordinator_samples_by_number_running": {
+      "0": 3,
+      "2": 92,
+      "1": 141
+    },
+    "traffic_status_samples_by_mode": {
+      "robot_1": {
+        "PASS": 1731,
+        "HOLD": 2142,
+        "RETREAT": 731
+      },
+      "robot_2": {
+        "PASS": 1132,
+        "HOLD": 2992,
+        "RETREAT": 480
+      }
+    },
+    "contacts": {
+      "transport_alive": true,
+      "non_ground": []
+    }
+  },
+  "topology_motion_scene4_20261118_04_dual": {
+    "covered_wall_s": {
+      "robot_2": 2235.3205141370127,
+      "robot_1": 2235.3160177750106
+    },
+    "moving_wall_s": {
+      "robot_2": 1252.0075449470023,
+      "robot_1": 1288.8005312616006
+    },
+    "max_abs_odom_v_m_s": {
+      "robot_2": 2.001265896896623,
+      "robot_1": 2.0103542218231674
+    },
+    "moving_wall_fraction": {
+      "robot_2": 0.5601020243087436,
+      "robot_1": 0.5765630098890658
+    },
+    "per_robot_distance_m": {
+      "robot_1": 323.65478303360374,
+      "robot_2": 371.06910949640786
+    },
+    "body_trace_reason_count": {
+      "NOT_RUNNING": 18987,
+      "TRACK": 68860,
+      "SETTLE_BEFORE_TRANSLATION": 3481,
+      "BRAKE_BEFORE_TURN": 14808,
+      "PATH_START_DIVERGED": 92,
+      "BODY_BRAKE": 194,
+      "STALE_GEOMETRY_OR_PATH": 10,
+      "RECENTER_TRACK": 1272,
+      "FINAL_BODY_BRAKE": 1
+    },
+    "nonrunning_nonzero_samples": 0,
+    "zero_proposal_nonzero_output_by_reason": {
+      "BRAKE_BEFORE_TURN": 140
+    },
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 119,
+      "team_observation_completed": 30,
+      "planner_blocked": 59,
+      "EXECUTION_STALL": 19,
+      "EXECUTOR_STOP": 10,
+      "EXECUTION_DEADLINE": 10,
+      "execution": 1
+    },
+    "team_observation_certificates": {
+      "accepted_certificates": 648,
+      "novel_author_cells": 8739,
+      "rejected_certificates": 0,
+      "world_observed_cells": 9620
+    },
+    "command_lease_publisher": {
+      "application_bytes": 90873376,
+      "commands": 41696,
+      "max_publish_gap_s": 0.6028534750221297,
+      "suppressed_motion_renewals": 36
+    },
+    "authority_service": {
+      "graph_packets_applied": 5304,
+      "max_feedback_queue_wait_s": 1.2324234639818314,
+      "max_graph_apply_wall_s": 0.513020215992583,
+      "max_plan_wall_s": 1.360777345020324
+    },
+    "stale_source_samples": 0,
+    "coordinator_samples_by_number_running": {
+      "0": 58,
+      "2": 1533,
+      "1": 536
+    },
+    "traffic_status_samples_by_mode": {
+      "robot_1": {
+        "PASS": 41796,
+        "HOLD": 1708,
+        "RETREAT": 181
+      },
+      "robot_2": {
+        "PASS": 41673,
+        "HOLD": 1800,
+        "RETREAT": 212
+      }
+    },
+    "contacts": {
+      "transport_alive": true,
+      "non_ground": []
+    }
+  }
+}

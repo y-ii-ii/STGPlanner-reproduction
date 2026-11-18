@@ -1,0 +1,63 @@
+=================================================================
+==19==ERROR: AddressSanitizer: heap-use-after-free on address 0x603000000020 at pc 0x00000040bb78 bp 0x7ffd6bd37e90 sp 0x7ffd6bd37e80
+READ of size 4 at 0x603000000020 thread T0
+    #0 0x40bb77 in ufo::map::Code::getDepth() const /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/code.h:318
+    #1 0x40bb77 in ufo::map::Code::toKey(ufo::map::Code const&) /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/code.h:228
+    #2 0x40bb77 in ufo::map::Code::toKey() const /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/code.h:237
+    #3 0x40bb77 in main /mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/tests/test_frontier_snapshot.cpp:14
+    #4 0x7f8c30632082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+    #5 0x409f3d in _start (/mnt/d/STGPlanner/codex/work/topology_motion_20261118/unsafe_frontier_lifetime+0x409f3d)
+
+0x603000000020 is located 16 bytes inside of 32-byte region [0x603000000010,0x603000000030)
+freed by thread T0 here:
+    #0 0x7f8c3171051f in operator delete(void*) ../../../../src/libsanitizer/asan/asan_new_delete.cc:165
+    #1 0x418553 in __gnu_cxx::new_allocator<std::__detail::_Hash_node<ufo::map::Code, true> >::deallocate(std::__detail::_Hash_node<ufo::map::Code, true>*, unsigned long) /usr/include/c++/9/ext/new_allocator.h:128
+    #2 0x418553 in std::allocator_traits<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::deallocate(std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> >&, std::__detail::_Hash_node<ufo::map::Code, true>*, unsigned long) /usr/include/c++/9/bits/alloc_traits.h:469
+    #3 0x418553 in std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::_M_deallocate_node_ptr(std::__detail::_Hash_node<ufo::map::Code, true>*) /usr/include/c++/9/bits/hashtable_policy.h:2113
+    #4 0x418553 in std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::_M_deallocate_node(std::__detail::_Hash_node<ufo::map::Code, true>*) /usr/include/c++/9/bits/hashtable_policy.h:2103
+    #5 0x418553 in std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::_M_deallocate_nodes(std::__detail::_Hash_node<ufo::map::Code, true>*) /usr/include/c++/9/bits/hashtable_policy.h:2124
+    #6 0x418553 in std::_Hashtable<ufo::map::Code, ufo::map::Code, std::allocator<ufo::map::Code>, std::__detail::_Identity, std::equal_to<ufo::map::Code>, ufo::map::Code::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true> >::clear() /usr/include/c++/9/bits/hashtable.h:2063
+
+previously allocated by thread T0 here:
+    #0 0x7f8c3170f587 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cc:104
+    #1 0x4372f6 in __gnu_cxx::new_allocator<std::__detail::_Hash_node<ufo::map::Code, true> >::allocate(unsigned long, void const*) /usr/include/c++/9/ext/new_allocator.h:114
+    #2 0x4372f6 in std::allocator_traits<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::allocate(std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> >&, unsigned long) /usr/include/c++/9/bits/alloc_traits.h:443
+    #3 0x4372f6 in std::__detail::_Hash_node<ufo::map::Code, true>* std::__detail::_Hashtable_alloc<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::_M_allocate_node<ufo::map::Code>(ufo::map::Code&&) /usr/include/c++/9/bits/hashtable_policy.h:2081
+    #4 0x4372f6 in std::__detail::_Hash_node<ufo::map::Code, true>* std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > >::operator()<ufo::map::Code>(ufo::map::Code&&) const /usr/include/c++/9/bits/hashtable_policy.h:167
+    #5 0x4372f6 in std::pair<std::__detail::_Node_iterator<ufo::map::Code, true, true>, bool> std::_Hashtable<ufo::map::Code, ufo::map::Code, std::allocator<ufo::map::Code>, std::__detail::_Identity, std::equal_to<ufo::map::Code>, ufo::map::Code::Hash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true> >::_M_insert<ufo::map::Code, std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > > >(ufo::map::Code&&, std::__detail::_AllocNode<std::allocator<std::__detail::_Hash_node<ufo::map::Code, true> > > const&, std::integral_constant<bool, true>, unsigned long) /usr/include/c++/9/bits/hashtable.h:1852
+    #6 0x7ffcffffffff  (<unknown module>)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/code.h:318 in ufo::map::Code::getDepth() const
+Shadow bytes around the buggy address:
+  0x0c067fff7fb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0c067fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0c067fff8000: fa fa fd fd[fd]fd fa fa 00 00 00 00 fa fa fa fa
+  0x0c067fff8010: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c067fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==19==ABORTING

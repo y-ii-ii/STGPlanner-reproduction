@@ -1,0 +1,137 @@
+{
+  "topology_motion_scene4_20261118_01_dual": {
+    "metrics_samples": 204,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 203
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 4,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 528,
+      "max_feedback_queue_wait_s": 0.06196046099648811,
+      "max_graph_apply_wall_s": 0.015724055003374815,
+      "max_plan_wall_s": 0.07415540798683651
+    },
+    "last_ack_audit": {
+      "accepted": 28,
+      "last_rejection": {
+        "deadline_remaining_s": 2.88550946500618,
+        "expected_stop_id": "50ddb9eaf4f14b6e9151a18abe3016a0/stop/2/21",
+        "phase": "stopped",
+        "received_stop_id": "50ddb9eaf4f14b6e9151a18abe3016a0/stop/2/21",
+        "robot": 2
+      },
+      "rejected": 9
+    }
+  },
+  "topology_motion_scene4_20261118_02_dual": {
+    "metrics_samples": 895,
+    "allocation_reason_sample_counts": {
+      "stale_source_state": 83,
+      "allocated": 812
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 83,
+    "max_stale_source_age_s": {
+      "1": 0.7659999999996217,
+      "2": 66.28000000000065
+    },
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 4,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 2187,
+      "max_feedback_queue_wait_s": 0.2007697850058321,
+      "max_graph_apply_wall_s": 0.08242121498915367,
+      "max_plan_wall_s": 0.1919100100058131
+    },
+    "last_ack_audit": {
+      "accepted": 71,
+      "last_rejection": {
+        "deadline_remaining_s": 3.721443858987186,
+        "expected_stop_id": "642eab4a3561498c9d67b487825c349b/stop/1/129",
+        "phase": "running",
+        "received_stop_id": "642eab4a3561498c9d67b487825c349b/stop/1/129",
+        "robot": 1
+      },
+      "rejected": 1004
+    }
+  },
+  "topology_motion_scene4_20261118_03_dual": {
+    "metrics_samples": 236,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 235
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 3,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 587,
+      "max_feedback_queue_wait_s": 0.028720667003653944,
+      "max_graph_apply_wall_s": 0.004257280001183972,
+      "max_plan_wall_s": 0.026080773008288816
+    },
+    "last_ack_audit": {
+      "accepted": 6,
+      "last_rejection": {
+        "deadline_remaining_s": -136.31134271799237,
+        "expected_stop_id": "906d574c619f492da47988e2f4953c57/stop/1/8",
+        "phase": "stopped",
+        "received_stop_id": "906d574c619f492da47988e2f4953c57/stop/1/8",
+        "robot": 1
+      },
+      "rejected": 193
+    }
+  },
+  "topology_motion_scene4_20261118_04_dual": {
+    "metrics_samples": 2127,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 2126
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 6,
+    "max_total_inbox_depth": 18,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 5304,
+      "max_feedback_queue_wait_s": 1.2324234639818314,
+      "max_graph_apply_wall_s": 0.513020215992583,
+      "max_plan_wall_s": 1.360777345020324
+    },
+    "last_ack_audit": {
+      "accepted": 248,
+      "last_rejection": {
+        "deadline_remaining_s": 3.822554082988063,
+        "expected_stop_id": "dc372558de6d480eabb7ded2a68c55d6/stop/1/495",
+        "phase": "running",
+        "received_stop_id": "dc372558de6d480eabb7ded2a68c55d6/stop/1/495",
+        "robot": 1
+      },
+      "rejected": 501
+    }
+  }
+}

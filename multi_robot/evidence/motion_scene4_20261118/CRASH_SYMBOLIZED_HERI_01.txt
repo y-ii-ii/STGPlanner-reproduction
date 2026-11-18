@@ -1,0 +1,21 @@
+00000000001c6d40 T _ZN24heri_graph_cover_planner21HeriGraphCoverPlanner21getSuitableTourPointsERKN5utils7Point3DE
+PC 0x1c7265
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::getNodeHalfSize(unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:579
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::getNodeSize(unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:577
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::toCoord(unsigned int, unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:382
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::toCoord(ufo::map::Key const&) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:389
+heri_graph_cover_planner::HeriGraphCoverPlanner::getSuitableTourPoints(utils::Point3D const&)
+/opt/stgplanner/team_topology_motion_native_20261118_ws/src/planner/src/heri_graph_cover_planner/heri_graph_cover_planner.cpp:250
+
+00000000001770c0 T _ZN12topo_planner11TopoPlanner16topologyPlanningERN25control_planner_interface22ExplorerPlannerResult_ISaIvEEE
+PC 0x179b12
+std::__shared_ptr_access<heri_graph_cover_planner::HeriGraphCoverPlanner, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const
+/usr/include/c++/9/bits/shared_ptr_base.h:1021
+std::__shared_ptr_access<heri_graph_cover_planner::HeriGraphCoverPlanner, (__gnu_cxx::_Lock_policy)2, false, false>::operator->() const
+/usr/include/c++/9/bits/shared_ptr_base.h:1015
+topo_planner::TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerResult_<std::allocator<void> >&)
+/opt/stgplanner/team_topology_motion_native_20261118_ws/src/planner/src/topo_planner/topology_bridge.cpp:247

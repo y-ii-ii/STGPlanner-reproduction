@@ -1,0 +1,96 @@
+{
+  "used_attempts": 4,
+  "max_attempts": 4,
+  "scope_closed": true,
+  "previous_groups": {
+    "sha256": 185,
+    "history_stat": 12823,
+    "new_previous_raw_sha256": 990,
+    "wall_raw_sha256": 1157,
+    "dispatch_raw_sha256": 1221,
+    "liveness_raw_sha256": 1293,
+    "motion_first_raw_sha256": 326
+  },
+  "matched_native_hashes": 782,
+  "current_raw_files": 1319,
+  "binary_archives_verified": 36,
+  "old_scope_limits_unchanged": true,
+  "runtime": {
+    "processes": [],
+    "ports_in_use": {
+      "11311": false,
+      "11312": false,
+      "11345": false
+    }
+  },
+  "outcomes": [
+    {
+      "trial": "topology_motion_scene4_20261118_01_dual",
+      "finish_reason": "native_process_exit:[594]",
+      "runtime_wall_s": 297.5702750610071,
+      "T95_wall_s": null,
+      "area_m2": 259.36,
+      "stop_ack": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "contacts": {
+        "contact_pairs": 1370253,
+        "robot_ground_pairs": 667388,
+        "robot_non_ground_pairs": [],
+        "transport_alive": true
+      }
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_02_dual",
+      "finish_reason": "coverage_stagnation_240wall",
+      "runtime_wall_s": 1019.7192483340041,
+      "T95_wall_s": null,
+      "area_m2": 588.96,
+      "stop_ack": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "contacts": {
+        "contact_pairs": 5119944,
+        "robot_ground_pairs": 2409028,
+        "robot_non_ground_pairs": [],
+        "transport_alive": true
+      }
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_03_dual",
+      "finish_reason": "coverage_stagnation_240wall",
+      "runtime_wall_s": 327.89835907900124,
+      "T95_wall_s": null,
+      "area_m2": 85.60000000000001,
+      "stop_ack": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "contacts": {
+        "contact_pairs": 1551398,
+        "robot_ground_pairs": 759360,
+        "robot_non_ground_pairs": [],
+        "transport_alive": true
+      }
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_04_dual",
+      "finish_reason": "wall_limit_including_startup",
+      "runtime_wall_s": 2311.9886826480215,
+      "T95_wall_s": null,
+      "area_m2": 2836.8,
+      "stop_ack": {
+        "robot_1": true,
+        "robot_2": true
+      },
+      "contacts": {
+        "contact_pairs": 11142496,
+        "robot_ground_pairs": 5410080,
+        "robot_non_ground_pairs": [],
+        "transport_alive": true
+      }
+    }
+  ]
+}

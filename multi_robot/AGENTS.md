@@ -1,4 +1,8 @@
-# 2026-11-18新有限授权：motion 0/4
+# 2026-11-18 motion 4/4已验收关闭
+
+- `TOPOLOGY_MOTION_LIMITS_20261118.json` 已关闭。第1次保留原生崩溃，前沿快照修复 `7d6c4ee` 的三次复测无原生退出。最高并集36.416%，无T95，原成功基线及全部历史保留。报告见 `multi_robot/docs/MOTION_SCENE4_RESULTS_20261118.md`。后续新试验额度以用户新的明确授权为准。
+
+# 2026-11-18本轮授权记录
 
 - 最新用户明确授权覆盖下方旧停止入口：离线修复PASS覆盖局部制动、全队观测摘要去重和协调租约，重点实际推进，再最多4次新Scene4双机，每次含启动收尾wall/sim≤2400s。权威TOPOLOGY_MOTION_LIMITS_20261118.json；旧scope全部保持closed，旧基线、结果与原生空间只读。新motion_native/motion Python独立空间；失败中止计数，不自动补跑。代码注释、每个完成逻辑修订推送公开GitHub并说明原因，保留main和基线。
 

@@ -1,0 +1,53 @@
+{
+  "policy": "Actual compiled/archive SHA256 uses raw bytes; Git source comparison normalizes CRLF to LF only. No algorithm differences accepted.",
+  "trials": [
+    {
+      "trial": "topology_motion_scene4_20261118_01_dual",
+      "git_commit": "1cf8a23c34429fc8ed6f985144cb1ecfa3a855b1",
+      "compiled_source_files": 136,
+      "implementation_files": 55,
+      "git_verified_total_files": 145,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [
+        "team_topology/scripts/topology_coordinator.py"
+      ]
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_02_dual",
+      "git_commit": "7d6c4eeba3d114741f6ef30e81f92e9e0199f235",
+      "compiled_source_files": 137,
+      "implementation_files": 55,
+      "git_verified_total_files": 146,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [
+        "team_topology/scripts/topology_coordinator.py"
+      ]
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_03_dual",
+      "git_commit": "7d6c4eeba3d114741f6ef30e81f92e9e0199f235",
+      "compiled_source_files": 137,
+      "implementation_files": 55,
+      "git_verified_total_files": 146,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [
+        "team_topology/scripts/topology_coordinator.py"
+      ]
+    },
+    {
+      "trial": "topology_motion_scene4_20261118_04_dual",
+      "git_commit": "7d6c4eeba3d114741f6ef30e81f92e9e0199f235",
+      "compiled_source_files": 137,
+      "implementation_files": 55,
+      "git_verified_total_files": 146,
+      "raw_archive_sha256_all_matched": true,
+      "git_source_all_matched_after_crlf_normalization": true,
+      "eol_only_difference_files": [
+        "team_topology/scripts/topology_coordinator.py"
+      ]
+    }
+  ]
+}
