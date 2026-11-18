@@ -21,3 +21,23 @@ class RetryMemoryTests(unittest.TestCase):
  def test_closed_loop_path_has_no_arbitrary_direction_exemption(self):
   m=RetryMemory();m.fail(1,dict(path=[[0,0],[.01,0]]),0.)
   self.assertTrue(m.blocked(1,[[0,0],[2,0]],1.))
+
+ def test_pre_execution_failure_uses_bounded_alias_shared_backoff(self):
+  m=RetryMemory();p=dict(task='first',path=[[0,0],[2,0]])
+  other=dict(task='other',path=[[.01,0],[2.1,0]])
+  m.fail(1,p,0.,before_execution=True)
+  self.assertTrue(m.blocked(1,other['path'],3.9))
+  self.assertFalse(m.blocked(1,other['path'],4.1))
+  m.fail(1,other,4.1,before_execution=True)
+  self.assertTrue(m.blocked(1,p['path'],12.))
+  self.assertFalse(m.blocked(1,p['path'],12.2))
+  for now in (12.2,28.3,58.4):m.fail(1,p,now,before_execution=True)
+  self.assertTrue(m.blocked(1,p['path'],88.3))
+  self.assertFalse(m.blocked(1,p['path'],88.5))
+
+ def test_pre_execution_feedback_cannot_shorten_an_unsafe_body_cooldown(self):
+  m=RetryMemory();p=dict(path=[[0,0],[2,0]])
+  m.fail(1,p,0.,unsafe_start=True)
+  m.fail(1,p,1.,before_execution=True)
+  self.assertTrue(m.blocked(1,[[0,0],[0,2]],14.9))
+  self.assertFalse(m.blocked(1,p['path'],15.1))

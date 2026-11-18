@@ -43,3 +43,39 @@ class TrafficTests(unittest.TestCase):
         t=Reservations();t.phase='PASS';t.epoch=1
         v,_,_=t.select(.1,[(0,0,0),(1.,0,3.14)],[(2.,0.),(0.,0.)],[(2.,0.),(0.,0.)],[[],[]],{0:1,1:1},[False]*2)
         self.assertEqual(v,[(0.,0.),(0.,0.)])
+
+    def test_transient_priority_pause_does_not_request_reverse(self):
+        t=Reservations();t.phase='PASS';t.epoch=1
+        poses=[(0,0,0),(4,0,3.14)]
+        paths=[[(0,0),(4,0)],[(4,0),(1,0)]]
+        current=[(0.,0.)]*2
+        def tick(now,motion):
+            return t.select(now,poses,motion,current,paths,{0:1,1:1},[True]*2)
+        self.assertEqual(tick(10.,[(.5,0),(.5,0)])[1],['PASS','HOLD'])
+        self.assertEqual(tick(10.05,[(0,0),(.5,0)])[1],['HOLD','HOLD'])
+        self.assertEqual(tick(10.70,[(0,0),(.5,0)])[1],['HOLD','HOLD'])
+        self.assertEqual(tick(10.75,[(.5,0),(.5,0)])[1],['PASS','HOLD'])
+        self.assertEqual(t.epoch,1)
+
+    def test_persistent_geometric_blockage_still_allows_certified_retreat(self):
+        t=Reservations();t.phase='PASS';t.epoch=1
+        poses=[(0,0,0),(1.2,0,3.14)]
+        paths=[[(0,0),(2,0)],[(1.2,0),(0,0)]]
+        def tick(now):
+            return t.select(now,poses,[(2,0),(0,0)],[(0,0)]*2,paths,{0:1,1:1},[True]*2)
+        self.assertEqual(tick(10.)[1],['HOLD','HOLD'])
+        self.assertEqual(tick(10.9)[1],['HOLD','HOLD'])
+        self.assertEqual(tick(11.1)[1],['HOLD','RETREAT'])
+
+    def test_idle_priority_goes_through_fresh_bilateral_ack(self):
+        t=Reservations();t.phase='PASS';t.epoch=1
+        poses=[(0,0,0),(4,0,3.14)]
+        paths=[[(0,0),(4,0)],[(4,0),(1,0)]]
+        def tick(now,commands,acks):
+            return t.select(now,poses,commands,[(0,0)]*2,paths,acks,[True]*2)
+        self.assertEqual(tick(20.,[(0,0)]*2,{0:1,1:1})[1],['HOLD','HOLD'])
+        self.assertEqual(tick(22.,[(0,0),(.5,0)],{0:1,1:1})[1],['HOLD','HOLD'])
+        self.assertEqual(tick(24.1,[(0,0),(.5,0)],{0:1,1:1})[2]['phase'],'BRAKE')
+        self.assertEqual(t.epoch,2)
+        self.assertEqual(tick(24.9,[(0,0),(.5,0)],{0:2,1:1})[1],['HOLD','HOLD'])
+        self.assertEqual(tick(25.,[(0,0),(.5,0)],{0:2,1:2})[1],['HOLD','PASS'])

@@ -101,22 +101,29 @@ def main():
                         and int(value.get('version',0))==active.get('version')
                         and int(value.get('dispatch_id',0))==active.get('dispatch_id'))
                     if executor_matches and state.get('phase')=='running' and value.get('status')=='EXECUTOR_REJECTED':
-                        coordinator.fail_execution(r,active,time.monotonic())
+                        coordinator.fail_execution(r,active,time.monotonic(),
+                            before_execution=value.get('mode')=='ROUTE' and not state['executor_confirmed'])
                         supervisor.request_stop(r,None,time.monotonic(),'executor_rejected')
                     if (value.get("source")=="executor" and value.get("status")=="EXECUTOR_ACCEPTED"
                         and state.get("phase")=="running" and active is not None and value.get("task")==active.get("task")
                         and int(value.get("version",0))==active.get("version")
                         and int(value.get("dispatch_id",0))==active.get("dispatch_id")):
+                        state['executor_confirmed']=True
                         coordinator.ledger.acknowledge(active["task"],r,active["version"])
-                    if value.get("status")=="STOP_REQUIRED" and value.get("token")==state.get("token") and state.get("active") is not None and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN"):
+                    if (value.get("status")=="STOP_REQUIRED" and state.get('phase')=='running'
+                            and value.get("token")==state.get("token") and active is not None
+                            and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN")):
                         coordinator.fail_execution(r,active,time.monotonic())
-                    if (value.get('status')=='STOP_REQUIRED' and value.get('token')==state.get('token')
+                    if (value.get('status')=='STOP_REQUIRED' and state.get('phase')=='running'
+                            and value.get('token')==state.get('token')
                             and active is not None and value.get('reason')=='EXECUTOR_STOP'
                             and r in store.states and no_dispatch_progress(state,store.states[r]['pose'])):
                         # A completed/rejected short goal before 10cm motion
                         # must not earn a new dispatch and another fresh 8s
-                        # stall budget indefinitely. Defer work, not complete it.
-                        coordinator.fail_execution(r,active,time.monotonic())
+                        # stall budget indefinitely. Feedback after the same
+                        # dispatch has entered STOP must not deepen backoff.
+                        coordinator.fail_execution(r,active,time.monotonic(),
+                            before_execution=not state['executor_confirmed'])
                     accepted=supervisor.feedback(value,time.monotonic())
                     if value.get('status')=='STOPPED':
                         ack_audit['accepted' if accepted else 'rejected']+=1

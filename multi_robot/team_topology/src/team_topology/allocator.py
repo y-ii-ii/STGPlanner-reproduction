@@ -97,9 +97,9 @@ class Coordinator:
             if item and item['version']==p['version'] and item.get('receiver',item['owner'])==r and item['state'] in ('assigned','offered'):
                 item.update(owner=r,state='dispatched');item.pop('receiver',None)
 
-    def fail_execution(self,robot,active,now,unsafe_start=False):
-        self.defer(robot,active['task'],now,15.)
-        self.retry_memory.fail(robot,active,now,unsafe_start)
+    def fail_execution(self,robot,active,now,unsafe_start=False,before_execution=False):
+        self.defer(robot,active['task'],now,5. if before_execution and not unsafe_start else 15.)
+        self.retry_memory.fail(robot,active,now,unsafe_start,before_execution)
 
     def defer(self, robot, task, wall_now, seconds=8.):
         self.deferred[robot,task] = max(self.deferred.get((robot,task),0.),wall_now+seconds)

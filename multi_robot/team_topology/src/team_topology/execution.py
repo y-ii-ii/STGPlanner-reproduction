@@ -130,6 +130,7 @@ class ExecutionSupervisor:
                 if not blockers:
                     self.counter += 1
                     state.update(phase="running", active=copy.deepcopy(wish), dispatch_id=self.counter,
+                                 executor_confirmed=False,
                                  dispatch_origin=wish.get('path',[None])[0] if wish.get('path') else None)
             if state["phase"] == "running":
                 command = dict(wish, schema=2, allocation_session=self.session,

@@ -19,7 +19,7 @@ def ingress(path):
 class RetryMemory:
     def __init__(self):self.entries={}
 
-    def fail(self,robot,command,now,unsafe_start=False):
+    def fail(self,robot,command,now,unsafe_start=False,before_execution=False):
         route=ingress(command.get('path',[]))
         if route is None:return
         origin,direction=route;items=self.entries.setdefault(robot,[])
@@ -27,7 +27,16 @@ class RetryMemory:
         match=next((e for e in items if math.dist(e['origin'],origin)<.75 and
             (unsafe_start or e['unsafe_start'] or e['direction'] is None or direction is None or sum(a*b for a,b in zip(e['direction'],direction))>.7)),None)
         attempts=(match['attempts']+1) if match and now-match['last']<120 else 1
-        value=dict(origin=origin,direction=direction,unsafe_start=unsafe_start,attempts=attempts,last=now,until=now+min(60.,15.*attempts))
+        # A dispatch without an executor certificate has not tested physical
+        # ingress. Keep bounded alias-shared retry, preserving recent physical
+        # failures and their conservative cooldown.
+        recent_physical=match is not None and not match.get('before_execution') and now-match['last']<120.
+        prestart=before_execution and not unsafe_start and not recent_physical
+        if before_execution and not unsafe_start and recent_physical and now<match['until']:
+            return
+        delay=(4.,8.,16.,30.)[min(attempts,4)-1] if prestart else min(60.,15.*attempts)
+        value=dict(origin=origin,direction=direction,unsafe_start=unsafe_start,attempts=attempts,
+                   before_execution=prestart,last=now,until=now+delay)
         if match:items.remove(match)
         items.append(value);self.entries[robot]=items[-16:]
 

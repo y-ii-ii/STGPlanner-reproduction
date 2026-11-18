@@ -41,9 +41,11 @@ class Reservations:
     def __init__(self):
         self.epoch=0;self.phase='FREE';self.winner=0;self.began=0.;self.clear_since=None
         self.retreat_origin=None;self.retreat_used=0.
+        self.blocked_reason=None;self.blocked_since=0.
 
     def brake(self,now):
         self.epoch+=1;self.phase='BRAKE';self.began=now;self.clear_since=None
+        self.blocked_reason=None
 
     @staticmethod
     def following(poses, commands, measured, gap, margin):
@@ -91,6 +93,7 @@ class Reservations:
                 # Measure new proposals every tick. Existing epoch brake/retreat
                 # barriers still run before this can be used again.
                 self.clear_since=None
+                self.blocked_reason=None
                 moves,self.winner=following
                 return moves,['PASS']*2,dict(epoch=self.epoch,phase='FOLLOW',winner=self.winner)
         info={'epoch':self.epoch,'phase':self.phase,'winner':self.winner}
@@ -118,21 +121,34 @@ class Reservations:
             if self.clear_since is None:self.clear_since=now
             if now-self.clear_since>=.6:
                 self.phase='FREE';self.retreat_used=0.
+                self.blocked_reason=None
                 return list(commands),['PASS']*2,dict(info,epoch=self.epoch,phase='FREE')
         else:self.clear_since=None
         winner=self.winner
         for scale in (1.,.5,.25,.1):
             move=list(zero);move[winner]=tuple(v*scale for v in commands[winner])
             if sum(abs(v) for v in move[winner])>1e-4 and gap(move)>=margin:
+                self.blocked_reason=None
                 return move,['PASS' if i==winner else 'HOLD' for i in (0,1)],dict(info,epoch=self.epoch,phase='PASS',scale=scale)
-        if now-self.began>1. and self.retreat_used<1.6:
-            loser=1-winner;move=list(zero);move[loser]=(-.2,0.)
+        loser=1-winner
+        winner_requests_motion=sum(map(abs,commands[winner]))>1e-4
+        loser_requests_motion=sum(map(abs,commands[loser]))>1e-4
+        reason='sweep_unsafe' if winner_requests_motion else 'idle_priority' if loser_requests_motion else None
+        if reason!=self.blocked_reason:
+            self.blocked_reason=reason;self.blocked_since=now
+        blocked=now-self.blocked_since
+        # Time only uninterrupted geometric blockage. A successful PASS or
+        # ordinary segment pause must never trigger an immediate peer reverse.
+        if reason=='sweep_unsafe' and blocked>1. and self.retreat_used<1.6:
+            move=list(zero);move[loser]=(-.2,0.)
             if reverse_ok[loser] and gap(move)>=margin:
                 self.phase='RETREAT';self.retreat_origin=poses[loser][:2];self.began=now;self.retreat_used+=.8
                 return move,['RETREAT' if i==loser else 'HOLD' for i in (0,1)],dict(info,epoch=self.epoch,phase='RETREAT')
-        if now-self.began>6.:
-            self.winner=1-winner;self.brake(now)
-        return zero,['HOLD']*2,dict(info,epoch=self.epoch,phase=self.phase)
+        if (reason=='sweep_unsafe' and blocked>6. or reason=='idle_priority' and blocked>2.):
+            # Release idle priority through the original fresh bilateral ACK
+            # barrier, without ordering a retreat when the winner requests zero.
+            self.winner=loser;self.brake(now)
+        return zero,['HOLD']*2,dict(info,epoch=self.epoch,phase=self.phase,winner=self.winner)
 
 
 class TrafficGuard:
