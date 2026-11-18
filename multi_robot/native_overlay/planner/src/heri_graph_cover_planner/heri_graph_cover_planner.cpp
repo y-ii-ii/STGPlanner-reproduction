@@ -246,8 +246,10 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
   double min_distancd = 1000000.0;
   int best_team_priority=3;
   ufo::map::Point3 nearest_point;
-  for (const auto &code : global_topo_map_->ufomap_->local_frontier_cells_) {
-    ufo::map::Point3 point = global_topo_map_->ufomap_->map_.toCoord(code.toKey());
+  const auto frontiers=global_topo_map_->ufomap_->frontierCodesSnapshot();
+  for (const auto &code : frontiers.first) {
+    auto coordinate=utils::frontierCoordinate(global_topo_map_->ufomap_->map_,code);if(!coordinate)continue;
+    const auto point=*coordinate;
     if(!global_topo_map_->task_scope_.allowsBoundary(point.x(),point.y()))continue;
     if(isExecutionDeferred(point.x(),point.y())||isExecutionDeferred((point.x()+current_position.x())*.5,(point.y()+current_position.y())*.5))continue;
     double distance = ((point.x()-current_position.x()) * (point.x()-current_position.x())) + ((point.y()-current_position.y()) * (point.y()-current_position.y()));
@@ -273,8 +275,9 @@ void HeriGraphCoverPlanner::getSuitableTourPoints(
     double min_distancd = 1000000.0;
   int best_team_priority=3;
     ufo::map::Point3 nearest_point;
-    for (const auto &code : global_topo_map_->ufomap_->global_frontier_cells_) {
-      ufo::map::Point3 point = global_topo_map_->ufomap_->map_.toCoord(code.toKey());
+    for (const auto &code : frontiers.second) {
+      auto coordinate=utils::frontierCoordinate(global_topo_map_->ufomap_->map_,code);if(!coordinate)continue;
+      const auto point=*coordinate;
       if(!global_topo_map_->task_scope_.allowsBoundary(point.x(),point.y()))continue;
     if(isExecutionDeferred(point.x(),point.y())||isExecutionDeferred((point.x()+current_position.x())*.5,(point.y()+current_position.y())*.5))continue;
         double distance = ((point.x()-current_position.x()) * (point.x()-current_position.x())) + ((point.y()-current_position.y()) * (point.y()-current_position.y()));

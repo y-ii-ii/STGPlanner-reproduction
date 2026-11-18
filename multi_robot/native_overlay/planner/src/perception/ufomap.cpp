@@ -405,6 +405,9 @@ namespace perception {
     }
 
     void Ufomap::frontierSearch() {
+        // The ROS timer is the writer; action-server planning reads a copied
+        // snapshot. Protect both local/global sets throughout their replacement.
+        std::lock_guard<std::mutex> frontier_guard(frontier_mutex_);
         changed_cell_codes_.clear();
         for (auto it = map_.changesBegin(); it != map_.changesEnd(); it++) {
             changed_cell_codes_.insert(*it);

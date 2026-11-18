@@ -15,3 +15,8 @@ g++ -std=c++17 -O1 -g -no-pie -fsanitize=address,undefined -fno-omit-frame-point
   -I"$base/native_overlay/planner/include" $(pkg-config --cflags opencv4) \
   "$base/tests/test_graph_coordinate_lifetime.cpp" $(pkg-config --libs opencv4) -o "$out/test_graph_coordinate_lifetime"
 ASAN_OPTIONS=handle_segv=0:detect_leaks=1 timeout -k 1 30 "$out/test_graph_coordinate_lifetime" 2>&1 | tee "$out/graph_coordinate_lifetime.log"
+g++ -std=c++17 -O1 -g -no-pie -fsanitize=address,undefined -fno-omit-frame-pointer \
+  -I"$base/native_overlay/planner/include" -I/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include \
+  "$base/tests/test_frontier_snapshot.cpp" -L/opt/stgplanner/catkin_ws/devel/lib \
+  -Wl,-rpath,/opt/stgplanner/catkin_ws/devel/lib -lufomap -ltbb -llz4 -pthread -o "$out/test_frontier_snapshot"
+ASAN_OPTIONS=handle_segv=0:detect_leaks=1 timeout -k 1 30 "$out/test_frontier_snapshot" 2>&1 | tee "$out/frontier_snapshot.log"

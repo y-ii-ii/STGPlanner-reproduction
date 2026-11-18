@@ -9,6 +9,7 @@
 #include "perception/lidar_model.h"
 #include <ufomap_manager/frontier_manager.h>
 #include <ros/package.h>
+#include "utils/frontier_snapshot.h"
 
 namespace perception {
     typedef std::unordered_set<ufo::map::Code, ufo::map::Code::Hash> CodeUnorderSet;
@@ -37,14 +38,19 @@ namespace perception {
 
         utils::FrontierSet getFrontiers() const override {
             FrontierSet frontier_set;
-            if(!global_frontier_cells_.empty()){
-                for(const auto &cell:global_frontier_cells_){
-                    ufo::map::Point3 point = map_.toCoord(cell);
-                    frontier_set.emplace(point.x(),point.y(),point.z());
+            auto snapshot=frontierCodesSnapshot();
+            if(!snapshot.second.empty()){
+                for(const auto &cell:snapshot.second){
+                    auto point=utils::frontierCoordinate(map_,cell);if(!point)continue;
+                    frontier_set.emplace(point->x(),point->y(),point->z());
                 }
             }
             return frontier_set;
         };
+
+        std::pair<CodeUnorderSet,CodeUnorderSet> frontierCodesSnapshot() const {
+            return utils::frontierSnapshot(frontier_mutex_,local_frontier_cells_,global_frontier_cells_);
+        }
 
         bool isFrontier(const Frontier &frontier) const override {
             return isFrontier(map_.toCode(frontier.x(),frontier.y(),frontier.z()));
@@ -151,6 +157,7 @@ namespace perception {
         CodeUnorderSet global_frontier_cells_;
         CodeUnorderSet local_frontier_cells_;
         CodeUnorderSet history_frontier_cells_;
+        mutable std::mutex frontier_mutex_;
 
         float width_;
         float length_;
