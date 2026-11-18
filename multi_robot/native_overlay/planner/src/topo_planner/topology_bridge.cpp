@@ -3,6 +3,7 @@
 #include "rapid_cover_planner/topology_observation.h"
 #include "rapid_cover_planner/own_observation_union.h"
 #include "rapid_cover_planner/body_route.h"
+#include "rapid_cover_planner/task_approach_route.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <iomanip>
@@ -273,9 +274,19 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
     // though this SAME task's graph approach is usable. Try the assigned
     // transit with exactly the same own-map/body sweep and lease constraints.
     // Explicit DEFERRED_TASK and blocked/unknown start are never bypassed.
-    auto transit=rapid_cover_planner::bodyRoute(grid,topology_route_,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
-    if(!transit.poses.empty()){prefix=std::move(transit);selection="FUSED_TRANSIT_NATIVE_INFEASIBLE";}
+    const auto& target=topology_route_.back();
+    if(!planner_->isExecutionDeferred(target.first,target.second)){
+      auto transit=rapid_cover_planner::bodyRoute(grid,topology_route_,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+      if(!transit.poses.empty()){prefix=std::move(transit);selection="FUSED_TRANSIT_NATIVE_INFEASIBLE";}
+    }
   }
+  if(prefix.poses.empty()&&prefix.status!="BODY_START_BLOCKED"){
+    auto approach=rapid_cover_planner::taskApproachRoute(grid,gm.task_scope_,
+        elements_->current_position_.x(),elements_->current_position_.y(),yaw,
+        [&](double x,double y){return planner_->isExecutionDeferred(x,y);});
+    if(!approach.poses.empty()){prefix=std::move(approach);selection="OWN_TASK_APPROACH";}
+  }
+  now=ros::Time::now().toSec();
   if(now<map_stamp||now-map_stamp>1.||now-topology_command_stamp_>2.){prefix.poses.clear();prefix.status="STALE_MAP";}
   if(!prefix.poses.empty()){
     control_planner_interface::Path segment;

@@ -65,6 +65,7 @@ class Coordinator:
         self.team_observations=TeamObservations(self.observed_support)
         self.diagnostics={}
         self.retry_memory=RetryMemory()
+        self.missing_since={}
 
     def ingest_author_observations(self,store,keys):
         for key in keys:
@@ -128,7 +129,7 @@ class Coordinator:
                     positions=positions, tile=task["tile"], signature=task["signature"]))
         return groups
 
-    def plan(self, store, now, wall_now=None):
+    def plan(self, store, now, wall_now=None, committed=None):
         wall_now = now if wall_now is None else wall_now
         self.command_seq += 1
         waits = {r: {"schema": 1, "frame": "world", "robot": r, "mode": "WAIT",
@@ -149,6 +150,7 @@ class Coordinator:
         trees = {r: nav.search(store.states[r]["root"]) for r in self.robots}
         searches = {r:tree[0] for r,tree in trees.items()}
         costs, portal_for = {}, {}
+        routes = {}
         for group in groups:
             gid = group["id"]
             for r in self.robots:
@@ -156,13 +158,19 @@ class Coordinator:
                                        point(nav.nodes[store.states[r]["root"]]["p"]))
                 options = [(searches[r].get(point(nav.nodes[p]["p"]), math.inf) + attachment, p)
                            for p in group["portals"]]
-                costs[r, gid], portal_for[r, gid] = min(options)
+                costs[r, gid] = math.inf
                 if self.deferred.get((r,gid),-math.inf)>wall_now:
-                    costs[r,gid]=math.inf  # Execution feedback, not task completion.
-                if math.isfinite(costs[r,gid]):
-                    trial=nav.route(store.states[r]['root'],portal_for[r,gid],trees[r])
-                    path=[point(store.states[r]['pose'])]+trial['path'] if trial else []
-                    if self.retry_memory.blocked(r,path,wall_now):costs[r,gid]=math.inf
+                    continue # Execution feedback is temporary; preserve pending work.
+                # A failed nearest portal must not hide a different reachable
+                # entrance of this same connected task.
+                for cost,portal in sorted(options):
+                    if not math.isfinite(cost):break
+                    route=nav.route(store.states[r]['root'],portal,trees[r])
+                    pose=point(store.states[r]['pose'])
+                    if route is None or self.retry_memory.blocked(r,[pose]+route['path'],wall_now):
+                        continue
+                    costs[r,gid],portal_for[r,gid],routes[r,gid]=cost,portal,route
+                    break
             reachable = [r for r in self.robots if math.isfinite(costs[r, gid])]
             if reachable:
                 best = min(reachable, key=lambda r: (costs[r, gid], r))
@@ -206,7 +214,7 @@ class Coordinator:
             gid = min(available, key=lambda k: (self.ledger.items[k]["state"] not in ("active", "dispatched"),
                                                 costs[r, k], k))
             item = self.ledger.items[gid]
-            route = nav.route(store.states[r]["root"], portal_for[r, gid],trees[r])
+            route = routes[r,gid]
             if route is None:
                 continue
             path = route["path"]
@@ -220,15 +228,42 @@ class Coordinator:
                 "scopes": [store.live("task")[k]["scope"] for k in group_by_id[gid]["members"]
                            if "scope" in store.live("task")[k]],
                 "cost_m": costs[r, gid], "edge_ids": route["edges"],
+                "portal":portal_for[r,gid],
                 "peer_edges": sorted({e for e in route["edges"] if not e.startswith(store.states[r]["author"] + "/")}),
                 "graph_digest": store.digest()}
             # The supervisor may still withhold this intention behind a STOP
             # barrier. commit_dispatches() runs on the actual published ROUTEs.
             waits[r]["scope_digest"], waits[r]["scope_cells"] = completion_signature(waits[r]["scopes"])
+        retained=[]
+        for r in self.robots:
+            active=(committed or {}).get(r)
+            identity=(active['task'],active['version'],active.get('dispatch_id')) if active else None
+            if not active or (waits[r].get('task'),waits[r].get('version'))==identity[:2]:
+                self.missing_since.pop(r,None)
+                continue
+            deadline_key,began=self.missing_since.get(r,(identity,wall_now))
+            if deadline_key!=identity:began=wall_now
+            self.missing_since[r]=(identity,began)
+            if wall_now-began>=2.0 or self.deferred.get((r,active['task']),-math.inf)>wall_now:
+                continue
+            portal=active.get('portal')
+            if portal not in nav.nodes or self.team_completed(active):
+                continue
+            route=nav.route(store.states[r]['root'],portal,trees[r])
+            if route is None or route['cost']<.65:continue
+            path=[point(store.states[r]['pose'])]+route['path']
+            if self.retry_memory.blocked(r,path,wall_now):continue
+            # Debounce a disappearing frontier only while the old portal still
+            # has a current route. Use the same task scope and owner. Genuine
+            # completion and execution failures still enter the STOP barrier.
+            waits[r]=dict(active,path=path,stamp=now,command_seq=self.command_seq,
+                          edge_ids=route['edges'],graph_digest=store.digest(),cost_m=route['cost'])
+            retained.append(r)
         self.commands = waits
         self.diagnostics={'reason':'allocated','groups':len(groups),'pending_tasks':sum(t['state']=='pending' for t in store.live('task').values()),
             'completed_support_keys':len(self.completed_support),'reachable_groups':{str(r):sum(math.isfinite(costs.get((r,g['id']),math.inf)) for g in groups) for r in self.robots},
-            'candidates':{str(r):len(v) for r,v in candidates.items()},'desired':{str(r):c['mode'] for r,c in waits.items()}}
+            'candidates':{str(r):len(v) for r,v in candidates.items()},'desired':{str(r):c['mode'] for r,c in waits.items()},
+            'retained_transient_contracts':retained}
         return waits
 
     def observe_completed(self, feedback, active, ros_now):

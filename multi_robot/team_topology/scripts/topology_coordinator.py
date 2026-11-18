@@ -48,7 +48,8 @@ def main():
                 # Any valid own-map observer may retire information demand.
                 # The current owner is still released only after physical ACK.
                 supervisor.request_stop(r,None,time.monotonic(),'team_observation_completed')
-        desired=coordinator.plan(store,rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
+        committed={r:state['active'] for r,state in supervisor.states.items() if state['phase']=='running'}
+        desired=coordinator.plan(store,rospy.Time.now().to_sec(),time.monotonic(),committed) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
         now,ros_now=time.monotonic(),rospy.Time.now().to_sec()
         sources={r:store.states[r]['stamp'] for r in robots if r in store.states}
         if len(sources)!=len(robots) or any(not 0<=ros_now-s<=coordinator.max_age for s in sources.values()):

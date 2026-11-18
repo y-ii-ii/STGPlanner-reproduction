@@ -1,3 +1,7 @@
+# 2026-11-18 parallel 新轮次
+
+- 权威 `TOPOLOGY_PARALLEL_LIMITS_20261118.json`。离线修复起步让行、任务波动停车与本地路径受阻。最多4次新Scene4双机试验，每次含启动收尾wall/sim≤2400秒。保存既有原始数据，使用隔离原生和Python工作区。核对锁和实际进程后启动冻结脚本。修改带注释，验证后推送当前已授权的GitHub分支。
+
 # 2026-11-18 motion 4/4已验收关闭
 
 - `TOPOLOGY_MOTION_LIMITS_20261118.json` 已关闭。第1次保留原生崩溃，前沿快照修复 `7d6c4ee` 的三次复测无原生退出。最高并集36.416%，无T95，原成功基线及全部历史保留。报告见 `multi_robot/docs/MOTION_SCENE4_RESULTS_20261118.md`。后续新试验额度以用户新的明确授权为准。
