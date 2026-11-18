@@ -44,10 +44,19 @@ def main():
 
     def publish_plans_unlocked():
         for r,state in supervisor.states.items():
-            if state.get('active') is not None and coordinator.team_completed(state['active']):
+            active=state.get('active')
+            if active is not None and coordinator.team_completed(active):
                 # Any valid own-map observer may retire information demand.
                 # The current owner is still released only after physical ACK.
                 supervisor.request_stop(r,None,time.monotonic(),'team_observation_completed')
+            elif state['phase']=='running' and r in store.states:
+                now=time.monotonic()
+                prior=state.get('partial_observation',{})
+                count=prior.get('count',0) if prior.get('dispatch')==state['dispatch_id'] else 0
+                if coordinator.branch_progress.update(r,active,store.states[r]['pose'],now,count):
+                    coordinator.branch_progress.defer_viewpoint(r,active,now)
+                    coordinator.branch_progress.no_progress_stops+=1
+                    supervisor.request_stop(r,None,now,'branch_no_progress')
         committed={r:state['active'] for r,state in supervisor.states.items() if state['phase']=='running'}
         # Include owners stopping or faulted until the same physical stop
         # barrier that guards execution has released their work.
@@ -78,8 +87,16 @@ def main():
             if value.get("allocation_session") == session:
                 r=int(value["robot"])
                 if value.get("source")=="planner":
-                    active=supervisor.states[r].get("active")
-                    matches=supervisor.states[r]["phase"]=="running" and active is not None and value.get("task")==active.get("task") and int(value.get("dispatch_id",0))==active.get("dispatch_id") and int(value.get("version",0))==active.get("version")
+                    state=supervisor.states[r]
+                    active=state.get("active")
+                    matches=state["phase"]=="running" and active is not None and value.get("task")==active.get("task") and int(value.get("dispatch_id",0))==active.get("dispatch_id") and int(value.get("version",0))==active.get("version")
+                    if matches and value.get('scope_digest')==active.get('scope_digest') and 'observed_cells' in value:
+                        stamp=float(value.get('map_stamp',-math.inf))
+                        count=int(value['observed_cells'])
+                        if 0<=rospy.Time.now().to_sec()-stamp<=1. and 0<=count<=active.get('scope_cells',0):
+                            last=state.get('partial_observation',{})
+                            if last.get('dispatch')!=state['dispatch_id'] or count>last['count']:
+                                state['partial_observation']=dict(dispatch=state['dispatch_id'],count=count)
                     if matches and value.get("status")=="ACCEPTED":
                         # Planning acceptance is not execution acceptance.
                         item=coordinator.ledger.items.get(active["task"])
@@ -88,7 +105,16 @@ def main():
                         # A geometric planning failure needs a useful cooling
                         # interval; a 2s retry previously reset the execution
                         # stall timer without ever moving the robot.
-                        coordinator.fail_execution(r,active,time.monotonic(),value.get('local_gate')=='BODY_START_BLOCKED')
+                        now=time.monotonic()
+                        unsafe_start=value.get('local_gate')=='BODY_START_BLOCKED'
+                        # A failed viewing pose near the target should not
+                        # disqualify every reachable branch using this ingress.
+                        close=r in store.states and active.get('path') and math.dist(
+                            store.states[r]['pose'],active['path'][-1])<=3.
+                        if close and not unsafe_start and value.get('local_gate')!='STALE_MAP':
+                            coordinator.branch_progress.defer_viewpoint(r,active,now)
+                        else:
+                            coordinator.fail_execution(r,active,now,unsafe_start)
                         supervisor.request_stop(r,None,time.monotonic(),"planner_blocked")
                     elif matches and value.get("status")=="OBSERVATION_COMPLETED":
                         if coordinator.observe_completed(value,active,rospy.Time.now().to_sec()):

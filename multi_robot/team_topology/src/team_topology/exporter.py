@@ -49,6 +49,15 @@ class LocalExporter:
                 "evidence": "known_free"}
 
         root = node("root", root_cell, "robot")
+        root_tree=grid.path_tree(root_cell)
+        def from_root(cell):
+            if cell not in root_tree:
+                return None
+            path=[]
+            while cell is not None:
+                path.append(cell)
+                cell=root_tree[cell]
+            return list(reversed(path))
         native = {}
         for item in snapshot.get("nodes", []):
             cell = grid.cell(item["p"])
@@ -60,21 +69,23 @@ class LocalExporter:
                 edge(a, b, grid.path(anchors[a], anchors[b]))
         # Attach the moving robot through a validated own-map path, not a straight snap.
         for key in sorted(native.values(), key=lambda k: (sum(abs(a-b) for a,b in zip(anchors[k], root_cell)), k)):
-            cells = grid.path(root_cell, anchors[key])
+            cells = from_root(anchors[key])
             if cells:
                 edge(root, key, cells)
                 break
         for local, task in self.tasks.update(grid).items():
             portal_keys = []
             if task["state"] == "pending":
-                for cell in task["portal_cells"]:
+                viewpoints=set(task['portal_cells'])
+                viewpoints.update(grid.stand_off(cell,root_tree) for cell in task['portal_cells'] if cell in root_tree)
+                for cell in sorted(viewpoints):
                     key = node("portal_%d_%d" % cell, cell, "portal")
                     portal_keys.append(key)
                     # A nearby native anchor may itself be disconnected from
                     # the robot after observed-free edge validation. An actual
                     # own-free root route is the admission evidence, not merely
                     # reachability from an isolated nearest anchor.
-                    cells=grid.path(root_cell,cell)
+                    cells=from_root(cell)
                     if cells:edge(root,key,cells)
             records[self.delta.key("task", local)] = {"kind": "task", "tile": task["tile"],
                 "signature": task["signature"], "unknown_count": len(task["cells"]),

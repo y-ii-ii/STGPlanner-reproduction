@@ -4,6 +4,7 @@
 #include "rapid_cover_planner/own_observation_union.h"
 #include "rapid_cover_planner/body_route.h"
 #include "rapid_cover_planner/task_approach_route.h"
+#include "rapid_cover_planner/topology_transit.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <iomanip>
@@ -175,10 +176,13 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   struct Reset {perception::GlobalTopoManager& gm;~Reset(){gm.task_scope_.active=false;}} reset{gm};
   double observation_stamp;{std::lock_guard<std::mutex> guard(elements_->map_2d_manager_->map_2d_update_mutex_);
     observation_stamp=elements_->map_2d_manager_->last_observation_stamp_.toSec();}
+  std::vector<rapid_cover_planner::TopologyPoint> remaining;
   auto counts=rapid_cover_planner::taskObservationCounts(gm.task_scope_.patches,[&](double x,double y){
     perception::Point2D p(x,y);if(!gm.grid_map_.isInMapRange2D(p))return false;
     auto status=gm.grid_map_.getStatusInMap2D(p);
-    return status==perception::Free||status==perception::Occupied;
+    const bool observed=status==perception::Free||status==perception::Occupied;
+    if(!observed)remaining.emplace_back(x,y);
+    return observed;
   });
   double observed_now=ros::Time::now().toSec();
   if(counts.second&&counts.first==counts.second&&observed_now>=observation_stamp&&observed_now-observation_stamp<=1.){
@@ -268,7 +272,9 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   }
   const double yaw=tf::getYaw(elements_->current_pose_.orientation);
   double now=ros::Time::now().toSec();
-  auto prefix=rapid_cover_planner::bodyRoute(grid,route,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+  const double x=elements_->current_position_.x(),y=elements_->current_position_.y();
+  auto prefix=evidence_ok?rapid_cover_planner::bodyRoute(grid,route,x,y,yaw)
+                         :rapid_cover_planner::directedTransit(grid,route,x,y,yaw);
   if(prefix.poses.empty()&&selection=="NATIVE_TASK_STATES"&&!topology_route_.empty()){
     // Native point-space choice can be unreachable by the full chassis even
     // though this SAME task's graph approach is usable. Try the assigned
@@ -276,14 +282,16 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
     // Explicit DEFERRED_TASK and blocked/unknown start are never bypassed.
     const auto& target=topology_route_.back();
     if(!planner_->isExecutionDeferred(target.first,target.second)){
-      auto transit=rapid_cover_planner::bodyRoute(grid,topology_route_,elements_->current_position_.x(),elements_->current_position_.y(),yaw);
+      auto transit=rapid_cover_planner::directedTransit(grid,topology_route_,x,y,yaw);
       if(!transit.poses.empty()){prefix=std::move(transit);selection="FUSED_TRANSIT_NATIVE_INFEASIBLE";}
     }
   }
-  if(prefix.poses.empty()&&prefix.status!="BODY_START_BLOCKED"){
+  const bool near_view=!topology_route_.empty()&&
+      std::hypot(topology_route_.back().first-x,topology_route_.back().second-y)<2.5;
+  if((prefix.poses.empty()||(!evidence_ok&&near_view&&prefix.status!="BODY_RECENTER"))
+      &&prefix.status!="BODY_START_BLOCKED"&&!remaining.empty()){
     auto approach=rapid_cover_planner::taskApproachRoute(grid,gm.task_scope_,
-        elements_->current_position_.x(),elements_->current_position_.y(),yaw,
-        [&](double x,double y){return planner_->isExecutionDeferred(x,y);});
+        x,y,yaw,[&](double px,double py){return planner_->isExecutionDeferred(px,py);},remaining);
     if(!approach.poses.empty()){prefix=std::move(approach);selection="OWN_TASK_APPROACH";}
   }
   now=ros::Time::now().toSec();
@@ -314,6 +322,11 @@ void TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerRes
   f.put("body_margin_m",prefix.margin);
   f.put("planned_arc_m",prefix.arc);
   f.put("body_route_method",prefix.method);
+  // Partial observation is tied to the exact frozen scope. It can keep a
+  // productive dispatch alive, but only the separate full proof completes it.
+  f.put("scope_digest",topology_scope_digest_);
+  f.put("observed_cells",counts.first);
+  f.put("map_stamp",observation_stamp);
   if(result.paths.empty()&&!route.empty())planner_->deferExecutionFrontier(route.back().first,route.back().second,1.0,15.);
   boost::property_tree::ptree trace;for(int state:planner_->native_task_trace_){boost::property_tree::ptree n;n.put("",state);trace.push_back({"",n});}
   f.add_child("native_states",trace);

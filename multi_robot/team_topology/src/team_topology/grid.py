@@ -1,6 +1,7 @@
 """Own-map utilities. Grid data is local-only and never enters GraphDelta."""
 import heapq
 import math
+from collections import deque
 from .graph import point
 
 
@@ -70,3 +71,29 @@ class Grid:
                         todo.append(nxt)
             result.append(component)
         return result
+
+    def path_tree(self, start):
+        """One known-free search for all of this snapshot's portal paths."""
+        predecessor = {start: None}
+        queue = deque([start])
+        while queue:
+            cell=queue.popleft()
+            for neighbor in self.neighbors(cell):
+                if neighbor not in predecessor and self.state(neighbor)==0:
+                    predecessor[neighbor]=cell
+                    queue.append(neighbor)
+        return predecessor
+
+    def stand_off(self, portal, reachable):
+        """Prefer a nearby open viewing pose connected to the actual boundary."""
+        candidates={portal}
+        # Walk one or two free cells away from the frontier. Keep the actual
+        # portal as a fallback in narrow corridors and for full body checks.
+        for _ in range(2):
+            candidates.update(n for cell in tuple(candidates) for n in self.neighbors(cell)
+                              if n in reachable)
+        def open_neighbors(cell):
+            x,y=cell
+            return sum(self.state((x+dx,y+dy))==0 for dx in (-1,0,1) for dy in (-1,0,1))
+        best=max(sorted(candidates),key=lambda p:(open_neighbors(p),-math.dist(p,portal)))
+        return best if open_neighbors(best)==9 else portal
