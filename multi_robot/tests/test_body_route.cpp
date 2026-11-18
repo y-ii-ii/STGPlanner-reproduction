@@ -42,5 +42,17 @@ int main(){
  auto rotation=bodyRoute(near,{},0,0,M_PI/4);
  assert(rotation.status=="BODY_RECENTER"&&rotation.arc<1e-6);
  assert(std::abs(rotation.poses.back().yaw-M_PI/4)>.15);
- std::cout<<"14 body-route cases passed (parallel-wall >0.67m, empty-guide recovery and rotation-only recovery)\n";
+ // Extra reserve is preferred in open observed space; output still declares
+ // the existing 0.15m follower contract, rather than permitting less clearance.
+ g.data.assign(10000,0);auto roomy=bodyRoute(g,{{0,0},{3,.9}},0,0,0);
+ assert(!roomy.poses.empty()&&roomy.method=="CLEARANCE_SE2"&&roomy.margin==.15);
+ for(auto p:roomy.poses)assert(g.footprint(p.x,p.y,p.yaw,.22)==0);
+ // A 1m observed corridor admits the original body reserve but not 0.22m.
+ // Preference must not delete that safe route or waive unknown cells.
+ ExecutionGrid tight;tight.width=tight.height=200;tight.resolution=.05;tight.x0=tight.y0=-5;tight.data.assign(40000,0);
+ for(int y=0;y<200;++y)for(int x=0;x<200;++x)if(std::abs(tight.y0+(y+.5)*.05)>=.5)tight.data[y*200+x]=100;
+ assert(tight.footprint(0,0,0,.15)==0&&tight.footprint(0,0,0,.22)!=0);
+ auto fallback=bodyRoute(tight,{{0,0},{3,0}},0,0,0);assert(!fallback.poses.empty()&&fallback.margin==.15);
+ for(auto p:fallback.poses)assert(tight.footprint(p.x,p.y,p.yaw,.15)==0);
+ std::cout<<"16 body-route cases passed (clearance preference, tight fallback, parallel-wall escape, empty-guide and rotation recovery)\n";
 }

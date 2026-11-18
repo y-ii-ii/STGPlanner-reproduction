@@ -11,17 +11,18 @@ struct BodyRoute {std::vector<BodyPose> poses;std::string status="BODY_NO_PATH",
 // and in-place turn is checked as a swept body, rather than point A* followed
 // by an unplanned corner cut. Goal is an observation approach region, not a
 // requirement to put the chassis on a frontier adjacent to a wall.
-inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyPoint>& reference,
-                          double x,double y,double yaw){
+inline BodyRoute bodyRouteWithReserve(const ExecutionGrid& grid,const std::vector<TopologyPoint>& reference,
+                          double x,double y,double yaw,double normal_sweep_margin){
  BodyRoute out;if(grid.resolution<=0||!std::isfinite(grid.resolution)||!std::isfinite(x)||!std::isfinite(y)||!std::isfinite(yaw))return out;
  for(auto p:reference)if(!std::isfinite(p.first)||!std::isfinite(p.second))return out;
  const bool recenter=grid.footprint(x,y,yaw,.15)!=0;
  if(reference.empty()&&!recenter)return out;
  const double margin=recenter?.05:.15,step=std::max(.15,std::min(.25,grid.resolution));out.margin=margin;
+ const double sweep_margin=recenter?margin:normal_sweep_margin;
  // A newly observed obstacle can invalidate the normal reserve while the
  // physical body remains clear. Only a <=3m low-speed escape to full clearance
  // is allowed; no obstacle/unknown cell or physical-body collision is waived.
- if(grid.footprint(x,y,yaw,margin)!=0){out.status="BODY_START_BLOCKED";return out;}
+ if(grid.footprint(x,y,yaw,sweep_margin)!=0){out.status="BODY_START_BLOCKED";return out;}
  if(recenter){
   // Prefer a directly certified back-off/turn. A long parallel-wall escape
   // should not exhaust a Dijkstra budget on many irrelevant heading states.
@@ -61,7 +62,7 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
  for(int h=0;h<16;++h)angle[h]=yaw+std::atan2(dy[h],dx[h]);
  auto sweep=[&](BodyPose a,BodyPose b){double turn=std::atan2(std::sin(b.yaw-a.yaw),std::cos(b.yaw-a.yaw));
   int n=std::max(1,int(std::ceil(std::max(std::hypot(b.x-a.x,b.y-a.y)/.05,std::abs(turn)/.06))));
-  for(int k=1;k<=n;++k)if(grid.footprint(a.x+(b.x-a.x)*k/n,a.y+(b.y-a.y)*k/n,a.yaw+turn*k/n,margin)!=0)return false;
+  for(int k=1;k<=n;++k)if(grid.footprint(a.x+(b.x-a.x)*k/n,a.y+(b.y-a.y)*k/n,a.yaw+turn*k/n,sweep_margin)!=0)return false;
   return true;
  };
  const int radius=int(std::ceil(5./step)),side=2*radius+1,total=side*side*16;
@@ -104,5 +105,22 @@ inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyP
  double arc=0;size_t keep=1;
  for(;keep<out.poses.size();++keep){auto a=out.poses[keep-1],b=out.poses[keep];double d=std::hypot(b.x-a.x,b.y-a.y);if(arc+d>4.)break;arc+=d;}
  out.poses.resize(keep);out.arc=arc;out.status=recenter?"BODY_RECENTER":(partial?"BODY_PREFIX":"BODY_APPROACH");return out;
+}
+inline BodyRoute bodyRoute(const ExecutionGrid& grid,const std::vector<TopologyPoint>& reference,
+                          double x,double y,double yaw){
+ // Prefer an additional 7cm PLANNING reserve when the measured start permits
+ // it. Recorded stops lost clearance after inertial turning near a wall. This
+ // does not relax the 15cm execution contract or the 5cm bounded recovery.
+ // A tight corridor/unknown/finite search budget may reject this preference;
+ // keep the original validated search as a fallback, not a new hard dead end.
+ int preferred_expanded=0;
+ if(grid.resolution>0&&std::isfinite(grid.resolution)&&std::isfinite(x)&&std::isfinite(y)&&std::isfinite(yaw)
+       &&!reference.empty()&&grid.footprint(x,y,yaw,.22)==0){
+   auto roomy=bodyRouteWithReserve(grid,reference,x,y,yaw,.22);
+   if(!roomy.poses.empty()){roomy.method="CLEARANCE_"+roomy.method;return roomy;}
+   preferred_expanded=roomy.expanded;
+ }
+ auto original=bodyRouteWithReserve(grid,reference,x,y,yaw,.15);
+ original.expanded+=preferred_expanded;return original;
 }
 }
