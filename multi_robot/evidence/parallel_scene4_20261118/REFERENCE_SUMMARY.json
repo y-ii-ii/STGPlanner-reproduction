@@ -1,0 +1,20 @@
+{
+  "single04": {
+    "path": "exec_stg_scene4_20261102_04_single",
+    "T95_wall_s": 853.0852204189869,
+    "T95_sim_s": 805.116,
+    "total_distance_m": 1212.6495648753137,
+    "area_m2": 7404.64,
+    "runtime_wall_s": 927.2851410830044,
+    "exploration_wall_s": 853.0864882949973
+  },
+  "Old dual02": {
+    "path": "dual_validate_scene4_20261102_02_dual",
+    "T95_wall_s": 976.3576264069998,
+    "T95_sim_s": 701.0469999999987,
+    "total_distance_m": 1872.5919718283599,
+    "area_m2": 7440.64,
+    "runtime_wall_s": 1069.6682286349824,
+    "exploration_wall_s": 976.3655758000095
+  }
+}

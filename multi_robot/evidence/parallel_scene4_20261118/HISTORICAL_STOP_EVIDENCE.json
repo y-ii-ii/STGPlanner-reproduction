@@ -1,0 +1,435 @@
+{
+  "2": {
+    "blocks": [
+      {
+        "gate": "BODY_START_BLOCKED",
+        "selection": "NATIVE_TASK_STATES",
+        "count": 6
+      },
+      {
+        "gate": "BODY_NO_PATH",
+        "selection": "DEFERRED_TASK",
+        "count": 6
+      },
+      {
+        "gate": "BODY_NO_PROGRESS",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "count": 4
+      },
+      {
+        "gate": "BODY_START_BLOCKED",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "count": 3
+      },
+      {
+        "gate": "BODY_NO_PATH",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "count": 2
+      },
+      {
+        "gate": "BODY_START_BLOCKED",
+        "selection": "DEFERRED_TASK",
+        "count": 1
+      }
+    ],
+    "stop_reasons": {
+      "bootstrap": 2,
+      "assignment_changed": 40,
+      "team_observation_completed": 3,
+      "EXECUTION_DEADLINE": 5,
+      "EXECUTION_STALL": 2,
+      "planner_blocked": 19,
+      "EXECUTOR_STOP": 2
+    },
+    "examples": {
+      "('BODY_NO_PROGRESS', 'FUSED_GRAPH_TRANSIT')": {
+        "robot": "1",
+        "task": "2/cbd064631dae4ec5823254bfd3e627f0/task/38",
+        "version": "401",
+        "command_seq": "4325",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "source": "planner",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "dispatch_id": "30",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1358",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4"
+        ],
+        "robot_source": "robot_1",
+        "received": 390.5622518059972
+      },
+      "('BODY_START_BLOCKED', 'NATIVE_TASK_STATES')": {
+        "robot": "2",
+        "task": "2/cbd064631dae4ec5823254bfd3e627f0/task/65",
+        "version": "612",
+        "command_seq": "4857",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "source": "planner",
+        "selection": "NATIVE_TASK_STATES",
+        "dispatch_id": "62",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1029",
+        "combined_start_footprint": "1",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.050000000000000003",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4",
+          "5"
+        ],
+        "robot_source": "robot_2",
+        "received": 431.7468215090048
+      },
+      "('BODY_START_BLOCKED', 'FUSED_GRAPH_TRANSIT')": {
+        "robot": "2",
+        "task": "1/18086ab143ce4163b75f5aee4865a66d/task/166",
+        "version": "742",
+        "command_seq": "5126",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "source": "planner",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "dispatch_id": "66",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1206",
+        "combined_start_footprint": "1",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.050000000000000003",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4"
+        ],
+        "robot_source": "robot_2",
+        "received": 453.33564387401566
+      },
+      "('BODY_START_BLOCKED', 'DEFERRED_TASK')": {
+        "robot": "2",
+        "task": "1/18086ab143ce4163b75f5aee4865a66d/task/166",
+        "version": "1134",
+        "command_seq": "5964",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "source": "planner",
+        "selection": "DEFERRED_TASK",
+        "dispatch_id": "72",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1129",
+        "combined_start_footprint": "1",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.050000000000000003",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "4",
+          "5",
+          "4"
+        ],
+        "robot_source": "robot_2",
+        "received": 520.5174244070076
+      },
+      "('BODY_NO_PATH', 'FUSED_GRAPH_TRANSIT')": {
+        "robot": "1",
+        "task": "1/18086ab143ce4163b75f5aee4865a66d/task/104",
+        "version": "1128",
+        "command_seq": "8768",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "source": "planner",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "dispatch_id": "83",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "2618",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "3200",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4"
+        ],
+        "robot_source": "robot_1",
+        "received": 740.7289940400224
+      },
+      "('BODY_NO_PATH', 'DEFERRED_TASK')": {
+        "robot": "1",
+        "task": "1/18086ab143ce4163b75f5aee4865a66d/task/203",
+        "version": "1499",
+        "command_seq": "8784",
+        "allocation_session": "642eab4a3561498c9d67b487825c349b",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "source": "planner",
+        "selection": "DEFERRED_TASK",
+        "dispatch_id": "87",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "2933",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "4",
+          "5",
+          "4"
+        ],
+        "robot_source": "robot_1",
+        "received": 742.0757078890165
+      }
+    },
+    "traffic": {
+      "('BRAKE', None)": 742,
+      "('PASS', None)": 358,
+      "('FREE', None)": 15347,
+      "('PASS', 1.0)": 592,
+      "('PASS', 0.5)": 239,
+      "('PASS', 0.25)": 128,
+      "('RETREAT', None)": 933,
+      "('PASS', 0.1)": 79
+    },
+    "epochs": 41
+  },
+  "3": {
+    "blocks": [],
+    "stop_reasons": {
+      "bootstrap": 2,
+      "assignment_changed": 3,
+      "TRAFFIC_WAIT_REPLAN": 1,
+      "EXECUTION_DEADLINE": 2,
+      "execution": 2
+    },
+    "examples": {},
+    "traffic": {
+      "('BRAKE', None)": 591,
+      "('PASS', None)": 456,
+      "('FREE', None)": 625,
+      "('PASS', 1.0)": 1461,
+      "('RETREAT', None)": 1211,
+      "('PASS', 0.5)": 115,
+      "('PASS', 0.25)": 147,
+      "('PASS', 0.1)": 142
+    },
+    "epochs": 39
+  },
+  "4": {
+    "blocks": [
+      {
+        "gate": "BODY_NO_PATH",
+        "selection": "DEFERRED_TASK",
+        "count": 132
+      },
+      {
+        "gate": "BODY_NO_PROGRESS",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "count": 29
+      },
+      {
+        "gate": "BODY_NO_PATH",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "count": 16
+      },
+      {
+        "gate": "BODY_NO_PATH",
+        "selection": "NATIVE_TASK_STATES",
+        "count": 9
+      },
+      {
+        "gate": "BODY_START_BLOCKED",
+        "selection": "NATIVE_TASK_STATES",
+        "count": 2
+      }
+    ],
+    "stop_reasons": {
+      "bootstrap": 2,
+      "assignment_changed": 119,
+      "team_observation_completed": 30,
+      "planner_blocked": 59,
+      "EXECUTION_STALL": 19,
+      "EXECUTOR_STOP": 10,
+      "EXECUTION_DEADLINE": 10,
+      "execution": 1
+    },
+    "examples": {
+      "('BODY_NO_PATH', 'FUSED_GRAPH_TRANSIT')": {
+        "robot": "2",
+        "task": "1/ce7ca88fb4f14086a5b11067d0f74573/task/26",
+        "version": "65",
+        "command_seq": "820",
+        "allocation_session": "dc372558de6d480eabb7ded2a68c55d6",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "source": "planner",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "dispatch_id": "20",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "235",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "12",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4"
+        ],
+        "robot_source": "robot_2",
+        "received": 122.31115783500718
+      },
+      "('BODY_NO_PATH', 'DEFERRED_TASK')": {
+        "robot": "2",
+        "task": "1/ce7ca88fb4f14086a5b11067d0f74573/task/43",
+        "version": "94",
+        "command_seq": "1237",
+        "allocation_session": "dc372558de6d480eabb7ded2a68c55d6",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "source": "planner",
+        "selection": "DEFERRED_TASK",
+        "dispatch_id": "30",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1026",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "4",
+          "5",
+          "4"
+        ],
+        "robot_source": "robot_2",
+        "received": 153.72177197001292
+      },
+      "('BODY_NO_PROGRESS', 'FUSED_GRAPH_TRANSIT')": {
+        "robot": "1",
+        "task": "2/6a9115a6eb424a4fac1cd2aea1f6e163/task/18",
+        "version": "150",
+        "command_seq": "2014",
+        "allocation_session": "dc372558de6d480eabb7ded2a68c55d6",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "source": "planner",
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "dispatch_id": "37",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "1033",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4"
+        ],
+        "robot_source": "robot_1",
+        "received": 212.1021229570033
+      },
+      "('BODY_START_BLOCKED', 'NATIVE_TASK_STATES')": {
+        "robot": "2",
+        "task": "1/ce7ca88fb4f14086a5b11067d0f74573/task/168",
+        "version": "3451",
+        "command_seq": "6340",
+        "allocation_session": "dc372558de6d480eabb7ded2a68c55d6",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "source": "planner",
+        "selection": "NATIVE_TASK_STATES",
+        "dispatch_id": "132",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "2256",
+        "combined_start_footprint": "1",
+        "body_search_expanded": "0",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.050000000000000003",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4",
+          "5"
+        ],
+        "robot_source": "robot_2",
+        "received": 566.2822195640183
+      },
+      "('BODY_NO_PATH', 'NATIVE_TASK_STATES')": {
+        "robot": "1",
+        "task": "1/ce7ca88fb4f14086a5b11067d0f74573/task/217",
+        "version": "6862",
+        "command_seq": "7822",
+        "allocation_session": "dc372558de6d480eabb7ded2a68c55d6",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "source": "planner",
+        "selection": "NATIVE_TASK_STATES",
+        "dispatch_id": "168",
+        "terrain_start_footprint": "2",
+        "own_free_fill_cells": "662",
+        "combined_start_footprint": "0",
+        "body_search_expanded": "42",
+        "approach_offset_m": "0",
+        "body_margin_m": "0.14999999999999999",
+        "planned_arc_m": "0",
+        "body_route_method": "SE2",
+        "native_states": [
+          "1",
+          "3",
+          "4",
+          "5"
+        ],
+        "robot_source": "robot_1",
+        "received": 703.4235294230166
+      }
+    },
+    "traffic": {
+      "('BRAKE', None)": 689,
+      "('PASS', None)": 263,
+      "('FREE', None)": 41229,
+      "('PASS', 0.25)": 81,
+      "('PASS', 1.0)": 1026,
+      "('PASS', 0.5)": 111,
+      "('RETREAT', None)": 393,
+      "('PASS', 0.1)": 33
+    },
+    "epochs": 34
+  }
+}

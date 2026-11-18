@@ -1,0 +1,264 @@
+{
+  "topology_parallel_scene4_20261118_01_dual": {
+    "staged_brake_epochs": 48,
+    "first120_traffic_modes": {
+      "FREE": 586,
+      "BRAKE": 392,
+      "PASS": 923,
+      "FOLLOW": 32,
+      "RETREAT": 361
+    },
+    "first120_brake_epochs": 21,
+    "held_by_other_work_samples": {
+      "2": 77,
+      "1": 38
+    },
+    "conflicting_bid_exclusion_samples": {},
+    "retreat_episodes": 16,
+    "retreat_episodes_after_previous_motion": 13,
+    "executor_rejections_by_mode": {
+      "STOP": 29,
+      "ROUTE": 3
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 7176,
+        "TRACK": 32047,
+        "running_samples": 41623,
+        "BRAKE_BEFORE_TURN": 7832,
+        "free_translation_requested": 15050,
+        "free_translation_below_gate": 3645,
+        "free_translation_denied_with_small_angular_mismatch": 2228,
+        "PATH_START_DIVERGED": 36,
+        "SETTLE_BEFORE_TRANSLATION": 1489,
+        "RECENTER_TRACK": 219,
+        "BODY_BRAKE": 10,
+        "STALE_GEOMETRY_OR_PATH": 8
+      },
+      "first120": {
+        "NOT_RUNNING": 796,
+        "TRACK": 4162,
+        "running_samples": 5000,
+        "BRAKE_BEFORE_TURN": 600,
+        "free_translation_requested": 730,
+        "free_translation_below_gate": 176,
+        "free_translation_denied_with_small_angular_mismatch": 119,
+        "PATH_START_DIVERGED": 23,
+        "SETTLE_BEFORE_TRANSLATION": 97,
+        "RECENTER_TRACK": 113,
+        "BODY_BRAKE": 4,
+        "STALE_GEOMETRY_OR_PATH": 1
+      },
+      "from260": {
+        "NOT_RUNNING": 4585,
+        "TRACK": 23779,
+        "running_samples": 31672,
+        "free_translation_requested": 14010,
+        "free_translation_below_gate": 3386,
+        "BRAKE_BEFORE_TURN": 6489,
+        "SETTLE_BEFORE_TRANSLATION": 1289,
+        "free_translation_denied_with_small_angular_mismatch": 2077,
+        "PATH_START_DIVERGED": 13,
+        "STALE_GEOMETRY_OR_PATH": 7,
+        "BODY_BRAKE": 6,
+        "RECENTER_TRACK": 106
+      }
+    }
+  },
+  "topology_parallel_scene4_20261118_02_dual": {
+    "staged_brake_epochs": 87,
+    "first120_traffic_modes": {
+      "FREE": 662,
+      "BRAKE": 346,
+      "PASS": 795,
+      "RETREAT": 517
+    },
+    "first120_brake_epochs": 19,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 697,
+      "2": 932
+    },
+    "retreat_episodes": 22,
+    "retreat_episodes_after_previous_motion": 14,
+    "executor_rejections_by_mode": {
+      "STOP": 32
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 9179,
+        "TRACK": 31955,
+        "running_samples": 40065,
+        "free_translation_requested": 11670,
+        "free_translation_below_gate": 1046,
+        "BRAKE_BEFORE_TURN": 6415,
+        "PATH_START_DIVERGED": 93,
+        "SETTLE_BEFORE_TRANSLATION": 1082,
+        "BODY_BRAKE": 45,
+        "RECENTER_TRACK": 481,
+        "STALE_GEOMETRY_OR_PATH": 6,
+        "free_translation_denied_with_small_angular_mismatch": 6
+      },
+      "first120": {
+        "NOT_RUNNING": 366,
+        "TRACK": 4742,
+        "running_samples": 5419,
+        "free_translation_requested": 952,
+        "free_translation_below_gate": 71,
+        "BRAKE_BEFORE_TURN": 583,
+        "PATH_START_DIVERGED": 20,
+        "SETTLE_BEFORE_TRANSLATION": 74
+      },
+      "from260": {
+        "NOT_RUNNING": 6292,
+        "TRACK": 23565,
+        "running_samples": 30395,
+        "free_translation_requested": 10438,
+        "free_translation_below_gate": 910,
+        "BRAKE_BEFORE_TURN": 5320,
+        "SETTLE_BEFORE_TRANSLATION": 916,
+        "PATH_START_DIVERGED": 73,
+        "BODY_BRAKE": 45,
+        "RECENTER_TRACK": 481,
+        "STALE_GEOMETRY_OR_PATH": 6,
+        "free_translation_denied_with_small_angular_mismatch": 6
+      }
+    }
+  },
+  "topology_parallel_scene4_20261118_03_dual": {
+    "staged_brake_epochs": 3,
+    "first120_traffic_modes": {
+      "FREE": 2123,
+      "BRAKE": 86,
+      "PASS": 59,
+      "RETREAT": 89
+    },
+    "first120_brake_epochs": 3,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 894,
+      "2": 1201
+    },
+    "retreat_episodes": 1,
+    "retreat_episodes_after_previous_motion": 1,
+    "executor_rejections_by_mode": {
+      "STOP": 41,
+      "ROUTE": 15
+    },
+    "segment_continuation": {
+      "wait_episodes": 5,
+      "released_without_same_dispatch_motion": 4,
+      "same_dispatch_resumes": 1,
+      "max_wall_s_until_same_dispatch_motion": 0.20566615602001548
+    },
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 22845,
+        "TRACK": 38589,
+        "running_samples": 50303,
+        "free_translation_requested": 23027,
+        "free_translation_below_gate": 2184,
+        "BRAKE_BEFORE_TURN": 9448,
+        "PATH_START_DIVERGED": 106,
+        "STALE_GEOMETRY_OR_PATH": 109,
+        "SETTLE_BEFORE_TRANSLATION": 1711,
+        "PREFIX_CONTINUATION_WAIT": 11,
+        "BODY_BRAKE": 43,
+        "RECENTER_TRACK": 316,
+        "free_translation_denied_with_small_angular_mismatch": 3
+      },
+      "first120": {
+        "NOT_RUNNING": 2993,
+        "TRACK": 2016,
+        "running_samples": 2784,
+        "free_translation_requested": 923,
+        "free_translation_below_gate": 109,
+        "BRAKE_BEFORE_TURN": 657,
+        "PATH_START_DIVERGED": 9,
+        "STALE_GEOMETRY_OR_PATH": 4,
+        "SETTLE_BEFORE_TRANSLATION": 97,
+        "PREFIX_CONTINUATION_WAIT": 2
+      },
+      "from260": {
+        "NOT_RUNNING": 15820,
+        "TRACK": 34514,
+        "running_samples": 44763,
+        "free_translation_requested": 20953,
+        "BRAKE_BEFORE_TURN": 8156,
+        "SETTLE_BEFORE_TRANSLATION": 1566,
+        "free_translation_below_gate": 1964,
+        "BODY_BRAKE": 43,
+        "STALE_GEOMETRY_OR_PATH": 101,
+        "RECENTER_TRACK": 316,
+        "PATH_START_DIVERGED": 87,
+        "PREFIX_CONTINUATION_WAIT": 9,
+        "free_translation_denied_with_small_angular_mismatch": 3
+      }
+    }
+  },
+  "topology_parallel_scene4_20261118_04_dual": {
+    "staged_brake_epochs": 46,
+    "first120_traffic_modes": {
+      "FREE": 494,
+      "BRAKE": 351,
+      "PASS": 1400,
+      "FOLLOW": 43
+    },
+    "first120_brake_epochs": 17,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 969,
+      "2": 873
+    },
+    "retreat_episodes": 1,
+    "retreat_episodes_after_previous_motion": 0,
+    "executor_rejections_by_mode": {
+      "STOP": 29
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 7536,
+        "TRACK": 35653,
+        "running_samples": 44618,
+        "free_translation_requested": 16274,
+        "free_translation_below_gate": 1470,
+        "BRAKE_BEFORE_TURN": 7341,
+        "free_translation_denied_with_small_angular_mismatch": 1,
+        "SETTLE_BEFORE_TRANSLATION": 1452,
+        "STALE_GEOMETRY_OR_PATH": 116,
+        "PATH_START_DIVERGED": 58,
+        "BODY_BRAKE": 14
+      },
+      "first120": {
+        "NOT_RUNNING": 1074,
+        "TRACK": 4039,
+        "running_samples": 4733,
+        "free_translation_requested": 385,
+        "free_translation_below_gate": 23,
+        "BRAKE_BEFORE_TURN": 612,
+        "free_translation_denied_with_small_angular_mismatch": 1,
+        "SETTLE_BEFORE_TRANSLATION": 75,
+        "STALE_GEOMETRY_OR_PATH": 8
+      },
+      "from260": {
+        "SETTLE_BEFORE_TRANSLATION": 1203,
+        "running_samples": 33612,
+        "TRACK": 26475,
+        "free_translation_requested": 15157,
+        "free_translation_below_gate": 1375,
+        "STALE_GEOMETRY_OR_PATH": 91,
+        "NOT_RUNNING": 5967,
+        "BRAKE_BEFORE_TURN": 5803,
+        "PATH_START_DIVERGED": 41,
+        "BODY_BRAKE": 14
+      }
+    }
+  }
+}

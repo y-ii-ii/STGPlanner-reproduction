@@ -1,5 +1,7 @@
 # STGPlanner 项目协作规则
 
+- 2026-11-18双机同时推进验证已完整结束。权威限制为D:/STGPlanner/codex/TOPOLOGY_PARALLEL_LIMITS_20261118.json，新增4/4次全部计入。此轮关闭后仅允许结果验收、报告及交接。后续仿真须有新的明确授权与有限次数。四次冻结配置与结果见multi_robot/docs/PARALLEL_SCENE4_RESULTS_20261118.md。单机04、Old dual02和旧轮次保持原始记录。
+
 - 2026-10-28最新用户限制：本轮GBP2新增正式试验硬上限3次（10/11/12），12结束后不再启动新仿真、原生地图重放、1.5%阈值试验或复测，也不继续修改算法。权威限制为D:/STGPlanner/codex/GBP2_EXPERIMENT_LIMITS.json，离线备份见project-context同名文件；后续仅验收、恢复已测试配置、离线报告/交接和私有备份。新实验须有用户新的明确授权与有限次数。
 
 - 在当前运行机先读D:/STGPlanner/codex/STATUS.md、RUNBOOK.md和SIMULATION_LOCK.json；project-context内副本是最近提交的交接快照，长测中不能用其旧“空闲/暂停”推断实时状态。离线恢复副本再读project-context/STATUS.md、RUNBOOK.md。不要默认读取整段旧聊天或历史归档。

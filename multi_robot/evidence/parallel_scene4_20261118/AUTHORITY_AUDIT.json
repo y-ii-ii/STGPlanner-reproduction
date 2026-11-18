@@ -1,0 +1,134 @@
+{
+  "topology_parallel_scene4_20261118_01_dual": {
+    "metrics_samples": 963,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 962
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 6,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 2428,
+      "max_feedback_queue_wait_s": 0.30641861498588696,
+      "max_graph_apply_wall_s": 0.08809817797737196,
+      "max_plan_wall_s": 0.36192427499918267
+    },
+    "last_ack_audit": {
+      "accepted": 77,
+      "last_rejection": {
+        "deadline_remaining_s": -7.118949288997101,
+        "expected_stop_id": "671a0bd250804d93a7835077618eaec1/stop/2/125",
+        "phase": "stopped",
+        "received_stop_id": "671a0bd250804d93a7835077618eaec1/stop/2/125",
+        "robot": 2
+      },
+      "rejected": 236
+    }
+  },
+  "topology_parallel_scene4_20261118_02_dual": {
+    "metrics_samples": 972,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 971
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 6,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 2449,
+      "max_feedback_queue_wait_s": 0.36813958099810407,
+      "max_graph_apply_wall_s": 0.12788785999873653,
+      "max_plan_wall_s": 0.38686559500638396
+    },
+    "last_ack_audit": {
+      "accepted": 79,
+      "last_rejection": {
+        "deadline_remaining_s": 4.371642569982214,
+        "expected_stop_id": "a8fa5caf3ccb45b88eb455576cdebad2/stop/1/153",
+        "phase": "running",
+        "received_stop_id": "a8fa5caf3ccb45b88eb455576cdebad2/stop/1/153",
+        "robot": 1
+      },
+      "rejected": 342
+    }
+  },
+  "topology_parallel_scene4_20261118_03_dual": {
+    "metrics_samples": 1440,
+    "allocation_reason_sample_counts": {
+      "stale_source_state": 1,
+      "allocated": 1439
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 1,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 3,
+    "max_total_inbox_depth": 10,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 3443,
+      "max_feedback_queue_wait_s": 0.5476188840111718,
+      "max_graph_apply_wall_s": 0.194130748976022,
+      "max_plan_wall_s": 0.5842675380117726
+    },
+    "last_ack_audit": {
+      "accepted": 116,
+      "last_rejection": {
+        "deadline_remaining_s": -27.542011742014438,
+        "expected_stop_id": "5b481a34944a4915b1d7a94bfbd45b1b/stop/1/229",
+        "phase": "stopped",
+        "received_stop_id": "5b481a34944a4915b1d7a94bfbd45b1b/stop/1/229",
+        "robot": 1
+      },
+      "rejected": 968
+    }
+  },
+  "topology_parallel_scene4_20261118_04_dual": {
+    "metrics_samples": 1028,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 1027
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 6,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 2502,
+      "max_feedback_queue_wait_s": 0.2882884440186899,
+      "max_graph_apply_wall_s": 0.09932927100453526,
+      "max_plan_wall_s": 0.2785742479900364
+    },
+    "last_ack_audit": {
+      "accepted": 95,
+      "last_rejection": {
+        "deadline_remaining_s": -11.403957208996871,
+        "expected_stop_id": "85c8326ab1884129a1ef4614bab1a7dd/stop/1/189",
+        "phase": "stopped",
+        "received_stop_id": "85c8326ab1884129a1ef4614bab1a7dd/stop/1/189",
+        "robot": 1
+      },
+      "rejected": 217
+    }
+  }
+}
