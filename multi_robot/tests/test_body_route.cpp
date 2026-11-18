@@ -5,7 +5,8 @@ using namespace rapid_cover_planner;
 int main(){
  ExecutionGrid g;g.width=g.height=100;g.resolution=.15;g.x0=g.y0=-7.5;g.data.assign(10000,0);
  auto check=[&](const BodyRoute& r){assert(!r.poses.empty());double arc=0;for(size_t i=0;i<r.poses.size();++i){auto p=r.poses[i];assert(g.footprint(p.x,p.y,p.yaw)==0);if(i)arc+=std::hypot(p.x-r.poses[i-1].x,p.y-r.poses[i-1].y);}assert(arc<=4.00001);};
- auto forward=bodyRoute(g,{{0,0},{3,0}},0,0,0);check(forward);assert(forward.expanded>0);
+ auto forward=bodyRoute(g,{{0,0},{3,0}},0,0,0);check(forward);
+ assert(forward.method=="CLEARANCE_GUIDE_DIRECT"&&forward.poses.size()==2&&forward.arc==3.);
  auto reverse=bodyRoute(g,{{0,0},{-3,0}},0,0,0);check(reverse);assert(reverse.poses.back().x<0);
  // Requested chassis endpoint is inside a wall: a known-free observation
  // approach must be chosen, never an occupied goal or an unknown-space waiver.
@@ -45,7 +46,7 @@ int main(){
  // Extra reserve is preferred in open observed space; output still declares
  // the existing 0.15m follower contract, rather than permitting less clearance.
  g.data.assign(10000,0);auto roomy=bodyRoute(g,{{0,0},{3,.9}},0,0,0);
- assert(!roomy.poses.empty()&&roomy.method=="CLEARANCE_SE2"&&roomy.margin==.15);
+ assert(!roomy.poses.empty()&&roomy.method=="CLEARANCE_GUIDE_DIRECT"&&roomy.margin==.15);
  for(auto p:roomy.poses)assert(g.footprint(p.x,p.y,p.yaw,.22)==0);
  // A 1m observed corridor admits the original body reserve but not 0.22m.
  // Preference must not delete that safe route or waive unknown cells.
@@ -54,5 +55,10 @@ int main(){
  assert(tight.footprint(0,0,0,.15)==0&&tight.footprint(0,0,0,.22)!=0);
  auto fallback=bodyRoute(tight,{{0,0},{3,0}},0,0,0);assert(!fallback.poses.empty()&&fallback.margin==.15);
  for(auto p:fallback.poses)assert(tight.footprint(p.x,p.y,p.yaw,.15)==0);
+ auto bend=bodyRoute(g,{{0,0},{1.5,0},{1.5,1},{2,1}},0,0,0);
+ check(bend);assert(bend.method.find("GUIDE_DIRECT")==std::string::npos);
+ auto rolling=bodyRoute(g,{{-.28,0},{1,.05},{3,.05}},0,0,.03);
+ check(rolling);assert(rolling.method=="CLEARANCE_GUIDE_DIRECT"&&rolling.arc>2.4);
  std::cout<<"16 body-route cases passed (clearance preference, tight fallback, parallel-wall escape, empty-guide and rotation recovery)\n";
+ std::cout<<"2 additional straight-guide checks passed (retained corner fallback, rolling anchor)\n";
 }

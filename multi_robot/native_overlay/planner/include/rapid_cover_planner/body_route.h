@@ -48,9 +48,11 @@ inline BodyRoute bodyRouteWithReserve(const ExecutionGrid& grid,const std::vecto
  // A task target may have been deferred while stopping. Clearance recovery is
  // still needed under that valid task lease, even with no exploration guide.
  TopologyPoint guide=reference.empty()?TopologyPoint{x,y}:reference.back();double length=0;TopologyPoint previous{x,y};
+ std::vector<TopologyPoint> guide_prefix;
  for(auto p:reference){double d=std::hypot(p.first-previous.first,p.second-previous.second);
-  if(length+d>=3.){double t=(3.-length)/std::max(d,1e-8);guide={previous.first+t*(p.first-previous.first),previous.second+t*(p.second-previous.second)};break;}
-  length+=d;previous=p;
+  if(length+d>=3.){double t=(3.-length)/std::max(d,1e-8);guide={previous.first+t*(p.first-previous.first),previous.second+t*(p.second-previous.second)};
+   guide_prefix.push_back(guide);break;}
+  length+=d;previous=p;guide_prefix.push_back(p);
  }
  if(!recenter&&std::hypot(guide.first-x,guide.second-y)<.65){out.status="BODY_NO_PROGRESS";return out;}
  const std::array<int,16> dx{{3,3,2,1,0,-1,-2,-3,-3,-3,-2,-1,0,1,2,3}};
@@ -65,6 +67,32 @@ inline BodyRoute bodyRouteWithReserve(const ExecutionGrid& grid,const std::vecto
   for(int k=1;k<=n;++k)if(grid.footprint(a.x+(b.x-a.x)*k/n,a.y+(b.y-a.y)*k/n,a.yaw+turn*k/n,sweep_margin)!=0)return false;
   return true;
  };
+ // A nearly straight, forward guide needs no repeated lattice turns. Keep
+ // the path near the original directed guide and certify the exact rotation
+ // and translation with the same reserve. Curved/reverse/blocked guides
+ // still use the full SE(2) search below.
+ const double direct_distance=std::hypot(guide.first-x,guide.second-y);
+ const double direct_yaw=std::atan2(guide.second-y,guide.first-x);
+ const double direct_turn=std::atan2(std::sin(direct_yaw-yaw),std::cos(direct_yaw-yaw));
+ if(!recenter&&direct_distance>=.9&&std::abs(direct_turn)<=.5){
+  const double c=std::cos(direct_yaw),s=std::sin(direct_yaw);
+  // The first guide anchor can predate the chassis pose by one short
+  // translation; all subsequent projected points must still advance.
+  double along=-.40;bool aligned=true;
+  for(auto p:guide_prefix){
+   double dx=p.first-x,dy=p.second-y,projected=dx*c+dy*s;
+   if(projected<along-.03||std::abs(-dx*s+dy*c)>.20){aligned=false;break;}
+   along=std::max(along,projected);
+  }
+  const BodyPose start{x,y,yaw},turn{x,y,yaw+direct_turn},goal{guide.first,guide.second,yaw+direct_turn};
+  if(aligned&&sweep(start,turn)&&sweep(turn,goal)){
+   out.poses={start};
+   if(std::abs(direct_turn)>1e-6)out.poses.push_back(turn);
+   out.poses.push_back(goal);
+   out.arc=direct_distance;out.status="BODY_APPROACH";out.method="GUIDE_DIRECT";
+   return out;
+  }
+ }
  const int radius=int(std::ceil(5./step)),side=2*radius+1,total=side*side*16;
  auto index=[&](int ix,int iy,int h){return ((iy+radius)*side+ix+radius)*16+h;};
  auto pose=[&](int id){int h=id%16,cell=id/16;double px=(cell%side-radius)*step,py=(cell/side-radius)*step;return BodyPose{x+cy*px-sy*py,y+sy*px+cy*py,angle[h]};};

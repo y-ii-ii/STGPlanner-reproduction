@@ -190,7 +190,7 @@ class TrafficGuard:
     def filter(self,fence,velocity,now,ros_now):
         events=[]
         fresh=(now-self.received<=.3 and self.permit.get('token')==fence.active_token)
-        if fence.phase=='running':
+        if fence.phase=='running' and not fence.executor_paused:
             if not fresh:
                 if now-fence.armed_at>1.:fence._trip('TRAFFIC_TIMEOUT')
                 velocity=(0.,0.)

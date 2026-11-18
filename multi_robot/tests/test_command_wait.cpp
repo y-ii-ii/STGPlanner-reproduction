@@ -1,4 +1,5 @@
 #include "path_execution/command_wait.h"
+#include "path_execution/segment_rollover.h"
 #include <atomic>
 #include <cassert>
 #include <iostream>
@@ -12,5 +13,12 @@ int main(){
  // A newer STOP sequence is not considered a pending old ROUTE. The caller's
  // original STOP check remains authoritative and must reject that old goal.
  received=180;assert(waitWhileCommandPending([&](){return 179>received.load();}));
+ const double until=2.+kSegmentRolloverSeconds;
+ assert(segmentRolloverValid(until,2.1,.2,true,false));
+ assert(!segmentRolloverValid(until,until,.2,true,false));
+ assert(!segmentRolloverValid(until,2.1,1.51,true,false));
+ assert(!segmentRolloverValid(until,2.1,.2,false,false));
+ assert(!segmentRolloverValid(until,2.1,.2,true,true));
  std::cout<<"5 command delivery wait checks passed (reorder, lost command, wall bound, newer STOP)\n";
+ std::cout<<"5 same-contract segment rollover checks passed\n";
 }

@@ -130,9 +130,10 @@ namespace path_execution {
         std::mutex topology_mutex_,pose_mutex_;
         std::string topology_session_,topology_mode_text_="STOP",topology_issuer_;
         interface::ExecutionLease topology_current_,topology_goal_;
-        double topology_received_=0,topology_goal_began_=0;
+        double topology_received_=0,topology_goal_began_=0,topology_rollover_until_=0;
         double topology_body_margin_=.15;
         unsigned long topology_command_seq_=0,topology_permit_seq_=0,last_topology_goal_seq_=0;
+        unsigned long topology_certified_goal_seq_=0;
         StopProofCache topology_stop_proofs_;
         ros::Publisher topology_permit_pub_,topology_feedback_pub_,topology_certified_pub_;
         ros::Subscriber topology_command_sub_,topology_feedback_sub_;
@@ -145,7 +146,8 @@ namespace path_execution {
         void topologyRejected(const control_planner_interface::VehicleExecuteGoal&);
         bool topologyKeepRunning();
         bool topologyKeepRunningLocked(double now) const;
-        void topologyFinish();
+        void topologyFinish(bool reached_prefix=false);
+        bool topologyRolloverLocked(double now) const;
         void topologyPathPublished();
         void topologyPublishPath(const Path&);
         void topologyStop(const control_planner_interface::VehicleExecuteGoal&);

@@ -277,7 +277,7 @@ namespace path_execution {
             loop_num_ = 0;
 
             success = MYlookAheadPointControlLoop();
-            if(topology_mode_&&(success||!execute_server_.isNewGoalAvailable()))topologyFinish();
+            if(topology_mode_&&(success||!execute_server_.isNewGoalAvailable()))topologyFinish(success);
             if (success) {
                 control_planner_interface::VehicleExecuteResult result;result.finish=true;
                 execute_server_.setSucceeded(result);

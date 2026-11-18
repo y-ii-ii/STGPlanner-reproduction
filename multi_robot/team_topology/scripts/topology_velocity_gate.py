@@ -21,7 +21,7 @@ def main():
     fence,lock=VelocityFence(robot),threading.Lock()
     traffic=TrafficGuard(robot)
     tracker=BodyTracker()
-    own={'grid':None,'grid_at':-1e9,'grid_stamp':-1e9,'path_at':-1e9,'twist':(0.,0.)}
+    own={'grid':None,'grid_at':-1e9,'grid_stamp':-1e9,'path_at':-1e9,'goal_seq':None,'twist':(0.,0.)}
     traffic_required=rospy.get_param('~traffic_required',True)
     namespace="/robot_%d" % robot
     output=rospy.Publisher(namespace+"/cmd_vel",Twist,queue_size=1)
@@ -34,7 +34,8 @@ def main():
             try:
                 previous=fence.active_token
                 fence.receive_command(json.loads(msg.data),time.monotonic(),rospy.Time.now().to_sec())
-                if previous!=fence.active_token:tracker.clear();own['path_at']=-1e9
+                if previous!=fence.active_token:
+                    tracker.clear();own.update(path_at=-1e9,goal_seq=None)
             except (ValueError,KeyError,TypeError):pass
 
     def permit(msg):
@@ -46,8 +47,11 @@ def main():
         try:
             v=json.loads(msg.data);stamp=float(v['stamp'])
             with lock:
-                if v['token']!=fence.active_token or not 0<=rospy.Time.now().to_sec()-stamp<=.3:return
-                if tracker.receive([tuple(map(float,p)) for p in v['path']],(v['token'],int(v['goal_seq'])),float(v.get('body_margin_m',.15))):own['path_at']=time.monotonic()
+                seq=int(v['goal_seq'])
+                if (v['token']!=fence.active_token or not 0<=rospy.Time.now().to_sec()-stamp<=.3
+                        or own['goal_seq'] is not None and seq<own['goal_seq']):return
+                if tracker.receive([tuple(map(float,p)) for p in v['path']],(v['token'],seq),float(v.get('body_margin_m',.15))):
+                    own.update(path_at=time.monotonic(),goal_seq=seq)
         except (ValueError,KeyError,TypeError):pass
 
     def fine_map(msg):
@@ -110,9 +114,13 @@ def main():
                 now=time.monotonic()
                 ros_now=rospy.Time.now().to_sec()
                 g=own['grid'];fresh=g is not None and now-own['grid_at']<=1.5 and 0<=ros_now-own['grid_stamp']<=1.5 and fence.odom is not None and now-fence.odom['at']<=.3
+                certificate_fresh=(now-own['path_at']<=.3 and (fence.certified_goal_seq is None
+                    or own['goal_seq'] is not None and own['goal_seq']>=fence.certified_goal_seq))
                 proposal,reason=(0.,0.),'NOT_RUNNING'
                 preview=[]
-                if fence.phase=='running' and fresh and now-own['path_at']<=.3:
+                if fence.phase=='running' and fence.executor_paused:
+                    reason='PREFIX_CONTINUATION_WAIT'
+                elif fence.phase=='running' and fresh and certificate_fresh:
                     pose=fence.odom['pose']
                     proposal,reason=tracker.propose(pose,own['twist'],g)
                     if reason!='PATH_START_DIVERGED':preview=tracker.reservation_prefix(pose)
@@ -127,7 +135,7 @@ def main():
                     velocity,extra=traffic.filter(fence,velocity,now,ros_now);events+=extra
                 # Recheck the ACTUAL traffic-approved output, which can differ
                 # from this tick's proposal (including an authorized retreat).
-                velocity,rejected=shield_output(g,fresh and now-own['path_at']<=.3,fence.odom['pose'] if fence.odom else None,own['twist'],velocity,tracker.margin)
+                velocity,rejected=shield_output(g,fresh and certificate_fresh,fence.odom['pose'] if fence.odom else None,own['twist'],velocity,tracker.margin)
                 if rejected:reason='FINAL_BODY_BRAKE'
                 msg=Twist();msg.linear.x,msg.angular.z=velocity
                 output.publish(msg)

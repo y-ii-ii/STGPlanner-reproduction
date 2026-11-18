@@ -3,6 +3,7 @@ from team_topology.execution import ExecutionSupervisor, VelocityFence, token
 from team_topology.scope import contains, task_scope
 from team_topology.grid import Grid
 from team_topology.tasks import TaskTracker
+from team_topology.traffic import TrafficGuard
 
 
 def wish(robot=1, task="work", version=1):
@@ -134,6 +135,38 @@ class ExecutionTests(unittest.TestCase):
             f.receive_raw(1.,0.,t)
             v,e=f.tick(t);f.output_published(v,t);found.extend(e)
         self.assertTrue(any(e.get('reason')=='EXECUTION_STALL' for e in found))
+
+    def test_prefix_rollover_is_zero_and_waits_for_new_local_proposal(self):
+        _,f,_,p=self.running()
+        self.assertTrue(f.receive_permit(dict(p,permit_seq=2,paused='true',goal_seq='5'),1.03))
+        self.assertEqual(f.tick(1.04),((0.,0.),[]))
+        self.assertTrue(f.receive_permit(dict(p,permit_seq=3,paused='false',goal_seq='6'),1.05))
+        self.assertEqual(f.tick(1.055),((0.,0.),[]))
+        f.receive_odom(1.06,(0.,0.,0.),(0.,0.),1.06,1.06)
+        f.receive_raw(.5,0.,1.06)
+        self.assertEqual(f.tick(1.07),((.5,0.),[]))
+        self.assertFalse(f.receive_permit(dict(p,permit_seq=4,goal_seq='5'),1.08))
+        self.assertEqual(f.armed_at,1.)
+
+    def test_rollover_does_not_override_stop_or_peer_gate(self):
+        s,f,_,p=self.running()
+        f.receive_permit(dict(p,permit_seq=2,paused=True),1.03)
+        traffic=TrafficGuard(1)
+        traffic.receive(dict(robot=1,seq=1,token=f.active_token,epoch=1,stamp=1.03,
+                             mode='RETREAT',velocity=[-.2,0.]),f.active_token,1.03)
+        traffic.reverse_ok=lambda *_:True
+        self.assertEqual(traffic.filter(f,(1.,0.),1.04,1.04)[0],(0.,0.))
+        stop=s.commands({1:wish(task='other',version=2)},1.1,1.1)[1]
+        f.receive_command(stop,1.1,1.1)
+        self.assertFalse(f.receive_permit(dict(p,permit_seq=3,paused=False),1.11))
+        self.assertEqual(f.tick(1.12),((0.,0.),[]))
+
+    def test_lost_rollover_renewal_still_times_out(self):
+        _,f,_,p=self.running()
+        f.receive_permit(dict(p,permit_seq=2,paused=True),1.03)
+        velocity,events=f.tick(1.34)
+        self.assertEqual(velocity,(0.,0.))
+        self.assertEqual(events[0]['reason'],'EXECUTOR_TIMEOUT')
 
     def test_external_stop_nonce_is_bound_to_request_id(self):
         s,f,c,p=self.running()

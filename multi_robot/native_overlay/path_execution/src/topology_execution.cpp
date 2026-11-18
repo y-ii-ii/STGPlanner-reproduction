@@ -1,5 +1,6 @@
 #include "path_execution/path_execution.h"
 #include "path_execution/command_wait.h"
+#include "path_execution/segment_rollover.h"
 #include <cmath>
 
 namespace path_execution {
@@ -33,11 +34,12 @@ void PathExecution::topologyControl(const std_msgs::String::ConstPtr&msg){
     topology_session_=session;topology_command_seq_=seq;topology_mode_text_=mode;topology_received_=interface::executionMonotonicNow();
     if(mode=="STOP"){
       topology_stop_proofs_.beginStop(p.get<std::string>("stop_id",""));
-      topology_stop_pending_=true;topology_goal_active_=false;
+      topology_stop_pending_=true;topology_goal_active_=false;topology_rollover_until_=0;
       std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);
     }else{
       if(lease.token()!=topology_current_.token()){
         topology_stop_pending_=false;
+        topology_rollover_until_=0;
         topology_stop_proofs_.beginMotion();
       }
       topology_current_=lease;
@@ -83,8 +85,12 @@ bool PathExecution::topologyAuthorize(const control_planner_interface::VehicleEx
     if(topology_stop_pending_||topology_mode_text_!="ROUTE"||
        !interface::executionLeaseMatches(lease,topology_current_,now)||
        interface::executionMonotonicNow()-topology_received_>1.5)return false;
+    if(topology_rollover_until_>0.&&!topologyRolloverLocked(interface::executionMonotonicNow()))return false;
     if(topology_goal_.token()==lease.token()&&goal.header.seq<=last_topology_goal_seq_)return false;
-    if(topology_goal_.token()!=lease.token())topology_path_published_=false;
+    if(topology_goal_.token()!=lease.token()){
+      topology_path_published_=false;
+      topology_certified_goal_seq_=0;
+    }
     topology_stop_proofs_.beginMotion();
     topology_goal_=lease;last_topology_goal_seq_=goal.header.seq;topology_body_margin_=body_margin;
     topology_goal_active_=true;topology_goal_began_=interface::executionMonotonicNow();
@@ -117,18 +123,30 @@ void PathExecution::topologyRejected(const control_planner_interface::VehicleExe
 bool PathExecution::topologyKeepRunningLocked(double now)const{
   return topology_goal_active_&&!topology_stop_pending_&&topology_mode_text_=="ROUTE"
     &&topology_goal_.token()==topology_current_.token()
-    &&now-topology_received_<=1.5&&now-topology_goal_began_<=30.;
+    &&now-topology_received_<=1.5&&now-topology_goal_began_<=30.
+    &&(topology_rollover_until_<=0.||topologyRolloverLocked(now));
+}
+bool PathExecution::topologyRolloverLocked(double now)const{
+  return segmentRolloverValid(topology_rollover_until_,now,now-topology_received_,
+      topology_mode_text_=="ROUTE"&&topology_goal_.token()==topology_current_.token(),
+      topology_stop_pending_);
 }
 void PathExecution::topologyWatchdog(const ros::WallTimerEvent&){
   // A fresh per-executor permit is required at the final velocity publisher.
   // If this process exits, permit expiry still forces zero independently.
   std::lock_guard<std::mutex> guard(topology_mutex_);
-  bool allow=topologyKeepRunningLocked(interface::executionMonotonicNow());
+  const double now=interface::executionMonotonicNow();
+  const bool paused=topologyRolloverLocked(now);
+  if(topology_rollover_until_>0.&&!paused){
+    topology_rollover_until_=0;topology_goal_active_=false;topology_stop_pending_=true;
+  }
+  bool allow=paused||topologyKeepRunningLocked(now);
   // A new dispatch cannot release the follower or grant a permit before its
   // first new waypoint/path is published. Same-task rolling updates keep continuity.
-  if(allow&&!topology_path_published_)return;
+  if(allow&&!paused&&!topology_path_published_)return;
   if(!allow){std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);}
   boost::property_tree::ptree p;p.put("token",topology_goal_.token());p.put("allow",allow);
+  p.put("paused",paused);p.put("goal_seq",topology_certified_goal_seq_);
   p.put("issuer",topology_issuer_);p.put("permit_seq",++topology_permit_seq_);
   std::ostringstream out;boost::property_tree::write_json(out,p,false);
   std_msgs::String msg;msg.data=out.str();topology_permit_pub_.publish(msg);
@@ -136,6 +154,11 @@ void PathExecution::topologyWatchdog(const ros::WallTimerEvent&){
 void PathExecution::topologyPathPublished(){
   std::lock_guard<std::mutex> guard(topology_mutex_);
   if(!topology_goal_active_||topology_stop_pending_)return;
+  if(topology_rollover_until_>0.&&topology_certified_goal_seq_==last_topology_goal_seq_){
+    // The final gate may resume only against the newly published certificate.
+    topology_rollover_until_=0;
+    std_msgs::Bool resume;resume.data=false;stop_move_pub_.publish(resume);
+  }
   if(!topology_path_published_){
     topology_path_published_=true;
     std_msgs::Bool resume;resume.data=false;stop_move_pub_.publish(resume);
@@ -160,11 +183,17 @@ void PathExecution::topologyPublishPath(const Path& path){
   }
   p.add_child("path",points);std::ostringstream out;boost::property_tree::write_json(out,p,false);
   std_msgs::String msg;msg.data=out.str();topology_certified_pub_.publish(msg);
+  topology_certified_goal_seq_=last_topology_goal_seq_;
 }
-void PathExecution::topologyFinish(){
+void PathExecution::topologyFinish(bool reached_prefix){
   std::lock_guard<std::mutex> guard(topology_mutex_);
+  const double now=interface::executionMonotonicNow();
+  const bool continue_route=reached_prefix&&topology_path_published_
+      &&topology_rollover_until_<=0.&&topologyKeepRunningLocked(now);
   topology_goal_active_=false;
-  if(topology_goal_.token()==topology_current_.token()||topology_mode_text_!="ROUTE")topology_stop_pending_=true;
+  topology_rollover_until_=continue_route?now+kSegmentRolloverSeconds:0.;
+  if(!continue_route&&(topology_goal_.token()==topology_current_.token()||topology_mode_text_!="ROUTE"))
+    topology_stop_pending_=true;
   std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);
 }
 void PathExecution::topologyStop(const control_planner_interface::VehicleExecuteGoal&goal){
@@ -175,7 +204,7 @@ void PathExecution::topologyStop(const control_planner_interface::VehicleExecute
   {
     std::lock_guard<std::mutex> guard(topology_mutex_);
     cached=topology_stop_proofs_.retryProof(request,topology_stop_pending_&&!topology_goal_active_);
-    topology_goal_active_=false;topology_stop_pending_=true;
+    topology_goal_active_=false;topology_stop_pending_=true;topology_rollover_until_=0;
   }
   std_msgs::Bool stop;stop.data=true;stop_move_pub_.publish(stop);
   if(request.empty()){stop_move_server_.setAborted();return;}

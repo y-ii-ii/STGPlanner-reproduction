@@ -167,6 +167,7 @@ class VelocityFence:
         self.zero_since, self.zero_last, self.stationary_since = None, -math.inf, None
         self.samples, self.stop_started, self.proof_sent = 0, -math.inf, False
         self.permit_seq, self.issuer, self.events = 0, None, []
+        self.executor_paused, self.certified_goal_seq = False, None
         self.armed_at, self.progress_at, self.progress_pose = 0., 0., None
 
     def receive_command(self, command, now, ros_now):
@@ -201,6 +202,7 @@ class VelocityFence:
                 self.zero_since, self.zero_last, self.stationary_since = None, -math.inf, None
                 self.samples, self.active_token, self.issuer = 0, None, None
                 self.permit_seq, self.permit_at = 0, -math.inf
+                self.executor_paused, self.certified_goal_seq = False, None
             return True
         new_token = token(command)
         if self.phase == "stopped":
@@ -208,6 +210,7 @@ class VelocityFence:
             self.armed_at, self.progress_at = now, now
             self.progress_pose = None if self.odom is None else self.odom["pose"]
             self.permit_seq, self.permit_at, self.issuer = 0, -math.inf, None
+            self.executor_paused, self.certified_goal_seq = False, None
             self.raw_at = -math.inf
         elif self.active_token != new_token or self.phase not in ("armed", "running"):
             return False
@@ -219,6 +222,10 @@ class VelocityFence:
             return False
         if self.issuer not in (None, permit["issuer"]):
             return False
+        goal_seq = int(permit["goal_seq"]) if "goal_seq" in permit else None
+        if goal_seq is not None and (goal_seq < 0 or self.certified_goal_seq is not None
+                                     and goal_seq < self.certified_goal_seq):
+            return False
         self.issuer, self.permit_seq = permit["issuer"], int(permit["permit_seq"])
         # property_tree emits JSON booleans as strings; "false" is truthy in
         # Python and must never accidentally grant motion permission.
@@ -227,6 +234,12 @@ class VelocityFence:
             self._trip("EXECUTOR_STOP")
             return True
         if self.phase=="armed":self.raw_at=-math.inf  # No cached pre-goal follower command.
+        paused = permit.get("paused") is True or permit.get("paused") == "true"
+        if paused or self.executor_paused:
+            # Resume must use a new local proposal, never the previous
+            # finished prefix's stale Twist. Neither deadline is reset.
+            self.raw_at=-math.inf
+        self.executor_paused, self.certified_goal_seq = paused, goal_seq
         self.permit_at, self.phase = now, "running"
         return True
 
@@ -297,7 +310,8 @@ class VelocityFence:
                 "zero_s": now-self.zero_since})
             self.phase, self.proof_sent = "stopped", True
             self.proof_at=now
-        velocity = self.raw if self.phase == "running" and now-self.raw_at <= .3 else (0., 0.)
+        velocity = self.raw if (self.phase == "running" and not self.executor_paused
+                                and now-self.raw_at <= .3) else (0., 0.)
         events, self.events = self.events, []
         return velocity, events
 
