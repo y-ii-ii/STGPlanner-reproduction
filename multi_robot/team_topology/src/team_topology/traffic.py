@@ -48,32 +48,37 @@ class Reservations:
     @staticmethod
     def following(poses, commands, measured, gap, margin):
         # Overlapping future polylines can describe two cars following the same
-        # corridor. Permit that only with a straight, aligned current request
-        # and room for the rear car to stop behind a suddenly stationary leader.
-        if measured is None or any(v<=.05 or abs(w)>.025 for v,w in commands):
+        # corridor. A turning leader is stationary for the rear stopping
+        # calculation, and both current proposals still pass the swept check.
+        if measured is None or any(v<0 for v,_ in commands):
             return None
-        if any(v<-.05 or abs(w)>.12 for v,w in measured):
+        if any(v<-.05 for v,_ in measured):
             return None
         yaw=poses[0][2]
         diff=poses[1][2]-yaw
-        if abs(math.atan2(math.sin(diff),math.cos(diff)))>.16:
+        if abs(math.atan2(math.sin(diff),math.cos(diff)))>.35:
             return None
         dx=poses[1][0]-poses[0][0];dy=poses[1][1]-poses[0][1]
         longitudinal=dx*math.cos(yaw)+dy*math.sin(yaw)
-        lateral=-dx*math.sin(yaw)+dy*math.cos(yaw)
-        if abs(lateral)>.40:return None
         front=1 if longitudinal>0 else 0
         rear=1-front
+        yaw=poses[rear][2]
+        dx=poses[front][0]-poses[rear][0];dy=poses[front][1]-poses[rear][1]
+        separation=dx*math.cos(yaw)+dy*math.sin(yaw)
+        lateral=-dx*math.sin(yaw)+dy*math.cos(yaw)
+        rv,rw=commands[rear]
+        if (abs(lateral)>.40 or rv<=.05 or abs(rw)>.06 or abs(commands[front][1])>.35
+                or abs(measured[rear][1])>.18):
+            return None
         for scale in (1.,.75,.5,.25):
             move=list(commands)
-            rv,rw=commands[rear]
             move[rear]=(rv*scale,rw*scale)
             rear_speed=max(abs(measured[rear][0]),rv*scale)
             # Circumscribed rectangles, 0.4 s combined approval/sensing
             # delay, 2 m/s² braking, and the existing inter-car margin.
-            if abs(longitudinal)<2*RADIUS+margin+.4*rear_speed+rear_speed**2/4:
+            if separation<2*RADIUS+margin+.4*rear_speed+rear_speed**2/4:
                 continue
-            if gap(move)>=margin:return move
+            if gap(move)>=margin:return move,front
         return None
 
     def select(self,now,poses,commands,current,paths,acks,reverse_ok):
@@ -86,7 +91,8 @@ class Reservations:
                 # Measure new proposals every tick. Existing epoch brake/retreat
                 # barriers still run before this can be used again.
                 self.clear_since=None
-                return following,['PASS']*2,dict(epoch=self.epoch,phase='FOLLOW',winner=self.winner)
+                moves,self.winner=following
+                return moves,['PASS']*2,dict(epoch=self.epoch,phase='FOLLOW',winner=self.winner)
         info={'epoch':self.epoch,'phase':self.phase,'winner':self.winner}
         if self.phase=='FREE' and not conflict:return list(commands),['PASS']*2,info
         if self.phase=='FREE':

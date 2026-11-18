@@ -93,6 +93,22 @@ class BodyTracker:
     def clear(self):
         self.path=[];self.cursor=0;self.key=None;self.margin=.15
 
+    def reservation_prefix(self, pose, limit=5.):
+        """Current directed prefix for traffic, bounded by its 2.5 s horizon."""
+        points = [tuple(pose[:2])]
+        for waypoint in self.path[self.cursor:]:
+            point = waypoint[:2]
+            length = math.dist(points[-1], point)
+            if length < 1e-7:
+                continue
+            if length >= limit:
+                a = points[-1]
+                points.append(tuple(x+(y-x)*limit/length for x,y in zip(a,point)))
+                break
+            points.append(point)
+            limit -= length
+        return points if len(points)>1 else []
+
     def propose(self, pose, current, grid):
         if not self.path:return (0.,0.),'NO_PATH'
         tolerance=.035 if self.margin<.15 else .14
@@ -159,6 +175,10 @@ class BodyTracker:
             bearing=math.atan2(dy,dx);reverse=abs(wrap(bearing-p[2]))>math.pi/2
             error=wrap(bearing+(math.pi if reverse else 0.)-pose[2])
             w=max(-NORMAL_YAW_RATE,min(NORMAL_YAW_RATE,2.2*error));v=min(2.,max(.10,1.2*d))
+            # Near-straight odometry jitter repeatedly changed the sign of
+            # tiny steering requests between a proposal and its traffic
+            # approval. Keep a small straight deadband before the body check.
+            if self.margin==.15 and abs(error)<=.015:w=0.
             if abs(error)>.24:v=0.
             if self.margin<.15:v=min(v,max(.025,1.2*d))
             if reverse:v=-min(.35,v)

@@ -7,7 +7,7 @@ contains topology and task summaries only; no fused occupancy or ground truth.
 import hashlib
 import math
 from .graph import Navigation, point, wire
-from .scope import unknown_support, completion_signature
+from .scope import claims_conflict, completion_signature, unknown_support, work_claim
 from .retry_memory import RetryMemory
 from .observations import TeamObservations
 
@@ -129,7 +129,7 @@ class Coordinator:
                     positions=positions, tile=task["tile"], signature=task["signature"]))
         return groups
 
-    def plan(self, store, now, wall_now=None, committed=None):
+    def plan(self, store, now, wall_now=None, committed=None, reserved=None):
         wall_now = now if wall_now is None else wall_now
         self.command_seq += 1
         waits = {r: {"schema": 1, "frame": "world", "robot": r, "mode": "WAIT",
@@ -146,7 +146,13 @@ class Coordinator:
         for item in self.ledger.items.values():
             if item['state']=='offered':item.pop('receiver',None);item['state']='assigned'
         groups = self.groups(store, nav)
-        group_by_id = {g["id"]: g for g in groups}
+        tasks = store.live("task")
+        contracts = {g["id"]: dict(task=g["id"], task_members=g["members"],
+            scopes=[tasks[k]["scope"] for k in g["members"] if "scope" in tasks[k]])
+            for g in groups}
+        claims = {gid:work_claim(contract) for gid,contract in contracts.items()}
+        occupied = {r:work_claim(active) for r,active in (reserved or committed or {}).items()}
+        excluded = {r:0 for r in self.robots}
         trees = {r: nav.search(store.states[r]["root"]) for r in self.robots}
         searches = {r:tree[0] for r,tree in trees.items()}
         costs, portal_for = {}, {}
@@ -161,6 +167,11 @@ class Coordinator:
                 costs[r, gid] = math.inf
                 if self.deferred.get((r,gid),-math.inf)>wall_now:
                     continue # Execution feedback is temporary; preserve pending work.
+                if any(peer!=r and claims_conflict(claims[gid],claim) for peer,claim in occupied.items()):
+                    # The supervisor's STOP barrier would hold this intention.
+                    # Leave the group pending and bid on disjoint work instead.
+                    excluded[r] += 1
+                    continue
                 # A failed nearest portal must not hide a different reachable
                 # entrance of this same connected task.
                 for cost,portal in sorted(options):
@@ -208,6 +219,9 @@ class Coordinator:
                 candidates[old_owner].remove(gid)
                 candidates[r].append(gid)
         for r, available in candidates.items():
+            available = [gid for gid in available if not any(
+                peer!=r and claims_conflict(claims[gid],claim)
+                for peer,claim in occupied.items())]
             if not available:
                 continue
             # Keep an already active task; otherwise choose closest within responsibility.
@@ -221,12 +235,9 @@ class Coordinator:
             pose = point(store.states[r]["pose"])
             if pose != point(path[0]):
                 path = [pose] + path
-            waits[r] = {"schema": 1, "frame": "world", "robot": r, "mode": "ROUTE",
+            waits[r] = {**contracts[gid], "schema": 1, "frame": "world", "robot": r, "mode": "ROUTE",
                 "stamp": now, "command_seq": self.command_seq,
-                "task": gid, "version": item["version"], "path": path,
-                "task_members": group_by_id[gid]["members"],
-                "scopes": [store.live("task")[k]["scope"] for k in group_by_id[gid]["members"]
-                           if "scope" in store.live("task")[k]],
+                "version": item["version"], "path": path,
                 "cost_m": costs[r, gid], "edge_ids": route["edges"],
                 "portal":portal_for[r,gid],
                 "peer_edges": sorted({e for e in route["edges"] if not e.startswith(store.states[r]["author"] + "/")}),
@@ -234,6 +245,9 @@ class Coordinator:
             # The supervisor may still withhold this intention behind a STOP
             # barrier. commit_dispatches() runs on the actual published ROUTEs.
             waits[r]["scope_digest"], waits[r]["scope_cells"] = completion_signature(waits[r]["scopes"])
+            # Also keep simultaneous fresh requests disjoint. A still-active
+            # claim persists unchanged until its stop proof in the supervisor.
+            occupied.setdefault(r, claims[gid])
         retained=[]
         for r in self.robots:
             active=(committed or {}).get(r)
@@ -263,7 +277,7 @@ class Coordinator:
         self.diagnostics={'reason':'allocated','groups':len(groups),'pending_tasks':sum(t['state']=='pending' for t in store.live('task').values()),
             'completed_support_keys':len(self.completed_support),'reachable_groups':{str(r):sum(math.isfinite(costs.get((r,g['id']),math.inf)) for g in groups) for r in self.robots},
             'candidates':{str(r):len(v) for r,v in candidates.items()},'desired':{str(r):c['mode'] for r,c in waits.items()},
-            'retained_transient_contracts':retained}
+            'retained_transient_contracts':retained,'excluded_peer_contract_candidates':excluded}
         return waits
 
     def observe_completed(self, feedback, active, ros_now):

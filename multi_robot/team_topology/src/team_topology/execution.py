@@ -6,7 +6,7 @@ own successful zero publications. Clock, publisher and sensor faults fail closed
 """
 import copy
 import math
-from .scope import unknown_support
+from .scope import claims_conflict, work_claim
 
 
 def token(command):
@@ -64,11 +64,7 @@ class ExecutionSupervisor:
         support. Traffic reservations separately protect physical path crossings.
         A robot stopping unrelated work must not starve a ready recipient.
         """
-        names=lambda p:set(p.get('task_members',[]))|({p['task']} if p.get('task') else set())
-        if names(a)&names(b):return True
-        if a.get('scopes') and b.get('scopes'):
-            return bool(unknown_support(a['scopes'])&unknown_support(b['scopes']))
-        return False
+        return claims_conflict(work_claim(a), work_claim(b))
 
     def feedback(self, value, now):
         robot = int(value["robot"])

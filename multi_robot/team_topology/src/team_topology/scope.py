@@ -32,6 +32,19 @@ def completion_signature(scopes):
     return hashlib.sha256(wire(sorted(support)).encode()).hexdigest(), len(support)
 
 
+def work_claim(task):
+    names = set(task.get('task_members', ()))
+    if task.get('task'):
+        names.add(task['task'])
+    return names, unknown_support(task.get('scopes', ()))
+
+
+def claims_conflict(first, second):
+    # IDs catch exact handoffs and support catches renamed tasks that would
+    # ask two robots to execute the same observation work.
+    return bool(first[0] & second[0] or first[1] & second[1])
+
+
 def runs(cells):
     rows = {}
     for x, y in cells:

@@ -1,9 +1,12 @@
 import unittest
 
 from team_topology.allocator import Coordinator
+from team_topology.body_tracking import BodyTracker
+from team_topology.execution import ExecutionSupervisor
 from team_topology.graph import GraphStore
 from team_topology.traffic import Reservations
 from test_offline import graph
+import test_body_tracking
 
 
 class CorridorTests(unittest.TestCase):
@@ -29,6 +32,41 @@ class CorridorTests(unittest.TestCase):
         p=Reservations()
         self.assertEqual(p.select(1.,poses,[(1.,.5),(1.,0)],[(0,0)]*2,paths,{},[False]*2)[1],['HOLD']*2)
         self.assertEqual(p.select(2.,poses,[(1.,0)]*2,[(0,0)]*2,paths,{},[False]*2)[1],['HOLD']*2)
+
+    def test_rear_can_follow_turning_leader_with_stopping_room(self):
+        paths=[[(3,0),(5,0)],[(0,0),(5,0)]]
+        poses=[(3,0,.15),(0,0,0)]
+        p=Reservations()
+        p.winner=1
+        moves,modes,info=p.select(1.,poses,[(0,.2),(1.,0)],[(0,.2),(.5,0)],paths,{},[False]*2)
+        self.assertEqual(modes,['PASS']*2)
+        self.assertGreater(moves[1][0],0)
+        self.assertEqual(info['winner'],0)
+
+    def test_following_never_shortcuts_a_reversing_leader(self):
+        paths=[[(2.4,0),(0,0)],[(0,0),(4,0)]]
+        _,modes,_=Reservations().select(1.,[(2.4,0,0),(0,0,0)],
+            [(-.35,0),(1.,0)],[(-.1,0),(0,0)],paths,{},[False]*2)
+        self.assertEqual(modes,['HOLD']*2)
+
+    def test_reservation_prefix_preserves_unconsumed_corner(self):
+        tracker=BodyTracker()
+        tracker.receive([(0,0,0),(1,0,0),(2,0,0),(2,0,1.57),(2,5,1.57)],'east')
+        tracker.cursor=2
+        self.assertEqual(tracker.reservation_prefix((1.5,0,0),2.),
+                         [(1.5,0),(2,0),(2,1.5)])
+
+    def test_small_straight_angular_jitter_never_changes_turn_sign(self):
+        tracker=BodyTracker()
+        tracker.receive([(0,0,0),(2,0,0)],'east')
+        grid=test_body_tracking.BodyTrackingTests().grid()
+        positive,_=tracker.propose((0,0,.01),(0,0),grid)
+        negative,_=tracker.propose((0,0,-.01),(0,0),grid)
+        correction,_=tracker.propose((0,0,-.04),(0,0),grid)
+        self.assertGreater(positive[0],.05)
+        self.assertEqual(positive,negative)
+        self.assertEqual(positive[1],0)
+        self.assertGreater(correction[1],0)
 
 
 class AllocationContinuityTests(unittest.TestCase):
@@ -68,3 +106,25 @@ class AllocationContinuityTests(unittest.TestCase):
         del records[initial['portal']]
         store.apply(a.build(records,state))
         self.assertEqual(c.plan(store,1.2,10.,{1:initial})[1]['mode'],'WAIT')
+
+    def test_rebid_available_task_while_peer_retains_overlapping_work(self):
+        store=GraphStore()
+        a,ar,ast=graph(1,{'r':[0,0]}, {})
+        b,br,bst=graph(2,{'r':[0,0],'near':[1,0],'far':[0,2]}, {
+            'n':('r','near',[[0,0],[1,0]]),'f':('r','far',[[0,0],[0,1],[0,2]])},
+            {'alias':['near'],'independent':['far']})
+        near=b.key('task','alias')
+        far=b.key('task','independent')
+        scope=dict(resolution=1.,origin=[0,0],unknown_runs=[[0,1,1]],portal_runs=[[0,0,0]],map_rev=1)
+        br[near]['scope']=scope
+        br[far]['scope']=dict(scope,unknown_runs=[[2,0,0]])
+        store.apply(a.build(ar,ast))
+        store.apply(b.build(br,bst))
+        allocated=Coordinator().plan(store,1.)
+        self.assertEqual(allocated[2]['task'],near)
+        # A different ID can still be physically reserved by an old owner
+        # that has entered STOP and has yet to send the nonce-bound ACK.
+        old=dict(task=a.key('task','old'),scopes=[scope])
+        changed=Coordinator().plan(store,1.,reserved={1:old})
+        self.assertEqual(changed[2]['task'],far)
+        self.assertFalse(ExecutionSupervisor.work_conflict(changed[2],old))

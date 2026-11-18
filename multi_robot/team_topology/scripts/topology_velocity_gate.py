@@ -111,8 +111,11 @@ def main():
                 ros_now=rospy.Time.now().to_sec()
                 g=own['grid'];fresh=g is not None and now-own['grid_at']<=1.5 and 0<=ros_now-own['grid_stamp']<=1.5 and fence.odom is not None and now-fence.odom['at']<=.3
                 proposal,reason=(0.,0.),'NOT_RUNNING'
+                preview=[]
                 if fence.phase=='running' and fresh and now-own['path_at']<=.3:
-                    proposal,reason=tracker.propose(fence.odom['pose'],own['twist'],g)
+                    pose=fence.odom['pose']
+                    proposal,reason=tracker.propose(pose,own['twist'],g)
+                    if reason!='PATH_START_DIVERGED':preview=tracker.reservation_prefix(pose)
                 elif fence.phase=='running':reason='STALE_GEOMETRY_OR_PATH'
                 # Peer reservations evaluate this tracker proposal. They must
                 # not approve the unrelated FALCO lookahead command.
@@ -132,7 +135,8 @@ def main():
                 traffic.published(velocity,now)
                 trace.publish(String(data=wire(dict(stamp=ros_now,token=fence.active_token,phase=fence.phase,
                     pose=fence.odom['pose'] if fence.odom else None,twist=own['twist'],proposal=proposal,output=velocity,
-                    reason=reason,cursor=tracker.cursor,path_size=len(tracker.path),body_margin_m=tracker.margin,map_stamp=own['grid_stamp']))))
+                    reservation_prefix=preview,reason=reason,cursor=tracker.cursor,path_size=len(tracker.path),
+                    body_margin_m=tracker.margin,map_stamp=own['grid_stamp']))))
                 if traffic_required and now-last_capability>.1:
                     last_capability=now
                     events.append(dict(source='velocity_gate',status='TRAFFIC_CAPABILITY',robot=robot,token=fence.active_token,reverse_ok=traffic.reverse_ok(now,rospy.Time.now().to_sec())))

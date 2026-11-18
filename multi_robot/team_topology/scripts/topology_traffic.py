@@ -4,14 +4,15 @@ import json,math,threading,time
 from team_topology.graph import wire
 from team_topology.execution import token
 from team_topology.traffic import Reservations
+from team_topology.body_tracking import NORMAL_YAW_RATE
 
 def main():
     import rospy
     from std_msgs.msg import String
-    from geometry_msgs.msg import Twist
-    from nav_msgs.msg import Odometry,Path
+    from nav_msgs.msg import Odometry
     rospy.init_node('topology_traffic');lock=threading.Lock();policy=Reservations()
-    states=[dict(pose=None,stamp=None,odom_at=-1e9,raw=(0.,0.),raw_at=-1e9,token=None,path=[],path_at=-1e9,reverse=False,cap_at=-1e9,current=(0.,0.)) for _ in range(2)]
+    states=[dict(pose=None,stamp=None,odom_at=-1e9,request=None,token=None,
+                 reverse=False,cap_at=-1e9,current=(0.,0.)) for _ in range(2)]
     acks={};seq=0;sent=0
     pubs=[rospy.Publisher('/robot_%d/topology/traffic_permit'%(i+1),String,queue_size=1) for i in range(2)]
     status=rospy.Publisher('~status',String,queue_size=1)
@@ -19,7 +20,8 @@ def main():
         try:
             v=json.loads(m.data);new=token(v) if v.get('mode')=='ROUTE' else None
             with lock:
-                if states[i]['token']!=new:acks.pop(i,None)
+                if states[i]['token']!=new:
+                    acks.pop(i,None);states[i]['request']=None
                 states[i]['token']=new
         except (ValueError,KeyError,TypeError):pass
     def odom(m,i):
@@ -28,8 +30,12 @@ def main():
         if not 0<=rospy.Time.now().to_sec()-stamp<=.3:return
         p,q=m.pose.pose.position,m.pose.pose.orientation
         yaw=math.atan2(2*(q.w*q.z+q.x*q.y),1-2*(q.y*q.y+q.z*q.z))
+        linear=m.twist.twist.linear
+        v=linear.x*math.cos(yaw)+linear.y*math.sin(yaw) if m.child_frame_id=='world' else linear.x
+        w=m.twist.twist.angular.z
+        if not all(math.isfinite(value) for value in (stamp,p.x,p.y,yaw,v,w)):return
         with lock:
-            s=states[i];v,w=m.twist.twist.linear.x,m.twist.twist.angular.z
+            s=states[i]
             if s['stamp'] is not None:
                 dt=stamp-s['stamp']
                 if dt<=0:return
@@ -41,13 +47,26 @@ def main():
                     if abs(dv)>abs(v):v=dv
                     if abs(dw)>abs(w):w=dw
             s.update(pose=(p.x,p.y,yaw),stamp=stamp,odom_at=time.monotonic(),current=(v,w))
-    def raw(m,i):
-        v,w=m.linear.x,m.angular.z
-        if not math.isfinite(v) or not math.isfinite(w):return
-        with lock:states[i].update(raw=(max(-2.,min(2.,v)),max(-1.5,min(1.5,w))),raw_at=time.monotonic())
-    def path(m,i):
-        if m.header.frame_id!='world':return
-        with lock:states[i].update(path=[(p.pose.position.x,p.pose.position.y) for p in m.poses],path_at=time.monotonic())
+    def preview(m,i):
+        try:
+            body=json.loads(m.data);stamp=float(body['stamp'])
+            vx,wz=map(float,body['proposal'])
+            path=[(float(x),float(y)) for x,y in body['reservation_prefix']]
+            if (not 0<=rospy.Time.now().to_sec()-stamp<=.3 or abs(vx)>2. or abs(wz)>NORMAL_YAW_RATE
+                    or not all(math.isfinite(v) for v in (vx,wz))
+                    or not all(math.isfinite(v) for point in path for v in point)):
+                return
+            if body['phase']!='running':
+                vx,wz=0.,0.;path=[]
+            with lock:
+                state=states[i];last=state['request']
+                # Reserve the gate's actual unconsumed certificate, in the
+                # same timestamped packet as its matching local velocity.
+                if (not state['token'] or body['token']!=state['token']
+                        or last is not None and stamp<last['stamp']):
+                    return
+                state['request']=dict(stamp=stamp,at=time.monotonic(),path=path,raw=(vx,wz))
+        except (ValueError,KeyError,TypeError):pass
     def feedback(m,i):
         try:
             v=json.loads(m.data)
@@ -57,23 +76,20 @@ def main():
                 if v.get('status')=='TRAFFIC_CAPABILITY':states[i].update(reverse=v.get('reverse_ok') is True,cap_at=time.monotonic())
         except (ValueError,KeyError,TypeError):pass
     for i in range(2):
-        for topic,typ,fn in [('topo_planner_node/topology_command',String,command),('base_link/odometry',Odometry,odom),('topology/request_cmd_vel',Twist,raw),('path_execution_node/local_path',Path,path),('topology/execution_feedback',String,feedback)]:
+        for topic,typ,fn in [('topo_planner_node/topology_command',String,command),('base_link/odometry',Odometry,odom),
+                            ('topology/body_trace',String,preview),('topology/execution_feedback',String,feedback)]:
             rospy.Subscriber('/robot_%d/'%(i+1)+topic,typ,lambda m,i=i,fn=fn:fn(m,i),queue_size=5)
     wait=threading.Event()
     while not rospy.is_shutdown():
         with lock:
-            now=time.monotonic();seq+=1;paths=[];poses=[s['pose'] for s in states]
+            now=time.monotonic();ros_now=rospy.Time.now().to_sec();seq+=1;paths=[];poses=[s['pose'] for s in states]
             if all(p is not None for p in poses) and all(now-s['odom_at']<=.3 for s in states):
+                commands=[]
                 for s in states:
-                    p=s['path'] if now-s['path_at']<2. else []
-                    if p:
-                        j=min(range(len(p)),key=lambda j:math.dist(p[j],s['pose'][:2]));p=p[j:];sampled=[]
-                        for q in p:
-                            if not sampled or math.dist(q,sampled[-1])>=.4:sampled.append(q)
-                        if p and (not sampled or sampled[-1]!=p[-1]):sampled.append(p[-1])
-                        p=sampled
-                    paths.append(p)
-                commands=[s['raw'] if s['token'] and now-s['raw_at']<=.3 else (0.,0.) for s in states]
+                    request=s['request']
+                    fresh=request is not None and now-request['at']<=.3 and 0<=ros_now-request['stamp']<=.3
+                    paths.append(request['path'] if fresh else [])
+                    commands.append(request['raw'] if fresh else (0.,0.))
                 moves,modes,info=policy.select(now,poses,commands,[s['current'] for s in states],paths,acks,[s['reverse'] and now-s['cap_at']<=.3 for s in states])
             else:
                 if policy.phase!='BRAKE':policy.brake(now)
