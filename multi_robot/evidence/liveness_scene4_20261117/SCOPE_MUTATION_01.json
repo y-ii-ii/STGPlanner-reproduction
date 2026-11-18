@@ -1,0 +1,24 @@
+{
+  "trial": "topology_liveness_scene4_20261117_01_dual",
+  "route_dispatches": 25,
+  "mutating_scope_dispatches": 1,
+  "examples": [
+    {
+      "robot": "robot_1",
+      "task": "1/82565f4ddd604c22a12710cdf97701e4/task/2",
+      "version": 2,
+      "dispatch_id": 3,
+      "distinct_scope_digests": 7,
+      "scope_cell_counts": [
+        8,
+        12,
+        16,
+        24,
+        28,
+        36,
+        52
+      ],
+      "duration_wall_s": 27.58898633699573
+    }
+  ]
+}

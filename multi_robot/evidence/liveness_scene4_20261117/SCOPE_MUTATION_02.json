@@ -1,0 +1,223 @@
+{
+  "trial": "topology_liveness_scene4_20261117_02_dual",
+  "route_dispatches": 79,
+  "mutating_scope_dispatches": 15,
+  "examples": [
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/166",
+      "version": 914,
+      "dispatch_id": 89,
+      "distinct_scope_digests": 11,
+      "scope_cell_counts": [
+        8,
+        12,
+        16,
+        20,
+        24,
+        32,
+        36,
+        40,
+        44,
+        48,
+        52
+      ],
+      "duration_wall_s": 25.737050683994312
+    },
+    {
+      "robot": "robot_1",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/20",
+      "version": 124,
+      "dispatch_id": 36,
+      "distinct_scope_digests": 8,
+      "scope_cell_counts": [
+        64,
+        68,
+        72,
+        76,
+        77,
+        80,
+        84,
+        88
+      ],
+      "duration_wall_s": 17.768832086003385
+    },
+    {
+      "robot": "robot_1",
+      "task": "1/4b3168a9a517463faecc13eeeca3824f/task/2",
+      "version": 2,
+      "dispatch_id": 3,
+      "distinct_scope_digests": 7,
+      "scope_cell_counts": [
+        4,
+        8,
+        12,
+        16,
+        24,
+        28,
+        52
+      ],
+      "duration_wall_s": 34.890129643987166
+    },
+    {
+      "robot": "robot_1",
+      "task": "1/4b3168a9a517463faecc13eeeca3824f/task/27",
+      "version": 85,
+      "dispatch_id": 14,
+      "distinct_scope_digests": 7,
+      "scope_cell_counts": [
+        22,
+        24,
+        25,
+        26,
+        29,
+        32,
+        36
+      ],
+      "duration_wall_s": 17.145256654010154
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/25",
+      "version": 138,
+      "dispatch_id": 35,
+      "distinct_scope_digests": 6,
+      "scope_cell_counts": [
+        22,
+        25,
+        26,
+        29,
+        32,
+        36
+      ],
+      "duration_wall_s": 13.17923534300644
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/2",
+      "version": 78,
+      "dispatch_id": 12,
+      "distinct_scope_digests": 4,
+      "scope_cell_counts": [
+        12,
+        16,
+        28,
+        32
+      ],
+      "duration_wall_s": 42.77966712799389
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/170",
+      "version": 918,
+      "dispatch_id": 85,
+      "distinct_scope_digests": 4,
+      "scope_cell_counts": [
+        7,
+        12,
+        16,
+        20
+      ],
+      "duration_wall_s": 15.164602714008652
+    },
+    {
+      "robot": "robot_1",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/48",
+      "version": 189,
+      "dispatch_id": 50,
+      "distinct_scope_digests": 3,
+      "scope_cell_counts": [
+        76,
+        84,
+        92
+      ],
+      "duration_wall_s": 1.7415451259876136
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/56",
+      "version": 235,
+      "dispatch_id": 62,
+      "distinct_scope_digests": 3,
+      "scope_cell_counts": [
+        44,
+        60,
+        64
+      ],
+      "duration_wall_s": 2.993658469989896
+    },
+    {
+      "robot": "robot_1",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/57",
+      "version": 232,
+      "dispatch_id": 61,
+      "distinct_scope_digests": 3,
+      "scope_cell_counts": [
+        76,
+        78,
+        80
+      ],
+      "duration_wall_s": 2.387509998981841
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/1",
+      "version": 5,
+      "dispatch_id": 4,
+      "distinct_scope_digests": 2,
+      "scope_cell_counts": [
+        90,
+        92
+      ],
+      "duration_wall_s": 5.109986747003859
+    },
+    {
+      "robot": "robot_1",
+      "task": "1/4b3168a9a517463faecc13eeeca3824f/task/53",
+      "version": 111,
+      "dispatch_id": 26,
+      "distinct_scope_digests": 2,
+      "scope_cell_counts": [
+        20,
+        24
+      ],
+      "duration_wall_s": 1.9961023660143837
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/68",
+      "version": 490,
+      "dispatch_id": 73,
+      "distinct_scope_digests": 2,
+      "scope_cell_counts": [
+        8,
+        20
+      ],
+      "duration_wall_s": 1.7771749990060925
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/119",
+      "version": 812,
+      "dispatch_id": 81,
+      "distinct_scope_digests": 2,
+      "scope_cell_counts": [
+        44,
+        48
+      ],
+      "duration_wall_s": 5.0716299260093365
+    },
+    {
+      "robot": "robot_2",
+      "task": "2/0f03d0168b9c4d919655b332534a8b39/task/171",
+      "version": 919,
+      "dispatch_id": 96,
+      "distinct_scope_digests": 2,
+      "scope_cell_counts": [
+        6,
+        82
+      ],
+      "duration_wall_s": 17.205765135993715
+    }
+  ]
+}

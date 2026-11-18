@@ -1,0 +1,133 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "metrics_samples": 457,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 456
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 4,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 1214,
+      "max_feedback_queue_wait_s": 0.03076104199863039,
+      "max_graph_apply_wall_s": 0.004022238994366489,
+      "max_plan_wall_s": 0.02669966299436055
+    },
+    "last_ack_audit": {
+      "accepted": 26,
+      "last_rejection": {
+        "deadline_remaining_s": -7.1380075130146,
+        "expected_stop_id": "cd59df539f6e4acba859eb635250f4e4/stop/1/51",
+        "phase": "stopped",
+        "received_stop_id": "cd59df539f6e4acba859eb635250f4e4/stop/1/51",
+        "robot": 1
+      },
+      "rejected": 893
+    }
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "metrics_samples": 599,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 598
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 4,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 1559,
+      "max_feedback_queue_wait_s": 0.20641212500049733,
+      "max_graph_apply_wall_s": 0.11974591299076565,
+      "max_plan_wall_s": 0.24512609097291715
+    },
+    "last_ack_audit": {
+      "accepted": 81,
+      "last_rejection": {
+        "deadline_remaining_s": -30.6438868700061,
+        "expected_stop_id": "29bee0d666ff4c899fc687e5ed3eea1b/stop/1/151",
+        "phase": "stopped",
+        "received_stop_id": "29bee0d666ff4c899fc687e5ed3eea1b/stop/1/151",
+        "robot": 1
+      },
+      "rejected": 658
+    }
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "metrics_samples": 460,
+    "allocation_reason_sample_counts": {
+      "allocated": 460
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 3,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 1216,
+      "max_feedback_queue_wait_s": 0.05553785298252478,
+      "max_graph_apply_wall_s": 0.03080869000405073,
+      "max_plan_wall_s": 0.06303714599926025
+    },
+    "last_ack_audit": {
+      "accepted": 37,
+      "last_rejection": {
+        "deadline_remaining_s": -8.675444543972844,
+        "expected_stop_id": "f14e61cb064745f6a896bb91f300039c/stop/2/73",
+        "phase": "stopped",
+        "received_stop_id": "f14e61cb064745f6a896bb91f300039c/stop/2/73",
+        "robot": 2
+      },
+      "rejected": 627
+    }
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "metrics_samples": 2125,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 2124
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 4,
+    "max_total_inbox_depth": 14,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 5019,
+      "max_feedback_queue_wait_s": 0.907611498987535,
+      "max_graph_apply_wall_s": 0.29137758500291966,
+      "max_plan_wall_s": 0.94061259899172
+    },
+    "last_ack_audit": {
+      "accepted": 254,
+      "last_rejection": {
+        "deadline_remaining_s": -7.672647895000409,
+        "expected_stop_id": "acf2936679cc4ac2a04bf3a0f1f21ae1/stop/2/504",
+        "phase": "stopped",
+        "received_stop_id": "acf2936679cc4ac2a04bf3a0f1f21ae1/stop/2/504",
+        "robot": 2
+      },
+      "rejected": 463
+    }
+  }
+}

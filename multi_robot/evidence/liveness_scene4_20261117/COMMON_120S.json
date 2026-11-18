@@ -1,0 +1,44 @@
+[
+  {
+    "trial": "exec_stg_scene4_20261102_04_single",
+    "measurement_wall_s": 119.91050316800829,
+    "coverage_percent": 20.126315789473686,
+    "area_m2": 1567.8400000000001,
+    "total_distance_m": 173.4725428552977
+  },
+  {
+    "trial": "dual_validate_scene4_20261102_02_dual",
+    "measurement_wall_s": 119.11502325203037,
+    "coverage_percent": 15.702182284980745,
+    "area_m2": 1223.2,
+    "total_distance_m": 241.44788884451293
+  },
+  {
+    "trial": "topology_liveness_scene4_20261117_01_dual",
+    "measurement_wall_s": 119.9919421030063,
+    "coverage_percent": 1.2836970474967908,
+    "area_m2": 100.0,
+    "total_distance_m": 22.249749577200955
+  },
+  {
+    "trial": "topology_liveness_scene4_20261117_02_dual",
+    "measurement_wall_s": 119.26461743301479,
+    "coverage_percent": 3.113735558408216,
+    "area_m2": 242.56,
+    "total_distance_m": 63.37957782439234
+  },
+  {
+    "trial": "topology_liveness_scene4_20261117_03_dual",
+    "measurement_wall_s": 119.40500490699196,
+    "coverage_percent": 2.025160462130937,
+    "area_m2": 157.76,
+    "total_distance_m": 29.942980478425774
+  },
+  {
+    "trial": "topology_liveness_scene4_20261117_04_dual",
+    "measurement_wall_s": 119.8990130389866,
+    "coverage_percent": 2.9391527599486524,
+    "area_m2": 228.96,
+    "total_distance_m": 46.973573675008424
+  }
+]

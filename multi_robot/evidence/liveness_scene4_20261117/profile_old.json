@@ -1,0 +1,12 @@
+{
+  "no_ros_or_physics": true,
+  "source": "last full packets of preserved dispatch04; 100 synthetic state-only heartbeats",
+  "records": 11107,
+  "nodes": 2550,
+  "edges": 3353,
+  "digest": "6636eef7302a54acdcf85d54b902af299b5f22f418066590d794efb7e67b124d",
+  "median_s": 0.11772599400865147,
+  "max_s": 0.1449667480046628,
+  "sum_s": 11.857949927987647,
+  "iterations": 100
+}

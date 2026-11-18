@@ -1,0 +1,20 @@
+{
+  "source": "executor",
+  "status": "EXECUTOR_REJECTED",
+  "robot": "2",
+  "task": "2/9a4f968d83584207b7700ad60d31ec82/task/2",
+  "version": "71",
+  "dispatch_id": "11",
+  "allocation_session": "cd59df539f6e4acba859eb635250f4e4",
+  "goal_command_seq": "179",
+  "current_command_seq": "178",
+  "goal_token": "cd59df539f6e4acba859eb635250f4e4/2/71/11",
+  "current_token": "cd59df539f6e4acba859eb635250f4e4/2/71/11",
+  "mode": "ROUTE",
+  "stop_pending": "false",
+  "goal_stamp": "15293.382",
+  "lease_stamp": "15293.205",
+  "stamp": "15293.415000000001",
+  "robot_source": "robot_2",
+  "received": 115.32214427100553
+}

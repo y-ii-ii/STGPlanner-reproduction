@@ -1,4 +1,10 @@
-# 最新增量授权：2026-11-17 liveness
+# 2026-11-18停止入口：liveness已4/4结束关闭
+
+- 权威D:/STGPlanner/codex/TOPOLOGY_LIVENESS_LIMITS_20261117.json已closed。第4次b4ab2a8总wall2311.067s、并集29.488%、705.705m，无95/T95；四次最终双车STOP ACK通过、无非地面接触/新SIGSEGV记录。单机04与Old dual02及全部历史保留，新候选不晋升。
+- 本轮不得第五次/补跑/原生地图重放或继续修改算法；后续必须用户新的明确有限授权。“请继续/额度恢复”不自动重置次数。仅验收、报告、保全与恢复已测试配置。
+- 剩余问题已落证：PASS交通许可可覆盖当前局部零意图；作者观测完成摘要未充分进入全队跨ID去重；不同任务切换、整车可执行性与大图分配耗时仍未闭环。报告见multi_robot/docs/LIVENESS_SCENE4_RESULTS_20261117.md及D:/STGPlanner/codex/outputs/Scene4跨任务重派图积压与原生内存修复验证报告_20261117.html；证据codex/work/topology_liveness_20261117。新算法/编译空间保持冻结；锁和实际进程仍须核对。
+
+# 已用完的增量授权：2026-11-17 liveness
 
 - 最新用户明确授权：先离线修复跨任务重派、图积压与原生SIGSEGV，再最多4次新Scene4双机；每次含启动收尾wall/sim≤2400s，失败、中止、崩溃计数。权威D:/STGPlanner/codex/TOPOLOGY_LIVENESS_LIMITS_20261117.json。新独立liveness_native/liveness Python空间；旧scope保持closed、全部基线和历史只读。继续允许公开GitHub推送，每个逻辑修改注释、解释原因并验证后推送。
 

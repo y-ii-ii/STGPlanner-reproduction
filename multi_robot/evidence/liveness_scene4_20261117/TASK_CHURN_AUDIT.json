@@ -1,0 +1,272 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "completed": true,
+    "actual_route_dispatches": 25,
+    "unique_stop_nonces": 28,
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 3,
+      "planner_blocked": 13,
+      "EXECUTOR_STOP": 1,
+      "observation_completed": 2,
+      "TRAFFIC_WAIT_REPLAN": 5,
+      "execution": 2
+    },
+    "consecutive_dispatch_diagnostics": {
+      "task_id_changes": 12,
+      "changed_id_support_overlap_ge_half": 3,
+      "changed_id_overlap_ge_half_same_ingress": 2
+    },
+    "examples": [
+      {
+        "robot": "robot_2",
+        "received": 81.64249792801274,
+        "previous_task": "2/9a4f968d83584207b7700ad60d31ec82/task/3",
+        "task": "2/9a4f968d83584207b7700ad60d31ec82/task/4",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          2.536001,
+          -0.075327
+        ],
+        "origin": [
+          3.057222,
+          -0.099135
+        ]
+      },
+      {
+        "robot": "robot_1",
+        "received": 533.0822286189941,
+        "previous_task": "1/82565f4ddd604c22a12710cdf97701e4/task/13",
+        "task": "1/82565f4ddd604c22a12710cdf97701e4/task/20",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          12.140469,
+          0.76503
+        ],
+        "origin": [
+          12.549779,
+          0.805579
+        ]
+      }
+    ],
+    "note": "Diagnostic only: shared unknown support/entrance is not proof of equal free-space connectivity. Do not merge across a wall without validation."
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "completed": true,
+    "actual_route_dispatches": 79,
+    "unique_stop_nonces": 83,
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 33,
+      "observation_completed": 10,
+      "planner_blocked": 36,
+      "execution": 2
+    },
+    "consecutive_dispatch_diagnostics": {
+      "task_id_changes": 75,
+      "changed_id_support_overlap_ge_half": 18,
+      "changed_id_overlap_ge_half_same_ingress": 3
+    },
+    "examples": [
+      {
+        "robot": "robot_2",
+        "received": 77.67490881300182,
+        "previous_task": "2/0f03d0168b9c4d919655b332534a8b39/task/1",
+        "task": "2/0f03d0168b9c4d919655b332534a8b39/task/3",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          0.811855,
+          0.01304
+        ],
+        "origin": [
+          1.386004,
+          -0.004054
+        ]
+      },
+      {
+        "robot": "robot_1",
+        "received": 180.4195670770132,
+        "previous_task": "2/0f03d0168b9c4d919655b332534a8b39/task/40",
+        "task": "2/0f03d0168b9c4d919655b332534a8b39/task/42",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          11.19814,
+          14.16926
+        ],
+        "origin": [
+          11.18733,
+          14.177113
+        ]
+      },
+      {
+        "robot": "robot_1",
+        "received": 184.83054105902556,
+        "previous_task": "2/0f03d0168b9c4d919655b332534a8b39/task/48",
+        "task": "2/0f03d0168b9c4d919655b332534a8b39/task/51",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          11.183195,
+          14.180663
+        ],
+        "origin": [
+          11.217295,
+          14.18058
+        ]
+      }
+    ],
+    "note": "Diagnostic only: shared unknown support/entrance is not proof of equal free-space connectivity. Do not merge across a wall without validation."
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "completed": true,
+    "actual_route_dispatches": 36,
+    "unique_stop_nonces": 39,
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 14,
+      "observation_completed": 4,
+      "planner_blocked": 12,
+      "TRAFFIC_WAIT_REPLAN": 1,
+      "EXECUTION_STALL": 3,
+      "EXECUTION_DEADLINE": 1,
+      "EXECUTOR_STOP": 1,
+      "execution": 1
+    },
+    "consecutive_dispatch_diagnostics": {
+      "task_id_changes": 27,
+      "changed_id_support_overlap_ge_half": 6,
+      "changed_id_overlap_ge_half_same_ingress": 1
+    },
+    "examples": [
+      {
+        "robot": "robot_2",
+        "received": 269.23792919301195,
+        "previous_task": "2/e0c1783b49f14e45901a30b74ffaf489/task/36",
+        "task": "1/33fd0aef2abc4244b2029abc1d246f7c/task/38",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          14.776324,
+          2.846263
+        ],
+        "origin": [
+          14.956084,
+          3.226357
+        ]
+      }
+    ],
+    "note": "Diagnostic only: shared unknown support/entrance is not proof of equal free-space connectivity. Do not merge across a wall without validation."
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "completed": true,
+    "actual_route_dispatches": 253,
+    "unique_stop_nonces": 256,
+    "stop_nonce_first_reason": {
+      "bootstrap": 2,
+      "assignment_changed": 78,
+      "observation_completed": 32,
+      "EXECUTOR_STOP": 8,
+      "planner_blocked": 98,
+      "EXECUTION_STALL": 23,
+      "EXECUTION_DEADLINE": 12,
+      "COORDINATOR_TIMEOUT": 2,
+      "execution": 1
+    },
+    "consecutive_dispatch_diagnostics": {
+      "task_id_changes": 243,
+      "changed_id_support_overlap_ge_half": 39,
+      "changed_id_overlap_ge_half_same_ingress": 6
+    },
+    "examples": [
+      {
+        "robot": "robot_2",
+        "received": 121.60938019302557,
+        "previous_task": "2/064047421ac24cd39a728bfa390d2d8c/task/4",
+        "task": "2/064047421ac24cd39a728bfa390d2d8c/task/6",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          2.665196,
+          0.804069
+        ],
+        "origin": [
+          3.274458,
+          0.905702
+        ]
+      },
+      {
+        "robot": "robot_2",
+        "received": 187.99987153100665,
+        "previous_task": "2/064047421ac24cd39a728bfa390d2d8c/task/14",
+        "task": "2/064047421ac24cd39a728bfa390d2d8c/task/27",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          12.855234,
+          0.736172
+        ],
+        "origin": [
+          13.133711,
+          0.80293
+        ]
+      },
+      {
+        "robot": "robot_1",
+        "received": 205.04884157402557,
+        "previous_task": "1/5c13f354bc924896a43eceb466fe5cc2/task/59",
+        "task": "1/5c13f354bc924896a43eceb466fe5cc2/task/62",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          11.723337,
+          12.643519
+        ],
+        "origin": [
+          11.403272,
+          13.303394
+        ]
+      },
+      {
+        "robot": "robot_2",
+        "received": 234.57034252301673,
+        "previous_task": "2/064047421ac24cd39a728bfa390d2d8c/task/47",
+        "task": "2/064047421ac24cd39a728bfa390d2d8c/task/53",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          13.065154,
+          7.80579
+        ],
+        "origin": [
+          12.995024,
+          7.802275
+        ]
+      },
+      {
+        "robot": "robot_2",
+        "received": 242.54564579500584,
+        "previous_task": "2/064047421ac24cd39a728bfa390d2d8c/task/52",
+        "task": "2/064047421ac24cd39a728bfa390d2d8c/task/56",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          12.713426,
+          8.222274
+        ],
+        "origin": [
+          12.40653,
+          8.804859
+        ]
+      },
+      {
+        "robot": "robot_1",
+        "received": 2185.3946286650025,
+        "previous_task": "1/5c13f354bc924896a43eceb466fe5cc2/task/614",
+        "task": "1/5c13f354bc924896a43eceb466fe5cc2/task/616",
+        "overlap_coefficient": 1.0,
+        "previous_origin": [
+          10.467348,
+          65.171341
+        ],
+        "origin": [
+          10.512366,
+          65.086265
+        ]
+      }
+    ],
+    "note": "Diagnostic only: shared unknown support/entrance is not proof of equal free-space connectivity. Do not merge across a wall without validation."
+  }
+}

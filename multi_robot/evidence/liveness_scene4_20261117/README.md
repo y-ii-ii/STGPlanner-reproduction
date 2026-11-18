@@ -1,0 +1,7 @@
+# 本轮证据
+
+本轮最多4次，原始数据保存在D:/STGPlanner/benchmarks/results/topology_liveness_scene4_20261117_*_dual，未向Git提交庞大原始数据。各次manifest、程序归档和完整SHA清单保存在本机codex/work/topology_liveness_20261117；FINAL_PRESERVATION与SOURCE_GIT_AUDIT给出保全及版本核验。
+
+audit_scripts仅为读取保留数据的离线审计／纯几何工具，含本机绝对路径；需要原始输入和trialXX_source冻结源码。它们不启动ROS/Gazebo、不修改算法、不构成新增仿真。STOP_INTENT_AUDIT是未修复反例，不应误读为通过的停止保障。AUTHOR_OBSERVATION_AUDIT为集合大小下界，不是新增评分面积。
+
+原生修复的旧写法ASan预期失败日志、修复后有限测试日志、实际覆盖曲线和派发/队列/完成统计均保留。图微基准改善不是T95加速结论。实验结论见../../docs/LIVENESS_SCENE4_RESULTS_20261117.md。

@@ -1,0 +1,50 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 13,
+    "small_future_goal_time_examples": []
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 17,
+    "small_future_goal_time_examples": []
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 8,
+    "small_future_goal_time_examples": []
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "stop_fault_timeline": {
+      "robot_1": {
+        "fault_observed": false
+      },
+      "robot_2": {
+        "fault_observed": false
+      }
+    },
+    "rejected_goal_messages": 94,
+    "small_future_goal_time_examples": []
+  }
+}

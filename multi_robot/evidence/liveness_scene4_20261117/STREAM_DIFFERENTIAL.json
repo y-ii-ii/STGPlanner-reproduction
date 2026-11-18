@@ -1,0 +1,9 @@
+{
+  "no_ros_or_physics": true,
+  "packets_checked": 70,
+  "accepted": 64,
+  "rejected": 6,
+  "records": 11107,
+  "digest": "6636eef7302a54acdcf85d54b902af299b5f22f418066590d794efb7e67b124d",
+  "all_outcomes_states_and_record_digests_equal": true
+}

@@ -1,0 +1,1396 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "selection_feedback": [
+      {
+        "selection": "DEFERRED_TASK",
+        "status": "BLOCKED",
+        "messages": 2
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "ACCEPTED",
+        "messages": 759
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "ACCEPTED",
+        "messages": 482
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "BLOCKED",
+        "messages": 12
+      },
+      {
+        "selection": null,
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 3
+      }
+    ],
+    "body_route_methods": [
+      {
+        "method": "RECENTER_ROTATE",
+        "status": "ACCEPTED",
+        "messages": 44
+      },
+      {
+        "method": "RECENTER_STRAIGHT",
+        "status": "ACCEPTED",
+        "messages": 11
+      },
+      {
+        "method": "SE2",
+        "status": "ACCEPTED",
+        "messages": 1186
+      },
+      {
+        "method": "SE2",
+        "status": "BLOCKED",
+        "messages": 14
+      }
+    ],
+    "native_state_visits": {
+      "1": 1255,
+      "3": 1239,
+      "4": 1242,
+      "5": 494,
+      "2": 2
+    },
+    "execution_rejection_categories": {
+      "stop_pending": 12,
+      "same_token_goal_ahead_without_stop": 1
+    },
+    "last_execution_rejection_examples": {
+      "stop_pending": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "1",
+        "task": "1/82565f4ddd604c22a12710cdf97701e4/task/13",
+        "version": "3996",
+        "dispatch_id": "46",
+        "allocation_session": "cd59df539f6e4acba859eb635250f4e4",
+        "goal_command_seq": "1488",
+        "current_command_seq": "1488",
+        "goal_token": "cd59df539f6e4acba859eb635250f4e4/1/3996/46",
+        "current_token": "cd59df539f6e4acba859eb635250f4e4/1/3996/46",
+        "mode": "STOP",
+        "stop_pending": "true",
+        "goal_stamp": "15563.885",
+        "lease_stamp": "15563.677",
+        "stamp": "15563.915999999999",
+        "robot_source": "robot_1",
+        "received": 473.2307770059997
+      },
+      "same_token_goal_ahead_without_stop": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "2",
+        "task": "2/9a4f968d83584207b7700ad60d31ec82/task/2",
+        "version": "71",
+        "dispatch_id": "11",
+        "allocation_session": "cd59df539f6e4acba859eb635250f4e4",
+        "goal_command_seq": "179",
+        "current_command_seq": "178",
+        "goal_token": "cd59df539f6e4acba859eb635250f4e4/2/71/11",
+        "current_token": "cd59df539f6e4acba859eb635250f4e4/2/71/11",
+        "mode": "ROUTE",
+        "stop_pending": "false",
+        "goal_stamp": "15293.382",
+        "lease_stamp": "15293.205",
+        "stamp": "15293.415000000001",
+        "robot_source": "robot_2",
+        "received": 115.32214427100553
+      }
+    },
+    "distinct_route_dispatches": {
+      "robot_1": 13,
+      "robot_2": 12
+    },
+    "distinct_route_tasks": {
+      "robot_1": 6,
+      "robot_2": 5
+    },
+    "distinct_stop_nonces": {
+      "robot_1": 15,
+      "robot_2": 13
+    },
+    "last_retry_memory": {
+      "1": [
+        {
+          "attempts": 3,
+          "direction": [
+            0.7008903023565266,
+            0.7132690825085416
+          ],
+          "last": 130710.758680051,
+          "origin": [
+            11.243046,
+            0.746188
+          ],
+          "unsafe_start": false,
+          "until": 130755.758680051
+        },
+        {
+          "attempts": 8,
+          "direction": [
+            0.3806829520519226,
+            0.9247056234375531
+          ],
+          "last": 131100.256289904,
+          "origin": [
+            12.549779,
+            0.805579
+          ],
+          "unsafe_start": false,
+          "until": 131160.256289904
+        }
+      ],
+      "2": [
+        {
+          "attempts": 1,
+          "direction": [
+            0.9993019761913481,
+            0.03735719984241972
+          ],
+          "last": 130682.395302556,
+          "origin": [
+            6.412783,
+            0.944229
+          ],
+          "unsafe_start": false,
+          "until": 130697.395302556
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            0.9025700763735643,
+            0.4305429795444565
+          ],
+          "last": 130738.922802386,
+          "origin": [
+            9.509341,
+            0.980424
+          ],
+          "unsafe_start": false,
+          "until": 130768.922802386
+        },
+        {
+          "attempts": 5,
+          "direction": [
+            0.9780233090567522,
+            0.20849558014903002
+          ],
+          "last": 131038.767571928,
+          "origin": [
+            10.904626,
+            0.821241
+          ],
+          "unsafe_start": false,
+          "until": 131098.76757192798
+        }
+      ]
+    },
+    "last_completion_cells": 100,
+    "last_ledger_state_counts": {
+      "active": 1,
+      "assigned": 35,
+      "completed": 2,
+      "dispatched": 0,
+      "offered": 4
+    },
+    "native_crash_lines": []
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "selection_feedback": [
+      {
+        "selection": "DEFERRED_TASK",
+        "status": "ACCEPTED",
+        "messages": 2
+      },
+      {
+        "selection": "DEFERRED_TASK",
+        "status": "BLOCKED",
+        "messages": 32
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "ACCEPTED",
+        "messages": 2166
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "BLOCKED",
+        "messages": 21
+      },
+      {
+        "selection": "FUSED_TRANSIT_NATIVE_INFEASIBLE",
+        "status": "ACCEPTED",
+        "messages": 115
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "ACCEPTED",
+        "messages": 1181
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "BLOCKED",
+        "messages": 8
+      },
+      {
+        "selection": null,
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 14
+      }
+    ],
+    "body_route_methods": [
+      {
+        "method": "RECENTER_ROTATE",
+        "status": "ACCEPTED",
+        "messages": 217
+      },
+      {
+        "method": "RECENTER_STRAIGHT",
+        "status": "ACCEPTED",
+        "messages": 12
+      },
+      {
+        "method": "SE2",
+        "status": "ACCEPTED",
+        "messages": 3235
+      },
+      {
+        "method": "SE2",
+        "status": "BLOCKED",
+        "messages": 61
+      }
+    ],
+    "native_state_visits": {
+      "1": 3525,
+      "3": 2771,
+      "4": 4006,
+      "5": 1839,
+      "2": 3
+    },
+    "execution_rejection_categories": {
+      "stop_pending": 17
+    },
+    "last_execution_rejection_examples": {
+      "stop_pending": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "2",
+        "task": "2/0f03d0168b9c4d919655b332534a8b39/task/171",
+        "version": "1297",
+        "dispatch_id": "159",
+        "allocation_session": "29bee0d666ff4c899fc687e5ed3eea1b",
+        "goal_command_seq": "1851",
+        "current_command_seq": "1851",
+        "last_received_command_seq": "1852",
+        "goal_token": "29bee0d666ff4c899fc687e5ed3eea1b/2/1297/159",
+        "current_token": "29bee0d666ff4c899fc687e5ed3eea1b/2/1297/159",
+        "mode": "STOP",
+        "stop_pending": "true",
+        "goal_stamp": "15715.998",
+        "lease_stamp": "15715.719999999999",
+        "stamp": "15716.022999999999",
+        "robot_source": "robot_2",
+        "received": 696.7784614510019
+      }
+    },
+    "distinct_route_dispatches": {
+      "robot_1": 32,
+      "robot_2": 47
+    },
+    "distinct_route_tasks": {
+      "robot_1": 29,
+      "robot_2": 28
+    },
+    "distinct_stop_nonces": {
+      "robot_1": 34,
+      "robot_2": 49
+    },
+    "last_retry_memory": {
+      "1": [
+        {
+          "attempts": 1,
+          "direction": [
+            -0.989850603213736,
+            0.14211186902367734
+          ],
+          "last": 131922.381399253,
+          "origin": [
+            11.276894,
+            14.102819
+          ],
+          "unsafe_start": false,
+          "until": 131937.381399253
+        },
+        {
+          "attempts": 10,
+          "direction": [
+            0.00807457690391373,
+            0.9999674000725338
+          ],
+          "last": 132408.586072425,
+          "origin": [
+            10.987892,
+            20.861327
+          ],
+          "unsafe_start": true,
+          "until": 132468.586072425
+        }
+      ],
+      "2": [
+        {
+          "attempts": 1,
+          "direction": [
+            -0.9983796678624554,
+            -0.05690376787922899
+          ],
+          "last": 132193.171576951,
+          "origin": [
+            5.095482,
+            42.651039
+          ],
+          "unsafe_start": false,
+          "until": 132208.171576951
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.5779879108517332,
+            0.8160453265041403
+          ],
+          "last": 132194.682300504,
+          "origin": [
+            4.730749,
+            42.25065
+          ],
+          "unsafe_start": false,
+          "until": 132209.682300504
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.28065841772183153,
+            0.9598077164525599
+          ],
+          "last": 132196.232689288,
+          "origin": [
+            4.738655,
+            42.256512
+          ],
+          "unsafe_start": false,
+          "until": 132211.232689288
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.1563406104213434,
+            -0.9877032011353826
+          ],
+          "last": 132210.761454023,
+          "origin": [
+            4.006274,
+            37.329907
+          ],
+          "unsafe_start": false,
+          "until": 132225.761454023
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            -0.10478997773001492,
+            0.994494374326644
+          ],
+          "last": 132240.83914743,
+          "origin": [
+            3.943758,
+            35.791687
+          ],
+          "unsafe_start": false,
+          "until": 132270.83914743
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.025391529948317795,
+            0.9996775831271218
+          ],
+          "last": 132242.731190929,
+          "origin": [
+            4.237999,
+            37.219659
+          ],
+          "unsafe_start": false,
+          "until": 132257.731190929
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.9480844614056528,
+            -0.31801863788330564
+          ],
+          "last": 132270.125150659,
+          "origin": [
+            5.171958,
+            32.430244
+          ],
+          "unsafe_start": false,
+          "until": 132285.125150659
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.06965808678737659,
+            0.9975709252705404
+          ],
+          "last": 132285.956877881,
+          "origin": [
+            7.302045,
+            36.599232
+          ],
+          "unsafe_start": false,
+          "until": 132300.956877881
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.06914471727661832,
+            -0.9976066399502042
+          ],
+          "last": 132290.70675074,
+          "origin": [
+            6.898229,
+            38.747698
+          ],
+          "unsafe_start": false,
+          "until": 132305.70675074
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            0.08633411723026922,
+            0.9962662396177391
+          ],
+          "last": 132304.374420456,
+          "origin": [
+            6.898298,
+            38.747352
+          ],
+          "unsafe_start": false,
+          "until": 132334.374420456
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.2057876052890946,
+            -0.978596679694643
+          ],
+          "last": 132362.930433395,
+          "origin": [
+            9.650111,
+            32.112778
+          ],
+          "unsafe_start": false,
+          "until": 132377.930433395
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.9742899675999158,
+            0.2252977120038175
+          ],
+          "last": 132400.786733896,
+          "origin": [
+            11.053873,
+            44.060642
+          ],
+          "unsafe_start": false,
+          "until": 132415.786733896
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.47464695605416274,
+            0.880176270475703
+          ],
+          "last": 132415.901634695,
+          "origin": [
+            12.532999,
+            44.382493
+          ],
+          "unsafe_start": false,
+          "until": 132430.901634695
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.5678387178575519,
+            0.8231398365416971
+          ],
+          "last": 132432.053496958,
+          "origin": [
+            13.815217,
+            43.642218
+          ],
+          "unsafe_start": false,
+          "until": 132447.053496958
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.9932066174230354,
+            0.11636414871897588
+          ],
+          "last": 132433.808329969,
+          "origin": [
+            13.830941,
+            43.709897
+          ],
+          "unsafe_start": false,
+          "until": 132448.808329969
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.5811621490423016,
+            0.8137877834672462
+          ],
+          "last": 132435.32954946,
+          "origin": [
+            13.830944,
+            43.709889
+          ],
+          "unsafe_start": false,
+          "until": 132450.32954946
+        }
+      ]
+    },
+    "last_completion_cells": 384,
+    "last_ledger_state_counts": {
+      "active": 0,
+      "assigned": 378,
+      "completed": 10,
+      "dispatched": 0,
+      "offered": 0
+    },
+    "native_crash_lines": []
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "selection_feedback": [
+      {
+        "selection": "DEFERRED_TASK",
+        "status": "BLOCKED",
+        "messages": 3
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "ACCEPTED",
+        "messages": 1009
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "BLOCKED",
+        "messages": 9
+      },
+      {
+        "selection": "FUSED_TRANSIT_NATIVE_INFEASIBLE",
+        "status": "ACCEPTED",
+        "messages": 122
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "ACCEPTED",
+        "messages": 1195
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "BLOCKED",
+        "messages": 2
+      },
+      {
+        "selection": null,
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 4
+      }
+    ],
+    "body_route_methods": [
+      {
+        "method": "RECENTER_ROTATE",
+        "status": "ACCEPTED",
+        "messages": 115
+      },
+      {
+        "method": "RECENTER_STRAIGHT",
+        "status": "ACCEPTED",
+        "messages": 24
+      },
+      {
+        "method": "SE2",
+        "status": "ACCEPTED",
+        "messages": 2187
+      },
+      {
+        "method": "SE2",
+        "status": "BLOCKED",
+        "messages": 14
+      }
+    ],
+    "native_state_visits": {
+      "1": 2340,
+      "2": 2,
+      "5": 1332,
+      "3": 2140,
+      "4": 2258
+    },
+    "execution_rejection_categories": {
+      "stop_pending": 8
+    },
+    "last_execution_rejection_examples": {
+      "stop_pending": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "1",
+        "task": "1/33fd0aef2abc4244b2029abc1d246f7c/task/36",
+        "version": "2204",
+        "dispatch_id": "67",
+        "allocation_session": "f14e61cb064745f6a896bb91f300039c",
+        "goal_command_seq": "1451",
+        "current_command_seq": "1451",
+        "last_received_command_seq": "1452",
+        "goal_token": "f14e61cb064745f6a896bb91f300039c/1/2204/67",
+        "current_token": "f14e61cb064745f6a896bb91f300039c/1/2204/67",
+        "mode": "STOP",
+        "stop_pending": "true",
+        "goal_stamp": "15562.004999999999",
+        "lease_stamp": "15561.762000000001",
+        "stamp": "15562.005999999999",
+        "robot_source": "robot_1",
+        "received": 474.14387798000826
+      }
+    },
+    "distinct_route_dispatches": {
+      "robot_1": 19,
+      "robot_2": 17
+    },
+    "distinct_route_tasks": {
+      "robot_1": 15,
+      "robot_2": 12
+    },
+    "distinct_stop_nonces": {
+      "robot_1": 20,
+      "robot_2": 19
+    },
+    "last_retry_memory": {
+      "1": [
+        {
+          "attempts": 2,
+          "direction": [
+            -0.18300418879568467,
+            0.983112133422853
+          ],
+          "last": 132832.181560452,
+          "origin": [
+            13.821383,
+            1.719735
+          ],
+          "unsafe_start": false,
+          "until": 132862.181560452
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.9088099643044031,
+            -0.4172103172034812
+          ],
+          "last": 132917.668724741,
+          "origin": [
+            12.157512,
+            3.85395
+          ],
+          "unsafe_start": false,
+          "until": 132932.668724741
+        },
+        {
+          "attempts": 4,
+          "direction": [
+            -0.31937719975490403,
+            0.9476276717554821
+          ],
+          "last": 133129.016502837,
+          "origin": [
+            12.121929,
+            3.851354
+          ],
+          "unsafe_start": false,
+          "until": 133189.016502837
+        }
+      ],
+      "2": [
+        {
+          "attempts": 2,
+          "direction": [
+            0.9011095985186127,
+            0.43359138766542
+          ],
+          "last": 132819.745655332,
+          "origin": [
+            11.84593,
+            0.932209
+          ],
+          "unsafe_start": false,
+          "until": 132849.745655332
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.20684520916251575,
+            0.9783736808840041
+          ],
+          "last": 132848.136201823,
+          "origin": [
+            12.787678,
+            0.863873
+          ],
+          "unsafe_start": false,
+          "until": 132863.136201823
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.9342263851758041,
+            -0.35668061517462596
+          ],
+          "last": 132973.631224772,
+          "origin": [
+            15.121401,
+            16.059084
+          ],
+          "unsafe_start": false,
+          "until": 132988.631224772
+        },
+        {
+          "attempts": 6,
+          "direction": [
+            0.05664685868613646,
+            0.9983942775281682
+          ],
+          "last": 133191.779980369,
+          "origin": [
+            15.478238,
+            14.741519
+          ],
+          "unsafe_start": true,
+          "until": 133251.779980369
+        }
+      ]
+    },
+    "last_completion_cells": 356,
+    "last_ledger_state_counts": {
+      "active": 1,
+      "assigned": 97,
+      "completed": 4,
+      "dispatched": 0,
+      "offered": 3
+    },
+    "native_crash_lines": []
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "selection_feedback": [
+      {
+        "selection": "DEFERRED_TASK",
+        "status": "BLOCKED",
+        "messages": 240
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "ACCEPTED",
+        "messages": 7704
+      },
+      {
+        "selection": "FUSED_GRAPH_TRANSIT",
+        "status": "BLOCKED",
+        "messages": 66
+      },
+      {
+        "selection": "FUSED_TRANSIT_NATIVE_INFEASIBLE",
+        "status": "ACCEPTED",
+        "messages": 561
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "ACCEPTED",
+        "messages": 10397
+      },
+      {
+        "selection": "NATIVE_TASK_STATES",
+        "status": "BLOCKED",
+        "messages": 8
+      },
+      {
+        "selection": null,
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 72
+      }
+    ],
+    "body_route_methods": [
+      {
+        "method": "CLEARANCE_SE2",
+        "status": "ACCEPTED",
+        "messages": 17499
+      },
+      {
+        "method": "RECENTER_ROTATE",
+        "status": "ACCEPTED",
+        "messages": 157
+      },
+      {
+        "method": "RECENTER_STRAIGHT",
+        "status": "ACCEPTED",
+        "messages": 15
+      },
+      {
+        "method": "SE2",
+        "status": "ACCEPTED",
+        "messages": 991
+      },
+      {
+        "method": "SE2",
+        "status": "BLOCKED",
+        "messages": 314
+      }
+    ],
+    "native_state_visits": {
+      "1": 18976,
+      "3": 14349,
+      "4": 20623,
+      "5": 13296,
+      "2": 15
+    },
+    "execution_rejection_categories": {
+      "stop_pending": 88,
+      "same_token_goal_ahead_without_stop": 6
+    },
+    "last_execution_rejection_examples": {
+      "stop_pending": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "1",
+        "task": "1/5c13f354bc924896a43eceb466fe5cc2/task/646",
+        "version": "36941",
+        "dispatch_id": "505",
+        "allocation_session": "acf2936679cc4ac2a04bf3a0f1f21ae1",
+        "goal_command_seq": "4363",
+        "current_command_seq": "4363",
+        "last_received_command_seq": "4364",
+        "goal_token": "acf2936679cc4ac2a04bf3a0f1f21ae1/1/36941/505",
+        "current_token": "acf2936679cc4ac2a04bf3a0f1f21ae1/1/36941/505",
+        "mode": "STOP",
+        "stop_pending": "true",
+        "goal_stamp": "16651.488000000001",
+        "lease_stamp": "16650.899000000001",
+        "stamp": "16651.512999999999",
+        "robot_source": "robot_1",
+        "received": 2286.9992166180164
+      },
+      "same_token_goal_ahead_without_stop": {
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "robot": "2",
+        "task": "2/064047421ac24cd39a728bfa390d2d8c/task/598",
+        "version": "25788",
+        "dispatch_id": "362",
+        "allocation_session": "acf2936679cc4ac2a04bf3a0f1f21ae1",
+        "goal_command_seq": "3566",
+        "current_command_seq": "3565",
+        "last_received_command_seq": "3565",
+        "goal_token": "acf2936679cc4ac2a04bf3a0f1f21ae1/2/25788/362",
+        "current_token": "acf2936679cc4ac2a04bf3a0f1f21ae1/2/25788/362",
+        "mode": "ROUTE",
+        "stop_pending": "false",
+        "goal_stamp": "16285.300999999999",
+        "lease_stamp": "16285.168",
+        "stamp": "16285.466",
+        "robot_source": "robot_2",
+        "received": 1696.5470434820163
+      }
+    },
+    "distinct_route_dispatches": {
+      "robot_1": 126,
+      "robot_2": 127
+    },
+    "distinct_route_tasks": {
+      "robot_1": 75,
+      "robot_2": 62
+    },
+    "distinct_stop_nonces": {
+      "robot_1": 127,
+      "robot_2": 129
+    },
+    "last_retry_memory": {
+      "1": [
+        {
+          "attempts": 1,
+          "direction": [
+            -0.5789542429761768,
+            0.8153600336905666
+          ],
+          "last": 187473.54220697,
+          "origin": [
+            10.306638,
+            45.978531
+          ],
+          "unsafe_start": false,
+          "until": 187488.54220697
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.69975083289173,
+            0.7143869902702107
+          ],
+          "last": 187487.500602559,
+          "origin": [
+            9.585843,
+            49.123344
+          ],
+          "unsafe_start": false,
+          "until": 187502.500602559
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            -0.09480656853667017,
+            -0.9954957129803734
+          ],
+          "last": 187495.598623002,
+          "origin": [
+            9.506137,
+            49.221844
+          ],
+          "unsafe_start": false,
+          "until": 187525.598623002
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.07721266853149143,
+            -0.9970146457390915
+          ],
+          "last": 187532.53117423,
+          "origin": [
+            8.29891,
+            49.310545
+          ],
+          "unsafe_start": false,
+          "until": 187547.53117423
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.14599154896557368,
+            -0.9892858371727721
+          ],
+          "last": 187611.4310047,
+          "origin": [
+            2.026669,
+            52.88343
+          ],
+          "unsafe_start": false,
+          "until": 187626.4310047
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.06450192708744894,
+            0.9979175824696174
+          ],
+          "last": 187644.351581662,
+          "origin": [
+            1.495108,
+            56.455992
+          ],
+          "unsafe_start": false,
+          "until": 187659.351581662
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.010563413566816685,
+            0.9999442055904001
+          ],
+          "last": 187717.407542777,
+          "origin": [
+            1.785484,
+            54.262113
+          ],
+          "unsafe_start": false,
+          "until": 187732.407542777
+        },
+        {
+          "attempts": 3,
+          "direction": [
+            0.06458691086564683,
+            -0.9979120857795206
+          ],
+          "last": 187849.849492508,
+          "origin": [
+            2.120221,
+            53.678223
+          ],
+          "unsafe_start": false,
+          "until": 187894.849492508
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.6479741239097297,
+            -0.7616623495640431
+          ],
+          "last": 187994.84034655,
+          "origin": [
+            -7.797517,
+            54.853463
+          ],
+          "unsafe_start": false,
+          "until": 188009.84034655
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.10838821607713191,
+            -0.9941086432657232
+          ],
+          "last": 188011.648750706,
+          "origin": [
+            -9.277124,
+            56.033732
+          ],
+          "unsafe_start": false,
+          "until": 188026.648750706
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.11585907621822701,
+            -0.9932656615718973
+          ],
+          "last": 188062.978127073,
+          "origin": [
+            -9.941633,
+            59.692211
+          ],
+          "unsafe_start": false,
+          "until": 188077.978127073
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.17861071092476066,
+            0.9839198208913934
+          ],
+          "last": 188125.141010827,
+          "origin": [
+            -6.641705,
+            65.944118
+          ],
+          "unsafe_start": false,
+          "until": 188140.141010827
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.10895156230188774,
+            0.9940470597874015
+          ],
+          "last": 188152.895332563,
+          "origin": [
+            -5.477295,
+            69.459815
+          ],
+          "unsafe_start": false,
+          "until": 188167.895332563
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.8168010131211106,
+            0.5769194960861759
+          ],
+          "last": 188155.718733015,
+          "origin": [
+            -5.58635,
+            70.668149
+          ],
+          "unsafe_start": false,
+          "until": 188170.718733015
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.41231744918609486,
+            -0.9110402412059921
+          ],
+          "last": 188210.530394517,
+          "origin": [
+            4.76956,
+            72.19734
+          ],
+          "unsafe_start": false,
+          "until": 188225.530394517
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.4987803305830146,
+            -0.866728436030282
+          ],
+          "last": 188236.09831298,
+          "origin": [
+            9.13064,
+            68.138365
+          ],
+          "unsafe_start": false,
+          "until": 188251.09831298
+        }
+      ],
+      "2": [
+        {
+          "attempts": 1,
+          "direction": [
+            -0.682276170195022,
+            -0.7310945407975726
+          ],
+          "last": 187448.940641084,
+          "origin": [
+            -2.527295,
+            25.213794
+          ],
+          "unsafe_start": false,
+          "until": 187463.940641084
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.7722316583210466,
+            -0.6353410626480289
+          ],
+          "last": 187454.921491056,
+          "origin": [
+            -2.517215,
+            25.190077
+          ],
+          "unsafe_start": false,
+          "until": 187469.921491056
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.995574185435211,
+            -0.09397894069958568
+          ],
+          "last": 187524.617141429,
+          "origin": [
+            -8.32265,
+            14.314198
+          ],
+          "unsafe_start": false,
+          "until": 187539.617141429
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.06396505067224366,
+            0.9979521392794835
+          ],
+          "last": 187538.47135128,
+          "origin": [
+            -7.894111,
+            14.476275
+          ],
+          "unsafe_start": false,
+          "until": 187553.47135128
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.28427849790094706,
+            -0.9587417460563512
+          ],
+          "last": 187599.439703908,
+          "origin": [
+            -11.176176,
+            3.272392
+          ],
+          "unsafe_start": false,
+          "until": 187614.439703908
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.07907783360355937,
+            -0.9968684447972902
+          ],
+          "last": 187662.193325797,
+          "origin": [
+            -10.252155,
+            3.93225
+          ],
+          "unsafe_start": false,
+          "until": 187677.193325797
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.74244927123285,
+            0.6699022911184956
+          ],
+          "last": 187723.78550659,
+          "origin": [
+            -1.370574,
+            18.910657
+          ],
+          "unsafe_start": false,
+          "until": 187738.78550659
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.4752685970491883,
+            -0.8798407586938084
+          ],
+          "last": 188191.809444147,
+          "origin": [
+            -0.345338,
+            19.296378
+          ],
+          "unsafe_start": false,
+          "until": 188206.809444147
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            0.11000762681302377,
+            0.993930743081713
+          ],
+          "last": 188237.999199485,
+          "origin": [
+            0.010723,
+            20.329303
+          ],
+          "unsafe_start": false,
+          "until": 188267.999199485
+        },
+        {
+          "attempts": 3,
+          "direction": [
+            -0.02828186907605429,
+            0.9995999879359567
+          ],
+          "last": 188256.955838898,
+          "origin": [
+            -0.165589,
+            19.539799
+          ],
+          "unsafe_start": false,
+          "until": 188301.955838898
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.6082888290338452,
+            -0.7937157554645322
+          ],
+          "last": 188263.517206927,
+          "origin": [
+            -0.250507,
+            19.372344
+          ],
+          "unsafe_start": false,
+          "until": 188278.517206927
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            0.24243341900909007,
+            0.9701680459320245
+          ],
+          "last": 188274.398228086,
+          "origin": [
+            -1.002333,
+            18.201716
+          ],
+          "unsafe_start": false,
+          "until": 188289.398228086
+        },
+        {
+          "attempts": 1,
+          "direction": [
+            -0.999681659708024,
+            -0.02523052205980381
+          ],
+          "last": 188277.139664382,
+          "origin": [
+            -0.996319,
+            18.237012
+          ],
+          "unsafe_start": false,
+          "until": 188292.139664382
+        },
+        {
+          "attempts": 4,
+          "direction": [
+            0.14043975905752776,
+            -0.9900892253104583
+          ],
+          "last": 188340.007909941,
+          "origin": [
+            0.029521,
+            21.299673
+          ],
+          "unsafe_start": false,
+          "until": 188400.007909941
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            -0.9955204859997041,
+            0.09454608376296283
+          ],
+          "last": 188343.221689879,
+          "origin": [
+            0.053,
+            21.299995
+          ],
+          "unsafe_start": false,
+          "until": 188373.221689879
+        },
+        {
+          "attempts": 2,
+          "direction": [
+            -0.27108879838043426,
+            0.9625543430854449
+          ],
+          "last": 188345.847149826,
+          "origin": [
+            0.053444,
+            21.300097
+          ],
+          "unsafe_start": false,
+          "until": 188375.847149826
+        }
+      ]
+    },
+    "last_completion_cells": 1542,
+    "last_ledger_state_counts": {
+      "active": 1,
+      "assigned": 1140,
+      "completed": 32,
+      "dispatched": 0,
+      "offered": 28
+    },
+    "native_crash_lines": []
+  }
+}

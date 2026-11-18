@@ -1,0 +1,5362 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "feedback": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 188
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 12
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 562
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 47
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 12
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 1053
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 2
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 364
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "messages": 7
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 47
+      }
+    ],
+    "command_messages": [
+      {
+        "robot": "robot_1",
+        "mode": "ROUTE",
+        "messages": 151
+      },
+      {
+        "robot": "robot_1",
+        "mode": "STOP",
+        "messages": 1617
+      },
+      {
+        "robot": "robot_2",
+        "mode": "ROUTE",
+        "messages": 701
+      },
+      {
+        "robot": "robot_2",
+        "mode": "STOP",
+        "messages": 1067
+      }
+    ],
+    "distinct_stop_nonces": {
+      "robot_1": 15,
+      "robot_2": 13
+    },
+    "distinct_stop_request_ids": {
+      "robot_1": 1,
+      "robot_2": 1
+    },
+    "recovery_feedback": [
+      {
+        "robot_source": "robot_2",
+        "received": 86.82005105400458,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 99.37131025300187,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 99.59363641800883,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 99.77676437400805,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 100.02321714100253,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 100.27555575100996,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 100.44942666401039,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 100.66957200301113,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 100.92168289600522,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 110.89855207900109,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.01331918100186,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.13187637800002,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.25941638600489,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.38462786200398,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.51770307800325,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.63486036800896,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.80235748201085,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 111.93978155001241,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.05964866701106,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.19529361500463,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.31812843600346,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.46098527499998,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.59261890999915,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.73838194800192,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.8552716030099,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 112.99137629100005,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.12306853100017,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.26131088500551,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.3983155550086,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.54097689400078,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.66990339499898,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.79659940701094,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 113.9131482320081,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.05695588800882,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.21172796899918,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.33851901200251,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.46788727700186,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.60322176100453,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.73902816600457,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.86750176800706,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.0091706180101,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.13790948501264,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.26295901399862,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.38660523301223,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.54188077800791,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 130.6367424380005,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 130.74291117100802,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 130.88436892500613,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 219.4500318700011,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 219.55785893200664,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 219.70705979100603,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 219.83883322200563,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 534.4718203280063,
+        "planned_arc_m": "0.20000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 534.6451203309989,
+        "planned_arc_m": "0.20000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 534.7964621339925,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      }
+    ]
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "feedback": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 20
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 7
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 532
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 15
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 6
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 653
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 5
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 37
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 2932
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 46
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 8
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 94
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 8
+      }
+    ],
+    "command_messages": [
+      {
+        "robot": "robot_1",
+        "mode": "ROUTE",
+        "messages": 399
+      },
+      {
+        "robot": "robot_1",
+        "mode": "STOP",
+        "messages": 1466
+      },
+      {
+        "robot": "robot_2",
+        "mode": "ROUTE",
+        "messages": 1571
+      },
+      {
+        "robot": "robot_2",
+        "mode": "STOP",
+        "messages": 293
+      }
+    ],
+    "distinct_stop_nonces": {
+      "robot_1": 34,
+      "robot_2": 49
+    },
+    "distinct_stop_request_ids": {
+      "robot_1": 1,
+      "robot_2": 1
+    },
+    "recovery_feedback": [
+      {
+        "robot_source": "robot_2",
+        "received": 121.4869743050076,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.60932030700496,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.75468388100853,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.89280806100578,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.03453119299957,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.19945249301963,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.32614185800776,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.449913450022,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.59516317001544,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.70477291100542,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.84021776801092,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.97869886201806,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.1153089000145,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.2459223990154,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.38748911800212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.51442448201124,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.68116500400356,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.80575355701149,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.93977120600175,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.07275006402051,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.210539170017,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.3292078700033,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.48411480901996,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.61182803401607,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.75066574901575,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.87481572301476,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.01963220100151,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.16257751401281,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.28167827101424,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.42190352201578,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.57191717400565,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.68641813201248,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.85286413301947,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.96749414101942,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.09321029300918,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.23034474800806,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.37954186502611,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.52133327702177,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.66719622001983,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.81031881502713,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 126.92909268601215,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 127.0426250990131,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 127.17016376700485,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 127.30506966001121,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 175.03606811800273,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 175.16079790701042,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 176.3220450420049,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 176.42622165300418,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 176.5124380790221,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 176.60803055600263,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 178.85346203300287,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 178.94957022101153,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 179.04788424502476,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 179.13906010301434,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 179.23880401902716,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 179.37032090802677,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 179.49187743500806,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 180.59724913100945,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 180.7111908130173,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 180.82906566301244,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 180.94694651701138,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 181.0145884460071,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.14017657501972,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.26753715000814,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.40017178401467,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.53369036200456,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.65178448401275,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.74432080800761,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.83771612102282,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 182.96320945202024,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 183.03295992701896,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 183.12985377802397,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 183.25084711200907,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 183.3811986260116,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 183.48471082301694,
+        "planned_arc_m": "0.050000000000000003",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 186.4624796770222,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 186.7178178570175,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 186.910644772026,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 240.12949995402596,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 240.2459878270165,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 240.36406426900066,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 240.50577430502744,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 244.51035769400187,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 244.7419802530203,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 385.0016802450118,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 388.08353653902304,
+        "planned_arc_m": "0.95000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 388.2792522450036,
+        "planned_arc_m": "0.95000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 388.4279632430116,
+        "planned_arc_m": "0.95000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 388.6184935080237,
+        "planned_arc_m": "0.95000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 388.78246116102673,
+        "planned_arc_m": "0.85000000000000009",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 390.59365391000756,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 408.69173819501884,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 408.7962639120233,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 408.89532745000906,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 408.97582063201116,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 409.0778160110058,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 409.1719555640011,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 409.2551105550083,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 409.40238451201003,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 409.7080217920011,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 444.39942382700974,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 444.49741446002736,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 444.9802477520134,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 445.09984672800056,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 449.55403069002205,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 449.6460954089998,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 449.7617526000249,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 449.8344740590255,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 449.93328057200415,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.0608900290099,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.14763609401416,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.245036672015,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.3408047770208,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.4275516040216,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.51883472001646,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.6148652820266,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.7181126740179,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.83101612501196,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 450.89751067201723,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.004831963015,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.1407256370003,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.22678318200633,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.30488813100965,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.4111054870009,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.54652681201696,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.65337684800033,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.7331146830111,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.8293814770004,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 451.92505486501614,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.014048550016,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.122365748015,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.2262144740089,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.3454127270088,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.4378686360142,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 452.5394987820182,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 635.6841099340236,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 635.7877877540013,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 635.9190120900166,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 635.9770283070102,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.0889540530043,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.1734918670263,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.2394504080003,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.3067708210147,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.3729313040094,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.4702650660183,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.562873879011,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.6420728010125,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.7239761030069,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.8411415090086,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 636.9111404200085,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.0305200340226,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.1137552060245,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.1882099150098,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.2804565140104,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.3865622350131,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.46492343102,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.5493605050142,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.6417229380168,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.7103149480245,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.8224869540136,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 637.9234287190193,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.0562013940071,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.1404053880251,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.2237487439997,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.3543973150081,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.4640610089991,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.5899240280269,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.707322220027,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.7742431620136,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.8781693680212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 638.9612702740123,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.0351279910246,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.1194370270241,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.1968607400195,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.2743794940179,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.3733009260031,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.4498771140061,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.5286453080189,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.6422107719991,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.706346691004,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.8045460630092,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.9202327570238,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 639.9996693810099,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.1057597390027,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.1886976390088,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.255393281026,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.3691391420143,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.4698915400077,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.534459957009,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.6465841950267,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.754282310023,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.8351333420142,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 640.9204031740082,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.0175499260076,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.0893151360215,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.1790192230255,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.2524748240248,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.3271190720261,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.3936733350274,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.4661680720164,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.5537778500002,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 641.6460921140097,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 678.1561210479995,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 678.2529063330148,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 681.2658189990034,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 681.3510013530031,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 694.7760470290086,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 694.9344594710274,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.0036674490257,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.06668911202,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.1851997400227,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.2835819809989,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.3504496030218,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.4278565430141,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.5406356790045,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.6204143150244,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.7051532220212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.7862776120019,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.8574575340026,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 695.9516139660263,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.0717945320066,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.1311200589989,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.2166321500263,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.2932819520065,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.3674110710272,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.4562801080174,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.52662289,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.6107186810113,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 696.7260849620216,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      }
+    ]
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "feedback": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 16
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 5
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 1303
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 300
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "messages": 5
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 31
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 11
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 1023
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 371
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 32
+      }
+    ],
+    "command_messages": [
+      {
+        "robot": "robot_1",
+        "mode": "ROUTE",
+        "messages": 887
+      },
+      {
+        "robot": "robot_1",
+        "mode": "STOP",
+        "messages": 848
+      },
+      {
+        "robot": "robot_2",
+        "mode": "ROUTE",
+        "messages": 673
+      },
+      {
+        "robot": "robot_2",
+        "mode": "STOP",
+        "messages": 1061
+      }
+    ],
+    "distinct_stop_nonces": {
+      "robot_1": 20,
+      "robot_2": 19
+    },
+    "distinct_stop_request_ids": {
+      "robot_1": 1,
+      "robot_2": 1
+    },
+    "recovery_feedback": [
+      {
+        "robot_source": "robot_2",
+        "received": 114.5646441919962,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 114.9780624989944,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.07742688298458,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.1718308859854,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.24397661699913,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.32859216298675,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.43138487200486,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.51505330798682,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.59989119699458,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.70443589999923,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.7923293870117,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.86776264201035,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 115.93327665998368,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.00712467299309,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.11036817199783,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.19166366598802,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.27814997298992,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.41470324198599,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.51368447500863,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.59475353101152,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.68239418699523,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.79294958899845,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.86144370900001,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 116.96226298698457,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 117.06115932698594,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 119.75862307299394,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 119.85024794298806,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 119.95728863199474,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.02903978299582,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.12087690000772,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.22730293200584,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.30353459299658,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.37698099398403,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.49149609298911,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.56309887699899,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.64584967499832,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.7586269309977,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.83964217299945,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 120.92018714200822,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.03675188799389,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.10535825201077,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.17798674700316,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.2536855940125,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.32734910698491,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.59089626200148,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.68726273399079,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.76721126001212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.85649718699278,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 121.95156661100918,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.02916267400724,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.11176010599593,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.17379336498561,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.26634452899452,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.36202033198788,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.43114160498953,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.52649098398979,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.62846205200185,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.70928359800018,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.80945042098756,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.91348217299674,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 122.98884309400455,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.07833897598903,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.17366224600119,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.23754446901148,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.32565551399603,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.43352892098483,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.510518288007,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.58827138098422,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.66605296399212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.74890479500755,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.85879279498477,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 123.96015322499443,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.03574328299146,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.12092096899869,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.2252204779943,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.2940881770046,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.36793604900595,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.43606519600144,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.51156720498693,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.61966540600406,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.69183907000115,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.76343105200795,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.87567199001205,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 124.94689195699175,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.04258632598794,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.14174605699372,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.22213702299632,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.28732919500908,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.35180180400494,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.44005575499614,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 125.54211081599351,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.2317386629875,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.30447181800264,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.38422865999746,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.5004004930088,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.63119099198957,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.7087641299877,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.77417743898695,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.8402252100059,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.917519412993,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 257.98298450998846,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.0834229629836,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.19927879498573,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.25726299500093,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.500202352996,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.5764805029903,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.66025656298734,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.7287786829984,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.8546096330101,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 258.9347999849997,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 259.02371688498533,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 259.11357407600735,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 259.1896299610089,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 259.25683494401164,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 259.31756561101065,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 323.8888980119955,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.05297494199476,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.21726102000684,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.40975500500645,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.59362252798746,
+        "planned_arc_m": "0.60000000000000009",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.79542998599936,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 324.969488222996,
+        "planned_arc_m": "0.65000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 363.71375364399864,
+        "planned_arc_m": "0.47434164902525622",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 365.58665590098826,
+        "planned_arc_m": "0.47434164902525727",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 365.7752387429937,
+        "planned_arc_m": "0.92434164902525828",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 365.99297303700587,
+        "planned_arc_m": "0.47434164902525816",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 366.1788767979888,
+        "planned_arc_m": "0.474341649025256",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 375.1512059090019,
+        "planned_arc_m": "0.80000000000000004",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 375.33580798999174,
+        "planned_arc_m": "0.47434164902525672",
+        "body_route_method": "SE2",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 377.44638822600245,
+        "planned_arc_m": "1.6000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 378.4458425909979,
+        "planned_arc_m": "1.4000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 380.90723523599445,
+        "planned_arc_m": "1.4500000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 381.09074337099446,
+        "planned_arc_m": "0.90000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 381.3244041590078,
+        "planned_arc_m": "0.95000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 383.5839951050002,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 383.7660639779933,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 383.9618782940088,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 384.1417588350014,
+        "planned_arc_m": "0.70000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 386.76796872299747,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 386.96742719900794,
+        "planned_arc_m": "0.70000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 387.1586724919907,
+        "planned_arc_m": "0.70000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 387.3458983050077,
+        "planned_arc_m": "0.70000000000000007",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 456.66960057400865,
+        "planned_arc_m": "0.80000000000000004",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 456.8736256819975,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 457.0701412119961,
+        "planned_arc_m": "0.75",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      }
+    ]
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "feedback": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 102
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 64
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 9655
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 139
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 42
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 313
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "messages": 22
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 6
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "messages": 106
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "messages": 30
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "messages": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "messages": 9007
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "messages": 175
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "messages": 30
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "messages": 414
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "messages": 24
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "messages": 8
+      }
+    ],
+    "command_messages": [
+      {
+        "robot": "robot_1",
+        "mode": "ROUTE",
+        "messages": 3754
+      },
+      {
+        "robot": "robot_1",
+        "mode": "STOP",
+        "messages": 636
+      },
+      {
+        "robot": "robot_2",
+        "mode": "ROUTE",
+        "messages": 3669
+      },
+      {
+        "robot": "robot_2",
+        "mode": "STOP",
+        "messages": 720
+      }
+    ],
+    "distinct_stop_nonces": {
+      "robot_1": 127,
+      "robot_2": 129
+    },
+    "distinct_stop_request_ids": {
+      "robot_1": 1,
+      "robot_2": 1
+    },
+    "recovery_feedback": [
+      {
+        "robot_source": "robot_2",
+        "received": 95.74899289000314,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 95.93569087600918,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 96.14904540101998,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 101.75858749600593,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 150.62873965801555,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 150.72624243801693,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 150.8408975310158,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 150.96167532601976,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.08703914401121,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.2286744970188,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.38135260200943,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.5463583380042,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.70299208301003,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.83795779800857,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 151.93113702401752,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.04514247601037,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.17554242300685,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.35129644401604,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.49150782401557,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.62936490902212,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.79446087300312,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 152.95090579401585,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.08175993702025,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.22270294302143,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.36047046800377,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.51385610102443,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.60782776400447,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.7697567830037,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 153.88189441501163,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 154.0163008920208,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 154.13516807599808,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 154.27436248000595,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 154.4579199340078,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 525.764097678999,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 525.9046266440128,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 526.0683473610261,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 526.2404825980193,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 527.6666944099998,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 527.848565310007,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 528.0107957020227,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 528.1743112149998,
+        "planned_arc_m": "0.10000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 604.1383300370071,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 604.2789937170164,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 604.4200826029992,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 604.560616857023,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 969.4987492110231,
+        "planned_arc_m": "0.15000000000000002",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 969.6927456140111,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 969.820394385024,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1164.6728059640154,
+        "planned_arc_m": "0.20000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1164.8391127350042,
+        "planned_arc_m": "0.20000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1165.0022443920025,
+        "planned_arc_m": "0.20000000000000001",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1166.9594469270087,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1167.0552350430225,
+        "planned_arc_m": "0.050000000000000003",
+        "body_route_method": "RECENTER_STRAIGHT",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1569.7133620740206,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1569.8591152640001,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1569.9842280610173,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.0979112740024,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.244560416002,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.3805950079986,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.5173931530153,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.626196496014,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.7524779830128,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1570.8758065919974,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.0364405460132,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.1869243820256,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.3076521940238,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.4200563660124,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.5624212740222,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.714838755026,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.8670615930168,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1571.9922315750155,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.1377820360067,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.2383210220141,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.3579438030138,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.4823429850221,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.6245169629983,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.7250707220228,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.8407724260178,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1572.9800089560158,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.1030064520019,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.255346638005,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.433997767017,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.5698316430207,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.690827833023,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.8179585030011,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1573.9715085150092,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.1225445140153,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.2407735410088,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.3667728790024,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.4983255910047,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.640733526001,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.7518411390192,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1574.9247226120206,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.0942808870168,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.2678143040102,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.390006866015,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.4992334620038,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.6247257420036,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.78269937,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1575.9114299760258,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.0771437410149,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.2453541430004,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.3572162170021,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.47337483702,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.5955843130068,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.7301612680021,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1576.8821242070117,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.0309353590128,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.1535732960037,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.3008589300152,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.4416266269982,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.5734807270055,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.7006920640124,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1577.8755454440252,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.0441795049992,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.1515718330047,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.2899022040074,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.4442597770249,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.5876542020123,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.7415173170157,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1578.8871343920182,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.0031135250174,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.1249690400145,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.2658067020238,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.3825690740196,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.5378669330094,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.6778531660093,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.8018908759987,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1579.922143239004,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.0583427530073,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.1694071090023,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.270072023006,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.3897509800154,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.526676524023,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.671262178017,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.807578729,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1580.9479625090025,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.120241532015,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.2479919280158,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.3556413250044,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.4984500760038,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.6359092660132,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.7461759459984,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1581.9133633980236,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.0334996410238,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.1710784430034,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.3191271620162,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.4775138700206,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.6031062810216,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.7728785090148,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1582.9540514220134,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1583.0777834600012,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.4048909980047,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.5310244280263,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.644858188025,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.7448467010108,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.8977086770174,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1584.9940174110234,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.1196191850177,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.2502806700068,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.3640014940174,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.4806487559981,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.5786738610186,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.691200361005,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.8211446470232,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1585.9142603820073,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1586.0437495869992,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1586.1667786040052,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1586.2707083460118,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1586.3918743469985,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_1",
+        "received": 1586.5042541779985,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      },
+      {
+        "robot_source": "robot_2",
+        "received": 2053.3927111780213,
+        "planned_arc_m": "0",
+        "body_route_method": "RECENTER_ROTATE",
+        "route_id": null,
+        "status": "ACCEPTED"
+      }
+    ]
+  }
+}

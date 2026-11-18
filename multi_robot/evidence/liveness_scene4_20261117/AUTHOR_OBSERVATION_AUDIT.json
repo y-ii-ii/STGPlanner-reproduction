@@ -1,0 +1,50 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "completed": true,
+    "last_full_seq_by_author": {
+      "1/82565f4ddd604c22a12710cdf97701e4": 591,
+      "2/9a4f968d83584207b7700ad60d31ec82": 611
+    },
+    "reported_observation_completed_tasks": 9,
+    "reported_completed_support_union_cells": 200,
+    "authority_assignee_completion_mask_cells": 100,
+    "unused_reported_support_lower_bound_cells": 100,
+    "note": "Cardinality lower bound only; last-full snapshots may precede final status. Does not mark unknown free or change ownership/STOP."
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "completed": true,
+    "last_full_seq_by_author": {
+      "2/0f03d0168b9c4d919655b332534a8b39": 791,
+      "1/4b3168a9a517463faecc13eeeca3824f": 761
+    },
+    "reported_observation_completed_tasks": 149,
+    "reported_completed_support_union_cells": 2392,
+    "authority_assignee_completion_mask_cells": 384,
+    "unused_reported_support_lower_bound_cells": 2008,
+    "note": "Cardinality lower bound only; last-full snapshots may precede final status. Does not mark unknown free or change ownership/STOP."
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "completed": true,
+    "last_full_seq_by_author": {
+      "2/e0c1783b49f14e45901a30b74ffaf489": 601,
+      "1/33fd0aef2abc4244b2029abc1d246f7c": 601
+    },
+    "reported_observation_completed_tasks": 41,
+    "reported_completed_support_union_cells": 548,
+    "authority_assignee_completion_mask_cells": 356,
+    "unused_reported_support_lower_bound_cells": 192,
+    "note": "Cardinality lower bound only; last-full snapshots may precede final status. Does not mark unknown free or change ownership/STOP."
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "completed": true,
+    "last_full_seq_by_author": {
+      "2/064047421ac24cd39a728bfa390d2d8c": 2511,
+      "1/5c13f354bc924896a43eceb466fe5cc2": 2501
+    },
+    "reported_observation_completed_tasks": 581,
+    "reported_completed_support_union_cells": 7742,
+    "authority_assignee_completion_mask_cells": 1542,
+    "unused_reported_support_lower_bound_cells": 6200,
+    "note": "Cardinality lower bound only; last-full snapshots may precede final status. Does not mark unknown free or change ownership/STOP."
+  }
+}

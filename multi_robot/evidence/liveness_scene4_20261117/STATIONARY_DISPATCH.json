@@ -1,0 +1,130 @@
+{
+  "topology_liveness_scene4_20261117_01_dual": {
+    "robot_1": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        12.548570491500225,
+        0.8054609642488616
+      ],
+      "from_runtime_wall_s": 473.4372155660094,
+      "to_runtime_wall_s": 546.8299684679951,
+      "duration_wall_s": 73.39275290198566,
+      "distinct_route_tasks": 1,
+      "distinct_route_dispatches": 1,
+      "distinct_stop_nonces": 2,
+      "route_messages": 1,
+      "stop_messages": 267
+    },
+    "robot_2": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        11.396547682479602,
+        0.2435701374473388
+      ],
+      "from_runtime_wall_s": 542.5529407589929,
+      "to_runtime_wall_s": 546.8299684679951,
+      "duration_wall_s": 4.277027709002141,
+      "distinct_route_tasks": 1,
+      "distinct_route_dispatches": 1,
+      "distinct_stop_nonces": 0,
+      "route_messages": 15,
+      "stop_messages": 0
+    }
+  },
+  "topology_liveness_scene4_20261117_02_dual": {
+    "robot_1": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        10.9354161352288,
+        20.924447853748916
+      ],
+      "from_runtime_wall_s": 631.4957606530224,
+      "to_runtime_wall_s": 697.7079988699988,
+      "duration_wall_s": 66.2122382169764,
+      "distinct_route_tasks": 1,
+      "distinct_route_dispatches": 1,
+      "distinct_stop_nonces": 2,
+      "route_messages": 2,
+      "stop_messages": 168
+    },
+    "robot_2": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        13.655628624649797,
+        44.01387300343959
+      ],
+      "from_runtime_wall_s": 694.4811436970194,
+      "to_runtime_wall_s": 697.7079988699988,
+      "duration_wall_s": 3.2268551729794126,
+      "distinct_route_tasks": 1,
+      "distinct_route_dispatches": 1,
+      "distinct_stop_nonces": 1,
+      "route_messages": 6,
+      "stop_messages": 3
+    }
+  },
+  "topology_liveness_scene4_20261117_03_dual": {
+    "robot_1": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        12.196880797491428,
+        3.8449775586342136
+      ],
+      "from_runtime_wall_s": 548.6793144429976,
+      "to_runtime_wall_s": 551.8835451189952,
+      "duration_wall_s": 3.204230675997678,
+      "distinct_route_tasks": 1,
+      "distinct_route_dispatches": 1,
+      "distinct_stop_nonces": 0,
+      "route_messages": 11,
+      "stop_messages": 0
+    },
+    "robot_2": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        15.47829522883797,
+        14.741283445606404
+      ],
+      "from_runtime_wall_s": 324.69015986000886,
+      "to_runtime_wall_s": 551.8835451189952,
+      "duration_wall_s": 227.19338525898638,
+      "distinct_route_tasks": 2,
+      "distinct_route_dispatches": 6,
+      "distinct_stop_nonces": 6,
+      "route_messages": 6,
+      "stop_messages": 787
+    }
+  },
+  "topology_liveness_scene4_20261117_04_dual": {
+    "robot_1": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        18.42749658911587,
+        65.29312743439705
+      ],
+      "from_runtime_wall_s": 2299.9021932220203,
+      "to_runtime_wall_s": 2299.9021932220203,
+      "duration_wall_s": 0.0,
+      "distinct_route_tasks": 0,
+      "distinct_route_dispatches": 0,
+      "distinct_stop_nonces": 0,
+      "route_messages": 0,
+      "stop_messages": 0
+    },
+    "robot_2": {
+      "final_stationary_disk_radius_m": 0.1,
+      "final_pose_xy": [
+        0.05549588875355068,
+        21.300557184902566
+      ],
+      "from_runtime_wall_s": 2267.3117869370035,
+      "to_runtime_wall_s": 2299.9021932220203,
+      "duration_wall_s": 32.5904062850168,
+      "distinct_route_tasks": 3,
+      "distinct_route_dispatches": 3,
+      "distinct_stop_nonces": 4,
+      "route_messages": 12,
+      "stop_messages": 25
+    }
+  }
+}

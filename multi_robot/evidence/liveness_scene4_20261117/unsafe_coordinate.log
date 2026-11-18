@@ -1,0 +1,58 @@
+=================================================================
+==23==ERROR: AddressSanitizer: heap-use-after-free on address 0x612000004558 at pc 0x000000405377 bp 0x7ffd9831ce30 sp 0x7ffd9831ce20
+READ of size 4 at 0x612000004558 thread T0
+    #0 0x405376 in grow(cv::Point_<int> const&) /mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/tests/test_graph_coordinate_lifetime.cpp:14
+    #1 0x4056d6 in main /mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/tests/test_graph_coordinate_lifetime.cpp:16
+    #2 0x7a3d9fa32082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082)
+    #3 0x4047bd in _start (/mnt/d/STGPlanner/codex/work/topology_liveness_20261117/unsafe_coordinate+0x4047bd)
+
+0x612000004558 is located 24 bytes inside of 264-byte region [0x612000004540,0x612000004648)
+freed by thread T0 here:
+    #0 0x7a3da2b1051f in operator delete(void*) ../../../../src/libsanitizer/asan/asan_new_delete.cc:165
+    #1 0x42b469 in __gnu_cxx::new_allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex>::deallocate(boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex*, unsigned long) /usr/include/c++/9/ext/new_allocator.h:128
+    #2 0x42b469 in std::allocator_traits<std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::deallocate(std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex>&, boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex*, unsigned long) /usr/include/c++/9/bits/alloc_traits.h:469
+    #3 0x42b469 in std::_Vector_base<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex, std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::_M_deallocate(boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex*, unsigned long) /usr/include/c++/9/bits/stl_vector.h:351
+    #4 0x42b469 in std::vector<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex, std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::_M_default_append(unsigned long) /usr/include/c++/9/bits/vector.tcc:675
+
+previously allocated by thread T0 here:
+    #0 0x7a3da2b0f587 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cc:104
+    #1 0x4258ef in __gnu_cxx::new_allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex>::allocate(unsigned long, void const*) /usr/include/c++/9/ext/new_allocator.h:114
+    #2 0x4258ef in std::allocator_traits<std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::allocate(std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex>&, unsigned long) /usr/include/c++/9/bits/alloc_traits.h:443
+    #3 0x4258ef in std::_Vector_base<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex, std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::_M_allocate(unsigned long) /usr/include/c++/9/bits/stl_vector.h:343
+    #4 0x4258ef in std::vector<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex, std::allocator<boost::detail::adj_list_gen<boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>, boost::vecS, boost::listS, boost::undirectedS, perception::NodeData, perception::Edge, perception::Graph, boost::listS>::config::stored_vertex> >::_M_default_append(unsigned long) /usr/include/c++/9/bits/vector.tcc:635
+    #5 0x441175  (/mnt/d/STGPlanner/codex/work/topology_liveness_20261117/unsafe_coordinate+0x441175)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/tests/test_graph_coordinate_lifetime.cpp:14 in grow(cv::Point_<int> const&)
+Shadow bytes around the buggy address:
+  0x0c247fff8850: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c247fff8860: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x0c247fff8870: fa fa fa fa fa fa fa fa fd fd fd fd fd fd fd fd
+  0x0c247fff8880: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c247fff8890: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+=>0x0c247fff88a0: fa fa fa fa fa fa fa fa fd fd fd[fd]fd fd fd fd
+  0x0c247fff88b0: fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd fd
+  0x0c247fff88c0: fd fd fd fd fd fd fd fd fd fa fa fa fa fa fa fa
+  0x0c247fff88d0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c247fff88e0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0c247fff88f0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==23==ABORTING

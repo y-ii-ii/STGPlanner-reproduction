@@ -1,0 +1,131 @@
+test_foreign_task_completes_without_rewriting_author_record (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_grown_support_reopens_only_after_stop_with_new_version (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_old_or_partial_or_stale_observation_cannot_finish (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_renamed_task_cannot_reassign_already_observed_world_support (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_renamed_task_with_novel_cells_is_not_falsely_completed (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_signature_ignores_alias_heartbeat_but_not_unknown_geometry (test_assignee_completion.AssigneeCompletionTests) ... ok
+test_braking_distance_exceeds_point_check (test_body_tracking.BodyTrackingTests) ... ok
+test_diverged_old_anchor_waits_for_replan (test_body_tracking.BodyTrackingTests) ... ok
+test_free_body_and_map_border (test_body_tracking.BodyTrackingTests) ... ok
+test_in_place_turn_waits_for_measured_translation_to_stop (test_body_tracking.BodyTrackingTests) ... ok
+test_inertial_tracking_through_l_corner_keeps_body_free (test_body_tracking.BodyTrackingTests) ... ok
+test_measurement_anchor_cannot_turn_back_to_old_yaw (test_body_tracking.BodyTrackingTests) ... ok
+test_moving_anchor_cannot_skip_unexecuted_turn (test_body_tracking.BodyTrackingTests) ... ok
+test_no_path_and_invalid_values (test_body_tracking.BodyTrackingTests) ... ok
+test_normal_yaw_cap_matches_reference_and_rejects_larger_approval (test_body_tracking.BodyTrackingTests) ... ok
+test_recenter_certificate_caps_speed_and_margin (test_body_tracking.BodyTrackingTests) ... ok
+test_reverse_checked_too (test_body_tracking.BodyTrackingTests) ... ok
+test_reverse_not_pi_rotation (test_body_tracking.BodyTrackingTests) ... ok
+test_rolling_path_anchor_does_not_request_spurious_reverse (test_body_tracking.BodyTrackingTests) ... ok
+test_rotating_body_hits_wall (test_body_tracking.BodyTrackingTests) ... ok
+test_same_path_does_not_reset_cursor (test_body_tracking.BodyTrackingTests) ... ok
+test_stale_geometry_and_stop_cannot_grant_motion (test_body_tracking.BodyTrackingTests) ... ok
+test_straight_primitives_can_use_original_speed_cap (test_body_tracking.BodyTrackingTests) ... ok
+test_tracker_preserves_turn_before_translation (test_body_tracking.BodyTrackingTests) ... ok
+test_traffic_old_approved_command_checked_again (test_body_tracking.BodyTrackingTests) ... ok
+test_translation_waits_for_residual_rotation_to_settle (test_body_tracking.BodyTrackingTests) ... ok
+test_unknown_does_not_become_free (test_body_tracking.BodyTrackingTests) ... ok
+test_zero_displacement_recovery_still_executes_its_turn (test_body_tracking.BodyTrackingTests) ... ok
+test_failed_start_cooldown_survives_task_id_replacement (test_commit_dispatch.CommitDispatchTests) ... ok
+test_stop_withheld_intention_does_not_become_ghost_dispatch (test_commit_dispatch.CommitDispatchTests) ... ok
+test_different_ids_same_unknown_support_cannot_double_dispatch (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_duplicate_idle_request_keeps_nonce_but_new_request_needs_proof (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_pending_duplicate_does_not_renew_timeout (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_task_alias_still_waits_for_old_owner_stop (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_unrelated_ready_work_can_start_while_peer_stop_fault_remains (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_unrelated_repeated_stop_cannot_starve_ready_robot (test_dispatch_liveness.DispatchLivenessTests) ... ok
+test_new_scope_requires_new_generation_and_stop (test_dispatch_scope.DispatchScopeTests) ... ok
+test_returned_scope_does_not_mutate_supervisor_snapshot (test_dispatch_scope.DispatchScopeTests) ... ok
+test_same_dispatch_cannot_expand_completion_target (test_dispatch_scope.DispatchScopeTests) ... ok
+test_cached_follower_velocity_is_not_reused_on_new_dispatch (test_execution.ExecutionTests) ... ok
+test_delayed_pre_request_odom_does_not_count (test_execution.ExecutionTests) ... ok
+test_delayed_stop_is_safe_but_delayed_motion_is_rejected (test_execution.ExecutionTests) ... ok
+test_executor_exit_and_coordinator_exit_force_zero (test_execution.ExecutionTests) ... ok
+test_external_stop_nonce_is_bound_to_request_id (test_execution.ExecutionTests) ... ok
+test_goal_replacements_do_not_reset_stall_budget (test_execution.ExecutionTests) ... ok
+test_halted_ros_clock_cannot_make_stop_ack (test_execution.ExecutionTests) ... ok
+test_initial_stop_requires_new_stationary_odometry_and_zero_output (test_execution.ExecutionTests) ... ok
+test_property_tree_false_is_not_motion_permission (test_execution.ExecutionTests) ... ok
+test_repeated_or_missing_odometry_never_acks (test_execution.ExecutionTests) ... ok
+test_scope_distinguishes_same_tile_wall_and_neighbor_tile (test_execution.ExecutionTests) ... ok
+test_stationary_twist_does_not_hide_moving_pose (test_execution.ExecutionTests) ... ok
+test_task_change_waits_for_stop_and_old_goal_cannot_resume (test_execution.ExecutionTests) ... ok
+test_team_handover_waits_for_both_old_executors (test_execution.ExecutionTests) ... ok
+test_wrong_old_and_late_acks_cannot_unlock (test_execution.ExecutionTests) ... ok
+test_zero_not_published_is_not_stop_ack (test_execution.ExecutionTests) ... ok
+test_real_export_to_partition_to_fence_then_executor_loss (test_execution_e2e.EndToEndTests) ... ok
+test_stall_defers_only_execution_not_observation_completion (test_execution_e2e.EndToEndTests) ... ok
+test_every_observed_free_unknown_neighbor_pair_is_represented (test_frontier_completeness.CompletenessTests) ... ok
+test_published_packet_mutation_does_not_corrupt_cached_export (test_frontier_completeness.CompletenessTests) ... ok
+test_capability_bytes_counted_without_authority_work (test_inbox.InboxTests) ... ok
+test_concurrent_callback_producers_do_not_lose_ack_messages (test_inbox.InboxTests) ... ok
+test_normal_budget_cannot_consume_critical_budget (test_inbox.InboxTests) ... ok
+test_stop_ack_is_serviced_before_busy_graph_and_planner_lane (test_inbox.InboxTests) ... ok
+test_topology_fifo_and_tombstones_are_never_silently_dropped (test_inbox.InboxTests) ... ok
+test_endpoint_reappearance_checks_previously_dangling_edge (test_incremental_store.IncrementalStoreTests) ... ok
+test_input_alias_cannot_corrupt_validated_records (test_incremental_store.IncrementalStoreTests) ... ok
+test_node_change_revalidates_old_incident_edge_atomically (test_incremental_store.IncrementalStoreTests) ... ok
+test_state_only_heartbeat_preserves_immutable_path_records (test_incremental_store.IncrementalStoreTests) ... ok
+test_corridor_retained_when_local_edge_is_pruned (test_navigation_history.HistoryTests) ... ok
+test_new_obstacle_invalidates_old_bridge (test_navigation_history.HistoryTests) ... ok
+test_ring_keeps_two_routes_between_anchors (test_navigation_history.HistoryTests) ... ok
+test_unknown_invalidates_history_and_lattice_change_rejected (test_navigation_history.HistoryTests) ... ok
+test_dispatched_task_cannot_be_stolen_before_ack (test_offline.OfflineTests) ... ok
+test_empty_candidates_not_mission_complete (test_offline.OfflineTests) ... ok
+test_equal_distance_deterministic_and_multiportal_unique (test_offline.OfflineTests) ... ok
+test_foreign_id_rejected_atomically (test_offline.OfflineTests) ... ok
+test_graph_distance_beats_euclidean_across_wall (test_offline.OfflineTests) ... ok
+test_handover_and_stale_ack (test_offline.OfflineTests) ... ok
+test_invalid_geometry_and_frame (test_offline.OfflineTests) ... ok
+test_no_corner_cut (test_offline.OfflineTests) ... ok
+test_own_export_does_not_transmit_occupancy (test_offline.OfflineTests) ... ok
+test_peer_route_and_no_parallel_wall_merge (test_offline.OfflineTests) ... ok
+test_same_sequence_conflict_and_session_restart (test_offline.OfflineTests) ... ok
+test_same_tile_split_and_missing_is_not_completed (test_offline.OfflineTests) ... ok
+test_single_cell_frontier_is_not_filtered_out (test_offline.OfflineTests) ... ok
+test_split_merge_and_reopen_lineage (test_offline.OfflineTests) ... ok
+test_task_identity_survives_portal_representative_change (test_offline.OfflineTests) ... ok
+test_tombstone_replay_gap_and_full_repair (test_offline.OfflineTests) ... ok
+test_two_branch_export_exchange_allocate_feedback (test_offline.OfflineTests) ... ok
+test_unchanged_map_sends_only_state_heartbeat (test_offline.OfflineTests) ... ok
+test_unknown_tile_uses_neighbor_tile_portal (test_offline.OfflineTests) ... ok
+test_unreachable_not_awarded_and_stale_state_stops (test_offline.OfflineTests) ... ok
+test_closed_loop_path_has_no_arbitrary_direction_exemption (test_retry_memory.RetryMemoryTests) ... ok
+test_current_unsafe_body_blocks_all_ingresses_until_bounded_retry (test_retry_memory.RetryMemoryTests) ... ok
+test_other_direction_robot_and_new_pose_remain_available (test_retry_memory.RetryMemoryTests) ... ok
+test_renamed_tasks_same_ingress_do_not_reset_cooldown (test_retry_memory.RetryMemoryTests) ... ok
+test_repeated_failures_backoff_without_permanent_completion (test_retry_memory.RetryMemoryTests) ... ok
+test_disconnected_free_island_still_cannot_bid (test_root_attachment.RootAttachmentTests) ... ok
+test_nearest_isolated_anchor_does_not_strand_reachable_task (test_root_attachment.RootAttachmentTests) ... ok
+test_live_process_incarnation (test_runtime_health.RuntimeHealthTests) ... ok
+test_missing_process_fails_closed (test_runtime_health.RuntimeHealthTests) ... ok
+test_reused_pid_is_not_the_original_native_node (test_runtime_health.RuntimeHealthTests) ... ok
+test_zombie_is_an_exit_even_while_roslaunch_lives (test_runtime_health.RuntimeHealthTests) ... ok
+test_dropped_first_ack_is_retransmitted_with_fresh_evidence (test_stop_delivery.StopDeliveryTests) ... ok
+test_motion_after_proof_cannot_reuse_stationary_interval (test_stop_delivery.StopDeliveryTests) ... ok
+test_only_new_round_proof_can_recover_before_its_deadline (test_stop_delivery.StopDeliveryTests) ... ok
+test_repeated_proof_needs_current_odometry_and_stop_command (test_stop_delivery.StopDeliveryTests) ... ok
+test_rolling_updates_do_not_move_dispatch_origin (test_stop_delivery.StopDeliveryTests) ... ok
+test_timeout_retry_gets_new_nonce_and_has_finite_budget (test_stop_delivery.StopDeliveryTests) ... ok
+test_crossing_and_parallel_reservations (test_traffic.TrafficTests) ... ok
+test_guard_rejects_old_generation_and_unchecked_reverse (test_traffic.TrafficTests) ... ok
+test_held_peer_cannot_be_driven_through (test_traffic.TrafficTests) ... ok
+test_reservation_requires_both_current_stop_proofs (test_traffic.TrafficTests) ... ok
+test_same_token_new_epoch_cannot_renew_wait_forever (test_traffic.TrafficTests) ... ok
+test_yield_ack_needs_post_nonce_odometry_and_zero_publication (test_traffic.TrafficTests) ... ok
+test_all_follower_outputs_are_fenced_and_old_log_paths_removed (test_wiring.WiringTests) ... ok
+test_bypass_or_mixed_mode_is_rejected (test_wiring.WiringTests) ... ok
+
+----------------------------------------------------------------------
+Ran 117 tests in 0.116s
+
+OK
+10 native body-prefix + 4 observation-provenance cases passed; no ROS master or simulator
+8 own-observation blind-spot/obstacle/unknown checks passed
+16 body-route cases passed (clearance preference, tight fallback, parallel-wall escape, empty-guide and rotation recovery)
+5 execution-endpoint regressions passed (zero-distance turn cannot complete early)
+7 stop-proof cache regressions passed (inflight delivery, delayed ACK, no reuse after motion)
+6 execution timestamp regressions passed (recorded 1ms skew, stale/future/nonfinite rejection)
+3 native crash diagnostic checks passed (trace, frames, original SIGSEGV preserved)
+5 command delivery wait checks passed (reorder, lost command, wall bound, newer STOP)
+STG vecS coordinate survives growth by value

@@ -1,0 +1,70 @@
+.........F...............F...........FF..............................................................................
+======================================================================
+FAIL: test_in_place_turn_waits_for_measured_translation_to_stop (test_body_tracking.BodyTrackingTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/team_topology/tests/test_body_tracking.py", line 121, in test_in_place_turn_waits_for_measured_translation_to_stop
+    self.assertEqual(v,(0.,0.));self.assertEqual(status,'BRAKE_BEFORE_TURN')
+AssertionError: Tuples differ: (0.0, 0.64) != (0.0, 0.0)
+
+First differing element 1:
+0.64
+0.0
+
+- (0.0, 0.64)
+?         ^^
+
++ (0.0, 0.0)
+?         ^
+
+
+======================================================================
+FAIL: test_translation_waits_for_residual_rotation_to_settle (test_body_tracking.BodyTrackingTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/team_topology/tests/test_body_tracking.py", line 127, in test_translation_waits_for_residual_rotation_to_settle
+    self.assertEqual(v,(0.,0.));self.assertEqual(status,'SETTLE_BEFORE_TRANSLATION')
+AssertionError: Tuples differ: (1.2, 0.0) != (0.0, 0.0)
+
+First differing element 0:
+1.2
+0.0
+
+- (1.2, 0.0)
+?  ^ ^
+
++ (0.0, 0.0)
+?  ^ ^
+
+
+======================================================================
+FAIL: test_returned_scope_does_not_mutate_supervisor_snapshot (test_dispatch_scope.DispatchScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/team_topology/tests/test_dispatch_scope.py", line 37, in test_returned_scope_does_not_mutate_supervisor_snapshot
+    self.assertEqual(s.commands({1:wish},1.1,1.1)[1]['scopes'][0]['unknown_runs'][0][1],8)
+AssertionError: 100 != 8
+
+======================================================================
+FAIL: test_same_dispatch_cannot_expand_completion_target (test_dispatch_scope.DispatchScopeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/STGPlanner/codex/worktrees/multi-robot-topology/multi_robot/team_topology/tests/test_dispatch_scope.py", line 23, in test_same_dispatch_cannot_expand_completion_target
+    for k in ('scopes','scope_digest','scope_cells','task_members'):self.assertEqual(route[k],initial[k])
+AssertionError: Lists differ: [{'unknown_runs': [[0, 52]]}] != [{'unknown_runs': [[0, 8]]}]
+
+First differing element 0:
+{'unknown_runs': [[0, 52]]}
+{'unknown_runs': [[0, 8]]}
+
+- [{'unknown_runs': [[0, 52]]}]
+?                        ^^
+
++ [{'unknown_runs': [[0, 8]]}]
+?                        ^
+
+
+----------------------------------------------------------------------
+Ran 117 tests in 0.191s
+
+FAILED (failures=4)
