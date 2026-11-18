@@ -1,3 +1,7 @@
+# 2026-11-18新有限授权：motion 0/4
+
+- 最新用户明确授权覆盖下方旧停止入口：离线修复PASS覆盖局部制动、全队观测摘要去重和协调租约，重点实际推进，再最多4次新Scene4双机，每次含启动收尾wall/sim≤2400s。权威TOPOLOGY_MOTION_LIMITS_20261118.json；旧scope全部保持closed，旧基线、结果与原生空间只读。新motion_native/motion Python独立空间；失败中止计数，不自动补跑。代码注释、每个完成逻辑修订推送公开GitHub并说明原因，保留main和基线。
+
 # 2026-11-18停止入口：liveness已4/4结束关闭
 
 - 权威D:/STGPlanner/codex/TOPOLOGY_LIVENESS_LIMITS_20261117.json已closed。第4次b4ab2a8总wall2311.067s、并集29.488%、705.705m，无95/T95；四次最终双车STOP ACK通过、无非地面接触/新SIGSEGV记录。单机04与Old dual02及全部历史保留，新候选不晋升。

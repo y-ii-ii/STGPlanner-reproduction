@@ -9,6 +9,7 @@ import math
 from .graph import Navigation, point, wire
 from .scope import unknown_support, completion_signature
 from .retry_memory import RetryMemory
+from .observations import TeamObservations
 
 
 class TaskLedger:
@@ -61,8 +62,27 @@ class Coordinator:
         # geometry across renamed/source-alias tasks, not transient task IDs.
         # This is a completion mask, never free-space/navigation evidence.
         self.observed_support = set()
+        self.team_observations=TeamObservations(self.observed_support)
         self.diagnostics={}
         self.retry_memory=RetryMemory()
+
+    def ingest_author_observations(self,store,keys):
+        for key in keys:
+            record=store.records.get(key)
+            if not record or record['deleted'] or record['value'].get('kind')!='task':continue
+            robot=int(key.split('/')[0]);state=store.states.get(robot,{})
+            self.team_observations.accept(key,record['value'],state)
+
+    def team_completed(self,active):
+        """Information may be complete; execution ownership still needs STOP."""
+        support=unknown_support(active.get('scopes',[]));item=self.ledger.items.get(active.get('task'))
+        if (not support or not support<=self.observed_support or item is None
+                or item['version']!=active.get('version')
+                or item.get('receiver',item['owner'])!=int(active.get('robot',0))):return False
+        if item['state']=='offered':
+            item.update(owner=int(active['robot']),state='dispatched');item.pop('receiver',None)
+        item['observed_completed']=True
+        return True
 
     def commit_dispatches(self,plans):
         """Reserve delivered ROUTEs, not intentions still blocked by STOP/ACK.

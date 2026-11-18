@@ -6,6 +6,22 @@ yield epoch and local retreat certificate are new; they do not complete tasks.
 import math
 from .traffic_geometry import swept_clearance, braking_uncertainty, segment_distance, free_reverse
 
+def restrict_pass(current,approved):
+    """Only scale DOWN the admitted curve; never revive a newer brake/turn.
+
+    A PASS is an upper permission bound, not an old velocity command. A changed
+    sign/zero component waits for a compatible fresh permit. RETREAT remains a
+    separate, explicitly certified operation and is not routed through this.
+    """
+    if not all(math.isfinite(v) for v in (*current,*approved)):return (0.,0.)
+    if sum(map(abs,current))<1e-6:return (0.,0.)
+    scale=1.
+    for request,limit in zip(current,approved):
+        if abs(limit)<1e-6:continue
+        if abs(request)<1e-6 or request*limit<0:return (0.,0.)
+        scale=min(scale,abs(request/limit))
+    return tuple(v*scale for v in approved)
+
 
 def route_conflict(paths):
     if not all(paths):
@@ -136,7 +152,8 @@ class TrafficGuard:
                 velocity=(0.,0.)
             else:
                 mode=self.permit['mode']
-                velocity=tuple(self.permit['velocity']) if mode!='HOLD' else (0.,0.)
+                velocity=(restrict_pass(velocity,tuple(self.permit['velocity'])) if mode=='PASS'
+                          else tuple(self.permit['velocity']) if mode=='RETREAT' else (0.,0.))
                 if mode=='RETREAT' and not self.reverse_ok(now,ros_now):velocity=(0.,0.)
         else:velocity=(0.,0.)
         if (fresh and self.permit.get('mode')=='HOLD' and not self.sent

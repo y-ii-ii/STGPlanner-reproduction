@@ -13,7 +13,7 @@ def main(index):
     for rel,h in manifest['frozen_sha256'].items():assert sha(out/'frozen'/rel)==h,rel
     for p,h in manifest['executables'].items():assert sha(p)==h,p
     for rel,h in manifest['implementation_sha256'].items():assert sha(CODE/rel)==h,rel
-    with (ROOT/'codex/TOPOLOGY_LIVENESS_ATTEMPT_MUTEX_20261117').open('w') as f:
+    with (ROOT/'codex/TOPOLOGY_MOTION_ATTEMPT_MUTEX_20261118').open('w') as f:
         fcntl.flock(f,fcntl.LOCK_EX);limits=json.loads(LIMITS.read_text())
         assert limits['offline_preflight_passed'] and not limits['new_attempts_blocked']
         assert len(limits['attempts'])+1==index and index<=4
@@ -54,8 +54,8 @@ def main(index):
     signal.signal(signal.SIGUSR1,lambda *_:errors.append('diagnostic_abort'))
     def lock_state(value):
         l=json.loads(LOCK.read_text());assert l['owner_thread']==OWNER
-        l.update(state=value,runtime_active=value!='idle',phase='topology_liveness_20261117',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
-        l['limits_by_scope']['topology_liveness_20261117'].update(used=index,blocked=index>=4);dump(LOCK,l)
+        l.update(state=value,runtime_active=value!='idle',phase='topology_motion_20261118',trial=out.name,result_path=str(out),supervisor_pid=os.getpid())
+        l['limits_by_scope']['topology_motion_20261118'].update(used=index,blocked=index>=4);dump(LOCK,l)
     def launch(name):
         h=(out/(name+'.log')).open('w');handles.append(h)
         p=subprocess.Popen(['roslaunch',str(out/'frozen'/(name+'.launch'))],stdout=h,stderr=subprocess.STDOUT,start_new_session=True);children.append((name,p));event('launch',name=name,pid=p.pid)

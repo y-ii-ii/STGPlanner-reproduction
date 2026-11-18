@@ -2,7 +2,7 @@
 from .graph import DeltaBuilder, point, wire
 from .grid import Grid
 from .tasks import TaskTracker
-from .scope import task_scope
+from .scope import task_scope,completion_signature
 from .navigation_history import NavigationHistory
 
 
@@ -12,6 +12,7 @@ class LocalExporter:
         self.tasks = TaskTracker()
         self.last_snapshot_key = None
         self.history=NavigationHistory()
+        self.completion_proofs={}
 
     def snapshot(self, snapshot, full=False):
         if snapshot["frame"] != "world":
@@ -80,7 +81,20 @@ class LocalExporter:
                 "portals": portal_keys, "state": task["state"], "map_rev": task["map_rev"],
                 "observation": task["observation"],
                 "parents": [self.delta.key("task", x) for x in task["parents"]]}
-            records[self.delta.key("task", local)]["scope"] = task_scope(grid, task)
+            scope=task_scope(grid,task)
+            record=records[self.delta.key("task",local)];record['scope']=scope
+            if task['state']=='completed' and task['observation']=='all_previous_unknown_observed':
+                digest,count=completion_signature([scope]);old=self.completion_proofs.get(local)
+                if old is None or old['scope_digest']!=digest:
+                    # Certify actual own-map observations, never mere absence
+                    # of candidates. Preserve this historical static-world
+                    # evidence when a later local window no longer includes it.
+                    if count and all(grid.state(u) in (0,100) for u in task['cells']):
+                        old=dict(schema=1,frame='world',author=self.delta.author,
+                            evidence='own_observed_support',scope_digest=digest,
+                            required_cells=count,observed_cells=count,map_rev=task['map_rev'],stamp=float(snapshot['stamp']))
+                        self.completion_proofs[local]=old
+                if old is not None and old['scope_digest']==digest:record['observation_proof']=dict(old)
         # The real pose-to-cell-center attachment cost is retained in bidding.
         state = {"root": root, "pose": pose, "stamp": float(snapshot["stamp"]),
                  "map_rev": self.tasks.map_rev, "resolution": grid.resolution}

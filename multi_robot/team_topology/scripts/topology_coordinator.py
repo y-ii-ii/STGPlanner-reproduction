@@ -15,6 +15,7 @@ from team_topology.graph import GraphStore, wire
 from team_topology.allocator import Coordinator
 from team_topology.execution import ExecutionSupervisor,no_dispatch_progress
 from team_topology.inbox import AuthorityInbox
+from team_topology.lease_publisher import LeasePublisher
 
 
 def main():
@@ -33,6 +34,8 @@ def main():
     supervisor=ExecutionSupervisor(robots,session,stop_retries=1)
     publishers = {r: rospy.Publisher("/robot_%d/topo_planner_node/topology_command" % r,
                                    String, queue_size=1) for r in robots}
+    lease=LeasePublisher(lambda r,encoded:publishers[r].publish(String(data=encoded)),
+                         clocks=lambda:(time.monotonic(),rospy.Time.now().to_sec()))
     metrics = rospy.Publisher("~status", String, queue_size=1)
     traffic={"topology_received_bytes":0,"feedback_received_bytes":0,"commands_published_bytes":0}
     armed=[not rospy.get_param('~require_mission_start',False)]
@@ -40,19 +43,29 @@ def main():
     rospy.Subscriber('/team/mission_start',Bool,lambda m:armed.__setitem__(0,m.data),queue_size=1)
 
     def publish_plans_unlocked():
+        for r,state in supervisor.states.items():
+            if state.get('active') is not None and coordinator.team_completed(state['active']):
+                # Any valid own-map observer may retire information demand.
+                # The current owner is still released only after physical ACK.
+                supervisor.request_stop(r,None,time.monotonic(),'team_observation_completed')
         desired=coordinator.plan(store,rospy.Time.now().to_sec(),time.monotonic()) if armed[0] else {r:dict(mode='WAIT',path=[]) for r in robots}
-        plans=supervisor.commands(desired,time.monotonic(),rospy.Time.now().to_sec())
-        coordinator.commit_dispatches(plans)
-        for r,plan in plans.items():
-            encoded=wire(plan);publishers[r].publish(String(data=encoded))
-            traffic['commands_published_bytes']+=len(encoded.encode())+4
-        return plans
+        now,ros_now=time.monotonic(),rospy.Time.now().to_sec()
+        sources={r:store.states[r]['stamp'] for r in robots if r in store.states}
+        if len(sources)!=len(robots) or any(not 0<=ros_now-s<=coordinator.max_age for s in sources.values()):
+            desired={r:dict(mode='WAIT',path=[]) for r in robots}
+        plans=supervisor.commands(desired,now,ros_now)
+        emitted=lease.commit(plans,sources,now,ros_now,armed[0])
+        coordinator.commit_dispatches(emitted) # Commit actual publication, not a held intention.
+        traffic['commands_published_bytes']=lease.stats()['application_bytes']
+        return emitted
 
     def apply_packet(value):
         try:
             began=time.monotonic();applied=store.apply(value)
             service['max_graph_apply_wall_s']=max(service['max_graph_apply_wall_s'],time.monotonic()-began)
             service['graph_packets_applied']+=int(applied)
+            if applied:
+                coordinator.ingest_author_observations(store,value['records'])
         except (ValueError,KeyError,TypeError) as exc:
             rospy.logwarn_throttle(2.,"Topology receive refused: %s",exc)
 
@@ -130,6 +143,8 @@ def main():
             "allocation_diagnostics":coordinator.diagnostics,
             "execution_retry_memory":coordinator.retry_memory.entries,
             "observed_completion_cells":len(coordinator.observed_support),
+            "team_observation_certificates":coordinator.team_observations.stats(),
+            "command_lease_publisher":lease.stats(),
             "ledger_state_counts":{k:sum(i['state']==k for i in coordinator.ledger.items.values()) for k in ('assigned','offered','dispatched','active','completed')},
             "feedback_ack_audit":dict(ack_audit),"authority_service":dict(service),"authority_inbox":counts,
             "command_serialized_bytes": sum(len(wire(dict(p, allocation_session=session)).encode("utf-8"))+4 for p in plans.values()),
@@ -152,18 +167,30 @@ def main():
         for received,value in inbox.feedback(normal_limit):
             service['max_feedback_queue_wait_s']=max(service['max_feedback_queue_wait_s'],time.monotonic()-received)
             process_feedback(value)
-    while not rospy.is_shutdown():
-        drain_feedback()
-        graph_began=time.monotonic()
-        for _ in range(8):
-            packet=inbox.packet()
-            if packet is None:break
-            apply_packet(packet[1]);drain_feedback(0)
-            if time.monotonic()-graph_began>.12:break
-        drain_feedback()
-        if time.monotonic()>=next_plan:
-            tick();next_plan=time.monotonic()+.25
-        wait.wait(.02)
+    shutdown=threading.Event()
+    def renew_contract():
+        while not shutdown.wait(.1) and not rospy.is_shutdown():
+            # No graph/ledger/supervisor mutation in this thread. The pulse can
+            # renew only a committed contract while its authority and validated
+            # source stamps remain bounded; unchanged local watchdogs stay on.
+            lease.tick(time.monotonic(),rospy.Time.now().to_sec(),armed[0])
+    heartbeat=threading.Thread(target=renew_contract,daemon=True);heartbeat.start()
+    try:
+        while not rospy.is_shutdown():
+            lease.health({r:s['stamp'] for r,s in store.states.items()},time.monotonic(),armed[0])
+            drain_feedback()
+            graph_began=time.monotonic()
+            for _ in range(8):
+                packet=inbox.packet()
+                if packet is None:break
+                apply_packet(packet[1]);drain_feedback(0)
+                if time.monotonic()-graph_began>.12:break
+            drain_feedback()
+            lease.health({r:s['stamp'] for r,s in store.states.items()},time.monotonic(),armed[0])
+            if time.monotonic()>=next_plan:
+                tick();next_plan=time.monotonic()+.25
+            wait.wait(.02)
+    finally:shutdown.set();heartbeat.join(1.)
 
 
 if __name__ == "__main__":
