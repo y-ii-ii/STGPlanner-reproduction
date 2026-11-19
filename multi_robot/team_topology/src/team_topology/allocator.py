@@ -13,6 +13,25 @@ from .observations import TeamObservations
 from .branch_progress import BranchProgress
 
 
+def route_tail(path, length=5.):
+    cells=set()
+    arc=0.
+    for a,b in zip(reversed(path[:-1]),reversed(path[1:])):
+        if arc>=length:break
+        cells.add(point(b))
+        arc+=math.dist(a,b)
+    return cells
+
+
+def route_competition(path, peer_path, peer_tail):
+    # World-lattice routes may have to share the initial access corridor.
+    # Penalize shared final cells and close goals, allowing necessary transit.
+    tail=route_tail(path)
+    proximity=max(0.,1.-math.dist(path[-1],peer_path[-1])/6.)
+    overlap=len(tail&peer_tail)/max(1,min(len(tail),len(peer_tail)))
+    return 2.4*proximity+1.6*overlap
+
+
 class TaskLedger:
     def __init__(self):
         self.items, self.version = {}, 0
@@ -234,6 +253,9 @@ class Coordinator:
                 self.ledger.offer(gid, r)
                 candidates[old_owner].remove(gid)
                 candidates[r].append(gid)
+        selected_paths={r:active['path'] for r,active in (reserved or committed or {}).items()
+                        if active.get('path')}
+        diversity_cost={}
         for r, available in candidates.items():
             available = [gid for gid in available if not any(
                 peer!=r and claims_conflict(claims[gid],claim)
@@ -244,11 +266,14 @@ class Coordinator:
             # Graph distance stays the feasibility metric. Fresh demand breaks
             # the nearest-first pattern that kept selecting tiny residual work
             # near the last corner while other connected branches waited.
+            peers=[(path,route_tail(path)) for peer,path in selected_paths.items() if peer!=r]
+            def competition(gid):
+                return max((route_competition(routes[r,gid]['path'],path,tail) for path,tail in peers),default=0.)
             def bid(gid):
                 gain=len(residual[gid])
                 discount=1.+math.sqrt(min(100,gain))/4.
                 return (self.ledger.items[gid]["state"] not in ("active","dispatched"),
-                        (costs[r,gid]+3.)/discount,gid)
+                        (costs[r,gid]+3.)/discount+competition(gid),gid)
             gid=min(available,key=bid)
             item = self.ledger.items[gid]
             route = routes[r,gid]
@@ -271,6 +296,8 @@ class Coordinator:
             # Also keep simultaneous fresh requests disjoint. A still-active
             # claim persists unchanged until its stop proof in the supervisor.
             occupied.setdefault(r, claims[gid])
+            selected_paths.setdefault(r,path)
+            diversity_cost[r]=competition(gid)
         retained=[]
         for r in self.robots:
             active=(committed or {}).get(r)
@@ -322,7 +349,8 @@ class Coordinator:
             'candidates':{str(r):len(v) for r,v in candidates.items()},'desired':{str(r):c['mode'] for r,c in waits.items()},
             'retained_transient_contracts':retained,'excluded_peer_contract_candidates':excluded,
             'branch_no_progress_stops':self.branch_progress.no_progress_stops,
-            'excluded_failed_viewpoint_bids':self.branch_progress.excluded_viewpoints}
+            'excluded_failed_viewpoint_bids':self.branch_progress.excluded_viewpoints,
+            'new_route_competition_cost':diversity_cost}
         return waits
 
     def observe_completed(self, feedback, active, ros_now):

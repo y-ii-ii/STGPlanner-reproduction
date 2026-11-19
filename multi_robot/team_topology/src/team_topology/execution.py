@@ -181,6 +181,8 @@ class VelocityFence:
         self.permit_seq, self.issuer, self.events = 0, None, []
         self.executor_paused, self.certified_goal_seq = False, None
         self.armed_at, self.progress_at, self.progress_pose = 0., 0., None
+        self.dispatch_started, self.dispatch_origin = 0., None
+        self.initial_route_cost = math.inf
 
     def receive_command(self, command, now, ros_now):
         if (command.get("schema") != 2 or command.get("frame") != "world"
@@ -221,6 +223,8 @@ class VelocityFence:
             self.phase, self.active_token = "armed", new_token
             self.armed_at, self.progress_at = now, now
             self.progress_pose = None if self.odom is None else self.odom["pose"]
+            self.dispatch_started,self.dispatch_origin=now,self.progress_pose
+            self.initial_route_cost=self._graph_cost(command)
             self.permit_seq, self.permit_at, self.issuer = 0, -math.inf, None
             self.executor_paused, self.certified_goal_seq = False, None
             self.raw_at = -math.inf
@@ -292,6 +296,21 @@ class VelocityFence:
                 "status": "STOP_REQUIRED", "robot": self.robot,
                 "allocation_session": self.session, "token": self.active_token, "reason": reason})
 
+    @staticmethod
+    def _graph_cost(command):
+        value=command.get('cost_m')
+        return value if isinstance(value,(int,float)) and math.isfinite(value) and value>=0. else math.inf
+
+    def _advancing_long_approach(self, now):
+        # Freeze the final deadline on dispatch. A rolling route cannot renew
+        # it, and the independent odometry stall watchdog still runs.
+        initial=self.initial_route_cost
+        return (math.isfinite(initial) and initial>=18.
+                and now-self.dispatch_started<=min(140.,max(self.run_s,20.+2.8*initial))
+                and self._graph_cost(self.command)+2.<=initial
+                and self.dispatch_origin is not None and self.odom is not None
+                and math.dist(self.dispatch_origin[:2],self.odom['pose'][:2])>=2.)
+
     def tick(self, now):
         if self.phase in ("armed", "running") and now-self.command_at > self.lease_s:
             self._trip("COORDINATOR_TIMEOUT")
@@ -302,7 +321,7 @@ class VelocityFence:
                 self._trip("ODOMETRY_TIMEOUT")
             elif now-self.progress_at > self.stall_s:
                 self._trip("EXECUTION_STALL")
-            elif now-self.armed_at > self.run_s:
+            elif now-self.armed_at > self.run_s and not self._advancing_long_approach(now):
                 self._trip("EXECUTION_DEADLINE")
             elif now-self.raw_at > .3 and now-self.armed_at > .5:
                 self._trip("FOLLOWER_TIMEOUT")

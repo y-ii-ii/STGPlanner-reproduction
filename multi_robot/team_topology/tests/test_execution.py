@@ -62,17 +62,41 @@ class ExecutionTests(unittest.TestCase):
         self.assertEqual(s.states[1]['phase'],'fault')
         self.assertFalse(s.feedback(good,7.1))
 
-    def running(self):
+    def running(self,cost_m=None):
         s=ExecutionSupervisor([1],"s");f=VelocityFence(1)
         f.receive_command(s.commands({1:wish()},0.,0.)[1],0.,0.)
         s.feedback(next(x for x in prove(f) if x['status']=='STOPPED'),1.)
-        route=s.commands({1:wish()},1.,1.)[1]
+        task=wish()
+        if cost_m is not None:task['cost_m']=cost_m
+        route=s.commands({1:task},1.,1.)[1]
         f.receive_command(route,1.,1.)
         permit={'token':token(route),'issuer':'executor','permit_seq':1,'allow':True}
         f.receive_permit(permit,1.)
         f.receive_odom(1.01,(0.,0.,0.),(0.,0.),1.01,1.01)
         f.receive_raw(1.,.1,1.01)
         return s,f,route,permit
+
+    def test_long_approach_can_continue_only_with_bounded_measured_progress(self):
+        s,f,_,permit=self.running(33.)
+        def tick(now,cost,x,seq):
+            wish_now=dict(wish(),cost_m=cost)
+            f.receive_command(s.commands({1:wish_now},now,now)[1],now,now)
+            f.receive_odom(now,(x,0.,0.),(0.,0.),now,now)
+            f.receive_permit(dict(permit,permit_seq=seq),now)
+            f.receive_raw(.6,0.,now)
+            return f.tick(now)
+        self.assertEqual(tick(61.1,20.,9.,2),((.6,0.),[]))
+        command,events=tick(114.,10.,12.,3)
+        self.assertEqual(command,(0.,0.))
+        self.assertEqual(events[0]['reason'],'EXECUTION_DEADLINE')
+
+    def test_graph_cost_jump_alone_does_not_extend_execution(self):
+        s,f,_,permit=self.running(33.)
+        now=61.1
+        f.receive_command(s.commands({1:dict(wish(),cost_m=5.)},now,now)[1],now,now)
+        f.receive_odom(now,(.4,0.,0.),(0.,0.),now,now)
+        f.receive_permit(dict(permit,permit_seq=2),now)
+        self.assertEqual(f.tick(now)[1][0]['reason'],'EXECUTION_DEADLINE')
 
     def test_executor_exit_and_coordinator_exit_force_zero(self):
         s,f,c,p=self.running()

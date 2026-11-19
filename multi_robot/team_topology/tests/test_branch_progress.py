@@ -1,6 +1,6 @@
 import unittest
 
-from team_topology.allocator import Coordinator
+from team_topology.allocator import Coordinator,route_competition,route_tail
 from team_topology.branch_progress import BranchProgress
 from team_topology.graph import GraphStore
 from team_topology.scope import unknown_support
@@ -82,3 +82,24 @@ class BranchProgressTests(unittest.TestCase):
         for i in range(18):
             self.assertFalse(replay.update(1,lease,(0,.5*(i%2)),float(i)))
         self.assertTrue(replay.update(1,lease,(0,0),18.))
+
+    def test_separated_suffix_has_no_penalty_for_a_common_start(self):
+        common=[(0,0),(1,0)]
+        north=common+[(1,3),(1,6),(1,8)]
+        south=common+[(1,-3),(1,-6),(1,-8)]
+        self.assertGreater(route_competition(north,north,route_tail(north)),0.)
+        self.assertEqual(route_competition(north,south,route_tail(south)),0.)
+
+    def test_new_bid_can_choose_a_reachable_divergent_branch(self):
+        a,ar,ast=graph(1,{'r':[0,0],'east':[1,0],'west':[-1.8,0]},
+            {'e':('r','east',[[0,0],[1,0]]),'w':('r','west',[[0,0],[-1,0],[-1.8,0]])},
+            {'near':['east'],'different':['west']})
+        b,br,bst=graph(2,{'r':[4,0]}, {})
+        for task in ar.values():
+            if task['kind']=='task':
+                task['scope']=scope(3 if task['signature']=='near' else 4)
+        store=GraphStore();store.apply(a.build(ar,ast));store.apply(b.build(br,bst))
+        c=Coordinator()
+        self.assertEqual(c.plan(store,1.)[1]['path'][-1],(1.,0.))
+        other=dict(task='existing',path=[(3,0),(2,0),(1,0)],scopes=[scope(9)])
+        self.assertEqual(c.plan(store,1.1,reserved={2:other})[1]['path'][-1],(-1.8,0.))
