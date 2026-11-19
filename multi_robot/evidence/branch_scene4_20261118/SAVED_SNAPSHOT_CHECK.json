@@ -1,0 +1,146 @@
+[
+  {
+    "attempt": 1,
+    "robot": 1,
+    "snapshot": "first",
+    "export_s": 0.012220999982673675,
+    "nodes": 50,
+    "edges": 9,
+    "tasks": 2
+  },
+  {
+    "attempt": 1,
+    "robot": 1,
+    "snapshot": "final",
+    "export_s": 0.04893309998442419,
+    "nodes": 381,
+    "edges": 62,
+    "tasks": 11
+  },
+  {
+    "attempt": 1,
+    "robot": 2,
+    "snapshot": "first",
+    "export_s": 0.011953300010645762,
+    "nodes": 41,
+    "edges": 6,
+    "tasks": 2
+  },
+  {
+    "attempt": 1,
+    "robot": 2,
+    "snapshot": "final",
+    "export_s": 0.03643269999884069,
+    "nodes": 302,
+    "edges": 68,
+    "tasks": 13
+  },
+  {
+    "attempt": 2,
+    "robot": 1,
+    "snapshot": "first",
+    "export_s": 0.012231300002895296,
+    "nodes": 50,
+    "edges": 9,
+    "tasks": 2
+  },
+  {
+    "attempt": 2,
+    "robot": 1,
+    "snapshot": "final",
+    "export_s": 0.054393300000810996,
+    "nodes": 398,
+    "edges": 108,
+    "tasks": 17
+  },
+  {
+    "attempt": 2,
+    "robot": 2,
+    "snapshot": "first",
+    "export_s": 0.012070099997799844,
+    "nodes": 41,
+    "edges": 7,
+    "tasks": 2
+  },
+  {
+    "attempt": 2,
+    "robot": 2,
+    "snapshot": "final",
+    "export_s": 0.07909499999368563,
+    "nodes": 494,
+    "edges": 168,
+    "tasks": 30
+  },
+  {
+    "attempt": 3,
+    "robot": 1,
+    "snapshot": "first",
+    "export_s": 0.011804200010374188,
+    "nodes": 50,
+    "edges": 9,
+    "tasks": 2
+  },
+  {
+    "attempt": 3,
+    "robot": 1,
+    "snapshot": "final",
+    "export_s": 0.04814930001157336,
+    "nodes": 410,
+    "edges": 75,
+    "tasks": 15
+  },
+  {
+    "attempt": 3,
+    "robot": 2,
+    "snapshot": "first",
+    "export_s": 0.012142799998400733,
+    "nodes": 41,
+    "edges": 7,
+    "tasks": 2
+  },
+  {
+    "attempt": 3,
+    "robot": 2,
+    "snapshot": "final",
+    "export_s": 0.08773260001908056,
+    "nodes": 727,
+    "edges": 120,
+    "tasks": 23
+  },
+  {
+    "attempt": 4,
+    "robot": 1,
+    "snapshot": "first",
+    "export_s": 0.012340800021775067,
+    "nodes": 50,
+    "edges": 9,
+    "tasks": 2
+  },
+  {
+    "attempt": 4,
+    "robot": 1,
+    "snapshot": "final",
+    "export_s": 0.05122019999544136,
+    "nodes": 397,
+    "edges": 81,
+    "tasks": 19
+  },
+  {
+    "attempt": 4,
+    "robot": 2,
+    "snapshot": "first",
+    "export_s": 0.012094999983673915,
+    "nodes": 41,
+    "edges": 7,
+    "tasks": 2
+  },
+  {
+    "attempt": 4,
+    "robot": 2,
+    "snapshot": "final",
+    "export_s": 0.05519770001410507,
+    "nodes": 353,
+    "edges": 120,
+    "tasks": 22
+  }
+]

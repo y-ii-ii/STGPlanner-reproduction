@@ -1,0 +1,2446 @@
+{
+  "topology_branch_scene4_20261118_01_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 38
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 10
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 2414
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 955
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 10
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 11
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 72
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_DEADLINE",
+        "count": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_STALL",
+        "count": 10
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 61
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "reason": "",
+        "count": 21
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 917
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 6
+      }
+    ],
+    "native_state_visits": {
+      "1": 3481,
+      "2": 8,
+      "5": 2562,
+      "3": 2582,
+      "4": 3529
+    },
+    "accepted_route_method_counts": {
+      "CLEARANCE_GUIDE_DIRECT": 534,
+      "CLEARANCE_SE2": 2508,
+      "SE2": 274,
+      "RECENTER_ROTATE": 4,
+      "RECENTER_STRAIGHT": 1,
+      "GUIDE_DIRECT": 5,
+      "TASK_APPROACH_FALLBACK": 119
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 10
+      },
+      {
+        "robot": "robot_1",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 3337
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 2084
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 36
+      },
+      {
+        "robot": "robot_1",
+        "reason": "RECENTER_TRACK",
+        "samples": 2
+      },
+      {
+        "robot": "robot_1",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 603
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 28
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 11741
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 3
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 31
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 17699
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 8
+      },
+      {
+        "robot": "robot_2",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 7
+      },
+      {
+        "robot": "robot_2",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 2
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 258
+      }
+    ],
+    "recenter_certificate_tokens": 2,
+    "recenter_trace_samples": 16,
+    "recenter_to_normal_moving_transitions": [],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 1.0471975511965976,
+    "max_measured_v_m_s": 2.0292379418675974,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 148536136,
+      "allocation_diagnostics": {
+        "branch_no_progress_stops": 0,
+        "candidates": {
+          "1": 3,
+          "2": 0
+        },
+        "completed_support_keys": 7,
+        "desired": {
+          "1": "ROUTE",
+          "2": "WAIT"
+        },
+        "excluded_failed_viewpoint_bids": 5246,
+        "excluded_peer_contract_candidates": {
+          "1": 0,
+          "2": 2
+        },
+        "groups": 14,
+        "pending_tasks": 16,
+        "reachable_groups": {
+          "1": 3,
+          "2": 0
+        },
+        "reason": "allocated",
+        "retained_transient_contracts": []
+      },
+      "authority_inbox": {
+        "critical_pending": 0,
+        "feedback_received_bytes": 4450661,
+        "max_depth": 5,
+        "normal_pending": 1,
+        "topology_pending": 0,
+        "topology_received_bytes": 148536136
+      },
+      "authority_service": {
+        "graph_packets_applied": 1663,
+        "max_feedback_queue_wait_s": 0.20103749103145674,
+        "max_graph_apply_wall_s": 0.12620747601613402,
+        "max_plan_wall_s": 0.20751935295993462
+      },
+      "command_lease_publisher": {
+        "application_bytes": 24826593,
+        "commands": 17828,
+        "max_publish_gap_s": 0.18783831899054348,
+        "suppressed_motion_renewals": 0
+      },
+      "command_serialized_bytes": 1713,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 24826593,
+        "feedback_received_bytes": 4450661,
+        "topology_received_bytes": 148536136
+      },
+      "edges": 3633,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "running",
+        "2": "stopped"
+      },
+      "execution_retry_memory": {
+        "1": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.7761193094777338,
+              0.6305860904395255
+            ],
+            "last": 275617.141095033,
+            "origin": [
+              13.842758,
+              1.347775
+            ],
+            "unsafe_start": false,
+            "until": 275632.141095033
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9488211510666298,
+              -0.3158139061038885
+            ],
+            "last": 275784.353568804,
+            "origin": [
+              9.26478,
+              32.455176
+            ],
+            "unsafe_start": false,
+            "until": 275799.353568804
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.975361150238993,
+              -0.220614203088715
+            ],
+            "last": 275807.29033449,
+            "origin": [
+              6.992244,
+              29.2023
+            ],
+            "unsafe_start": false,
+            "until": 275822.29033449
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.015093794624068058,
+              0.9998860821932898
+            ],
+            "last": 275816.341998865,
+            "origin": [
+              7.020628,
+              29.065157
+            ],
+            "unsafe_start": false,
+            "until": 275831.341998865
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.46480255042434454,
+              0.8854143601269546
+            ],
+            "last": 275932.518604718,
+            "origin": [
+              6.121351,
+              11.283746
+            ],
+            "unsafe_start": false,
+            "until": 275947.518604718
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.1001178858448978,
+              0.9949755820792527
+            ],
+            "last": 275976.524699318,
+            "origin": [
+              6.0022,
+              24.871493
+            ],
+            "unsafe_start": false,
+            "until": 275991.524699318
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.2856508404074038,
+              -0.958333760948942
+            ],
+            "last": 275999.844175829,
+            "origin": [
+              5.712152,
+              18.246761
+            ],
+            "unsafe_start": false,
+            "until": 276014.844175829
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.37472702201997976,
+              0.9271351891542233
+            ],
+            "last": 276060.725711615,
+            "origin": [
+              5.759432,
+              41.722393
+            ],
+            "unsafe_start": false,
+            "until": 276075.725711615
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.020052174846721144,
+              -0.9997989349283767
+            ],
+            "last": 276178.564964688,
+            "origin": [
+              5.374672,
+              42.482778
+            ],
+            "unsafe_start": false,
+            "until": 276193.564964688
+          },
+          {
+            "attempts": 3,
+            "before_execution": false,
+            "direction": [
+              -0.4465583042803704,
+              0.8947545366625644
+            ],
+            "last": 276222.575501551,
+            "origin": [
+              6.200195,
+              42.749071
+            ],
+            "unsafe_start": false,
+            "until": 276267.575501551
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.05090448887547323,
+              -0.9987035260838558
+            ],
+            "last": 276270.165521784,
+            "origin": [
+              6.274015,
+              42.633255
+            ],
+            "unsafe_start": false,
+            "until": 276285.165521784
+          }
+        ],
+        "2": [
+          {
+            "attempts": 14,
+            "before_execution": false,
+            "direction": [
+              0.894916904993767,
+              0.4462328239342968
+            ],
+            "last": 276264.499440002,
+            "origin": [
+              7.39267,
+              -0.301437
+            ],
+            "unsafe_start": true,
+            "until": 276324.499440002
+          }
+        ]
+      },
+      "feedback_ack_audit": {
+        "accepted": 58,
+        "last_rejection": {
+          "deadline_remaining_s": -13.28949511499377,
+          "expected_stop_id": "64080d4b8b5d4bc5b7c519311383e990/stop/2/111",
+          "phase": "stopped",
+          "received_stop_id": "64080d4b8b5d4bc5b7c519311383e990/stop/2/111",
+          "robot": 2
+        },
+        "rejected": 927
+      },
+      "graph_digest": "983cfe61a74bafd1a12fa66a9f95ad3bb04f909b4261f78501ec217999998939",
+      "ledger_state_counts": {
+        "active": 1,
+        "assigned": 323,
+        "completed": 8,
+        "dispatched": 0,
+        "offered": 0
+      },
+      "nodes": 2365,
+      "observed_completion_cells": 2212,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 43.19548757487565,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "tasks": 336,
+      "team_observation_certificates": {
+        "accepted_certificates": 128,
+        "novel_author_cells": 1720,
+        "rejected_certificates": 0,
+        "world_observed_cells": 2212
+      }
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 761.44,
+        "robot_2": 86.08
+      },
+      "csv_union_area_m2": 761.76,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_branch_scene4_20261118_02_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 14
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 628
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 349
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 7
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 135
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "TRAFFIC_WAIT_REPLAN",
+        "count": 3
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 3
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 96
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 13
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 213
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 6
+      }
+    ],
+    "native_state_visits": {
+      "1": 1094,
+      "3": 820,
+      "4": 989,
+      "5": 822,
+      "2": 3
+    },
+    "accepted_route_method_counts": {
+      "CLEARANCE_SE2": 808,
+      "CLEARANCE_GUIDE_DIRECT": 270,
+      "SE2": 6,
+      "GUIDE_DIRECT": 2
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 710
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 2846
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 14
+      },
+      {
+        "robot": "robot_1",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 174
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 12
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 3891
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 10
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 7276
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 394
+      }
+    ],
+    "recenter_certificate_tokens": 0,
+    "recenter_trace_samples": 0,
+    "recenter_to_normal_moving_transitions": [],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 0.9639818847779369,
+    "max_measured_v_m_s": 2.0200465238737744,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 17689061,
+      "allocation_diagnostics": {
+        "branch_no_progress_stops": 0,
+        "candidates": {
+          "1": 11,
+          "2": 5
+        },
+        "completed_support_keys": 5,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "excluded_failed_viewpoint_bids": 1114,
+        "excluded_peer_contract_candidates": {
+          "1": 2,
+          "2": 2
+        },
+        "groups": 16,
+        "pending_tasks": 18,
+        "reachable_groups": {
+          "1": 13,
+          "2": 14
+        },
+        "reason": "allocated",
+        "retained_transient_contracts": []
+      },
+      "authority_inbox": {
+        "critical_pending": 0,
+        "feedback_received_bytes": 1565377,
+        "max_depth": 3,
+        "normal_pending": 0,
+        "topology_pending": 0,
+        "topology_received_bytes": 17689061
+      },
+      "authority_service": {
+        "graph_packets_applied": 720,
+        "max_feedback_queue_wait_s": 0.07083520496962592,
+        "max_graph_apply_wall_s": 0.039042794960550964,
+        "max_plan_wall_s": 0.11085503903450444
+      },
+      "command_lease_publisher": {
+        "application_bytes": 8918142,
+        "commands": 8264,
+        "max_publish_gap_s": 0.130565867992118,
+        "suppressed_motion_renewals": 0
+      },
+      "command_serialized_bytes": 2838,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 8918142,
+        "feedback_received_bytes": 1565377,
+        "topology_received_bytes": 17689061
+      },
+      "edges": 1395,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "running",
+        "2": "fault"
+      },
+      "execution_retry_memory": {
+        "1": [
+          {
+            "attempts": 3,
+            "before_execution": false,
+            "direction": [
+              -0.7461046327643236,
+              0.6658287144360879
+            ],
+            "last": 276765.684302173,
+            "origin": [
+              13.783175,
+              0.870625
+            ],
+            "unsafe_start": false,
+            "until": 276810.684302173
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9351078463676277,
+              0.354363253825361
+            ],
+            "last": 276831.807024754,
+            "origin": [
+              12.724462,
+              4.752685
+            ],
+            "unsafe_start": false,
+            "until": 276846.807024754
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.12481704250240257,
+              -0.9921797749908802
+            ],
+            "last": 276853.794076858,
+            "origin": [
+              11.237985,
+              11.355804
+            ],
+            "unsafe_start": false,
+            "until": 276868.794076858
+          }
+        ],
+        "2": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.9992648033424062,
+              -0.03833865935400299
+            ],
+            "last": 276650.255433875,
+            "origin": [
+              9.783669,
+              -0.144059
+            ],
+            "unsafe_start": false,
+            "until": 276665.255433875
+          }
+        ]
+      },
+      "feedback_ack_audit": {
+        "accepted": 22,
+        "last_rejection": {
+          "deadline_remaining_s": -262.2429202829953,
+          "expected_stop_id": "15e57a411d57470d9d02a5435455868f/stop/2/16",
+          "phase": "fault",
+          "received_stop_id": "15e57a411d57470d9d02a5435455868f/stop/2/16",
+          "robot": 2
+        },
+        "rejected": 319
+      },
+      "graph_digest": "d2ffbf9322790ec43d5e73d04cdf52bcffe03864c29d3f9cee7942dcbc70c4ca",
+      "ledger_state_counts": {
+        "active": 2,
+        "assigned": 124,
+        "completed": 5,
+        "dispatched": 0,
+        "offered": 3
+      },
+      "nodes": 1010,
+      "observed_completion_cells": 992,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 28.72531667968982,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 1
+      },
+      "tasks": 142,
+      "team_observation_certificates": {
+        "accepted_certificates": 50,
+        "novel_author_cells": 712,
+        "rejected_certificates": 0,
+        "world_observed_cells": 992
+      }
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 375.36,
+        "robot_2": 136.96
+      },
+      "csv_union_area_m2": 375.84000000000003,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_branch_scene4_20261118_03_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 45
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 11
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 2373
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 992
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 278
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 29
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 6
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_START_BLOCKED",
+        "reason": "",
+        "count": 51
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 16
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 1123
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_DEADLINE",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_STALL",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 24
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 59
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 29
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 4150
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 1545
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 79
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 41
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 36
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 477
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_DEADLINE",
+        "count": 4
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_STALL",
+        "count": 10
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 20
+      }
+    ],
+    "native_state_visits": {
+      "1": 9554,
+      "2": 12,
+      "5": 7634,
+      "3": 7616,
+      "4": 9124
+    },
+    "accepted_route_method_counts": {
+      "CLEARANCE_GUIDE_DIRECT": 1000,
+      "CLEARANCE_SE2": 6517,
+      "SE2": 442,
+      "GUIDE_DIRECT": 136,
+      "DIRECTED_LOOKAHEAD": 944,
+      "RECENTER_STRAIGHT": 52,
+      "RECENTER_ROTATE": 305,
+      "TASK_APPROACH_FALLBACK": 21
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BODY_BRAKE",
+        "samples": 805
+      },
+      {
+        "robot": "robot_1",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 2939
+      },
+      {
+        "robot": "robot_1",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 1
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 22387
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 87
+      },
+      {
+        "robot": "robot_1",
+        "reason": "RECENTER_TRACK",
+        "samples": 809
+      },
+      {
+        "robot": "robot_1",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 773
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 62
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 12533
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 10
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 6008
+      },
+      {
+        "robot": "robot_2",
+        "reason": "FINAL_BODY_BRAKE",
+        "samples": 2
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 10736
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 66
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 239
+      },
+      {
+        "robot": "robot_2",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 1293
+      },
+      {
+        "robot": "robot_2",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 59
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 21872
+      }
+    ],
+    "recenter_certificate_tokens": 16,
+    "recenter_trace_samples": 1230,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_1",
+        "wall_received": 173.9100061339559,
+        "distance_m": 0.3190876978044467,
+        "from_token": "792788a54e784ab5961bd910ea16986b/1/83/22",
+        "to_token": "792788a54e784ab5961bd910ea16986b/1/83/22"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 597.2043835099903,
+        "distance_m": 0.2886535013601301,
+        "from_token": "792788a54e784ab5961bd910ea16986b/2/3452/96",
+        "to_token": "792788a54e784ab5961bd910ea16986b/2/3452/96"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 865.6480232439935,
+        "distance_m": 0.12239109923464205,
+        "from_token": "792788a54e784ab5961bd910ea16986b/2/7843/138",
+        "to_token": "792788a54e784ab5961bd910ea16986b/2/7843/138"
+      },
+      {
+        "robot": "robot_1",
+        "wall_received": 895.7165190349915,
+        "distance_m": 0.3611181954441702,
+        "from_token": "792788a54e784ab5961bd910ea16986b/1/7880/148",
+        "to_token": "792788a54e784ab5961bd910ea16986b/1/7880/148"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 1104.4900004299707,
+        "distance_m": 0.10817915332848681,
+        "from_token": "792788a54e784ab5961bd910ea16986b/2/11561/169",
+        "to_token": "792788a54e784ab5961bd910ea16986b/2/11561/169"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 1520.5171896870015,
+        "distance_m": 0.16985356717781583,
+        "from_token": "792788a54e784ab5961bd910ea16986b/2/16018/231",
+        "to_token": "792788a54e784ab5961bd910ea16986b/2/16018/231"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 1.0471975511965976,
+    "max_measured_v_m_s": 2.0257647045839864,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 1044216084,
+      "allocation_diagnostics": {
+        "branch_no_progress_stops": 3,
+        "candidates": {
+          "1": 0,
+          "2": 0
+        },
+        "completed_support_keys": 15,
+        "desired": {
+          "1": "WAIT",
+          "2": "WAIT"
+        },
+        "excluded_failed_viewpoint_bids": 4128,
+        "excluded_peer_contract_candidates": {
+          "1": 1,
+          "2": 1
+        },
+        "groups": 25,
+        "pending_tasks": 37,
+        "reachable_groups": {
+          "1": 0,
+          "2": 0
+        },
+        "reason": "allocated",
+        "retained_transient_contracts": []
+      },
+      "authority_inbox": {
+        "critical_pending": 2,
+        "feedback_received_bytes": 11264604,
+        "max_depth": 11,
+        "normal_pending": 0,
+        "topology_pending": 1,
+        "topology_received_bytes": 1044216351
+      },
+      "authority_service": {
+        "graph_packets_applied": 3910,
+        "max_feedback_queue_wait_s": 0.9153284899657592,
+        "max_graph_apply_wall_s": 0.6149463199544698,
+        "max_plan_wall_s": 0.9503070130012929
+      },
+      "command_lease_publisher": {
+        "application_bytes": 66212092,
+        "commands": 32340,
+        "max_publish_gap_s": 0.5036545059992932,
+        "suppressed_motion_renewals": 0
+      },
+      "command_serialized_bytes": 548,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 66212092,
+        "feedback_received_bytes": 11264604,
+        "topology_received_bytes": 1044216351
+      },
+      "edges": 10953,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "stopping",
+        "2": "stopping"
+      },
+      "execution_retry_memory": {
+        "1": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.003530937099132001,
+              0.9999937662221711
+            ],
+            "last": 277393.825922582,
+            "origin": [
+              10.994704,
+              11.68718
+            ],
+            "unsafe_start": false,
+            "until": 277408.825922582
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.8889054104010643,
+              0.45809078942903403
+            ],
+            "last": 277402.97599121,
+            "origin": [
+              10.994637,
+              11.688095
+            ],
+            "unsafe_start": false,
+            "until": 277417.97599121
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.01212765290480687,
+              0.9999264573132468
+            ],
+            "last": 277431.576927553,
+            "origin": [
+              11.01737,
+              17.431697
+            ],
+            "unsafe_start": false,
+            "until": 277446.576927553
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9991784198885311,
+              0.040527586025552245
+            ],
+            "last": 277574.319156082,
+            "origin": [
+              5.208915,
+              29.354873
+            ],
+            "unsafe_start": false,
+            "until": 277589.319156082
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.02947915434860039,
+              0.999565395288818
+            ],
+            "last": 277780.421231118,
+            "origin": [
+              3.434101,
+              21.970168
+            ],
+            "unsafe_start": false,
+            "until": 277795.421231118
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.7889916719036211,
+              0.614403891318023
+            ],
+            "last": 277927.095254023,
+            "origin": [
+              -6.764288,
+              34.636635
+            ],
+            "unsafe_start": false,
+            "until": 277942.095254023
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.17781220306198747,
+              0.9840644391716644
+            ],
+            "last": 277988.726561379,
+            "origin": [
+              1.760336,
+              34.34335
+            ],
+            "unsafe_start": false,
+            "until": 278003.726561379
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.30745061985549527,
+              -0.951564036915263
+            ],
+            "last": 278004.829489078,
+            "origin": [
+              2.247829,
+              32.309074
+            ],
+            "unsafe_start": false,
+            "until": 278019.829489078
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.2430715013711282,
+              0.970008373789209
+            ],
+            "last": 278026.713592043,
+            "origin": [
+              2.941377,
+              34.627824
+            ],
+            "unsafe_start": false,
+            "until": 278041.713592043
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.07277287315009845,
+              0.9973485393449372
+            ],
+            "last": 278036.640554882,
+            "origin": [
+              3.899178,
+              38.235448
+            ],
+            "unsafe_start": false,
+            "until": 278051.640554882
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.5466829594810871,
+              0.8373396812602396
+            ],
+            "last": 278078.975398789,
+            "origin": [
+              7.055854,
+              43.997008
+            ],
+            "unsafe_start": false,
+            "until": 278093.975398789
+          },
+          {
+            "attempts": 16,
+            "before_execution": false,
+            "direction": [
+              -0.5814385570884893,
+              0.8135903172548548
+            ],
+            "last": 278941.686624556,
+            "origin": [
+              4.783469,
+              43.482432
+            ],
+            "unsafe_start": true,
+            "until": 279001.686624556
+          }
+        ],
+        "2": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.12739150244714667,
+              -0.9918525117698994
+            ],
+            "last": 277663.041572029,
+            "origin": [
+              10.767326,
+              46.572369
+            ],
+            "unsafe_start": false,
+            "until": 277678.041572029
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9719013459845834,
+              0.23538855892620436
+            ],
+            "last": 277685.987288285,
+            "origin": [
+              10.066905,
+              49.2079
+            ],
+            "unsafe_start": false,
+            "until": 277700.987288285
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.015232089174497143,
+              0.9998839849999499
+            ],
+            "last": 277771.729196672,
+            "origin": [
+              10.581407,
+              38.339129
+            ],
+            "unsafe_start": false,
+            "until": 277786.729196672
+          },
+          {
+            "attempts": 2,
+            "before_execution": false,
+            "direction": [
+              -0.9851949393276886,
+              0.17143783573969695
+            ],
+            "last": 277952.8760857,
+            "origin": [
+              10.850965,
+              46.163733
+            ],
+            "unsafe_start": false,
+            "until": 277982.8760857
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9983694394991298,
+              -0.05708294205971901
+            ],
+            "last": 278048.050741945,
+            "origin": [
+              1.351936,
+              50.277788
+            ],
+            "unsafe_start": false,
+            "until": 278063.050741945
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.013624069840188406,
+              -0.9999071880534661
+            ],
+            "last": 278148.130366001,
+            "origin": [
+              2.179618,
+              56.248482
+            ],
+            "unsafe_start": false,
+            "until": 278163.130366001
+          },
+          {
+            "attempts": 2,
+            "before_execution": false,
+            "direction": [
+              0.15292741077725927,
+              -0.9882374244243958
+            ],
+            "last": 278247.924657711,
+            "origin": [
+              2.401246,
+              52.983789
+            ],
+            "unsafe_start": false,
+            "until": 278277.924657711
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.06292661097243317,
+              -0.998018156964854
+            ],
+            "last": 278418.490079724,
+            "origin": [
+              -5.987528,
+              59.431154
+            ],
+            "unsafe_start": false,
+            "until": 278433.490079724
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.35726656070130863,
+              0.9340024649885343
+            ],
+            "last": 278468.198506176,
+            "origin": [
+              -8.60425,
+              62.632557
+            ],
+            "unsafe_start": false,
+            "until": 278483.198506176
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.9954796253294073,
+              0.09497534182103878
+            ],
+            "last": 278479.146195447,
+            "origin": [
+              -7.842087,
+              65.266252
+            ],
+            "unsafe_start": false,
+            "until": 278494.146195447
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.29478456769284267,
+              0.9555637386643258
+            ],
+            "last": 278667.295285091,
+            "origin": [
+              32.935493,
+              66.039488
+            ],
+            "unsafe_start": false,
+            "until": 278682.295285091
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              0.7018641985507916,
+              -0.7123107796409196
+            ],
+            "last": 278677.825885094,
+            "origin": [
+              32.847064,
+              66.043702
+            ],
+            "unsafe_start": false,
+            "until": 278692.825885094
+          },
+          {
+            "attempts": 5,
+            "before_execution": false,
+            "direction": [
+              0.965718030865895,
+              -0.25959330665581215
+            ],
+            "last": 278885.305461616,
+            "origin": [
+              28.84095,
+              65.685812
+            ],
+            "unsafe_start": false,
+            "until": 278945.305461616
+          },
+          {
+            "attempts": 6,
+            "before_execution": false,
+            "direction": [
+              -0.932135065417397,
+              -0.3621107839036351
+            ],
+            "last": 278941.62596774,
+            "origin": [
+              28.841094,
+              65.690658
+            ],
+            "unsafe_start": false,
+            "until": 279001.62596774
+          }
+        ]
+      },
+      "feedback_ack_audit": {
+        "accepted": 130,
+        "last_rejection": {
+          "deadline_remaining_s": -54.31740131799597,
+          "expected_stop_id": "792788a54e784ab5961bd910ea16986b/stop/1/255",
+          "phase": "running",
+          "received_stop_id": "792788a54e784ab5961bd910ea16986b/stop/1/255",
+          "robot": 1
+        },
+        "rejected": 1458
+      },
+      "graph_digest": "35c6bf4f11eb6908b65e0e50b18b7d0d9a9ef8df78d33afa5cba2e3a0f98079c",
+      "late_stop_recheck_used": {
+        "1": false,
+        "2": false
+      },
+      "ledger_state_counts": {
+        "active": 0,
+        "assigned": 933,
+        "completed": 21,
+        "dispatched": 2,
+        "offered": 0
+      },
+      "nodes": 7179,
+      "observed_completion_cells": 6319,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 32.74107503832433,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "tasks": 1030,
+      "team_observation_certificates": {
+        "accepted_certificates": 445,
+        "novel_author_cells": 5567,
+        "rejected_certificates": 0,
+        "world_observed_cells": 6319
+      }
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 927.84,
+        "robot_2": 1551.68
+      },
+      "csv_union_area_m2": 1917.6000000000001,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  },
+  "topology_branch_scene4_20261118_04_dual": {
+    "plan_feedback_message_counts": [
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 19
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 831
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 469
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 4
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 10
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 27
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTION_STALL",
+        "count": 2
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "TRAFFIC_WAIT_REPLAN",
+        "count": 1
+      },
+      {
+        "robot": "robot_1",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 20
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_ACCEPTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 20
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "EXECUTOR_REJECTED",
+        "local_gate": "",
+        "reason": "",
+        "count": 2
+      },
+      {
+        "robot": "robot_2",
+        "source": "executor",
+        "status": "STOP_REQUEST",
+        "local_gate": "",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_APPROACH",
+        "reason": "",
+        "count": 846
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_PREFIX",
+        "reason": "",
+        "count": 306
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "ACCEPTED",
+        "local_gate": "BODY_RECENTER",
+        "reason": "",
+        "count": 134
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PATH",
+        "reason": "",
+        "count": 5
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_PROGRESS",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "BLOCKED",
+        "local_gate": "BODY_NO_ROUTE_PROGRESS",
+        "reason": "",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "planner",
+        "status": "OBSERVATION_COMPLETED",
+        "local_gate": "",
+        "reason": "",
+        "count": 8
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 72
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "STOP_REQUIRED",
+        "local_gate": "",
+        "reason": "EXECUTOR_STOP",
+        "count": 1
+      },
+      {
+        "robot": "robot_2",
+        "source": "velocity_gate",
+        "status": "TRAFFIC_STOPPED",
+        "local_gate": "",
+        "reason": "",
+        "count": 20
+      }
+    ],
+    "native_state_visits": {
+      "1": 2600,
+      "2": 6,
+      "5": 1816,
+      "3": 2084,
+      "4": 2373
+    },
+    "accepted_route_method_counts": {
+      "CLEARANCE_GUIDE_DIRECT": 352,
+      "CLEARANCE_SE2": 1458,
+      "DIRECTED_LOOKAHEAD": 516,
+      "SE2": 122,
+      "RECENTER_ROTATE": 111,
+      "RECENTER_STRAIGHT": 23,
+      "GUIDE_DIRECT": 3,
+      "TASK_APPROACH_FALLBACK": 1
+    },
+    "body_reason_sample_counts": [
+      {
+        "robot": "robot_1",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 1097
+      },
+      {
+        "robot": "robot_1",
+        "reason": "NOT_RUNNING",
+        "samples": 962
+      },
+      {
+        "robot": "robot_1",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 98
+      },
+      {
+        "robot": "robot_1",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 214
+      },
+      {
+        "robot": "robot_1",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 12
+      },
+      {
+        "robot": "robot_1",
+        "reason": "TRACK",
+        "samples": 5174
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BODY_BRAKE",
+        "samples": 11
+      },
+      {
+        "robot": "robot_2",
+        "reason": "BRAKE_BEFORE_TURN",
+        "samples": 786
+      },
+      {
+        "robot": "robot_2",
+        "reason": "NOT_RUNNING",
+        "samples": 1905
+      },
+      {
+        "robot": "robot_2",
+        "reason": "PATH_START_DIVERGED",
+        "samples": 28
+      },
+      {
+        "robot": "robot_2",
+        "reason": "RECENTER_TRACK",
+        "samples": 315
+      },
+      {
+        "robot": "robot_2",
+        "reason": "SETTLE_BEFORE_TRANSLATION",
+        "samples": 187
+      },
+      {
+        "robot": "robot_2",
+        "reason": "STALE_GEOMETRY_OR_PATH",
+        "samples": 18
+      },
+      {
+        "robot": "robot_2",
+        "reason": "TRACK",
+        "samples": 4331
+      }
+    ],
+    "recenter_certificate_tokens": 3,
+    "recenter_trace_samples": 342,
+    "recenter_to_normal_moving_transitions": [
+      {
+        "robot": "robot_2",
+        "wall_received": 116.34559224697296,
+        "distance_m": 0.1693235822485004,
+        "from_token": "345c3ba48efd4e4e97b74b482f6ee8e4/2/71/10",
+        "to_token": "345c3ba48efd4e4e97b74b482f6ee8e4/2/71/10"
+      },
+      {
+        "robot": "robot_2",
+        "wall_received": 304.25736937194597,
+        "distance_m": 0.273962427112471,
+        "from_token": "345c3ba48efd4e4e97b74b482f6ee8e4/2/894/63",
+        "to_token": "345c3ba48efd4e4e97b74b482f6ee8e4/2/894/63"
+      }
+    ],
+    "reverse_at_old_anchor_while_forward_samples": {},
+    "max_abs_command_v_m_s": 2.0,
+    "max_abs_command_w_rad_s": 1.0471975511965976,
+    "max_measured_v_m_s": 2.0184894811032397,
+    "final_coordinator_status": {
+      "accepted_received_bytes": 72676495,
+      "allocation_diagnostics": {
+        "branch_no_progress_stops": 1,
+        "candidates": {
+          "1": 10,
+          "2": 17
+        },
+        "completed_support_keys": 7,
+        "desired": {
+          "1": "ROUTE",
+          "2": "ROUTE"
+        },
+        "excluded_failed_viewpoint_bids": 1418,
+        "excluded_peer_contract_candidates": {
+          "1": 1,
+          "2": 2
+        },
+        "groups": 27,
+        "new_route_competition_cost": {
+          "1": 0.0,
+          "2": 0.0
+        },
+        "pending_tasks": 37,
+        "reachable_groups": {
+          "1": 25,
+          "2": 24
+        },
+        "reason": "allocated",
+        "retained_transient_contracts": []
+      },
+      "authority_inbox": {
+        "critical_pending": 0,
+        "feedback_received_bytes": 2650800,
+        "max_depth": 5,
+        "normal_pending": 3,
+        "topology_pending": 1,
+        "topology_received_bytes": 72965799
+      },
+      "authority_service": {
+        "graph_packets_applied": 695,
+        "max_feedback_queue_wait_s": 0.3223899620352313,
+        "max_graph_apply_wall_s": 0.12955672101816162,
+        "max_plan_wall_s": 0.3159640650264919
+      },
+      "command_lease_publisher": {
+        "application_bytes": 17249669,
+        "commands": 7488,
+        "max_publish_gap_s": 0.26972001703688875,
+        "suppressed_motion_renewals": 0
+      },
+      "command_serialized_bytes": 4165,
+      "communication_one_delivery_application_bytes": {
+        "commands_published_bytes": 17249669,
+        "feedback_received_bytes": 2650800,
+        "topology_received_bytes": 72965799
+      },
+      "edges": 4278,
+      "execution_blocked_by": {
+        "1": [],
+        "2": []
+      },
+      "execution_phases": {
+        "1": "running",
+        "2": "running"
+      },
+      "execution_retry_memory": {
+        "1": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.510128659984844,
+              0.8600981050217862
+            ],
+            "last": 279250.412426148,
+            "origin": [
+              13.49882,
+              1.11063
+            ],
+            "unsafe_start": false,
+            "until": 279265.412426148
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.41205039278229316,
+              0.9111610581055128
+            ],
+            "last": 279305.000301999,
+            "origin": [
+              11.486268,
+              8.061848
+            ],
+            "unsafe_start": false,
+            "until": 279320.000301999
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.30049014840373856,
+              0.9537849184760153
+            ],
+            "last": 279316.1885214,
+            "origin": [
+              11.230705,
+              15.544889
+            ],
+            "unsafe_start": false,
+            "until": 279331.1885214
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.6768204348280001,
+              0.736148150170356
+            ],
+            "last": 279480.090564853,
+            "origin": [
+              9.060352,
+              49.194563
+            ],
+            "unsafe_start": false,
+            "until": 279495.090564853
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.9326075906116357,
+              -0.36089206410443503
+            ],
+            "last": 279483.904069742,
+            "origin": [
+              8.403425,
+              49.255097
+            ],
+            "unsafe_start": false,
+            "until": 279498.904069742
+          }
+        ],
+        "2": [
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.09409731776195733,
+              0.9955630039279308
+            ],
+            "last": 279373.56487912,
+            "origin": [
+              11.114985,
+              28.318398
+            ],
+            "unsafe_start": false,
+            "until": 279388.56487912
+          },
+          {
+            "attempts": 1,
+            "before_execution": false,
+            "direction": [
+              -0.0425278343884894,
+              0.9990952823941396
+            ],
+            "last": 279392.218122595,
+            "origin": [
+              11.052201,
+              29.131849
+            ],
+            "unsafe_start": false,
+            "until": 279407.218122595
+          }
+        ]
+      },
+      "feedback_ack_audit": {
+        "accepted": 40,
+        "last_rejection": {
+          "deadline_remaining_s": 3.2416823070379905,
+          "expected_stop_id": "345c3ba48efd4e4e97b74b482f6ee8e4/stop/2/78",
+          "phase": "running",
+          "received_stop_id": "345c3ba48efd4e4e97b74b482f6ee8e4/stop/2/78",
+          "robot": 2
+        },
+        "rejected": 50
+      },
+      "graph_digest": "d5d6122aa6d4c6143a8c805bcb30241189a562e20276505b8012dc826b71627f",
+      "late_stop_recheck_used": {
+        "1": false,
+        "2": false
+      },
+      "ledger_state_counts": {
+        "active": 2,
+        "assigned": 491,
+        "completed": 11,
+        "dispatched": 0,
+        "offered": 11
+      },
+      "nodes": 3047,
+      "observed_completion_cells": 2836,
+      "phase": "world_perfect_no_loop_closure",
+      "robot_distance_m": 23.689161588131082,
+      "stop_retry_counts": {
+        "1": 0,
+        "2": 0
+      },
+      "tasks": 575,
+      "team_observation_certificates": {
+        "accepted_certificates": 224,
+        "novel_author_cells": 2220,
+        "rejected_certificates": 0,
+        "world_observed_cells": 2836
+      }
+    },
+    "checks": {
+      "individual_csv_area_m2": {
+        "robot_1": 840.96,
+        "robot_2": 650.5600000000001
+      },
+      "csv_union_area_m2": 953.12,
+      "source_union_matches_result": true,
+      "T95_defined_only_if_threshold": true,
+      "output_nonrunning_violation_samples": 0,
+      "output_stale_map_violation_samples": 0,
+      "recenter_speed_cap_violation_samples": 0
+    }
+  }
+}

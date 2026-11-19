@@ -1,0 +1,140 @@
+{
+  "topology_branch_scene4_20261118_01_dual": {
+    "metrics_samples": 705,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 703,
+      "stale_source_state": 1
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 1,
+    "max_stale_source_age_s": {
+      "1": 0.12199999999938882,
+      "2": 0
+    },
+    "max_topology_pending_packets": 2,
+    "max_total_inbox_depth": 5,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 1663,
+      "max_feedback_queue_wait_s": 0.20103749103145674,
+      "max_graph_apply_wall_s": 0.12620747601613402,
+      "max_plan_wall_s": 0.20751935295993462
+    },
+    "last_ack_audit": {
+      "accepted": 58,
+      "last_rejection": {
+        "deadline_remaining_s": -13.28949511499377,
+        "expected_stop_id": "64080d4b8b5d4bc5b7c519311383e990/stop/2/111",
+        "phase": "stopped",
+        "received_stop_id": "64080d4b8b5d4bc5b7c519311383e990/stop/2/111",
+        "robot": 2
+      },
+      "rejected": 927
+    }
+  },
+  "topology_branch_scene4_20261118_02_dual": {
+    "metrics_samples": 296,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 295
+    },
+    "fault_phase_sample_counts": {
+      "2": 252
+    },
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 3,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 1
+    },
+    "service_maxima": {
+      "graph_packets_applied": 720,
+      "max_feedback_queue_wait_s": 0.07083520496962592,
+      "max_graph_apply_wall_s": 0.039042794960550964,
+      "max_plan_wall_s": 0.11085503903450444
+    },
+    "last_ack_audit": {
+      "accepted": 22,
+      "last_rejection": {
+        "deadline_remaining_s": -262.2429202829953,
+        "expected_stop_id": "15e57a411d57470d9d02a5435455868f/stop/2/16",
+        "phase": "fault",
+        "received_stop_id": "15e57a411d57470d9d02a5435455868f/stop/2/16",
+        "robot": 2
+      },
+      "rejected": 319
+    }
+  },
+  "topology_branch_scene4_20261118_03_dual": {
+    "metrics_samples": 1584,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 1583
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 6,
+    "max_total_inbox_depth": 11,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 3910,
+      "max_feedback_queue_wait_s": 0.9153284899657592,
+      "max_graph_apply_wall_s": 0.6149463199544698,
+      "max_plan_wall_s": 0.9503070130012929
+    },
+    "last_ack_audit": {
+      "accepted": 130,
+      "last_rejection": {
+        "deadline_remaining_s": -54.31740131799597,
+        "expected_stop_id": "792788a54e784ab5961bd910ea16986b/stop/1/255",
+        "phase": "running",
+        "received_stop_id": "792788a54e784ab5961bd910ea16986b/stop/1/255",
+        "robot": 1
+      },
+      "rejected": 1458
+    }
+  },
+  "topology_branch_scene4_20261118_04_dual": {
+    "metrics_samples": 292,
+    "allocation_reason_sample_counts": {
+      "?": 1,
+      "allocated": 291
+    },
+    "fault_phase_sample_counts": {},
+    "stale_source_state_samples": 0,
+    "max_stale_source_age_s": {},
+    "max_topology_pending_packets": 1,
+    "max_total_inbox_depth": 5,
+    "max_stop_retry_counts": {
+      "1": 0,
+      "2": 0
+    },
+    "service_maxima": {
+      "graph_packets_applied": 695,
+      "max_feedback_queue_wait_s": 0.3223899620352313,
+      "max_graph_apply_wall_s": 0.12955672101816162,
+      "max_plan_wall_s": 0.3159640650264919
+    },
+    "last_ack_audit": {
+      "accepted": 40,
+      "last_rejection": {
+        "deadline_remaining_s": 3.2416823070379905,
+        "expected_stop_id": "345c3ba48efd4e4e97b74b482f6ee8e4/stop/2/78",
+        "phase": "running",
+        "received_stop_id": "345c3ba48efd4e4e97b74b482f6ee8e4/stop/2/78",
+        "robot": 2
+      },
+      "rejected": 50
+    }
+  }
+}

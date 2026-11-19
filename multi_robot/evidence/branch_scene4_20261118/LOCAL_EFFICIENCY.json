@@ -1,0 +1,248 @@
+{
+  "topology_branch_scene4_20261118_01_dual": {
+    "staged_brake_epochs": 4,
+    "first120_traffic_modes": {
+      "FREE": 2094,
+      "FOLLOW": 4,
+      "BRAKE": 167,
+      "PASS": 90
+    },
+    "first120_brake_epochs": 4,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 24,
+      "2": 639
+    },
+    "retreat_episodes": 0,
+    "retreat_episodes_after_previous_motion": 0,
+    "executor_rejections_by_mode": {
+      "STOP": 10
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 19634,
+        "TRACK": 11999,
+        "running_samples": 16053,
+        "free_translation_requested": 5484,
+        "free_translation_below_gate": 548,
+        "BRAKE_BEFORE_TURN": 3368,
+        "STALE_GEOMETRY_OR_PATH": 30,
+        "SETTLE_BEFORE_TRANSLATION": 610,
+        "BODY_BRAKE": 13,
+        "PATH_START_DIVERGED": 44,
+        "RECENTER_TRACK": 2
+      },
+      "first120": {
+        "NOT_RUNNING": 3152,
+        "TRACK": 2061,
+        "running_samples": 2662,
+        "free_translation_requested": 941,
+        "free_translation_below_gate": 100,
+        "BRAKE_BEFORE_TURN": 497,
+        "STALE_GEOMETRY_OR_PATH": 3,
+        "SETTLE_BEFORE_TRANSLATION": 91,
+        "BODY_BRAKE": 3,
+        "PATH_START_DIVERGED": 8
+      },
+      "from260": {
+        "BRAKE_BEFORE_TURN": 2221,
+        "running_samples": 10488,
+        "NOT_RUNNING": 12605,
+        "TRACK": 7833,
+        "free_translation_requested": 3343,
+        "free_translation_below_gate": 329,
+        "SETTLE_BEFORE_TRANSLATION": 392,
+        "BODY_BRAKE": 8,
+        "PATH_START_DIVERGED": 19,
+        "STALE_GEOMETRY_OR_PATH": 23,
+        "RECENTER_TRACK": 2
+      }
+    }
+  },
+  "topology_branch_scene4_20261118_02_dual": {
+    "staged_brake_epochs": 3,
+    "first120_traffic_modes": {
+      "FREE": 628,
+      "FOLLOW": 34,
+      "BRAKE": 1575,
+      "PASS": 85
+    },
+    "first120_brake_epochs": 3,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 282,
+      "2": 200
+    },
+    "retreat_episodes": 0,
+    "retreat_episodes_after_previous_motion": 0,
+    "executor_rejections_by_mode": {
+      "STOP": 4
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 9945,
+        "TRACK": 4285,
+        "running_samples": 5202,
+        "free_translation_requested": 1468,
+        "free_translation_below_gate": 106,
+        "BRAKE_BEFORE_TURN": 720,
+        "SETTLE_BEFORE_TRANSLATION": 174,
+        "STALE_GEOMETRY_OR_PATH": 12,
+        "PATH_START_DIVERGED": 14
+      },
+      "first120": {
+        "NOT_RUNNING": 3488,
+        "TRACK": 2096,
+        "running_samples": 2338,
+        "free_translation_requested": 483,
+        "free_translation_below_gate": 31,
+        "BRAKE_BEFORE_TURN": 177,
+        "SETTLE_BEFORE_TRANSLATION": 58,
+        "STALE_GEOMETRY_OR_PATH": 9
+      },
+      "from260": {
+        "NOT_RUNNING": 1429,
+        "TRACK": 760,
+        "running_samples": 1091,
+        "BRAKE_BEFORE_TURN": 277,
+        "free_translation_requested": 328,
+        "free_translation_below_gate": 32,
+        "STALE_GEOMETRY_OR_PATH": 2,
+        "SETTLE_BEFORE_TRANSLATION": 38,
+        "PATH_START_DIVERGED": 14
+      }
+    }
+  },
+  "topology_branch_scene4_20261118_03_dual": {
+    "staged_brake_epochs": 18,
+    "first120_traffic_modes": {
+      "FREE": 1512,
+      "FOLLOW": 20,
+      "BRAKE": 178,
+      "PASS": 625
+    },
+    "first120_brake_epochs": 6,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 1209,
+      "2": 758
+    },
+    "retreat_episodes": 2,
+    "retreat_episodes_after_previous_motion": 0,
+    "executor_rejections_by_mode": {
+      "STOP": 40
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 32953,
+        "TRACK": 34405,
+        "running_samples": 47538,
+        "free_translation_requested": 15819,
+        "free_translation_below_gate": 1510,
+        "BRAKE_BEFORE_TURN": 8947,
+        "SETTLE_BEFORE_TRANSLATION": 2066,
+        "STALE_GEOMETRY_OR_PATH": 121,
+        "PATH_START_DIVERGED": 153,
+        "BODY_BRAKE": 815,
+        "RECENTER_TRACK": 1048,
+        "free_translation_denied_with_small_angular_mismatch": 28,
+        "FINAL_BODY_BRAKE": 3
+      },
+      "first120": {
+        "NOT_RUNNING": 536,
+        "TRACK": 3982,
+        "running_samples": 5245,
+        "free_translation_requested": 1366,
+        "free_translation_below_gate": 145,
+        "BRAKE_BEFORE_TURN": 645,
+        "SETTLE_BEFORE_TRANSLATION": 155,
+        "STALE_GEOMETRY_OR_PATH": 16,
+        "PATH_START_DIVERGED": 10,
+        "BODY_BRAKE": 334,
+        "RECENTER_TRACK": 104,
+        "free_translation_denied_with_small_angular_mismatch": 19
+      },
+      "from260": {
+        "NOT_RUNNING": 31748,
+        "TRACK": 26009,
+        "running_samples": 36219,
+        "BRAKE_BEFORE_TURN": 7637,
+        "free_translation_requested": 13561,
+        "SETTLE_BEFORE_TRANSLATION": 1802,
+        "free_translation_below_gate": 1297,
+        "STALE_GEOMETRY_OR_PATH": 93,
+        "PATH_START_DIVERGED": 109,
+        "BODY_BRAKE": 101,
+        "RECENTER_TRACK": 485,
+        "free_translation_denied_with_small_angular_mismatch": 9
+      }
+    }
+  },
+  "topology_branch_scene4_20261118_04_dual": {
+    "staged_brake_epochs": 17,
+    "first120_traffic_modes": {
+      "FREE": 1226,
+      "BRAKE": 244,
+      "PASS": 834
+    },
+    "first120_brake_epochs": 10,
+    "held_by_other_work_samples": {},
+    "conflicting_bid_exclusion_samples": {
+      "1": 235,
+      "2": 273
+    },
+    "retreat_episodes": 0,
+    "retreat_episodes_after_previous_motion": 0,
+    "executor_rejections_by_mode": {
+      "STOP": 6
+    },
+    "segment_continuation": {},
+    "pre_certificate_retry_delay_samples": {},
+    "by_window": {
+      "overall": {
+        "NOT_RUNNING": 2705,
+        "TRACK": 9505,
+        "running_samples": 12268,
+        "free_translation_requested": 3754,
+        "free_translation_below_gate": 307,
+        "PATH_START_DIVERGED": 126,
+        "BRAKE_BEFORE_TURN": 1883,
+        "SETTLE_BEFORE_TRANSLATION": 401,
+        "STALE_GEOMETRY_OR_PATH": 30,
+        "RECENTER_TRACK": 315,
+        "free_translation_denied_with_small_angular_mismatch": 9,
+        "BODY_BRAKE": 11
+      },
+      "first120": {
+        "NOT_RUNNING": 657,
+        "TRACK": 4082,
+        "running_samples": 5106,
+        "free_translation_requested": 1017,
+        "free_translation_below_gate": 82,
+        "PATH_START_DIVERGED": 43,
+        "BRAKE_BEFORE_TURN": 648,
+        "SETTLE_BEFORE_TRANSLATION": 153,
+        "STALE_GEOMETRY_OR_PATH": 12,
+        "RECENTER_TRACK": 169,
+        "free_translation_denied_with_small_angular_mismatch": 1
+      },
+      "from260": {
+        "TRACK": 1510,
+        "running_samples": 1991,
+        "BRAKE_BEFORE_TURN": 357,
+        "SETTLE_BEFORE_TRANSLATION": 96,
+        "free_translation_requested": 806,
+        "free_translation_below_gate": 67,
+        "STALE_GEOMETRY_OR_PATH": 9,
+        "PATH_START_DIVERGED": 20,
+        "NOT_RUNNING": 467
+      }
+    }
+  }
+}

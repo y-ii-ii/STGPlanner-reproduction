@@ -1,0 +1,45 @@
+{
+  "topology_parallel_scene4_20261118_03_dual": {
+    "both_route_samples": 25,
+    "near_goal_samples": 19,
+    "low_gain_distance_m": 0,
+    "low_gain_windows": []
+  },
+  "topology_parallel_scene4_20261118_04_dual": {
+    "both_route_samples": 245,
+    "near_goal_samples": 186,
+    "low_gain_distance_m": 0,
+    "low_gain_windows": []
+  },
+  "topology_branch_scene4_20261118_01_dual": {
+    "both_route_samples": 20,
+    "near_goal_samples": 18,
+    "low_gain_distance_m": 0,
+    "low_gain_windows": []
+  },
+  "topology_branch_scene4_20261118_02_dual": {
+    "both_route_samples": 19,
+    "near_goal_samples": 19,
+    "low_gain_distance_m": 0,
+    "low_gain_windows": []
+  },
+  "topology_branch_scene4_20261118_03_dual": {
+    "both_route_samples": 267,
+    "near_goal_samples": 192,
+    "low_gain_distance_m": 4.467838853792955,
+    "low_gain_windows": [
+      {
+        "start": 150.59868067200296,
+        "end": 180.95207028998993,
+        "distance_m": 4.467838853792955,
+        "area_gain": 0.0
+      }
+    ]
+  },
+  "topology_branch_scene4_20261118_04_dual": {
+    "both_route_samples": 237,
+    "near_goal_samples": 96,
+    "low_gain_distance_m": 0,
+    "low_gain_windows": []
+  }
+}

@@ -1,0 +1,20 @@
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::getNodeHalfSize(unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:579
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::getNodeSize(unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:577
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::toCoord(unsigned int, unsigned int) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:382
+ufo::map::Octree<ufo::map::OccupancyNode<float>, ufo::map::OctreeInnerNodeBase<ufo::map::OccupancyMapInnerNodeBase<ufo::map::OccupancyNode<float> > >, ufo::map::OctreeLeafNode<ufo::map::OccupancyNode<float> > >::toCoord(ufo::map::Key const&) const
+/mnt/d/STGPlanner/catkin_ws/src/STGPlanner/3rdparty/ufomap/ufomap/include/ufo/map/octree.h:389
+operator()
+/opt/stgplanner/team_topology_branch_native_20261118_ws/src/planner/src/heri_graph_cover_planner/execution_repair.cpp:31
+std::__detail::_Node_iterator_base<ufo::map::Code, true>::_M_incr()
+/usr/include/c++/9/bits/hashtable_policy.h:299
+std::__detail::_Node_iterator<ufo::map::Code, true, true>::operator++()
+/usr/include/c++/9/bits/hashtable_policy.h:354
+heri_graph_cover_planner::HeriGraphCoverPlanner::applyExecutionRecovery(utils::Point3D const&)
+/opt/stgplanner/team_topology_branch_native_20261118_ws/src/planner/src/heri_graph_cover_planner/execution_repair.cpp:44
+heri_graph_cover_planner::HeriGraphCoverPlanner::Initialize(utils::Point3D const&)
+/opt/stgplanner/team_topology_branch_native_20261118_ws/src/planner/src/heri_graph_cover_planner/heri_graph_cover_planner.cpp:137
+topo_planner::TopoPlanner::topologyPlanning(control_planner_interface::ExplorerPlannerResult_<std::allocator<void> >&)
+/opt/stgplanner/team_topology_branch_native_20261118_ws/src/planner/src/topo_planner/topology_bridge.cpp:232
