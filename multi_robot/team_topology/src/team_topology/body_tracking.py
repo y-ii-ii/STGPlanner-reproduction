@@ -12,6 +12,7 @@ import numpy as np
 # Recovery remains a separately bounded low-speed motion certificate.
 NORMAL_YAW_RATE=math.radians(60.)
 ANGULAR_BRAKE=math.radians(60.)
+ARC_LATERAL_ACCELERATION=.20
 
 
 def wrap(a):
@@ -187,6 +188,13 @@ class BodyTracker:
             v=math.copysign(min(abs(v),math.sqrt(max(0.,2.*max(0.,d-(.002 if self.margin<.15 else .10))))),v)
             desired=(v,w)
         if self.margin<.15:desired=(max(-.2,min(.2,desired[0])),max(-.3,min(.3,desired[1])))
+        # A high-speed shallow arc can leave too much combined momentum when
+        # the next certified segment needs to brake. Preserve curvature while
+        # reducing |v*w|. Straights still allow the reference 2 m/s ceiling.
+        lateral=abs(desired[0]*desired[1])
+        if lateral>ARC_LATERAL_ACCELERATION:
+            scale=math.sqrt(ARC_LATERAL_ACCELERATION/lateral)
+            desired=tuple(scale*axis for axis in desired)
         # Differential-drive inertia is measured, not inferred from the last
         # zero command. Do not combine a new in-place turn with residual forward
         # motion, or accelerate a straight edge while the previous turn persists.
@@ -194,6 +202,8 @@ class BodyTracker:
         if abs(desired[0])<1e-9 and abs(desired[1])>.08 and abs(current[0])>.08:
             return (0.,0.),'BRAKE_BEFORE_TURN'
         if abs(desired[0])>.10 and abs(desired[1])<.15 and abs(current[1])>.35:
+            return (0.,0.),'SETTLE_BEFORE_TRANSLATION'
+        if abs(desired[0])>.1 and abs(current[1])>.35 and current[1]*desired[1]<0.:
             return (0.,0.),'SETTLE_BEFORE_TRANSLATION'
         for scale in (1.,.65,.35,.15):
             cmd=tuple(scale*v for v in desired)

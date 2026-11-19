@@ -178,7 +178,16 @@ class Coordinator:
                     continue
                 # A failed nearest portal must not hide a different reachable
                 # entrance of this same connected task.
-                for cost,portal in sorted(options):
+                ranked=sorted(options)
+                previous=(committed or {}).get(r,{})
+                if ranked and previous.get('task')==gid:
+                    # Minor graph-cost jitter should not reverse a robot
+                    # between adjacent observation entrances mid-flight.
+                    previous_portal=previous.get('portal')
+                    ranked_min=ranked[0][0]
+                    ranked.sort(key=lambda o:(not (o[1]==previous_portal
+                        and o[0]<=ranked_min+.8),o))
+                for cost,portal in ranked:
                     if not math.isfinite(cost):break
                     if self.branch_progress.blocked(r,point(nav.nodes[portal]['p']),residual[gid],wall_now):
                         self.branch_progress.excluded_viewpoints+=1
@@ -285,7 +294,11 @@ class Coordinator:
             aliases=[p for gid,group in group_by_id.items()
                 if support and residual[gid] and len(support&residual[gid])>=.6*min(len(support),len(residual[gid]))
                 for p in group['portals'] if math.dist(old_goal,point(nav.nodes[p]['p']))<=1.3]
-            if wall_now-began>=2.0 and not aliases:
+            # Scope may temporarily have no matching exporter ID while the
+            # robot is still traversing a validated long approach. Allow it
+            # to keep moving for a short bounded interval.
+            grace=6. if support and math.dist(store.states[r]['pose'],old_goal)>3. else 2.
+            if wall_now-began>=grace and not aliases:
                 continue
             live=[p for p in set(aliases+[portal]) if p in nav.nodes and not
                   self.branch_progress.blocked(r,point(nav.nodes[p]['p']),support,wall_now)]

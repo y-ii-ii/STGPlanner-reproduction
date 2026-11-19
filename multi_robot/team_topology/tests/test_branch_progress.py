@@ -60,3 +60,25 @@ class BranchProgressTests(unittest.TestCase):
         self.assertEqual(held['task'],initial)
         self.assertEqual(held['dispatch_id'],3)
         self.assertEqual(held['scope_digest'],active['scope_digest'])
+
+    def test_running_branch_keeps_a_feasible_portal_on_small_cost_difference(self):
+        builder,records,state=graph(1,{'r':[0,0],'a':[1,0],'b':[1.6,0]},
+            {'a':('r','a',[[0,0],[1,0]]),'b':('a','b',[[1,0],[1.6,0]])}, {'work':['a','b']})
+        store=GraphStore();store.apply(builder.build(records,state))
+        c=Coordinator(robots=(1,))
+        first=c.plan(store,1.)[1]
+        self.assertEqual(first['path'][-1],(1.,0.))
+        active=dict(first,portal=builder.key('node','b'),path=[(0,0),(1.6,0)],dispatch_id=1)
+        self.assertEqual(c.plan(store,1.1,committed={1:active})[1]['path'][-1],(1.6,0.))
+
+    def test_graph_advance_allows_a_winding_route_far_from_goal(self):
+        history=BranchProgress()
+        lease=dict(dispatch_id=1,portal='far',path=[(0,0),(9,0)],cost_m=18.)
+        for i in range(24):
+            # The chassis alternates nearby positions, while the active path
+            # becomes shorter as it follows the known detour.
+            self.assertFalse(history.update(1,dict(lease,cost_m=18.-.15*i),(0,.5*(i%2)),float(i)))
+        replay=BranchProgress()
+        for i in range(18):
+            self.assertFalse(replay.update(1,lease,(0,.5*(i%2)),float(i)))
+        self.assertTrue(replay.update(1,lease,(0,0),18.))

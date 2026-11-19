@@ -9,3 +9,15 @@ def incarnation(pid,proc=Path('/proc')):
 
 def ended(expected,proc=Path('/proc')):
     return [pid for pid,born in expected.items() if born is None or incarnation(pid,proc)!=born]
+
+
+def stop_action_snapshot(clients):
+    """SUCCEEDED may arrive on /status before the result message."""
+    snapshots={}
+    pending=False
+    for robot,client in clients.items():
+        state=client.get_state()
+        message=client.get_result() if state==3 else None
+        pending |= state in (0,1,6,7) or state==3 and message is None
+        snapshots[robot]=(state,message)
+    return pending,snapshots

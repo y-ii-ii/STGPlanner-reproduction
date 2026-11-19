@@ -139,7 +139,13 @@ def main():
                     if (value.get("status")=="STOP_REQUIRED" and state.get('phase')=='running'
                             and value.get("token")==state.get("token") and active is not None
                             and value.get("reason") in ("EXECUTION_STALL","EXECUTION_DEADLINE","TRAFFIC_WAIT_REPLAN")):
-                        coordinator.fail_execution(r,active,time.monotonic())
+                        now=time.monotonic()
+                        close=r in store.states and active.get('path') and math.dist(
+                            store.states[r]['pose'],active['path'][-1])<=3.
+                        if close and value.get('reason')!='TRAFFIC_WAIT_REPLAN':
+                            coordinator.branch_progress.defer_viewpoint(r,active,now)
+                        else:
+                            coordinator.fail_execution(r,active,now)
                     if (value.get('status')=='STOP_REQUIRED' and state.get('phase')=='running'
                             and value.get('token')==state.get('token')
                             and active is not None and value.get('reason')=='EXECUTOR_STOP'

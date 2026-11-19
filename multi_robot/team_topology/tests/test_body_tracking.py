@@ -64,6 +64,22 @@ class BodyTrackingTests(unittest.TestCase):
         t=BodyTracker();t.receive([(0,0,0),(.45,0,0),(.9,0,0),(2.7,0,0)],'a')
         v,_=t.propose((0,0,0),(0,0),self.grid());self.assertEqual(v[0],2.)
 
+    def test_shallow_arc_limits_lateral_request_without_changing_curvature(self):
+        t=BodyTracker()
+        t.receive([(0,0,0),(2.7,.27,.1)],'curve')
+        command,reason=t.propose((0,0,0),(0,0),self.grid())
+        self.assertEqual(reason,'TRACK')
+        self.assertGreater(command[0],1.)
+        self.assertLess(command[0],2.)
+        self.assertLessEqual(abs(command[0]*command[1]),.2000001)
+        self.assertAlmostEqual(command[1]/command[0],2.2*math.atan2(.27,2.7)/2.)
+
+    def test_opposing_measured_turn_pauses_translation(self):
+        t=BodyTracker()
+        t.receive([(0,0,0),(2,.2,.1)],'curve')
+        self.assertEqual(t.propose((0,0,0),(.7,-.5),self.grid()),
+                         ((0.,0.),'SETTLE_BEFORE_TRANSLATION'))
+
     def test_rolling_path_anchor_does_not_request_spurious_reverse(self):
         t=BodyTracker();t.receive([(0,0,0),(0,0,0),(.45,0,0),(.9,0,0),(2.7,0,0)],'next')
         v,_=t.propose((.65,0,0),(1.5,0),self.grid());self.assertGreater(v[0],0);self.assertGreaterEqual(t.cursor,3)

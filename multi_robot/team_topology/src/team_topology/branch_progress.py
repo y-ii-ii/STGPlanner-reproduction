@@ -32,16 +32,25 @@ class BranchProgress:
             return False
         key = command.get('dispatch_id')
         distance = math.dist(pose, command['path'][-1])
+        graph_cost=command.get('cost_m',math.inf)
         state = self.active.get(robot)
         if state is None or state['dispatch']!=key or state['portal']!=command.get('portal'):
             self.active[robot] = dict(dispatch=key, portal=command.get('portal'), pose=tuple(pose),
-                best=distance, observed=observation_count, at=now, travelled=0.)
+                best=distance,best_cost=graph_cost,observed=observation_count,at=now,travelled=0.)
             return False
         state['travelled'] += math.dist(pose,state['pose'])
         state['pose'] = tuple(pose)
         # Evidence of new observations or a sustained reduction in goal error
         # resets the check. Rolling lease renewals and a loop do not.
-        if observation_count>state['observed'] or distance+.45<state['best']:
+        graph_progress=math.isfinite(graph_cost) and graph_cost+.8<state['best_cost']
+        if observation_count>state['observed'] or distance+.45<state['best'] or graph_progress:
             state.update(observed=max(observation_count,state['observed']),
-                         best=min(distance,state['best']),at=now,travelled=0.)
-        return distance<=3.0 and state['travelled']>=2.4 and now-state['at']>=12.
+                         best=min(distance,state['best']),best_cost=min(graph_cost,state['best_cost']),
+                         at=now,travelled=0.)
+        near=distance<=3.
+        # A detour around an obstacle can increase Euclidean distance while
+        # still using up its graph route. Only stop a far loop when the graph
+        # cost is available and has failed to improve as well.
+        return ((near or math.isfinite(graph_cost))
+                and state['travelled']>=(2.4 if near else 5.)
+                and now-state['at']>=(12. if near else 18.))

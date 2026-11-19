@@ -5,7 +5,7 @@ from common import *
 from initialization_traffic import TrafficController
 from team_topology.traffic_geometry import rectangle,clearance
 from team_topology.execution import stop_proof
-from runtime_health import incarnation,ended
+from runtime_health import incarnation,ended,stop_action_snapshot
 
 def main(index):
     idle();out=result_path(index);manifest=json.loads((out/'manifest.json').read_text())
@@ -273,11 +273,27 @@ def main(index):
                     g=VehicleExecuteGoal();g.execution_lease=json.dumps(dict(request_id=token+'/final/'+r));stops[r].send_goal(g)
                 if r in finish:finish[r].publish(Bool(True))
             until=min(t0+2345,time.monotonic()+12.)
-            while time.monotonic()<until and any(c.get_state() in (0,1,6,7) for c in stops.values()):time.sleep(.05)
+            pending,snapshots=stop_action_snapshot(stops)
+            while pending and time.monotonic()<until:
+                time.sleep(.05)
+                pending,snapshots=stop_action_snapshot(stops)
             # A service success bit alone is insufficient: retain and inspect
             # the final, unique request's actual velocity-gate proof.
-            result['final_stop_proofs']={r:json.loads(c.get_result().stop_proof) for r,c in stops.items() if c.get_state()==3 and c.get_result() and c.get_result().stop_proof}
-            result['stop_ack']={r:c.get_state()==3 and c.get_result().finish and r in result['final_stop_proofs'] and stop_proof(result['final_stop_proofs'][r]) and int(result['final_stop_proofs'][r].get('robot',0))==int(r[-1]) and token+'/final/'+r in result['final_stop_proofs'][r].get('request_ids',[]) and result['final_stop_proofs'][r].get('allocation_session')==state[r].get('allocation',{}).get('allocation_session') and float(result['final_stop_proofs'][r].get('stamp',-1))>=result['final_stop_requested_ros_s'][r] for r,c in stops.items()}
+            result['final_stop_proofs']={}
+            result['stop_ack']={r:False for r in stops}
+            for r,(action_state,message) in snapshots.items():
+                if action_state!=3 or message is None or not message.finish or not message.stop_proof:
+                    continue
+                try:
+                    proof=json.loads(message.stop_proof)
+                    result['final_stop_proofs'][r]=proof
+                    result['stop_ack'][r]=(stop_proof(proof)
+                        and int(proof.get('robot',0))==int(r[-1])
+                        and token+'/final/'+r in proof.get('request_ids',[])
+                        and proof.get('allocation_session')==state[r].get('allocation',{}).get('allocation_session')
+                        and float(proof.get('stamp',-1))>=result['final_stop_requested_ros_s'][r])
+                except (ValueError,TypeError,AttributeError) as e:
+                    errors.append('invalid_final_stop_proof:'+r+':'+str(e))
             park={r:state[r]['physical'] for r in robots if state[r]['physical']};time.sleep(2.)
             result['parking_drift_m']={r:math.dist(p[:2],state[r]['physical'][:2]) for r,p in park.items()}
         except Exception as e:errors.append('cleanup_stop:'+str(e))
