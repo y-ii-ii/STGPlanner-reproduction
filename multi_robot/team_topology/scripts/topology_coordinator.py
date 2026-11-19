@@ -31,7 +31,7 @@ def main():
     session = uuid.uuid4().hex
     # One transport recovery only: use a fresh nonce, never accept a late proof
     # from the expired round or retry forever when the gate/odometry is dead.
-    supervisor=ExecutionSupervisor(robots,session,stop_retries=1)
+    supervisor=ExecutionSupervisor(robots,session,stop_retries=1,late_stop_recheck=True)
     publishers = {r: rospy.Publisher("/robot_%d/topo_planner_node/topology_command" % r,
                                    String, queue_size=1) for r in robots}
     lease=LeasePublisher(lambda r,encoded:publishers[r].publish(String(data=encoded)),
@@ -156,7 +156,7 @@ def main():
                         # dispatch has entered STOP must not deepen backoff.
                         coordinator.fail_execution(r,active,time.monotonic(),
                             before_execution=not state['executor_confirmed'])
-                    accepted=supervisor.feedback(value,time.monotonic())
+                    accepted=supervisor.feedback(value,time.monotonic(),rospy.Time.now().to_sec())
                     if value.get('status')=='STOPPED':
                         ack_audit['accepted' if accepted else 'rejected']+=1
                         if not accepted:ack_audit['last_rejection']=dict(robot=r,phase=state['phase'],expected_stop_id=state.get('stop_id'),received_stop_id=value.get('stop_id'),deadline_remaining_s=state.get('deadline',0)-time.monotonic())
@@ -183,6 +183,7 @@ def main():
             "execution_phases":{str(r):s["phase"] for r,s in supervisor.states.items()},
             "execution_blocked_by":{str(r):s.get('blocked_by',[]) for r,s in supervisor.states.items()},
             "stop_retry_counts":{str(r):s.get('stop_retry_count',0) for r,s in supervisor.states.items()},
+            "late_stop_recheck_used":{str(r):s.get('late_recheck_used',False) for r,s in supervisor.states.items()},
             "allocation_diagnostics":coordinator.diagnostics,
             "execution_retry_memory":coordinator.retry_memory.entries,
             "observed_completion_cells":len(coordinator.observed_support),

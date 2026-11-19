@@ -22,6 +22,46 @@ inline RouteProjection projectTransit(const std::vector<TopologyPoint>& path,
   return best;
 }
 
+inline BodyRoute transitLookahead(const ExecutionGrid& grid,const std::vector<TopologyPoint>& guide,
+                                  double x,double y,double yaw){
+  BodyRoute result;
+  std::vector<TopologyPoint> candidates;
+  double arc=0.;
+  TopologyPoint previous{x,y};
+  for(const auto& point:guide){
+    arc+=std::hypot(point.first-previous.first,point.second-previous.second);
+    if(arc>3.8)break;
+    if(std::hypot(point.first-x,point.second-y)>=.85)candidates.push_back(point);
+    previous=point;
+  }
+  // Coarse topology uses staircase paths. A distant point on the assigned
+  // route can be approached directly when this robot verifies the whole
+  // body sweep, without repeatedly turning at each coarse cell.
+  for(double margin:{.22,.15}){
+    if(grid.footprint(x,y,yaw,margin)!=0)continue;
+    for(auto it=candidates.rbegin();it!=candidates.rend();++it){
+      const double dx=it->first-x,dy=it->second-y;
+      const double length=std::hypot(dx,dy);
+      const double turn=std::remainder(std::atan2(dy,dx)-yaw,2*M_PI);
+      if(std::abs(turn)>.75)continue;
+      const int rotations=std::max(1,int(std::ceil(std::abs(turn)/.05)));
+      bool safe=true;
+      for(int i=1;i<=rotations&&safe;++i)
+        safe=grid.footprint(x,y,yaw+turn*i/rotations,margin)==0;
+      const int steps=std::max(1,int(std::ceil(length/.05)));
+      for(int i=1;i<=steps&&safe;++i)
+        safe=grid.footprint(x+dx*i/steps,y+dy*i/steps,yaw+turn,margin)==0;
+      if(!safe)continue;
+      result.poses={{x,y,yaw}};
+      if(std::abs(turn)>1e-6)result.poses.push_back({x,y,yaw+turn});
+      result.poses.push_back({it->first,it->second,yaw+turn});
+      result.method="DIRECTED_LOOKAHEAD";result.status="BODY_APPROACH";result.arc=length;
+      return result;
+    }
+  }
+  return result;
+}
+
 inline BodyRoute directedTransit(const ExecutionGrid& grid,const std::vector<TopologyPoint>& path,
                                  double x,double y,double yaw){
   const TopologyPoint pose{x,y};
@@ -33,7 +73,8 @@ inline BodyRoute directedTransit(const ExecutionGrid& grid,const std::vector<Top
     guide.assign(path.begin()+start.after,path.end());
   else
     guide=path;
-  auto route=bodyRoute(grid,guide,x,y,yaw);
+  auto route=transitLookahead(grid,guide,x,y,yaw);
+  if(route.poses.empty())route=bodyRoute(grid,guide,x,y,yaw);
   if(route.poses.empty()||route.status=="BODY_RECENTER"||path.size()<2)return route;
   const auto& endpoint=route.poses.back();
   const auto projected=projectTransit(path,{endpoint.x,endpoint.y},5.);

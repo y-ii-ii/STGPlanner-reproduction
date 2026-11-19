@@ -6,6 +6,35 @@ from test_execution import wish
 def proof(c):return dict(c,source='velocity_gate',status='STOPPED',fresh_samples=4,stationary_s=.6,zero_s=.6)
 
 class StopDeliveryTests(unittest.TestCase):
+ def test_late_stationarity_starts_only_one_fresh_stop_round(self):
+  s=ExecutionSupervisor([1],"s",late_stop_recheck=True)
+  desired={1:wish()}
+  old=s.commands(desired,0.,0.)[1]
+  self.assertEqual(s.commands(desired,7.,7.)[1]['mode'],'STOP')
+  self.assertEqual(s.states[1]['phase'],'fault')
+  proof=dict(old,source='velocity_gate',status='STOPPED',fresh_samples=5,stationary_s=.6,zero_s=.7,stamp=6.)
+  self.assertFalse(s.feedback(proof,8.,8.))
+  self.assertEqual(s.states[1]['phase'],'fault')
+  self.assertFalse(s.feedback(dict(proof,stamp=8.),8.,8.))
+  fresh=s.commands(desired,8.,8.)[1]
+  self.assertNotEqual(old['stop_id'],fresh['stop_id'])
+  self.assertFalse(s.feedback(dict(proof,stamp=8.),8.1,8.1))
+  self.assertEqual(s.commands(desired,8.1,8.1)[1]['mode'],'STOP')
+  good=dict(proof,stop_id=fresh['stop_id'],stamp=9.)
+  self.assertTrue(s.feedback(good,9.,9.))
+  self.assertEqual(s.commands(desired,9.,9.)[1]['mode'],'ROUTE')
+
+ def test_late_round_is_bounded_if_fresh_stop_never_arrives(self):
+  s=ExecutionSupervisor([1],"s",late_stop_recheck=True)
+  desired={1:wish()}
+  first=s.commands(desired,0.,0.)[1];s.commands(desired,7.,7.)
+  proof=dict(first,source='velocity_gate',status='STOPPED',fresh_samples=5,stationary_s=.6,zero_s=.7,stamp=8.)
+  s.feedback(proof,8.,8.)
+  retry=s.commands(desired,8.,8.)[1]
+  fault=s.commands(desired,15.,15.)[1]
+  self.assertTrue(fault['fault'])
+  self.assertFalse(s.feedback(dict(proof,stop_id=retry['stop_id'],stamp=16.),16.,16.))
+  self.assertEqual(s.commands(desired,16.,16.)[1]['stop_id'],retry['stop_id'])
  def test_dropped_first_ack_is_retransmitted_with_fresh_evidence(self):
   s=ExecutionSupervisor([1],'s');f=VelocityFence(1);acks=[]
   for i in range(61):

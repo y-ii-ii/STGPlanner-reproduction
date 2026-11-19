@@ -31,10 +31,11 @@ def no_dispatch_progress(state,position):
 
 class ExecutionSupervisor:
     """One authority issues stable STOP nonces and new dispatch generations."""
-    def __init__(self, robots, session, stop_timeout=6.0, stop_retries=0):
+    def __init__(self, robots, session, stop_timeout=6.0, stop_retries=0, late_stop_recheck=False):
         self.robots, self.session, self.stop_timeout = tuple(robots), session, stop_timeout
         self.counter, self.sequence = 0, 0
         self.stop_retries=max(0,int(stop_retries))
+        self.late_stop_recheck=late_stop_recheck
         self.states = {r: {"phase": "initial", "active": None, "requests": []} for r in robots}
         self.released = []
 
@@ -46,7 +47,7 @@ class ExecutionSupervisor:
         if (request_id and state['phase']=='stopped' and state['active'] is None
                 and request_id in state.get('ack_requests',[])):
             return
-        if not request_id and state['phase'] in ('stopped','stopping','fault'):
+        if not request_id and state['phase'] in ('stopped','stopping','fault','recheck_requested'):
             return
         if request_id and request_id not in state["requests"]:
             state["requests"].append(request_id)
@@ -66,7 +67,7 @@ class ExecutionSupervisor:
         """
         return claims_conflict(work_claim(a), work_claim(b))
 
-    def feedback(self, value, now):
+    def feedback(self, value, now, ros_now=None):
         robot = int(value["robot"])
         if value.get("allocation_session") != self.session or robot not in self.states:
             return False
@@ -78,10 +79,18 @@ class ExecutionSupervisor:
                 return False
             self.request_stop(robot, value.get("request_id"), now, value.get("reason", "execution"))
             return True
-        if (state["phase"] != "stopping" or now > state["deadline"]
-            or value.get("stop_id") != state["stop_id"] or not stop_proof(value)):
+        if value.get("stop_id") != state.get("stop_id") or not stop_proof(value):
             return False
         if set(value.get("request_ids", [])) != set(state["requests"]):
+            return False
+        if state['phase']=='fault' and self.late_stop_recheck and not state.get('late_recheck_used'):
+            if ros_now is not None and 0<=ros_now-float(value.get('stamp',-math.inf))<=1.:
+                # A late observation of actual stationarity can start one
+                # new stop handshake. The expired proof cannot release work
+                # or allow motion, even when it matches the old nonce.
+                state.update(phase='recheck_requested',late_recheck_used=True)
+            return False
+        if state["phase"] != "stopping" or now > state["deadline"]:
             return False
         if state["active"] is not None:
             self.released.append((robot, state["active"]))
@@ -107,10 +116,12 @@ class ExecutionSupervisor:
             if state["phase"] == "running" and (wish["mode"] != "ROUTE" or identity != active_identity):
                 state["phase"] = "request"
                 state["reason"] = "assignment_changed"
-            if state["phase"] in ("initial", "request"):
+            if state["phase"] in ("initial", "request", "recheck_requested"):
+                recheck=state["phase"]=="recheck_requested"
                 self.counter += 1
                 state.update(phase="stopping", stop_id="%s/stop/%d/%d" % (self.session, robot, self.counter),
-                             deadline=now+self.stop_timeout,stop_retry_count=0)
+                             deadline=now+self.stop_timeout,stop_retry_count=self.stop_retries if recheck else 0,
+                             late_recheck_used=recheck)
             if state["phase"] == "stopping" and now > state["deadline"]:
                 # A lost one-shot ACK must not wedge the team forever. Retry a
                 # bounded number of times with a NEW nonce and new stationary

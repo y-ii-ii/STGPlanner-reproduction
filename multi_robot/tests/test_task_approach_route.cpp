@@ -38,6 +38,11 @@ int main(){
   assert(transit.poses.size()>=2&&transit.poses.back().x>2.6);
   auto old_side=projectTransit({{0,0},{2,0},{2,2},{0,2},{0,0}}, {0,0},1.6);
   assert(old_side.arc==0&&old_side.after==1);
+  auto staircase=transitLookahead(grid,{{0,0},{.8,0},{.8,.4},{1.6,.4},{1.6,.8},{2.4,.8}},0,0,0);
+  assert(staircase.method=="DIRECTED_LOOKAHEAD"&&staircase.poses.back().x==2.4);
+  for(int y=0;y<100;++y)grid.data[y*100+56]=100;
+  assert(transitLookahead(grid,{{0,0},{.8,0},{1.6,.3},{2.4,.8}},0,0,0).poses.empty());
   std::cout<<"3 same-task approach checks passed (alternate, unknown, scope)\n";
   std::cout<<"5 branch progress checks passed (blocked ray, new view, no repeat gain, transit and crossing)\n";
+  std::cout<<"2 assigned lookahead checks passed (staircase and swept obstacle)\n";
 }
